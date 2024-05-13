@@ -4,3 +4,4 @@
 gobuster dir -u http://<TARGET_IP>:8080 -w /usr/share/wordlists/dirb/common.txt
 curl http://<TARGET_IP>:8080/discovered_directory
 curl http://<TARGET_IP>:8080/discovered_directory/flag.txt
+curl http://target_ip:8080/flag/flag.txt
