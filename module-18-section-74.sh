@@ -22,4 +22,4 @@ sudo dnf install php
 sudo pacman -S php
 
 ## run
-php -S 127.0.0.1:808
+php -S 127.0.0.1:8080
