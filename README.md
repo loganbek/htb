@@ -19,7 +19,20 @@
 ### [Windows Fundamentals](https://academy.hackthebox.com/module/details/49)
 
 ### [MacOS Fundamentals](https://academy.hackthebox.com/module/details/157)
-
+####
+- [x] [What is macOS](https://academy.hackthebox/module/157/section/)
+#### Mac OS Basic Usage
+- [Graphical User Interface](https://academy.hackthebox/module/157/section/)
+- [Navigating Around The OS](https://academy.hackthebox/module/157/section/)
+- [System Hierarchy](https://academy.hackthebox/module/157/section/)
+- [File and Directory Permissions](https://academy.hackthebox/module/157/section/)
+- [Networking](https://academy.hackthebox/module/157/section/)
+#### Extending macOS
+- [] [Application Management](https://academy.hackthebox/module/157/section/)
+- [Security Tips](https://academy.hackthebox/module/157/section/)
+- [Mac OS Terminal](https://academy.hackthebox/module/157/section/)
+- [Productivity Tips](https://academy.hackthebox/module/157/section/)
+- [MacOS Automation](https://academy.hackthebox/module/157/section/)
 ### [Web Requests](https://academy.hackthebox.com/module/details/35)
 - [HyperText Transfer Protocol (HTTP)](https://academy.hackthebox/module/35/section/)
 - [HyperText Transfer Protocol Secure (HTTPS)](https://academy.hackthebox/module/35/section/)
