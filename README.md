@@ -15,6 +15,45 @@
 - [
 
 ### [Linux Fundamentals](https://academy.hackthebox.com/module/details/18)
+#### Introduction
+- [Linux Structure]
+- [Linux Distributions]
+- [Introduction to Shell]
+#### The Shell
+- [Prompt Description]
+- [Getting Help]
+- [x] [System Information]
+#### Workflow
+- [x] [Navigation]
+- [x] [Working with Files and Directories]
+- [x] [Editing Files]
+- [ ] [Find Files and Directories]
+- [ ] [File Descriptors and Redirections]
+- [ ] [Filter Contents]
+- [ ] [Regular Expressions]
+- [ ] [Permission Management]
+#### System Management
+- [x] [User Managment]
+- [x] [Package Management]
+- [ ] [Service and Process Management]
+- [ ] [Task Scheduling]
+- [ ] [Network Services]
+- [ ] [Working with Web Services]
+- [ ] [Backup and Restore]
+- [ ] [File System Management]
+- [ ] [Containerization]
+#### Linux Networking
+- [ ] [Network Configuration]
+- [Remote Desktop Protocols in Linux]
+#### Linux Hardening
+- [Linux Security]
+- [x] Firewall Setup
+- [x] System Logs and Monitoring
+#### Linux Distributions vs Solaris
+- [Solaris]
+#### Tips & Tricks
+- [x] Shortcuts
+
 
 ### [Windows Fundamentals](https://academy.hackthebox.com/module/details/49)
 
