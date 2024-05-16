@@ -7,7 +7,16 @@ nmap -sV -p 8080 <TARGET_IP>
 nmap -p- -sV <TARGET_IP>
 
 # List the SMB shares available on the target host. Connect to the available share as the bob user. Once connected, access the folder called 'flag' and submit the contents of the flag.txt file.
-smbclient //target_ip/share_name -U bob
+# smbclient -N -L \\\\<TARGET_IP> # list available shares and suppress password
+# smbclient //<TARGET_IP>/share_name -U bob
+smbclient -N -L ////10.129.5.230
+snmpwalk -v 2c -c public 10.129.5.230
+
+curl https://github.com/trailofbits/onesixtyone/blob/master/dict.txt
+onesixtyone -c dict.txt 10.129.5.230
+
+smbclient ////<TARGET_IP>//users -U bob
+# smbclient ////10.129.5.230//user -U bob
 cd flag
 get flag.txt
 more flag.txt
