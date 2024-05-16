@@ -2,6 +2,10 @@
 
 ## Modules [In Progress](https://academy.hackthebox.com/modules/inprogress)
 
+- [Intro to Academy](#intro-to-academy)
+- [Learning Process](#learning-process)
+- [Intro to Networking](#intro-to-networking)
+- [Setting Up](#setting-up)
 - [Getting Started](#getting-started)
 - [Linux Fundamentals](#linux-fundamentals)
 - [Windows Fundamentals](#windows-fundamentals)
