@@ -30,20 +30,20 @@
 - [ ] [Find Files and Directories]
 - [ ] [File Descriptors and Redirections]
 - [ ] [Filter Contents]
-- [ ] [Regular Expressions]
-- [ ] [Permission Management]
+- [x] [Regular Expressions]
+- [x] [Permission Management]
 #### System Management
 - [x] [User Managment]
 - [x] [Package Management]
-- [ ] [Service and Process Management]
-- [ ] [Task Scheduling]
-- [ ] [Network Services]
-- [ ] [Working with Web Services]
-- [ ] [Backup and Restore]
-- [ ] [File System Management]
-- [ ] [Containerization]
+- [x] [Service and Process Management]
+- [x] [Task Scheduling]
+- [x] [Network Services]
+- [x] [Working with Web Services]
+- [x] [Backup and Restore]
+- [x] [File System Management]
+- [x] [Containerization]
 #### Linux Networking
-- [ ] [Network Configuration]
+- [x] [Network Configuration]
 - [Remote Desktop Protocols in Linux]
 #### Linux Hardening
 - [Linux Security]
@@ -52,8 +52,7 @@
 #### Linux Distributions vs Solaris
 - [Solaris]
 #### Tips & Tricks
-- [x] Shortcuts
-
+- [Shortcuts] 
 
 ### [Windows Fundamentals](https://academy.hackthebox.com/module/details/49)
 
