@@ -2,11 +2,11 @@
 
 ## Modules [In Progress](https://academy.hackthebox.com/modules/inprogress)
 
-[Getting Started](#getting-started)
-[Linux Fundamentals](#linux-fundamentals)
-[Windows Fundamentals](#windows-fundamentals)
-[MacOS Fundamentals](#mac-os-fundamentals)
-[Web Requsts](#web-requests)
+- [Getting Started](#getting-started)
+- [Linux Fundamentals](#linux-fundamentals)
+- [Windows Fundamentals](#windows-fundamentals)
+- [MacOS Fundamentals](#mac-os-fundamentals)
+- [Web Requsts](#web-requests)
 
 ## Sections
 
