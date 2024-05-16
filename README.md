@@ -14,6 +14,14 @@
 
 ## Sections
 
+### [Intro to Academy](https://academy.hackthebox.com/module/details/15)
+
+### [Learning Process](https://academy.hackthebox.com/module/details/9)
+
+### [Intro to Networking](https://academy.hackthebox.com/module/details/34)
+
+### [Setting Up](https://academy.hackthebox.com/module/details/87)
+
 ### [Getting Started](https://academy.hackthebox.com/module/details/77)
 - [Infosec Overview](https://academy.hackthebox.com/module/77/section/721)
 - [
