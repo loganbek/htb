@@ -5,6 +5,9 @@ find / -type f -name "*.log" | wc -l
 
 # How many total packages are installed on the target system?
 
+# Correct Answer
+dpkg -l | grep -c '^ii'
+
 # Windows
 Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName | Measure-Object
 
