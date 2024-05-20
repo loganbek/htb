@@ -3,6 +3,7 @@
 # How many services are listening on the target system on all interfaces? (Not on localhost and IPv4 only)
 
 ## linux
+netstat -ln4 | grep LISTEN | grep -v 127 | wc -l # correct answer
 ss -tuln4 | grep -v '127.0.0.1' | wc -l
 ### OR
 netstat -tuln4 | grep LISTEN | grep -v '127.0.0.1' | wc -l
