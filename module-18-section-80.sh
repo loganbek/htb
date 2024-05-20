@@ -19,6 +19,8 @@ ps aux | grep proftpd | grep -v grep | awk '{print $1}'
 ### systemctl status proftpd | grep -i user
 
 # Use cURL from your Pwnbox (not the target machine) to obtain the source code of the "https://www.inlanefreight.com" website and filter all unique paths of that domain. Submit the number of these paths as the answer.
+curl -s https://www.inlanefreight.com/ | grep -Po "https://www.inlanefreight.com/[^'\"]*" | sort -u | wc -l # best answer
+
 curl https://www.inlanefreight.com/ | grep -Po "https://www.inlanefreight.com/[^'\"]*" | sort -u | wc -l # correct answer
 # curl -s https://www.inlanefreight.com | echo "-----curl output-----"
 # grep -oP 'href="\K(https?:\/\/)?(www\.)?inlanefreight\.com\/?[^\s"\?]*(?=\s|$)' | echo "-----grep output-----"
