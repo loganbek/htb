@@ -9,6 +9,13 @@ nmap -p- -sV <TARGET_IP>
 # List the SMB shares available on the target host. Connect to the available share as the bob user. Once connected, access the folder called 'flag' and submit the contents of the flag.txt file.
 # smbclient -N -L \\\\<TARGET_IP> # list available shares and suppress password
 # smbclient //<TARGET_IP>/share_name -U bob
+
+# list smb shares
+smbclient -N -L \\\\<TARGET_IP>
+
+# connect to a specific share
+smbclient //<TARGET_IP>/flag -U bob
+
 smbclient -N -L ////10.129.5.230
 snmpwalk -v 2c -c public 10.129.5.230
 
