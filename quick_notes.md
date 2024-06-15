@@ -83,3 +83,26 @@ ffuf -w ids.txt:FUZZ -u http:83.136.255.180:43420 -X POST -d 'id=FUZZ' -H 'Conte
 # 94.237.49.178:41421
 ffuf -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u "http://admin.academy.htb:41421/admin/admin.php?FUZZ=key" -fs 798
 ```
+## General
+
+### Intro to Network Traffic Analysis
+<!-- RDP w/ htb-student and HTB_@cademy_stdnt! -->
+
+```bash
+# What was the name of the new user created on mrb3n's host?
+
+# How many total packets were there in the Guided-analysis PCAP?
+
+# What was the suspicious port that was being used?
+```
+
+```bash
+# What user account was used to initiate the RDP Connection?
+
+```
+
+### Intro to Assembly Language
+
+
+
+### Documentation and Reporting
