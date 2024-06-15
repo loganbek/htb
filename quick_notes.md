@@ -180,3 +180,36 @@ curl -I 'https://i.imgur.com'
 # check https://crt.sh/?q=githubapp.com
 ```
 
+### Using Web Proxies
+
+```bash
+# target - 83.136.254.15:31385
+# Use Burp Intruder to fuzz for '.html' files under the /admin directory, to find a file containing the flag.
+# You can add .html after the position pointer (i.e., §1§.html), or you can use a Payload Processing rule to append .html to each line of payload.
+
+# The directory we found above sets the cookie to the md5 hash of the username, as we can see the md5 cookie in the request for the (guest) user. Visit '/skills/' to get a request with a cookie, then try to use ZAP Fuzzer to fuzz the cookie for different md5 hashed usernames to get the flag. Use the "top-usernames-shortlist.txt" wordlist from Seclists.
+# Use the 'MD5 Hash' processor and look for the page with a different content-length.
+
+# Run ZAP Scanner on the target above to identify directories and potential vulnerabilities. Once you find the high-level vulnerability, try to use it to read the flag at '/flag.txt'
+
+# The /lucky.php page has a button that appears to be disabled. Try to enable the button, and then click it to get the flag.
+# The button does not always give the flag from the first click, so try to make it easy to click it many times until you get the flag.
+
+# The /admin.php page uses a cookie that has been encoded multiple times. Try to decode the cookie until you get a value with 31-characters. Submit the value as the answer.
+
+# Once you decode the cookie, you will notice that it is only 31 characters long, which appears to be an md5 hash missing its last character. So, try to fuzz the last character of the decoded md5 cookie with all alpha-numeric characters, while encoding each request with the encoding methods you identified above. (You may use the "alphanum-case.txt" wordlist from Seclist for the payload)
+# With payload processing in Burp Intruder, first add the decoded cookie as a prefix to the payload, then encode the entire payload with the same encoding methods you identified earlier (in reverse order). The final payload should be 88 characters long, similar to the one from the previous question.
+
+# You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
+# You may set any website as your RHOST.
+
+
+
+
+
+
+
+
+
+```
+
