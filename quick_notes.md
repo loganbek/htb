@@ -1,3 +1,4 @@
+
 ```bash
 # What's the contents of table flag2? (Case #2)
 sqlmap  --batch --dump -T flag2 --forms --crawl=2
@@ -89,6 +90,9 @@ ffuf -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ 
 <!-- RDP w/ htb-student and HTB_@cademy_stdnt! -->
 
 ```bash
+# Notes
+# xfreerdp /v:10.129.43.4 /u:htb-student /p:HTB_@cademy_stdnt!
+
 # What was the name of the new user created on mrb3n's host?
 
 # How many total packets were there in the Guided-analysis PCAP?
@@ -99,6 +103,7 @@ ffuf -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ 
 ```bash
 # What user account was used to initiate the RDP Connection?
 
+
 ```
 
 ### Intro to Assembly Language
@@ -106,3 +111,72 @@ ffuf -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ 
 
 
 ### Documentation and Reporting
+```bash
+xfreerdp /v:10.129.166.23 /u:htb-student /p:HTB_@cademy_stdnt!
+
+# Connect to the testing VM using Xfreerdp and practice testing, documentation, and reporting against the target lab. Once the target spawns, browse to the WriteHat instance on port 443 and authenticate with the provided admin credentials. Play around with the tool and practice adding findings to the database to get a feel for the reporting tools available to us. Remember that all data will be lost once the target resets, so save any practice findings locally! Next, complete the in-progress penetration test. Once you achieve Domain Admin level access, submit the contents of the flag.txt file on the Administrator Desktop on the DC01 host.
+
+### Information Gathering Web Edition
+
+### zonetransfer.me
+```bash
+## Identifying Nameservers
+nslookup -type=NS zonetransfer.me
+
+## Testing for ANY and AXFR Zone Transfer
+nslookup -query=AXFR zonetransfer.me nsztmi1.digi.ninja
+
+```bash
+## target - 10.129.168.51
+## What is the FQDN of the IP address 10.10.34.136?
+nslookup 10.10.34.136 10.129.168.51
+dig -x 10.10.34.136
+nmap -sL 10.10.34.136
+
+## What FQDN is assigned to the IP address 10.10.1.5? Submit the FQDN as the answer.
+
+## Which IP address is assigned to the "us.inlanefreight.htb" subdomain. Submit the IP address as the answer.
+
+# curl -s http://192.168.10.10 -H "Host: randomtarget.com"
+# VHost Fuzzing
+cat ./vhosts | while read vhost;do echo "\n********\nFUZZING: ${vhost}\n********";curl -s -I http://192.168.10.10 -H "HOST: ${vhost}.randomtarget.com" | grep "Content-Length: ";done
+# Ffuf
+ffuf -w ./vhosts -u http://192.168.10.10 -H "HOST: FUZZ.randomtarget.com" -fs 612
+
+## target 10.129.134.122
+##  vhost www.inlanefreight.htb
+
+## Enumerate the target and find a vHost that contains the flag No 1. Submit the flag value as your answer (in the format HTB{DATA}).
+
+gobuster vhost -u http://10.129.134.122 -w /opt/useful/SecLists/Discovery/DNS/namelist.txt -t 50
+ffuf -u http://10.129.134.122 -H "Host: FUZZ.inlanefreight.htb" -w /opt/useful/SecLists/Discovery/DNS/namelist.txt -mc all -fs 612
+gobuster vhost -u http://10.129.134.122 -w /opt/useful/SecLists/Discovery/DNS/namelist.txt -p {GOBUSTER}.inlanefreight.htb --exclude-length 301 -t 10
+
+
+## Enumerate the target and find a vHost that contains flag No. 2. Submit the flag value as your answer (in the format HTB{DATA}).
+
+## Enumerate the target and find a vHost that contains flag No. 3. Submit the flag value as your answer (in the format HTB{DATA}).
+
+## Enumerate the target and find a vHost that contains flag No. 4. Submit the flag value as your answer (in the format HTB{DATA}). 
+
+## Find the specific vHost that starts with the letter "d" and submit the flag value as your answer (in the format HTB{DATA}).
+```
+
+```bash
+# SKILLS ASSESSMENT
+## What is the registrar IANA ID number for the githubapp.com domain?
+whois githubapp.com
+# 292
+
+## What is the last mailserver returned when querying the MX records for githubapp.com?
+dig mx githubapp.com
+# aspmx5.googlemail.com
+
+## Perform active infrastructure identification against the host https://i.imgur.com. What server name is returned for the host?
+curl -I 'https://i.imgur.com'
+# catfactory 1.0
+
+## Perform subdomain enumeration against the target githubapp.com. Which subdomain has the word 'triage' in the name?
+# check https://crt.sh/?q=githubapp.com
+```
+
