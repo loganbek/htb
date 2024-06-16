@@ -203,6 +203,59 @@ curl -I 'https://i.imgur.com'
 # You are using the 'auxiliary/scanner/http/coldfusion_locale_traversal' tool within Metasploit, but it is not working properly for you. You decide to capture the request sent by Metasploit so you can manually verify it and repeat it. Once you capture the request, what is the 'XXXXX' directory being called in '/XXXXX/administrator/..'?
 # You may set any website as your RHOST.
 
+```
+
+### File Inclusion
+
+```bash
+# target -
+
+# Using the file inclusion find the name of a user on the system that starts with "b".
+# Read the passwd file
+
+# Submit the contents of the flag.txt file located in the /usr/share/flags directory.
+# Don't forget to traverse paths
+
+# target -
+
+# The above web application employs more than one filter to avoid LFI exploitation. Try to bypass these filters to read /flag.txt
+# Try to see what path the regular functionality uses
+
+# target -
+# Fuzz the web application for other php scripts, and then read one of the configuration files and submit the database password as the answer
+# Try to find an interesting php configuration file
+
+# target -
+# Try to gain RCE using one of the PHP wrappers and read the flag at /
+
+# target -
+# Attack the target, gain command execution by exploiting the RFI vulnerability, and then look for the flag under one of the directories in /
+
+# target -
+# Use any of the techniques covered in this section to gain RCE and read the flag at /
+# Are you using the correct upload directory?
+
+# target -
+# Use any of the techniques covered in this section to gain RCE, then submit the output of the following command: pwd
+
+# Try to use a different technique to gain RCE and read the flag at /
+
+# target - 
+# Fuzz the web application for exposed parameters, then try to exploit it with one of the LFI wordlists to read /flag.txt
+
+# target -
+# SSH to with user "htb-student" and password "HTB_@cademy_stdnt!"
+# What is the full path to the php.ini file for Apache?
+
+# Edit the php.ini file to block system(), then try to execute PHP Code that uses system. Read the /var/log/apache2/error.log file and fill in the blank: system() has been disabled for ________ reasons.
+# Place a PHP File in /var/www/html/ which contains a PHP Webshell using SYSTEM(), then use curl to execute the file. Be sure to restart apache after editing the PHP Configuration!
+
+# target -
+# Assess the web application and use a variety of techniques to gain remote code execution and find a flag in the / root directory of the file system. Submit the contents of the flag as your answer. 
+
+
+```
+
 
 
 
