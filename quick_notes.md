@@ -194,6 +194,7 @@ curl -I 'https://i.imgur.com'
 
 # The /lucky.php page has a button that appears to be disabled. Try to enable the button, and then click it to get the flag.
 # The button does not always give the flag from the first click, so try to make it easy to click it many times until you get the flag.
+# target - 94.237.61.226:30834
 
 # The /admin.php page uses a cookie that has been encoded multiple times. Try to decode the cookie until you get a value with 31-characters. Submit the value as the answer.
 
