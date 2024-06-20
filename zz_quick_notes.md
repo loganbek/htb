@@ -885,6 +885,81 @@ r
 # 0x401014
 ```
 
+```bash
+sudo pip3 install pwntools
+pwn asm 'push rax'  -c 'amd64'
+pwn disasm '50' -c 'amd64'
+```
+
+```bash
+python3
+>>> from pwn import *
+>>> file = ELF('helloworld')
+>>> file.section(".text").hex()
+```
+
+```python
+#!/usr/bin/python3
+
+import sys
+from pwn import *
+
+context(os="linux", arch="amd64", log_level="error")
+
+file = ELF(sys.argv[1])
+shellcode = file.section(".text")
+print(shellcode.hex())
+
+```
+
+```bash
+python3 shellcoder.py helloworld
+```
+
+```bash
+#!/bin/bash
+
+for i in $(objdump -d $1 |grep "^ " |cut -f2); do echo -n $i; done; echo;
+```
+
+```bash
+./shellcoder.sh helloworld
+```
+
+```python
+#!/usr/bin/python3
+
+import sys
+from pwn import *
+
+context(os="linux", arch="amd64", log_level="error")
+
+run_shellcode(unhex(sys.argv[1])).interactive()
+```
+
+```bash
+ python3 loader.py '4831db66bb79215348bb422041636164656d5348bb48656c6c6f204854534889e64831c0b0014831ff40b7014831d2b2120f054831c0043c4030ff0f05'
+```
+
+```python
+#!/usr/bin/python3
+
+import sys, os, stat
+from pwn import *
+
+context(os="linux", arch="amd64", log_level="error")
+
+ELF.from_bytes(unhex(sys.argv[1])).save(sys.argv[2])
+os.chmod(sys.argv[2], stat.S_IEXEC)
+```
+
+```bash
+python assembler.py '4831db66bb79215348bb422041636164656d5348bb48656c6c6f204854534889e64831c0b0014831ff40b7014831d2b2120f054831c0043c4030ff0f05' 'assembler'
+./assembler
+```
+
+
+
 Try to fix the Stack Alignment in "print", so it does not crash, and prints "Its Aligned!". How much boundary was needed to be added? "write a number" 
 Count pushes/calls so far, each adds 8 bytes, total boundary needed is 16 bytes
 
@@ -894,3 +969,14 @@ nasm -f elf64 functions.s &&  ld functions.o -o functions -lc --dynamic-linker /
 ```
 
 Run the "Exercise Shellcode" to get the flag. 
+
+```bash
+python assembler.py 4831db536a0a48b86d336d307279217d5048b833645f316e37305f5048b84854427b6c303464504889e64831c0b0014831ff40b7014831d2b2190f054831c0043c4030ff0f05
+```
+
+The above server simulates an exploitable server you can execute shellcodes on. Use one of the tools to generate a shellcode that prints the content of '/flag.txt', then connect to the sever with "nc SERVER_IP PORT" to send the shellcode.
+/bin/cat /flag.txt
+
+Disassemble 'loaded_shellcode' and modify its assembly code to decode the shellcode, by adding a loop to 'xor' each 8-bytes on the stack with the key in 'rbx'. 
+
+The above server simulates a vulnerable server that we can run our shellcodes on. Optimize 'flag.s' for shellcoding and get it under 50 bytes, then send the shellcode to get the flag. (Feel free to find/create a custom shellcode) 
