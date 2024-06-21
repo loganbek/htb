@@ -68,6 +68,7 @@
         //   }
 
         // Extract properties
+        const url = window.location.href;
         const platform = properties.platform;
         const platformVersion = properties.platform_version;
         const moduleId = properties.module_id;
@@ -78,7 +79,9 @@
         const moduleName = properties.module_name;
         // const pageNumber = document.querySelector('li.breadcrumb-item:nth-child(1) > a:nth-child(1)').content;
         const pageNumber = document.querySelectorAll('li.breadcrumb-item a')[1].textContent.replace("Page ", "");;
+        
         let propertiesComments = `<!--\n // Platform: ${platform}\n`;
+        propertiesComments += `// URL: ${url}\n`;
         propertiesComments += `// Platform Version: ${platformVersion}\n`;
         propertiesComments += `// Module ID: ${moduleId}\n`;
         propertiesComments += `// Module Name: ${moduleName}\n`;
@@ -123,7 +126,9 @@
 
         // Save the markdown content to a file
         // const fileName = `${moduleName.replace(/\s+/g, '_')}_Page_${pageNumber}.md`;
-        const fileName = `${moduleName.replace(/\s+/g, '_')}_${sectionTitle}_${pageNumber}.md`
+
+        // replace spaces with underscores in the module name and section title
+        const fileName = `${moduleName.replace(/\s+/g, '_')}_${sectionTitle.replace(/\s+/g, '_')}_${pageNumber}.md`
         downloadFile(markdownContent, fileName);
     }
 
