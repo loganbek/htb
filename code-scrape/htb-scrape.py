@@ -3,16 +3,16 @@ from bs4 import BeautifulSoup
 import re
 
 # Credentials
-username = 'your_username'
-password = 'your_password'
+username = 'ndefstathiou@zonemail.clpccd.edu'
+password = '11071985Chabot!'
 
 # URLs
 login_url = 'https://www.hackthebox.com/login'  # Adjust the URL based on actual login endpoint
 base_url = 'https://academy.hackthebox.com/module/{}/section/{}'
 
 # Limits for modules and sections (adjust as necessary)
-max_modules = 100  # Adjust this number based on the actual number of modules
-max_sections = 100  # Adjust this number based on the actual number of sections
+max_modules = 1000  # Adjust this number based on the actual number of modules
+max_sections = 1000  # Adjust this number based on the actual number of sections
 
 # Create a session
 session = requests.Session()
