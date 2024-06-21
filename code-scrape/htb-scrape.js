@@ -101,9 +101,10 @@ if (match) {
   console.log("URL format not recognized.");
 }
 
-
-// ## Step 2: Create a Tampermonkey Script
-
+// TODO
+// 
+// - fix empty #
+// - Cheat sheet button present doesn't download the file
+// - Create a Tampermonkey Script
 // Next, we need to create a Tampermonkey script to inject the JavaScript code into the Hack The Box page. Tampermonkey is a popular userscript manager that allows you to run custom JavaScript on webpages.
-
 // Here's an example Tampermonkey script that injects the JavaScript code into the Hack The Box page:
