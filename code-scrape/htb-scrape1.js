@@ -80,9 +80,11 @@
     let moduleName = properties.module_name;
     // let pageNumber = document.querySelector('li.breadcrumb-item:nth-child(1) > a:nth-child(1)').content;
     //check if the page number is in the second breadcrumb item
-    let pageNumbers = document
-      .querySelectorAll("li.breadcrumb-item a");
-    let pageNumber = pageNumbers[pageNumbers.length - 1].textContent.replace("Page ", "");
+    let pageNumbers = document.querySelectorAll("li.breadcrumb-item a");
+    let pageNumber = pageNumbers[pageNumbers.length - 1].textContent.replace(
+      "Page ",
+      ""
+    );
     let propertiesComments = `<!--\n // Platform: ${platform}\n`;
     propertiesComments += `// URL: ${url}\n`;
     propertiesComments += `// Platform Version: ${platformVersion}\n`;
@@ -95,7 +97,7 @@
     propertiesComments += `// Page Number: ${pageNumber}\n-->\n\n`;
 
     let markdownContent = propertiesComments;
-    markdownContent += `# ${SectionTitle}\n\n`;
+    markdownContent += `# ${sectionTitle}\n\n`;
     markdownContent += `**Module Name:** ${moduleName} `;
     markdownContent += `**Page Number:** ${pageNumber}\n\n`;
 
@@ -111,9 +113,9 @@
         const codeLang = el
           .querySelector("code")
           .className.replace("language-", "");
-          //if language-shell-session, change to shell
+        //if language-shell-session, change to shell
         if (codeLang === "shell-session") {
-            codeLang = "shell";
+          codeLang = "shell";
         }
         markdownContent += `\`\`\`${codeLang}\n${el.innerText.trim()}\n\`\`\`\n\n`;
       }
@@ -141,10 +143,10 @@
     // const fileName = `${moduleName.replace(/\s+/g, '_')}_Page_${pageNumber}.md`;
 
     // replace spaces with underscores in the module name and section title
-    const fileName = `${moduleName.replace(/\s+/g, "_")}_${sectionTitle.replace(
+    const fileName = `${moduleName.replace(/\s+/g, "_")}_${pageNumber}_${sectionTitle.replace(
       /\s+/g,
       "_"
-    )}_${pageNumber}.md`;
+    )}.md`;
     downloadFile(markdownContent, fileName);
 
     // Function to download the file
