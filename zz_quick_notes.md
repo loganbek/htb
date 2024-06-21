@@ -1509,7 +1509,7 @@ find / -perm -4000 2>/dev/null
 # Escalate the privileges and submit the contents of flag.txt as the answer. 
 ```
 
-### Linux Local Privelege Escalation - Skills Assessment
+#### Linux Local Privelege Escalation - Skills Assessment
 
 ```bash
 
@@ -1530,3 +1530,88 @@ find / -perm -4000 2>/dev/null
 # Submit the contents of flag5.txt
 
 ```
+
+### Session Security
+
+#### Session Hijacking
+
+```bash
+What kind of session identifier does the application employ? Answer options (without quotation marks): "URL parameter", "URL argument", "body argument", "cookie" or "proprietary solution"
+# cookie
+```
+
+#### Session Fixation
+
+```bash
+# If the HttpOnly flag was set, would the application still be vulnerable to session fixation? Answer Format: Yes or No
+# Yes
+```
+
+#### Obtaining Session Identifiers without User Interaction
+
+```bash
+# If xss.htb.net was an intranet application, would an attacker still be able to capture cookies via sniffing traffic if he/she got access to the company's VPN? Suppose that any user connected to the VPN can interact with xss.htb.net. Answer format: Yes or No
+# Yes
+```
+
+#### Cross-Site Scripting (XSS)
+
+```bash
+# If xss.htb.net was utilizing SSL encryption, would an attacker still be able to capture cookies through XSS? Answer format: Yes or No
+# Yes
+```
+
+#### Cross-Site Request Forgery (CSRF or XSRF)
+
+```bash
+# If the update-profile request was GET-based and no anti-CSRF protections existed, would you still be able to update Ela Stienen's profile through CSRF? Answer format: Yes or No
+# Yes
+```
+
+#### Cross-Site Request Forgery (GET-based)
+
+```bash
+# If csrf.htb.net was utilizing SSL encryption, would an attacker still be able to alter Julie Rogers' profile through CSRF? Answer format: Yes or No
+# Yes
+```
+
+#### Cross-Site Request Forgery (POST-based)
+
+```bash
+# If csrf.htb.net was utilizing secure cookies, would an attacker still be able to leak Julie Roger's CSRF token? Answer format: Yes or No 
+# Yes
+```
+
+#### XSS & CSRF Chaining
+
+```bash
+# Same Origin Policy cannot prevent an attacker from changing the visibility of @goldenpeacock467's profile. Answer Format: Yes or No
+# Yes
+```
+
+#### Exploiting Weak CSRF Tokens
+
+```bash
+# Our malicious page included a user-triggered event handler (onclick). To evade what kind of security measure did we do that? Answer options (without quotation marks): "Same-Origin Policy", "Popup Blockers", "XSS Filters"
+# Popup Blockers
+```
+
+#### Open Redirect
+
+```bash
+# If the request to complete.html was GET-based, would you still be able to obtain the token via exploiting the open redirect vulnerability? Answer format: Yes or No
+# Yes
+```
+
+#### Skills Assessment
+
+```bash
+# Read the flag residing in the admin's public profile. Answer format: [string]
+# Make the admin's profile public to see the flag
+# [YOU_ARE_A_SESSION_WARRIOR]
+
+# Go through the PCAP file residing in the admin's public profile and identify the flag. Answer format: FLAG{string} 
+
+```
+
+
