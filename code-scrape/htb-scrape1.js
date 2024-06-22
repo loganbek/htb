@@ -110,7 +110,7 @@
           headerLevel
         )} ${el.innerText.trim()}\n\n`;
       } else if (el.tagName === "PRE") {
-        const codeLang = el
+       let codeLang = el
           .querySelector("code")
           .className.replace("language-", "");
         //if language-shell-session, change to shell
