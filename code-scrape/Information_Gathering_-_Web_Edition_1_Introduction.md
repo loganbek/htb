@@ -15,14 +15,16 @@
 
 **Module Name:** Information Gathering - Web Edition **Page Number:** 1
 
-#### INFORMATION GATHERING - WEB EDITION
+##### INFORMATION GATHERING - WEB EDITION
 
-# Introduction
+## Introduction
 
-## Types of Reconnaissance
+![https://academy.hackthebox.com/storage/modules/279/PT-process.png](https://academy.hackthebox.com/storage/modules/279/PT-process.png)
 
-### Active Reconnaissance
+### Types of Reconnaissance
 
-### Passive Reconnaissance
+#### Active Reconnaissance
 
-####
+#### Passive Reconnaissance
+
+#####

@@ -102,7 +102,9 @@
     markdownContent += `**Page Number:** ${pageNumber}\n\n`;
 
     // Loop through headers and pre tags in the correct order
-    const elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, pre, img");
+    const elements = document.querySelectorAll(
+      "h1, h2, h3, h4, h5, h6, pre, img"
+    );
     elements.forEach((el) => {
       if (el.tagName.startsWith("H")) {
         const headerLevel = parseInt(el.tagName.substring(1));
@@ -110,7 +112,7 @@
           headerLevel
         )} ${el.innerText.trim()}\n\n`;
       } else if (el.tagName === "PRE") {
-       let codeLang = el
+        let codeLang = el
           .querySelector("code")
           .className.replace("language-", "");
         //if language-shell-session, change to shell
@@ -118,8 +120,11 @@
           codeLang = "shell";
         }
         markdownContent += `\`\`\`${codeLang}\n${el.innerText.trim()}\n\`\`\`\n\n`;
-     // only add images with src beginning with https://academy.hackthebox.com/storage/
-      } else if (el.tagName === "IMG" && el.src.startsWith("https://academy.hackthebox.com/storage/")) {
+        // only add images with src beginning with https://academy.hackthebox.com/storage/
+      } else if (
+        el.tagName === "IMG" &&
+        el.src.startsWith("https://academy.hackthebox.com/storage/")
+      ) {
         let imgSrc = el.src;
         // add markdown image with source
         markdownContent += `![${imgSrc}](${imgSrc})\n\n`;
@@ -148,10 +153,10 @@
     // const fileName = `${moduleName.replace(/\s+/g, '_')}_Page_${pageNumber}.md`;
 
     // replace spaces with underscores in the module name and section title
-    const fileName = `${moduleName.replace(/\s+/g, "_")}_${pageNumber}_${sectionTitle.replace(
+    const fileName = `${moduleName.replace(
       /\s+/g,
       "_"
-    )}.md`;
+    )}_${pageNumber}_${sectionTitle.replace(/\s+/g, "_")}.md`;
     downloadFile(markdownContent, fileName);
 
     // Function to download the file
