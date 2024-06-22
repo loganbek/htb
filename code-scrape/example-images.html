@@ -1,0 +1,2205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Information Gathering - Web Edition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+<meta content="Themesbrand" name="author" />
+<link rel="shortcut icon" href="/images/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg">
+<link rel="preload" as="style" href="https://academy.hackthebox.com/build/assets/bootstrap-dark-37a520b2.css" /><link rel="preload" as="style" href="https://academy.hackthebox.com/build/assets/app-dark-85a271d1.css" /><link rel="preload" as="style" href="https://academy.hackthebox.com/build/assets/icons-541b9943.css" /><link rel="preload" as="style" href="https://academy.hackthebox.com/build/assets/prism-8ad01d51.css" /><link rel="stylesheet" href="https://academy.hackthebox.com/build/assets/bootstrap-dark-37a520b2.css" /><link rel="stylesheet" href="https://academy.hackthebox.com/build/assets/app-dark-85a271d1.css" /><link rel="stylesheet" href="https://academy.hackthebox.com/build/assets/icons-541b9943.css" /><link rel="stylesheet" href="https://academy.hackthebox.com/build/assets/prism-8ad01d51.css" />
+<link href="/assets/libs/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.typekit.net/ryt3opf.css">
+<link rel="stylesheet" href="https://kit.fontawesome.com/8161086d56.css" crossorigin="anonymous">
+<script>
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="eLzeD0QoARKZ42pc8AGEUYpcFLpYkf0I";analytics.SNIPPET_VERSION="4.13.2";
+            analytics.load("eLzeD0QoARKZ42pc8AGEUYpcFLpYkf0I");
+                                            properties = {"platform":"Academy","platform_version":"V1","module_id":144,"module_name":"Information Gathering - Web Edition","module_difficulty":"Easy","section_id":1247,"section_title":"Introduction"};
+                                    analytics.page(
+                "Module",
+                properties
+            );
+                                }
+    }();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<style>
+    .website-screenshot-url {
+        height: 22px;
+        cursor: text;
+        padding-left: 10px;
+    }
+
+    .iterminal {
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        width: 100%;
+        left: 0;
+    }
+
+
+    .page-head {
+        display: none;
+    }
+
+    .btn-circle {
+        width: 25px;
+        height: 25px;
+        padding: 6px 0px;
+        border-radius: 15px;
+        text-align: center;
+        font-size: 9px;
+        line-height: 1.42857;
+    }
+</style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LeI6LsaAAAAAKgdStgBC6B4UVbXlpYNaYGN46Ah"></script>
+</head>
+<body data-layout="detached" data-topbar="colored">
+<div id="global-alert-notification" class="global-alert-banner-container">
+<div class="alert-notification-banner global warning">
+<div class="d-flex justify-content-between w-100 h-100 alert-body">
+<div class="d-flex align-items-center justify-content-center">
+<div class="warning global-icon-wrapper align-self-center">
+<i class="fa fa-exclamation-triangle"></i>
+</div>
+<p class="alert-body-content d-flex flex-column justify-content-center mb-0">
+<span class="title warning">To keep your account secure, move your 2FA to HTB Account by June 27th</span>
+<span class="message warning">The 2FA of Academy, will be disabled soon, so be sure you have 2FA enabled on SSO side.</span>
+</p>
+</div>
+<a href="https://account.hackthebox.com/security-settings" class="align-self-center alert-link warning">Enable now
+</a>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div id="layout-wrapper" class="global-alert-visible">
+<header id="page-topbar" class="global-alert-visible">
+<div class="navbar-header">
+<div class="container-fluid">
+<div class="d-flex align-items-center justify-content-between">
+<div class="d-flex align-items-center">
+<div class="navbar-brand-box">
+<a href="https://academy.hackthebox.com/dashboard" class="logo">
+<span class="logo-sm">
+<img src="/images/new-logo-htb.svg" alt height="30">
+</span>
+<span class="logo-md">
+<img src="/images/logo.svg" alt height="30">
+</span>
+<span class="logo-lg">
+<img src="/images/logo.svg" alt height="36">
+</span>
+</a>
+</div>
+<div class="d-flex align-items-center">
+<button type="button" class="btn btn-sm font-size-16 header-item toggle-btn waves-effect" id="vertical-menu-btn">
+<i class="fa fa-fw fa-bars"></i>
+</button>
+</div>
+<div class="topnav">
+<nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+<div class="collapse navbar-collapse" id="topnav-menu-content">
+<ul class="navbar-nav active">
+<li class="nav-item">
+<a class="nav-link" href="https://academy.hackthebox.com/dashboard"><i class="mdi mdi-monitor-dashboard"></i> Dashboard</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://academy.hackthebox.com/modules"><i class="mdi mdi-book-open"></i>
+Modules</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://academy.hackthebox.com/paths"><i class="mdi mdi-map-marker-path"></i> Paths</a>
+</li>
+</ul>
+</div>
+</nav>
+</div>
+</div>
+<div class="float-right">
+<div class="dropdown d-none d-lg-inline-block ml-1">
+<a href="https://academy.hackthebox.com/billing">
+<button type="button" class="btn btn-extra-light">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;Purchase Cubes
+</button>
+</a>
+</div>
+<div class="dropdown d-none d-lg-inline-block ml-1">
+<button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+<i class="mdi mdi-fullscreen fullscreen-icon"></i>
+</button>
+</div>
+<div class="dropdown d-inline-block">
+<button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<img class="rounded-circle header-profile-user" src="https://www.gravatar.com/avatar/81a0283e788b4a4f3ed22cb92ecfc2f9?d=robohash" alt="Header Avatar">
+<span class="d-none d-xl-inline-block ml-1">ndefstathiou</span>
+<i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+</button>
+<div class="dropdown-menu dropdown-menu-right">
+<a class="dropdown-item" href="https://academy.hackthebox.com/billing"><i class="bx bx-wallet font-size-16 align-middle mr-1"></i> Billing</a>
+<a class="dropdown-item d-block" href="https://academy.hackthebox.com/settings"><i class="bx bx-wrench font-size-16 align-middle mr-1"></i> Settings</a>
+<a class="dropdown-item d-block" href="https://academy.hackthebox.com/vpn"><i class="bx bx-server font-size-16 align-middle mr-1"></i> VPN Settings</a>
+<a class="dropdown-item d-block" href="https://academy.hackthebox.com/htb-account-settings"><i class="bx bx-server font-size-16 align-middle mr-1"></i> HTB Account Settings</a>
+<div class="dropdown-divider"></div>
+<form method="POST" action="https://academy.hackthebox.com/logout"> <input type="hidden" name="_token" value="azjoEliTuFsHTcW8RDpb2m3m4XH9Y5bsPBd9RZtg" autocomplete="off"> <a class="dropdown-item text-danger log-out" href="#"><i class="bx bx-power-off font-size-16 align-middle mr-1 text-danger"></i> Logout</a>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="vertical-menu overflow-hidden  d-lg-none   global-alert-visible ">
+<div class="vertical-menu-overlay"></div>
+<div class="h-100 overflow-auto">
+<div class="user-wid text-center py-4">
+<div class="user-img">
+<img src="https://www.gravatar.com/avatar/81a0283e788b4a4f3ed22cb92ecfc2f9?d=robohash" alt class="avatar-md mx-auto rounded-circle">
+</div>
+<div class="mt-3">
+<p class="text-dark mb-0 font-weight-medium font-size-16">ndefstathiou</p>
+<p class="text-body mt-1 mb-1">
+Student
+</p>
+<p>
+<span class="custom-badge custom-badge-soft-secondary" data-toggle="tooltip" data-title="Cubes">
+<i class="fad fa-cube text-success mr-1"></i>
+<span class="cubeBalance">
+598
+</span>
+</span>
+</p>
+</div>
+</div>
+<div id="sidebar-menu">
+<ul class="metismenu list-unstyled" id="side-menu">
+<li class="menu-title">Learn</li>
+<li><a class="navDashboard" href="https://academy.hackthebox.com/dashboard"><i class="mdi mdi-monitor-dashboard"></i> Dashboard</a></li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/exams"><i class="mdi mdi-certificate"></i>
+Exams</a></li>
+<li>
+<a class="navModules" href="javascript: void(0);" class="has-arrow waves-effect">
+<i class="mdi mdi-book-open"></i>
+<span>Modules</span>
+</a>
+<ul class="sub-menu mm-collapse" aria-expanded="false">
+<li><a href="https://academy.hackthebox.com/modules"><i class="mdi mdi-book-open"></i> All Modules</a>
+</li>
+<li>
+<a href="https://academy.hackthebox.com/modules/inprogress"><i class="mdi mdi-progress-upload"></i>
+In-Progress Modules</a></li>
+<li><a href="https://academy.hackthebox.com/modules/locked"><i class="mdi mdi-account-arrow-left-outline"></i> Available
+Modules</a>
+</li>
+<li>
+<a href="https://academy.hackthebox.com/modules/unlocked"><i class="mdi mdi-account-check-outline"></i>
+Owned
+Modules</a></li>
+<li>
+<a href="https://academy.hackthebox.com/modules/changelog"><i class="mdi mdi-playlist-check"></i>
+Change Log</a></li>
+</ul>
+</li>
+<li class="pathsLink">
+<a class="navPaths" href="javascript: void(0);" class="has-arrow waves-effect">
+<i class="mdi mdi-map-marker-path"></i>
+<span>Paths</span>
+</a>
+<ul class="sub-menu mm-collapse" aria-expanded="false">
+<li class="skillPathsLink"><a href="https://academy.hackthebox.com/paths"><i class="mdi mdi-chart-line-variant"></i> Skill Paths</a></li>
+<li class="jobRolePathsLink"><a href="https://academy.hackthebox.com/paths/jobrole"><i class="mdi mdi-briefcase"></i> Job Role Paths</a></li>
+</ul>
+</li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/academy-relations"><i class="mdi mdi-sitemap"></i>
+Academy x HTB Labs</a>
+</li>
+<li class="menu-title">My Achievements</li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/my-certificates"><i class="mdi mdi-certificate"></i>
+My Certificates </a></li>
+<li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/my-badges"><i class="mdi mdi-trophy"></i>
+My Badges </a>
+</li>
+<li>
+<li class="menu-title">Referrals</li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/referral">
+<i class="mdi mdi-gift"></i> Invite friends
+<span class="badge mx-3 bg-success text-light font-size-11">NEW</span>
+</a>
+<li>
+<li>
+<li class="menu-title">Get Help</li>
+<li>
+<a class="navSupport" href="http://help.hackthebox.eu/" rel="noopener nofollow norefferer" target="_blank"><i class="mdi mdi-help-box"></i>Help Center</a></li>
+<li><a class="navSupport" data-toggle="tooltip" href="https://academy.hackthebox.com/faq"><i class="mdi mdi-help-circle"></i> FAQ</a></li>
+<li><a class="navSupport" href="https://discord.gg/hackthebox" rel="noopener nofollow norefferer" target="_blank"><i class="mdi mdi-discord"></i>
+Discord</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="vertical-menu overflow-hidden  d-lg-none   global-alert-visible ">
+<div class="vertical-menu-overlay"></div>
+<div class="h-100 overflow-auto">
+<div class="user-wid text-center py-4">
+<div class="user-img">
+<img src="https://www.gravatar.com/avatar/81a0283e788b4a4f3ed22cb92ecfc2f9?d=robohash" alt class="avatar-md mx-auto rounded-circle">
+</div>
+<div class="mt-3">
+<p class="text-dark mb-0 font-weight-medium font-size-16">ndefstathiou</p>
+<p class="text-body mt-1 mb-1">
+Student
+</p>
+<p>
+<span class="custom-badge custom-badge-soft-secondary" data-toggle="tooltip" data-title="Cubes">
+<i class="fad fa-cube text-success mr-1"></i>
+<span class="cubeBalance">
+598
+</span>
+</span>
+</p>
+</div>
+</div>
+<div id="sidebar-menu">
+<ul class="metismenu list-unstyled" id="side-menu">
+<li class="menu-title">Learn</li>
+<li><a class="navDashboard" href="https://academy.hackthebox.com/dashboard"><i class="mdi mdi-monitor-dashboard"></i> Dashboard</a></li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/exams"><i class="mdi mdi-certificate"></i>
+Exams</a></li>
+<li>
+<a class="navModules" href="javascript: void(0);" class="has-arrow waves-effect">
+<i class="mdi mdi-book-open"></i>
+<span>Modules</span>
+</a>
+<ul class="sub-menu mm-collapse" aria-expanded="false">
+<li><a href="https://academy.hackthebox.com/modules"><i class="mdi mdi-book-open"></i> All Modules</a>
+</li>
+<li>
+<a href="https://academy.hackthebox.com/modules/inprogress"><i class="mdi mdi-progress-upload"></i>
+In-Progress Modules</a></li>
+<li><a href="https://academy.hackthebox.com/modules/locked"><i class="mdi mdi-account-arrow-left-outline"></i> Available
+Modules</a>
+</li>
+<li>
+<a href="https://academy.hackthebox.com/modules/unlocked"><i class="mdi mdi-account-check-outline"></i>
+Owned
+Modules</a></li>
+<li>
+<a href="https://academy.hackthebox.com/modules/changelog"><i class="mdi mdi-playlist-check"></i>
+Change Log</a></li>
+</ul>
+</li>
+<li class="pathsLink">
+<a class="navPaths" href="javascript: void(0);" class="has-arrow waves-effect">
+<i class="mdi mdi-map-marker-path"></i>
+<span>Paths</span>
+</a>
+<ul class="sub-menu mm-collapse" aria-expanded="false">
+<li class="skillPathsLink"><a href="https://academy.hackthebox.com/paths"><i class="mdi mdi-chart-line-variant"></i> Skill Paths</a></li>
+<li class="jobRolePathsLink"><a href="https://academy.hackthebox.com/paths/jobrole"><i class="mdi mdi-briefcase"></i> Job Role Paths</a></li>
+</ul>
+</li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/academy-relations"><i class="mdi mdi-sitemap"></i>
+Academy x HTB Labs</a>
+</li>
+<li class="menu-title">My Achievements</li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/my-certificates"><i class="mdi mdi-certificate"></i>
+My Certificates </a></li>
+<li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/my-badges"><i class="mdi mdi-trophy"></i>
+My Badges </a>
+</li>
+<li>
+<li class="menu-title">Referrals</li>
+<li>
+<a class="navDashboard" href="https://academy.hackthebox.com/referral">
+<i class="mdi mdi-gift"></i> Invite friends
+<span class="badge mx-3 bg-success text-light font-size-11">NEW</span>
+</a>
+<li>
+<li>
+<li class="menu-title">Get Help</li>
+<li>
+<a class="navSupport" href="http://help.hackthebox.eu/" rel="noopener nofollow norefferer" target="_blank"><i class="mdi mdi-help-box"></i>Help Center</a></li>
+<li><a class="navSupport" data-toggle="tooltip" href="https://academy.hackthebox.com/faq"><i class="mdi mdi-help-circle"></i> FAQ</a></li>
+<li><a class="navSupport" href="https://discord.gg/hackthebox" rel="noopener nofollow norefferer" target="_blank"><i class="mdi mdi-discord"></i>
+Discord</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="main-content">
+<div class="page-content">
+<div class="row">
+<div class="col-12">
+<div class="page-title-box d-flex align-items-center justify-content-between">
+<h4 class="page-title mb-0 font-size-18 letter-spacing-1-2">Information Gathering - Web Edition
+&nbsp;
+<i style="cursor:pointer;" data-module-id="144" data-toggle="tooltip" data-title="Toggle To-Do" class="favouriteBtn  fa-sharp fa-solid  fa-heart text-danger"></i>
+</h4>
+<div class="page-title-right">
+<ol class="breadcrumb m-0">
+<li class="breadcrumb-item"><a href="javascript: void(0);">Page 1</a></li>
+<li class="breadcrumb-item active">Introduction</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="row justify-content-xl-center">
+<div class="col-md-12 col-xl-9 col-xxl-7">
+<div class="training-module">
+<h1>Introduction</h1>
+<hr/>
+<p><code>Web Reconnaissance</code> is the foundation of a thorough security assessment. This process involves systematically and meticulously collecting information about a target website or web application. Think of it as the preparatory phase before delving into deeper analysis and potential exploitation. It forms a critical part of the &quot;<code>Information Gathering</code>&quot; phase of the Penetration Testing Process.</p>
+<p><img src="https://academy.hackthebox.com/storage/modules/279/PT-process.png" alt /></p>
+<p>The primary goals of web reconnaissance include:</p>
+<ul>
+<li>
+<code>Identifying Assets</code>: Uncovering all publicly accessible components of the target, such as web pages, subdomains, IP addresses, and technologies used. This step provides a comprehensive overview of the target's online presence.</li>
+<li>
+<code>Discovering Hidden Information</code>: Locating sensitive information that might be inadvertently exposed, including backup files, configuration files, or internal documentation. These findings can reveal valuable insights and potential entry points for attacks.</li>
+<li>
+<code>Analysing the Attack Surface</code>: Examining the target's attack surface to identify potential vulnerabilities and weaknesses. This involves assessing the technologies used, configurations, and possible entry points for exploitation.</li>
+<li>
+<code>Gathering Intelligence</code>: Collecting information that can be leveraged for further exploitation or social engineering attacks. This includes identifying key personnel, email addresses, or patterns of behaviour that could be exploited.</li>
+</ul>
+<p>Attackers leverage this information to tailor their attacks, allowing them to target specific weaknesses and bypass security measures. Conversely, defenders use recon to proactively identify and patch vulnerabilities before malicious actors can leverage them.</p>
+<h2>Types of Reconnaissance</h2>
+<p>Web reconnaissance encompasses two fundamental methodologies: <code>active</code> and <code>passive</code> reconnaissance. Each approach offers distinct advantages and challenges, and understanding their differences is crucial for adequate information gathering.</p>
+<h3>Active Reconnaissance</h3>
+<p>In active reconnaissance, the attacker <code>directly interacts with the target system</code> to gather information. This interaction can take various forms:</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Description</th>
+<th>Example</th>
+<th>Tools</th>
+<th>Risk of Detection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Port Scanning</code></td>
+<td>Identifying open ports and services running on the target.</td>
+<td>Using Nmap to scan a web server for open ports like 80 (HTTP) and 443 (HTTPS).</td>
+<td>Nmap, Masscan, Unicornscan</td>
+<td>High: Direct interaction with the target can trigger intrusion detection systems (IDS) and firewalls.</td>
+</tr>
+<tr>
+<td><code>Vulnerability Scanning</code></td>
+<td>Probing the target for known vulnerabilities, such as outdated software or misconfigurations.</td>
+<td>Running Nessus against a web application to check for SQL injection flaws or cross-site scripting (XSS) vulnerabilities.</td>
+<td>Nessus, OpenVAS, Nikto</td>
+<td>High: Vulnerability scanners send exploit payloads that security solutions can detect.</td>
+</tr>
+<tr>
+<td><code>Network Mapping</code></td>
+<td>Mapping the target's network topology, including connected devices and their relationships.</td>
+<td>Using traceroute to determine the path packets take to reach the target server, revealing potential network hops and infrastructure.</td>
+<td>Traceroute, Nmap</td>
+<td>Medium to High: Excessive or unusual network traffic can raise suspicion.</td>
+</tr>
+<tr>
+<td><code>Banner Grabbing</code></td>
+<td>Retrieving information from banners displayed by services running on the target.</td>
+<td>Connecting to a web server on port 80 and examining the HTTP banner to identify the web server software and version.</td>
+<td>Netcat, curl</td>
+<td>Low: Banner grabbing typically involves minimal interaction but can still be logged.</td>
+</tr>
+<tr>
+<td><code>OS Fingerprinting</code></td>
+<td>Identifying the operating system running on the target.</td>
+<td>Using Nmap's OS detection capabilities (<code>-O</code>) to determine if the target is running Windows, Linux, or another OS.</td>
+<td>Nmap, Xprobe2</td>
+<td>Low: OS fingerprinting is usually passive, but some advanced techniques can be detected.</td>
+</tr>
+<tr>
+<td><code>Service Enumeration</code></td>
+<td>Determining the specific versions of services running on open ports.</td>
+<td>Using Nmap's service version detection (<code>-sV</code>) to determine if a web server is running Apache 2.4.50 or Nginx 1.18.0.</td>
+<td>Nmap</td>
+<td>Low: Similar to banner grabbing, service enumeration can be logged but is less likely to trigger alerts.</td>
+</tr>
+<tr>
+<td><code>Web Spidering</code></td>
+<td>Crawling the target website to identify web pages, directories, and files.</td>
+<td>Running a web crawler like Burp Suite Spider or OWASP ZAP Spider to map out the structure of a website and discover hidden resources.</td>
+<td>Burp Suite Spider, OWASP ZAP Spider, Scrapy (customisable)</td>
+<td>Low to Medium: Can be detected if the crawler's behaviour is not carefully configured to mimic legitimate traffic.</td>
+</tr>
+</tbody>
+</table>
+<p>Active reconnaissance provides a direct and often more comprehensive view of the target's infrastructure and security posture. However, it also carries a higher risk of detection, as the interactions with the target can trigger alerts or raise suspicion.</p>
+<h3>Passive Reconnaissance</h3>
+<p>In contrast, passive reconnaissance involves gathering information about the target <code>without directly interacting</code> with it. This relies on analysing publicly available information and resources, such as:</p>
+<table>
+<thead>
+<tr>
+<th>Technique</th>
+<th>Description</th>
+<th>Example</th>
+<th>Tools</th>
+<th>Risk of Detection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Search Engine Queries</code></td>
+<td>Utilising search engines to uncover information about the target, including websites, social media profiles, and news articles.</td>
+<td>Searching Google for &quot;<code>[Target Name] employees</code>&quot; to find employee information or social media profiles.</td>
+<td>Google, DuckDuckGo, Bing, and specialised search engines (e.g., Shodan)</td>
+<td>Very Low: Search engine queries are normal internet activity and unlikely to trigger alerts.</td>
+</tr>
+<tr>
+<td><code>WHOIS Lookups</code></td>
+<td>Querying WHOIS databases to retrieve domain registration details.</td>
+<td>Performing a WHOIS lookup on a target domain to find the registrant's name, contact information, and name servers.</td>
+<td>whois command-line tool, online WHOIS lookup services</td>
+<td>Very Low: WHOIS queries are legitimate and do not raise suspicion.</td>
+</tr>
+<tr>
+<td><code>DNS </code></td>
+<td>Analysing DNS records to identify subdomains, mail servers, and other infrastructure.</td>
+<td>Using <code>dig</code> to enumerate subdomains of a target domain.</td>
+<td>dig, nslookup, host, dnsenum, fierce, dnsrecon</td>
+<td>Very Low: DNS queries are essential for internet browsing and are not typically flagged as suspicious.</td>
+</tr>
+<tr>
+<td><code>Web Archive Analysis</code></td>
+<td>Examining historical snapshots of the target's website to identify changes, vulnerabilities, or hidden information.</td>
+<td>Using the Wayback Machine to view past versions of a target website to see how it has changed over time.</td>
+<td>Wayback Machine</td>
+<td>Very Low: Accessing archived versions of websites is a normal activity.</td>
+</tr>
+<tr>
+<td><code>Social Media Analysis</code></td>
+<td>Gathering information from social media platforms like LinkedIn, Twitter, or Facebook.</td>
+<td>Searching LinkedIn for employees of a target organisation to learn about their roles, responsibilities, and potential social engineering targets.</td>
+<td>LinkedIn, Twitter, Facebook, specialised OSINT tools</td>
+<td>Very Low: Accessing public social media profiles is not considered intrusive.</td>
+</tr>
+<tr>
+<td><code>Code Repositories</code></td>
+<td>Analysing publicly accessible code repositories like GitHub for exposed credentials or vulnerabilities.</td>
+<td>Searching GitHub for code snippets or repositories related to the target that might contain sensitive information or code vulnerabilities.</td>
+<td>GitHub, GitLab</td>
+<td>Very Low: Code repositories are meant for public access, and searching them is not suspicious.</td>
+</tr>
+</tbody>
+</table>
+<p>Passive reconnaissance is generally considered stealthier and less likely to trigger alarms than active reconnaissance. However, it may yield less comprehensive information, as it relies on what's already publicly accessible.</p>
+<p>In this module, we will delve into the essential tools and techniques used in web reconnaissance, starting with WHOIS. Understanding the WHOIS protocol provides a gateway to accessing vital information about domain registrations, ownership details, and the digital infrastructure of targets. This foundational knowledge sets the stage for more advanced recon methods we'll explore later.</p>
+</div>
+<div class="card bg-color-blue-nav" style="margin: 30px 0">
+<div class="card-body">
+<form action="https://academy.hackthebox.com/module" method="POST" class="form-inline" id="completeForm" style="float: right">
+<input type="hidden" name="module_id" value="144">
+<input type="hidden" name="page_id" value="2">
+<input type="hidden" name="completed" value="1">
+<button id="completeBtn" class="btn btn-outline-success" style="display: none;">
+<div id="complete-button-text">
+<i class="fa fa-check-circle"></i> Mark Complete & Next
+</div>
+<div id="complete-button-loader" class="mx-5 d-none">
+<i class="fa fa-circle-notch fa-spin"></i>
+</div>
+</button>
+</form>
+<a href="https://academy.hackthebox.com/module/144/section/3073" class="btn btn-light ml-2 module-button py-2" style="float: left">Next <i class="ml-1 fa fa-arrow-alt-right"></i></a>
+</div>
+</div>
+</div>
+<div class="col-md-12 col-xl-3 col-xxl-3">
+<div id="table-of-contents">
+<div class="card">
+<div class="card-body bg-color-blue-nav">
+<button class="btn btn-light btn-block module-button" data-toggle="modal" data-target="#cheatSheetModal"><i class="fad fa-file-alt mr-2"></i> Cheat Sheet
+</button>
+</div>
+</div>
+<div class="card" id="TOC">
+<div class="card-body bg-color-blue-nav">
+<h5 class="card-title font-size-15 mb-4">Table of Contents</h5>
+<h6 class="mt-4 mb-2">Introduction</h6> <a href="https://academy.hackthebox.com/module/144/section/1247" class="btn   text-primary  btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">Introduction</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">WHOIS</h6> <a href="https://academy.hackthebox.com/module/144/section/3073" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">WHOIS</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1248" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Utilizing WHOIS</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">DNS &amp; Subdomains</h6> <a href="https://academy.hackthebox.com/module/144/section/3074" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">DNS</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1251" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Digging DNS</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1252" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">Subdomains</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1253" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Subdomain Bruteforcing</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1255" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">DNS Zone Transfers</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1257" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Virtual Hosts</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/1258" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">Certificate Transparency Logs</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">Fingerprinting</h6> <a href="https://academy.hackthebox.com/module/144/section/3075" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Fingerprinting</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">Crawling</h6> <a href="https://academy.hackthebox.com/module/144/section/3076" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">Crawling</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/3077" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">robots.txt</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/3078" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">.Well-Known URIs</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<a href="https://academy.hackthebox.com/module/144/section/3079" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Creepy Crawlies</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">Search Engine Discovery</h6> <a href="https://academy.hackthebox.com/module/144/section/3080" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">Search Engine Discovery</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">Web Archives</h6> <a href="https://academy.hackthebox.com/module/144/section/1256" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Web Archives</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">Automating Recon</h6> <a href="https://academy.hackthebox.com/module/144/section/3081" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<span class="font-size-13">Automating Recon</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+<h6 class="mt-4 mb-2">Skills Assessment</h6> <a href="https://academy.hackthebox.com/module/144/section/1311" class="btn   btn-sm btn-block mt-1 py-2 text-left btn-lighter">
+<i class="fad fa-cube text-success mt-1 mr-2"></i>&nbsp;
+<span class="font-size-13">Web Recon - Skills Assessment</span>
+<i class="fad fa-check-square text-success float-right mt-1" style="top: 2px"></i>
+</a>
+</div>
+</div>
+<div class="card">
+<div class="card-body bg-color-blue-nav">
+<h5 class="card-title mb-4">My Workstation</h5>
+<div class="row">
+<div class="col-12">
+<div id="sidePreview" style="height: 160px; border: 1px solid #323232; border-radius: 5px; background-color: #0a121c; text-align: center">
+<div class="screenPlaceholder">
+<p class="instanceStart" style="padding-top:70px; letter-spacing: 5px;">
+OFFLINE</p>
+<p class="instanceLoading " style="padding-top:70px; display: none"><i class="fa fa-circle-notch fa-spin"></i> Starting...</p>
+</div>
+</div>
+</div>
+<div class="col-12 mt-2">
+<div class="instanceStart">
+<button class="startInstanceBtn btn btn-success text-light btn-sm mt-2 btn-block module-button py-2  ">
+<i class="fad fa-play-circle text-light"></i> &nbsp;Start Instance
+</button>
+<p class="text-center mt-2 font-size-13 font-secondary">
+<span class="text-success spawnsLeft">
+<i class="fal fa-infinity"></i>
+</span> / 1 spawns left
+</p>
+</div>
+<button style="display:none;" class="fullScreenBtn btn btn-light btn-sm mt-2 module-button py-2"><i class="fad fa-expand text-success"></i> &nbsp;Interact
+</button>
+<button style="display:none;" class="terminateInstanceBtn btn btn-light btn-sm mt-2 module-button py-2"><i class="fad fa-times text-danger"></i> &nbsp;Terminate
+</button>
+<button style="display:none;" class="resetInstanceBtn btn btn-light btn-sm mt-2 module-button py-2"><i class="fad fa-sync text-warning"></i> &nbsp;Reset
+</button>
+<div class="btn-group" role="group">
+<button style="display:none; cursor: default;" class=" extendInstanceBtn btn btn-light btn-sm mt-2 module-button py-2">Life
+Left: <span class="lifeLeft"></span>m
+</button>
+<button style="display:none;" data-toggle="tooltip" data-title="Extend Life" class=" extendInstanceBtn extendInstanceBtnClicker btn btn-light btn-sm mt-2 module-button py-2">
+<i class="fa fa-plus text-success"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="cheatSheetModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="unlockModuleModal" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div class="modal-body">
+<div class="text-center text-break">
+<h5><i class="fad fa-file-alt"></i>&nbsp; Cheat Sheet</h5>
+<p>The cheat sheet is a useful command reference for this module.</p>
+<h1>Cheat Sheet</h1>
+<hr/>
+<p>Web reconnaissance is the first step in any security assessment or penetration testing engagement. It's akin to a detective's initial investigation, meticulously gathering clues and evidence about a target before formulating a plan of action. In the digital realm, this translates to accumulating information about a website or web application to identify potential vulnerabilities, security misconfigurations, and valuable assets.</p>
+<p>The primary goals of web reconnaissance revolve around gaining a comprehensive understanding of the target's digital footprint. This includes:</p>
+<ul>
+<li>
+<code>Identifying Assets</code>: Discovering all associated domains, subdomains, and IP addresses provides a map of the target's online presence.</li>
+<li>
+<code>Uncovering Hidden Information</code>: Web reconnaissance aims to uncover directories, files, and technologies that are not readily apparent and could serve as entry points for an attacker.</li>
+<li>
+<code>Analyzing the Attack Surface</code>: By identifying open ports, running services, and software versions, you can assess the potential vulnerabilities and weaknesses of the target.</li>
+<li>
+<code>Gathering Intelligence</code>: Collecting information about employees, email addresses, and technologies used can aid in social engineering attacks or identifying specific vulnerabilities associated with certain software.</li>
+</ul>
+<p>Web reconnaissance can be conducted using either active or passive techniques, each with its own advantages and drawbacks:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Risk of Detection</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Active Reconnaissance</td>
+<td>Involves directly interacting with the target system, such as sending probes or requests.</td>
+<td>Higher</td>
+<td>Port scanning, vulnerability scanning, network mapping</td>
+</tr>
+<tr>
+<td>Passive Reconnaissance</td>
+<td>Gathers information without directly interacting with the target, relying on publicly available data.</td>
+<td>Lower</td>
+<td>Search engine queries, WHOIS lookups, DNS enumeration, web archive analysis, social media</td>
+</tr>
+</tbody>
+</table>
+<h2>WHOIS</h2>
+<p>WHOIS is a query and response protocol used to retrieve information about domain names, IP addresses, and other internet resources. It's essentially a directory service that details who owns a domain, when it was registered, contact information, and more. In the context of web reconnaissance, WHOIS lookups can be a valuable source of information, potentially revealing the identity of the website owner, their contact information, and other details that could be used for further investigation or social engineering attacks.</p>
+<p>For example, if you wanted to find out who owns the domain <code>example.com</code>, you could run the following command in your terminal:</p>
+<pre><code class="language-bash">whois example.com
+</code></pre>
+<p>This would return a wealth of information, including the registrar, registration, and expiration dates, nameservers, and contact information for the domain owner.</p>
+<p>However, it's important to note that WHOIS data can be inaccurate or intentionally obscured, so it's always wise to verify the information from multiple sources. Privacy services can also mask the true owner of a domain, making it more difficult to obtain accurate information through WHOIS.</p>
+<h2>DNS</h2>
+<p>The Domain Name System (DNS) functions as the internet's GPS, translating user-friendly domain names into the numerical IP addresses computers use to communicate. Like GPS converting a destination's name into coordinates, DNS ensures your browser reaches the correct website by matching its name with its IP address. This eliminates memorizing complex numerical addresses, making web navigation seamless and efficient.</p>
+<p>The <code>dig</code> command allows you to query DNS servers directly, retrieving specific information about domain names. For instance, if you want to find the IP address associated with <code>example.com</code>, you can execute the following command:</p>
+<pre><code class="language-bash">dig example.com A
+</code></pre>
+<p>This command instructs <code>dig</code> to query the DNS for the <code>A</code> record (which maps a hostname to an IPv4 address) of <code>example.com</code>. The output will typically include the requested IP address, along with additional details about the query and response. By mastering the <code>dig</code> command and understanding the various DNS record types, you gain the ability to extract valuable information about a target's infrastructure and online presence.</p>
+<p>DNS servers store various types of records, each serving a specific purpose:</p>
+<table>
+<thead>
+<tr>
+<th>Record Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Maps a hostname to an IPv4 address.</td>
+</tr>
+<tr>
+<td>AAAA</td>
+<td>Maps a hostname to an IPv6 address.</td>
+</tr>
+<tr>
+<td>CNAME</td>
+<td>Creates an alias for a hostname, pointing it to another hostname.</td>
+</tr>
+<tr>
+<td>MX</td>
+<td>Specifies mail servers responsible for handling email for the domain.</td>
+</tr>
+<tr>
+<td>NS</td>
+<td>Delegates a DNS zone to a specific authoritative name server.</td>
+</tr>
+<tr>
+<td>TXT</td>
+<td>Stores arbitrary text information.</td>
+</tr>
+<tr>
+<td>SOA</td>
+<td>Contains administrative information about a DNS zone.</td>
+</tr>
+</tbody>
+</table>
+<h2>Subdomains</h2>
+<p>Subdomains are essentially extensions of a primary domain name, often used to organize different sections or services within a website. For example, a company might use <code>mail.example.com</code> for their email server or <code>blog.example.com</code> for their blog.</p>
+<p>From a reconnaissance perspective, subdomains are incredibly valuable. They can expose additional attack surfaces, reveal hidden services, and provide clues about the internal structure of a target's network. Subdomains might host development servers, staging environments, or even forgotten applications that haven't been properly secured.</p>
+<p>The process of discovering subdomains is known as subdomain enumeration. There are two main approaches to subdomain enumeration:</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Description</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Active Enumeration</code></td>
+<td>Directly interacts with the target's DNS servers or utilizes tools to probe for subdomains.</td>
+<td>Brute-forcing, DNS zone transfers</td>
+</tr>
+<tr>
+<td><code>Passive Enumeration</code></td>
+<td>Collects information about subdomains without directly interacting with the target, relying on public sources.</td>
+<td>Certificate Transparency (CT) logs, search engine queries</td>
+</tr>
+</tbody>
+</table>
+<p><code>Active enumeration</code> can be more thorough but carries a higher risk of detection. Conversely, <code>passive enumeration</code> is stealthier but may not uncover all subdomains. Combining both techniques can significantly increase the likelihood of discovering a comprehensive list of subdomains associated with your target, expanding your understanding of their online presence and potential vulnerabilities.</p>
+<h3>Subdomain Brute-Forcing</h3>
+<p>Subdomain brute-forcing is a proactive technique used in web reconnaissance to uncover subdomains that may not be readily apparent through passive methods. It involves systematically generating many potential subdomain names and testing them against the target's DNS server to see if they exist. This approach can unveil hidden subdomains that may host valuable information, development servers, or vulnerable applications.</p>
+<p>One of the most versatile tools for subdomain brute-forcing is <code>dnsenum</code>. This powerful command-line tool combines various DNS enumeration techniques, including dictionary-based brute-forcing, to uncover subdomains associated with your target.</p>
+<p>To use <code>dnsenum</code> for subdomain brute-forcing, you'll typically provide it with the target domain and a wordlist containing potential subdomain names. The tool will then systematically query the DNS server for each potential subdomain and report any that exist.</p>
+<p>For example, the following command would attempt to brute-force subdomains of <code>example.com</code> using a wordlist named <code>subdomains.txt</code>:</p>
+<pre><code class="language-bash">dnsenum example.com -f subdomains.txt
+</code></pre>
+<h3>Zone Transfers</h3>
+<p>DNS zone transfers, also known as AXFR (Asynchronous Full Transfer) requests, offer a potential goldmine of information for web reconnaissance. A zone transfer is a mechanism for replicating DNS data across servers. When a zone transfer is successful, it provides a complete copy of the DNS zone file, which contains a wealth of details about the target domain.</p>
+<p>This zone file lists all the domain's subdomains, their associated IP addresses, mail server configurations, and other DNS records. This is akin to obtaining a blueprint of the target's DNS infrastructure for a reconnaissance expert.</p>
+<p>To attempt a zone transfer, you can use the <code>dig</code> command with the <code>axfr</code> (full zone transfer) option. For example, to request a zone transfer from the DNS server <code>ns1.example.com</code> for the domain <code>example.com</code>, you would execute:</p>
+<pre><code class="language-bash">dig @ns1.example.com example.com axfr
+</code></pre>
+<p>However, zone transfers are not always permitted. Many DNS servers are configured to restrict zone transfers to authorized secondary servers only. Misconfigured servers, though, may allow zone transfers from any source, inadvertently exposing sensitive information.</p>
+<h3>Virtual Hosts</h3>
+<p>Virtual hosting is a technique that allows multiple websites to share a single IP address. Each website is associated with a unique hostname, which is used to direct incoming requests to the correct site. This can be a cost-effective way for organizations to host multiple websites on a single server, but it can also create a challenge for web reconnaissance.</p>
+<p>Since multiple websites share the same IP address, simply scanning the IP won't reveal all the hosted sites. You need a tool that can test different hostnames against the IP address to see which ones respond.</p>
+<p>Gobuster is a versatile tool that can be used for various types of brute-forcing, including virtual host discovery. Its <code>vhost</code> mode is designed to enumerate virtual hosts by sending requests to the target IP address with different hostnames. If a virtual host is configured for a specific hostname, Gobuster will receive a response from the web server.</p>
+<p>To use Gobuster to brute-force virtual hosts, you'll need a wordlist containing potential hostnames. Here's an example command:</p>
+<pre><code class="language-bash">gobuster vhost -u http://192.0.2.1 -w hostnames.txt
+</code></pre>
+<p>In this example, <code>-u</code> specifies the target IP address, and <code>-w</code> specifies the wordlist file. Gobuster will then systematically try each hostname in the wordlist and report any that results in a valid response from the web server.</p>
+<h3>Certificate Transparency (CT) Logs</h3>
+<p>Certificate Transparency (CT) logs offer a treasure trove of subdomain information for passive reconnaissance. These publicly accessible logs record SSL/TLS certificates issued for domains and their subdomains, serving as a security measure to prevent fraudulent certificates. For reconnaissance, they offer a window into potentially overlooked subdomains.</p>
+<p>The <code>crt.sh</code> website provides a searchable interface for CT logs. To efficiently extract subdomains using <code>crt.sh</code> within your terminal, you can use a command like this:</p>
+<pre><code class="language-bash">curl -s &quot;https://crt.sh/?q=%25.example.com&amp;output=json&quot; | jq -r '.[].name_value' | sed 's/\*\.//g' | sort -u
+</code></pre>
+<p>This command fetches JSON-formatted data from <code>crt.sh</code> for <code>example.com</code> (the <code>%</code> is a wildcard), extracts domain names using <code>jq</code>, removes any wildcard prefixes (<code>*.</code>) with <code>sed</code>, and finally sorts and deduplicates the results.</p>
+<h2>Web Crawling</h2>
+<p>Web crawling is the automated exploration of a website's structure. A web crawler, or spider, systematically navigates through web pages by following links, mimicking a user's browsing behavior. This process maps out the site's architecture and gathers valuable information embedded within the pages.</p>
+<p>A crucial file that guides web crawlers is <code>robots.txt</code>. This file resides in a website's root directory and dictates which areas are off-limits for crawlers. Analyzing <code>robots.txt</code> can reveal hidden directories or sensitive areas that the website owner doesn't want to be indexed by search engines.</p>
+<p><code>Scrapy</code> is a powerful and efficient Python framework for large-scale web crawling and scraping projects. It provides a structured approach to defining crawling rules, extracting data, and handling various output formats.</p>
+<p>Here's a basic Scrapy spider example to extract links from <code>example.com</code>:</p>
+<pre><code class="language-python">import scrapy
+
+class ExampleSpider(scrapy.Spider):
+    name = &quot;example&quot;
+    start_urls = ['http://example.com/']
+
+    def parse(self, response):
+        for link in response.css('a::attr(href)').getall():
+            if any(link.endswith(ext) for ext in self.interesting_extensions):
+                yield {&quot;file&quot;: link}
+            elif not link.startswith(&quot;#&quot;) and not link.startswith(&quot;mailto:&quot;):
+                yield response.follow(link, callback=self.parse)
+</code></pre>
+<p>After running the Scrapy spider, you'll have a file containing scraped data (e.g., <code>example_data.json</code>). You can analyze these results using standard command-line tools. For instance, to extract all links:</p>
+<pre><code class="language-bash">jq -r '.[] | select(.file != null) | .file' example_data.json | sort -u
+</code></pre>
+<p>This command uses <code>jq</code> to extract links, <code>awk</code> to isolate file extensions, <code>sort</code> to order them, and <code>uniq -c</code> to count their occurrences. By scrutinizing the extracted data, you can identify patterns, anomalies, or sensitive files that might be of interest for further investigation.</p>
+<h2>Search Engine Discovery</h2>
+<p>Leveraging search engines for reconnaissance involves utilizing their vast indexes of web content to uncover information about your target. This passive technique, often referred to as Open Source Intelligence (OSINT) gathering, can yield valuable insights without directly interacting with the target's systems.</p>
+<p>By employing advanced search operators and specialized queries known as &quot;Google Dorks,&quot; you can pinpoint specific information buried within search results. Here's a table of some useful search operators for web reconnaissance:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>site:</code></td>
+<td>Restricts search results to a specific website.</td>
+<td><code>site:example.com &quot;password reset&quot;</code></td>
+</tr>
+<tr>
+<td><code>inurl:</code></td>
+<td>Searches for a specific term in the URL of a page.</td>
+<td><code>inurl:admin login</code></td>
+</tr>
+<tr>
+<td><code>filetype:</code></td>
+<td>Limits results to files of a specific type.</td>
+<td><code>filetype:pdf &quot;confidential report&quot;</code></td>
+</tr>
+<tr>
+<td><code>intitle:</code></td>
+<td>Searches for a term within the title of a page.</td>
+<td><code>intitle:&quot;index of&quot; /backup</code></td>
+</tr>
+<tr>
+<td><code>cache:</code></td>
+<td>Shows the cached version of a webpage.</td>
+<td><code>cache:example.com</code></td>
+</tr>
+<tr>
+<td><code>&quot;search term&quot;</code></td>
+<td>Searches for the exact phrase within quotation marks.</td>
+<td><code>&quot;internal error&quot; site:example.com</code></td>
+</tr>
+<tr>
+<td><code>OR</code></td>
+<td>Combines multiple search terms.</td>
+<td><code>inurl:admin OR inurl:login</code></td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Excludes specific terms from search results.</td>
+<td><code>inurl:admin -intext:wordpress</code></td>
+</tr>
+</tbody>
+</table>
+<p>By creatively combining these operators and crafting targeted queries, you can uncover sensitive documents, exposed directories, login pages, and other valuable information that may aid in your reconnaissance efforts.</p>
+<h2>Web Archives</h2>
+<p>Web archives are digital repositories that store snapshots of websites across time, providing a historical record of their evolution. Among these archives, the Wayback Machine is the most comprehensive and accessible resource for web reconnaissance.</p>
+<p>The Wayback Machine, a project by the Internet Archive, has been archiving the web for over two decades, capturing billions of web pages from across the globe. This massive historical data collection can be an invaluable resource for security researchers and investigators.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Description</th>
+<th>Use Case in Reconnaissance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Historical Snapshots</code></td>
+<td>View past versions of websites, including pages, content, and design changes.</td>
+<td>Identify past website content or functionality that is no longer available.</td>
+</tr>
+<tr>
+<td><code>Hidden Directories</code></td>
+<td>Explore directories and files that may have been removed or hidden from the current version of the website.</td>
+<td>Discover sensitive information or backups that were inadvertently left accessible in previous versions.</td>
+</tr>
+<tr>
+<td><code>Content Changes</code></td>
+<td>Track changes in website content, including text, images, and links.</td>
+<td>Identify patterns in content updates and assess the evolution of a website's security posture.</td>
+</tr>
+</tbody>
+</table>
+<p>By leveraging the Wayback Machine, you can gain a historical perspective on your target's online presence, potentially revealing vulnerabilities that may have been overlooked in the current version of the website.</p>
+</div>
+</div>
+<div class="modal-footer">
+<a class="btn btn-light btn-block" href="https://academy.hackthebox.com/module/cheatsheet/144">Download
+Cheatsheet</a>
+</div>
+</div>
+</div>
+</div>
+<div id="linkDiscordModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="linkDiscordModal" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header text-center">
+<h5 class="modal-title w-100">Do you need help with this question?</h5>
+</div>
+<div class="modal-body">
+<div class="text-center">
+<img src="/images/icons/discord-alternative.svg" alt="discord icon">
+<p class="mb-1">It looks like you have not linked your Discord account!</p>
+<p>You can receive question guidance via Discord. </p>
+<a href="https://academy.hackthebox.com/account/discord/link" class="btn btn-outline-success btn-block">
+Link your Discord account
+</a>
+</div>
+</div>
+</div>
+</div>
+</div><div id="referralModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="referralModal" aria-hidden="true" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header text-center border-0">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true"><img src="/images/close.svg" alt="close" /></span>
+</button>
+</div>
+<div class="modal-body">
+<div class="text-center">
+<img src="/images/htb-coin.svg" alt="coin icon" />
+<h1 class="text-white">Refer &amp; Earn</h1>
+<p class="text-secondary font-size-20">
+Refer a Friend, Earn Cubes, Unlock Academy Modules!
+</p>
+<div class="d-flex flex-column">
+<a href="/referral">
+<button type="button" class="btn btn-success btn-invite-friend text-light my-4">
+Invite Friends
+</button>
+</a>
+<button type="button" id="disableReferralModalBtn" onclick="disableModalRedisplay()" class="btn mt-2 mb-3 d-none">
+Don't show it again
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div id="pwnboxSwitchWarningModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="pwnboxSwitchWarningModal" aria-hidden="true" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header text-center">
+<h2 class="d-inline-flex align-items-center text-white"><span class="font-size-18"><i class="far fa-exclamation-triangle text-danger mr-2"></i></span>Warning</h2>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true"><img src="/images/close.svg" alt="close" height="16" width="16" /></span>
+</button>
+</div>
+<div class="modal-body pt-0">
+<div class="text-left">
+<h1 class="text-white"></h1>
+<div class="text-secondary font-size-14 px-2">
+<p>
+The current instance of Pwnbox <span class="font-medium text-white">will be terminated</span> when switching to a new region.
+</p>
+<p>
+<span class="font-medium text-white">All progress you've made will be lost.</span> Do you want to continue?
+</p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" id="cancelPwnboxSwitchBtn" class="btn cancel-btn px-5">
+Cancel
+</button>
+<button type="button" id="continuePwnboxSwitchBtn" class="btn continue-btn px-5 text-light">
+<span id="continuePwnboxSwitchBtnText">Continue</span>
+<div class="pwnboxSwitchModalLoader spinner-border d-none" role="status">
+<span class="sr-only">Switching VPN...</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div><div id="vpnSwitchWarningModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="vpnSwitchWarningModal" aria-hidden="true" data-backdrop="static">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header text-center">
+<h2 class="d-inline-flex align-items-center text-white"><span class="font-size-18"><i class="far fa-exclamation-triangle text-danger mr-2"></i></span>Warning</h2>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true"><img src="/images/close.svg" alt="close" height="16" width="16" /></span>
+</button>
+</div>
+<div class="modal-body pt-0">
+<div class="text-left">
+<h1 class="text-white"></h1>
+<div class="text-secondary font-size-14 px-2">
+<p>
+All VM instances associated with the old VPN Server <span class="font-medium text-white">will be terminated</span> when switching to
+a new VPN server. Existing PwnBox instances
+<span class="font-medium text-white">will automatically switch</span>
+to the new VPN server.
+</p>
+<p>
+<span class="font-medium text-white">All progress you've made, will
+be lost,</span> do you want to continue?
+</p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<button type="button" id="cancelVpnSwitchBtn" class="btn cancel-btn px-5">
+Cancel
+</button>
+<button type="button" id="continueVpnSwitchBtn" class="btn continue-btn px-5 text-light">
+<span id="continueVpnSwitchBtnText">Continue</span>
+<div class="vpnSwitchModalLoader spinner-border d-none" role="status">
+<span class="sr-only">Switching VPN...</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</div><div id="solutionPreferencesModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="solutionPreferencesModal" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content pt-4 pl-4 pr-4 pb-3">
+<div class="modal-header text-center flex-column align-items-center p-0 font-size-18 font-bold">
+<img src="/images/icons/contact-support.svg" alt="contact support icon">
+<h5 class="modal-title w-100 text-white mt-2">Do you need help with this question?</h5>
+</div>
+<div class="modal-body p-0 mt-2 font-size-16">
+<div class="text-center">
+<p class="mb-0">You have the option to enable step-by-step solutions for all questions.</p>
+<p class="mb-0">You can manage this preference at any time through your profile settings.</p>
+</div>
+</div>
+<div class="modal-footer align-items-center justify-content-center p-0 mt-4 gap-12">
+<button class="btn btn-outline-secondary text-white font-medium" onclick="handleSolutionPreferencesModalAction(false)">
+Don't show Solutions
+</button>
+<button class="btn btn-success text-light font-medium" onclick="handleSolutionPreferencesModalAction(true)">
+Activate Solutions
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="streaks-container">
+</div>
+</div>
+<footer class="footer">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-6">
+</div>
+<div class="col-sm-6">
+<div class="text-sm-right d-none d-sm-block">
+Powered by &nbsp; <a href="https://www.hackthebox.com" target="_blank"><img style="margin-bottom: 1px;" src="/images/logo-htb.svg" height="20px" alt="Hack The Box logo"></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+<script src="/assets/libs/jquery/jquery.min.js"></script>
+<link rel="preload" as="style" href="https://academy.hackthebox.com/build/assets/vue-radial-progress-a171cc18.css" /><link rel="preload" as="style" href="https://academy.hackthebox.com/build/assets/app-9c6116ce.css" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/app-7a0ef707.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/lodash-4cdd6148.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vue-pusher-31bd95f4.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vue-markdown-render-a7356682.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vue-router-0fe68d5f.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vuex-6e8de79e.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vue-radial-progress-388a78c0.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/popper-cca4b372.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vuejs-countdown-timer-a77e56c8.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vue-screen-2a148c9c.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/vue2-perfect-scrollbar-479bab7f.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/main-894c550b.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/just-detect-adblock-c3d9cfa8.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/referral-2770e5b2.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/prism-c677b05a.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/detectBrowser-2863cb72.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/core-helpers-6225cbbf.js" /><link rel="modulepreload" href="https://academy.hackthebox.com/build/assets/index-2fce9ee8.js" /><link rel="stylesheet" href="https://academy.hackthebox.com/build/assets/vue-radial-progress-a171cc18.css" /><link rel="stylesheet" href="https://academy.hackthebox.com/build/assets/app-9c6116ce.css" /><script type="module" src="https://academy.hackthebox.com/build/assets/app-7a0ef707.js"></script><script type="module" src="https://academy.hackthebox.com/build/assets/main-894c550b.js"></script><script type="module" src="https://academy.hackthebox.com/build/assets/referral-2770e5b2.js"></script><script type="module" src="https://academy.hackthebox.com/build/assets/prism-c677b05a.js"></script><script type="module" src="https://academy.hackthebox.com/build/assets/detectBrowser-2863cb72.js"></script><script type="module" src="https://academy.hackthebox.com/build/assets/core-helpers-6225cbbf.js"></script>
+<script src="/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/libs/toastr/toastr.min.js"></script>
+<script>
+        $(document).ready(function() {
+            const csrfToken = 'azjoEliTuFsHTcW8RDpb2m3m4XH9Y5bsPBd9RZtg';
+            const apiToken= '2mc0cqurOkKH9Wv4eLFuTsEzSful1fRbuNSp60OqcbfT0EPrj7KsF5vA9ozCqsV7mTz5LfayhksPuM19';
+                
+            initAxios(csrfToken,apiToken);
+        });
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script type="module">
+    import { register } from '/assets/libs/core-web-components/index.js';
+      register();
+</script>
+<script>
+      let currentBrowser;
+      let isPwnboxActive = false;
+      let isTargetActive = false;
+      let vmCheckTimer;
+      let areSolutionsEnabled = false;
+      const _showSolutionsSettingSwitch = $('#showSolutionsModuleSetting');
+      const isAnnualUser = false;
+      const isAdmin = false;
+      const isCompanyAdmin = false;
+      
+      window.addEventListener('SpawnedPwnBox', () => {
+          isPwnboxActive = true;
+      }, false);
+
+      window.addEventListener('TerminatedPwnBox', () => {
+          isPwnboxActive = false;
+      }, false);
+
+      setTimeout(() => {
+          currentBrowser = window.detectBrowser();
+      }, 1000);
+
+      const AXIOS_ERROR_HANDLING_MESSAGE = 'Something went wrong, please try again later.';
+
+                setTimeout(() => {
+              initReferralScheme();
+          }, 1000);
+      
+      $('table').addClass('table table-striped text-left').wrap('<div class="table-responsive"></div>');
+
+      $('.training-module a').attr('target', '_blank').attr('rel', 'noopener nofollow');
+
+      $('.favouriteBtn').click(function () {
+          let id = $(this).data('module-id');
+
+          axios.get('/api/modules/favourite/' + id).then(response => {
+              let data = response.data;
+              if (data.fav === 1) {
+            $(this).removeClass('fa-sharp fa-solid fa-regular').addClass('fa-sharp fa-solid');
+                  toastr['success'](data.message, 'Success');
+              } else {
+            $(this).removeClass('fa-sharp fa-solid fa-regular').addClass('fa-regular');
+                  toastr['success'](data.message, 'Success');
+              }
+          }).catch(err => {
+              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+          });
+      });
+
+      function encode_utf8(string) {
+          return unescape(encodeURIComponent(string));
+      }
+
+      function checkSolutionsSettings() {
+        axios.get('/api/v2/user/settings/walkthroughs_enabled').then(response => {
+            areSolutionsEnabled = response.data.data.value;
+
+            if(areSolutionsEnabled) {
+                _showSolutionsSettingSwitch.prop('checked', true);
+            }
+        }).catch(error => {
+            toastr['error'](data.message, 'Error');
+        });
+      }
+
+      function manageSolutionsSettings(enableWriteupSettings) {
+        return axios.put('/api/v2/user/settings/walkthroughs_enabled', {
+            value: enableWriteupSettings
+        });
+      }
+
+      function handleSolutionPreferencesModalAction(enableWriteupSettings) {
+        manageSolutionsSettings(!areSolutionsEnabled).then(response => {
+            if (response.status === 204) {
+                areSolutionsEnabled = enableWriteupSettings;
+                if (areSolutionsEnabled) {
+                    // refresh page to update UI
+                    window.location.reload();
+                }
+            }
+        }).catch(error => {
+            toastr['error'](error.message, 'Error');
+        }).finally(() => {
+            $('#solutionPreferencesModal').modal('hide');
+        });
+      }
+
+      _showSolutionsSettingSwitch.on('click', () => {
+            if(isAnnualUser || isAdmin || isCompanyAdmin) {
+                _showSolutionsSettingSwitch.prop('disabled', true);
+                manageSolutionsSettings(!areSolutionsEnabled)
+                    .then(response => {
+                        if (response.status === 204) {
+                            areSolutionsEnabled = !areSolutionsEnabled;
+                             // refresh page to update UI
+                             window.location.reload();
+                        }
+                    }).catch(error => {
+                        toastr['error'](error.message, 'Error');
+                    }).finally(() => {
+                        // We add a small delay to avoid possible spam/abuse
+                        setTimeout(() => {
+                            _showSolutionsSettingSwitch.prop('disabled', false);
+                        }, 1500);
+                    });
+            }
+        });
+
+      $('.btnAnswer').click(function () {
+          let question_id = $(this).data('question-id');
+          $(this).attr('disabled', 1);
+          $(this).find('.submit-button-text').addClass('d-none');
+          $(this).find('.submit-button-loader').removeClass('d-none');
+          let utf8EncodedString = encode_utf8($('#answer' + question_id).val());
+          axios.post('/api/check/answer', {
+              answer: btoa(utf8EncodedString),
+              question_id: question_id
+          }).then(response => {
+              let data = response.data;
+              if (data.success === 0) {
+                  $(this).removeAttr('disabled');
+                  
+                  if(data.should_show_walkthrough_modal) {
+                    openSolutionPreferencesModal();
+                  }
+                  
+                  toastr['error'](data.message, 'Error');
+              } else {
+                  $(this).attr('disabled', 1);
+                  $('#answer' + question_id).attr('disabled', 1);
+                  $('#answer' + question_id).addClass('text-success');
+                  $('#hintBtn' + question_id).attr('disabled', 1);
+                  $(`.d-discord-${question_id}`).addClass('d-none');
+                  $('#questionStreakPointsText-' + question_id).addClass('d-none');
+                  toastr['success'](data.message, 'Success');
+                  completeCheck();
+              }
+              $(this).find('.submit-button-text').removeClass('d-none');
+              $(this).find('.submit-button-loader').addClass('d-none');
+          }).catch(err => {
+              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+          });
+      });
+
+      $('.btnAnswerExercise').click(function () {
+          let exercise_id = $(this).data('exercise-id');
+          $(this).attr('disabled', 1);
+          $(this).find('.submit-button-text').addClass('d-none');
+          $(this).find('.submit-button-loader').removeClass('d-none');
+          let utf8EncodedString = encode_utf8($(`#exerciseAnswer${exercise_id}`).val());
+          axios.post(`/api/check/exercise/${exercise_id}/answer`, {
+              answer: btoa(utf8EncodedString)
+          }).then(response => {
+              let data = response.data;
+              if (data.success === 0) {
+                  $(this).removeAttr('disabled');
+                  toastr['error'](data.message, 'Error');
+              } else {
+                  $(this).attr('disabled', 1);
+                  $(`#exerciseAnswer${exercise_id}`).attr('disabled', 1);
+                  $(`#exerciseAnswer${exercise_id}`).addClass('text-success');
+                  toastr['success'](data.message, 'Success');
+              }
+              $(this).find('.submit-button-text').removeClass('d-none');
+              $(this).find('.submit-button-loader').addClass('d-none');
+          }).catch(err => {
+              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+          });
+      });
+
+      $('.btnAnswerExerciseMultiple').click(function () {
+          $(this).attr('disabled', 1);
+          $(this).find('.submit-button-text').addClass('d-none');
+          $(this).find('.submit-button-loader').removeClass('d-none');
+          let exercise_id = $(this).data('exercise-id');
+          $(this).attr('disabled', 1);
+          let utf8EncodedString = $(`#exerciseAnswer${exercise_id}`).find('input:checked').val();
+          axios.post(`/api/check/exercise/${exercise_id}/answer`, {
+              answer: btoa(utf8EncodedString)
+          }).then(response => {
+              let data = response.data;
+              if (data.success === 0) {
+                  $(this).removeAttr('disabled');
+                  toastr['error'](data.message, 'Error');
+                  $(`#exerciseAnswer${exercise_id} input[type=radio]:checked`).parent().parent().find(`.exercise-answer-justification`).removeClass('d-none');
+                  $(`#exerciseAnswer${exercise_id} input[type=radio]:checked`).attr('disabled', 1);
+                  $(`#exerciseAnswer${exercise_id} input[type=radio]:checked`).parent().find('label').addClass('text-danger red');
+              } else {
+                  $(this).attr('disabled', 1);
+                  $(`#exerciseAnswer${exercise_id}`).attr('disabled', 1);
+                  $(`#exerciseAnswer${exercise_id} input[type=radio]:checked`).parent().find('label').addClass('text-success green');
+                  $(`#exerciseAnswer${exercise_id} input[type=radio]:checked`).parent().find('label').removeClass('red');
+                  $(`#exerciseAnswer${exercise_id} input[type=radio]`).attr('disabled', 1);
+                  $(`#exerciseAnswer${exercise_id} .exercise-answer-justification`).removeClass('d-none');
+                  toastr['success'](data.message, 'Success');
+              }
+              $(this).find('.submit-button-text').removeClass('d-none');
+              $(this).find('.submit-button-loader').addClass('d-none');
+          }).catch(err => {
+              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+          });
+      });
+
+      $('.reveal-modal').click(e => {
+          let id = $(e.target).data('exercise-id');
+          $(`#revealExerciseAnswer${id}`).modal('hide');
+      });
+
+      $(document).ready(function () {
+          setTimeout(() => {
+              // we add a delay before calling this function
+              // in order the axios headers to have been set
+              completeCheck();
+              checkSolutionsSettings();
+          }, 500);
+
+          setTimeout(() => {
+            $('.bootstrap-select').find('button').attr("title","");
+          }, 5000);
+          
+          $('pre').filter(function () {
+              return this.className.match(/\blanguage-/);
+          }).each(function () {
+              let heading = $(this).prevAll().closest('h1').last().text();
+
+              if (this.className === ' language-shell-session') {
+                  wrapTerminal(this, heading);
+              } else if (this.className === ' language-powershell-session') {
+                  wrapPSTerminal(this, heading);
+              } else if (this.className === ' language-cmd-session') {
+                  wrapCMDTerminal(this, heading);
+              } else if (this.className.startsWith(' language-')) {
+                  var language = this.className.split('-').pop();
+                  wrapCodeBlock(this, language);
+              }
+          });
+
+          wrapBrowser($('.website-screenshot'));
+
+          $('span:contains(\'[!bash!]\')').html('<span class="text-gray">ndefstathiou@htb</span><span class="text-success">[/htb]</span>');
+
+          let _vpnSelector = $('.vpnSelector');
+          let _selectedServer = _vpnSelector.val();
+          let _vpnLoader = $('.vpn-loader');
+
+          let _vpnSwitchWarningModal = $('#vpnSwitchWarningModal');
+          let _continueVpnSwitchBtn = $('#continueVpnSwitchBtn');
+          let _continueVpnSwitchBtnText = $('#continueVpnSwitchBtnText');
+          let _cancelVpnSwitchBtn = $('#cancelVpnSwitchBtn');
+          let _vpnSwitchWarningModalLoader = $('.vpnSwitchModalLoader');
+
+          _vpnSelector.change(function () {
+              if (isPwnboxActive) {
+                  _vpnSwitchWarningModal.modal('show');
+              } else {
+                  switchVpnServer();
+              }
+          });
+
+          function switchVpnServer() {
+              let vpnId = $('.vpnSelector option:selected').val();
+              if (!vpnId) return;
+
+              _vpnLoader.removeClass('d-none');
+              _vpnLoader.addClass('d-flex');
+              $('.bootstrap-select').addClass('d-none');
+
+              // Display button loader and disable the buttons while
+              // waiting for the request to finish
+              _continueVpnSwitchBtnText.addClass('d-none');
+              _vpnSwitchWarningModalLoader.removeClass('d-none');
+              _continueVpnSwitchBtn.addClass('disabled');
+              _cancelVpnSwitchBtn.addClass('disabled');
+              _vpnSwitchWarningModal.find('.close').addClass('disabled');
+
+              axios.post(`/api/v2/vpn-servers/${vpnId}/switch`, {}).then(response => {
+                  _vpnLoader.removeClass('d-flex');
+                  _vpnLoader.addClass('d-none');
+                  $('.bootstrap-select').removeClass('d-none');
+
+                  toastr['success']('Vpn server switched successfully', 'Success');
+                  $('.startInstanceBtn').each(function () {
+                      $(this).removeClass('disabled');
+                  });
+
+                  _vpnSwitchWarningModal.modal('hide');
+                  _continueVpnSwitchBtnText.removeClass('d-none');
+                  _vpnSwitchWarningModalLoader.addClass('d-none');
+                  _continueVpnSwitchBtn.removeClass('disabled');
+                  _cancelVpnSwitchBtn.removeClass('disabled');
+                  _vpnSwitchWarningModal.find('.close').removeClass('disabled');
+
+                  if (isTargetActive) {
+                      $('.target').html('<i class="fad fa-circle-notch fa-spin"></i> Target is spawning...');
+                      $('.targetIp').html('<i class="fad fa-circle-notch fa-spin"></i>');
+                      $('.resetTargetBtn').hide();
+                      $('.resetTargetBtn').prop('disabled', true);
+
+                      vmCheckTimer = setInterval(function () {
+                          window.checkMultipleVMs();
+                      }, 5 * 1000);
+                  }
+
+              }).catch(err => {
+                  clearInterval(vmCheckTimer);
+                  _vpnLoader.removeClass('d-flex');
+                  _vpnLoader.addClass('d-none');
+                  $('.bootstrap-select').removeClass('d-none');
+                  toastr['error'](err.response.data.message, 'Error');
+                  _vpnSelector.val(_selectedServer);
+                  $('.selectpicker').selectpicker('refresh')
+                  _vpnSwitchWarningModal.modal('hide');
+                  _continueVpnSwitchBtnText.removeClass('d-none');
+                  _vpnSwitchWarningModalLoader.addClass('d-none');
+                  _continueVpnSwitchBtn.removeClass('disabled');
+                  _cancelVpnSwitchBtn.removeClass('disabled');
+                  _vpnSwitchWarningModal.find('.close').removeClass('disabled');
+              });
+          }
+
+          _continueVpnSwitchBtn.on('click', () => {
+              switchVpnServer();
+          });
+
+          _vpnSwitchWarningModal.find('.close').on('click', () => {
+              _vpnSelector.val(_selectedServer);
+              _vpnSwitchWarningModal.modal('hide');
+          });
+
+          _cancelVpnSwitchBtn.on('click', () => {
+              _vpnSelector.val(_selectedServer);
+              _vpnSwitchWarningModal.modal('hide');
+          });
+
+          _vpnSwitchWarningModal.on('hidden.bs.modal', () => {
+              _continueVpnSwitchBtnText.removeClass('d-none');
+              _vpnSwitchWarningModalLoader.addClass('d-none');
+
+              // Reset button state on modal close
+              _continueVpnSwitchBtn.removeClass('disabled');
+              _cancelVpnSwitchBtn.removeClass('disabled');
+              _vpnSwitchWarningModal.find('.close').removeClass('disabled');
+          });
+
+      });
+
+      $('.download-vpn-settings').click(() => {
+          let type = 'regular';
+          let protocol = $('input[name="vpn-protocol"]:checked').val();
+          axios.get(`/api/v2/vpn-servers/key/download?type=${type}&protocol=${protocol}`).then(response => {
+              const url = window.URL.createObjectURL(new Blob([response.data]));
+              const link = document.createElement('a');
+              link.href = url;
+              link.setAttribute('download', `academy-${type}.ovpn`);
+              document.body.appendChild(link);
+              link.click();
+          }).catch(err => {
+              toastr['error'](err.response.data.message, 'Error');
+          });
+      });
+
+      $('#completeBtn').click(() => {
+          $('#completeBtn').addClass('disabled');
+          $('#complete-button-text').addClass('d-none');
+          $('#complete-button-loader').removeClass('d-none');
+      });
+
+      function completeCheck() {
+          axios.get('/api/check/complete/1247').then(response => {
+              let data = response.data;
+              if (data.success === 1) {
+                  if (data.completed === true) {
+                      $('#completeBtn').show();
+                      $('#completeBtnPoints').removeClass('d-none');
+                  }
+              }
+          }).catch(err => {
+              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+          });
+      }
+
+      function wrapTerminal(element, heading) {
+          $(element).css('line-height', '0px');
+          $(element).wrap('<div class="window_content"></div>')
+              .parent().wrap('<div class="window_container"></div>')
+              .prepend(`
+                      <div class='window_top'>
+                          <span class='window_dot bg-danger'></span>
+                          <span class='window_dot bg-warning'></span>
+                          <span class='window_dot bg-success'></span>
+                          <span class='window_title'>${heading}</span>
+                      </div>
+                  `);
+      }
+
+      function wrapPSTerminal(element, heading) {
+          $(element).css('background', '#012456').children().css('color', 'white');
+          $(element).css('line-height', '0px');
+          $(element).wrap('<div class="window_content"></div>')
+              .parent().wrap('<div class="window_container"></div>')
+              .prepend(`
+                      <div class='window_top'>
+                          <span class='window_dot bg-danger'></span>
+                          <span class='window_dot bg-warning'></span>
+                          <span class='window_dot bg-success'></span>
+                          <span class='window_title'>${heading}</span>
+                      </div>
+                  `);
+      }
+
+      function wrapCMDTerminal(element, heading) {
+          $(element).css('background', 'black').children().css('color', 'white');
+          $(element).css('line-height', '0px');
+          $(element).wrap('<div class="window_content"></div>')
+              .parent().wrap('<div class="window_container"></div>')
+              .prepend(`
+                      <div class='window_top'>
+                          <span class='window_dot bg-danger'></span>
+                          <span class='window_dot bg-warning'></span>
+                          <span class='window_dot bg-success'></span>
+                          <span class='window_title'>${heading}</span>
+                      </div>
+                  `);
+      }
+
+      function wrapCodeBlock(element, lang) {
+          $(element).wrap('<div class="window_content"></div>')
+              .parent().wrap('<div class="window_container"></div>')
+              .prepend('<div class="window_top">Code: <span class="text-success">' + lang + '</div>');
+      }
+
+      function wrapBrowserOld(element) {
+          $(element).css('border', '0px').css('border-radius', '0');
+          let url = element.data('url');
+          $(element).wrap('<div class="window_content"></div>')
+              .parent().wrap('<div class="window_container"></div>')
+              .prepend(`
+                      <div class='window_top'>
+                          <span class='window_dot bg-danger'></span>
+                          <span class='window_dot bg-warning'></span>
+                          <span class='window_dot bg-success'></span>
+                          <input type='text' class='website-screenshot-url' disabled value='${url}'>
+                          <span class='float-right'><i class='fa fa-home'></i></span>
+                      </div>
+                  `);
+      }
+
+      function wrapBrowser(element) {
+          $(element).css('border', '0px').css('border-radius', '0');
+
+          $(element).each(function (index, e) {
+              let url = $(e).data('url');
+              $(e).wrap('<div class="window_content"></div>')
+                  .parent().wrap('<div class="window_container"></div>')
+                  .prepend(`
+                          <div class='window_top'>
+                              <span class='mr-2'>
+                                  <i class='fa fa-arrow-circle-left'></i> <i class='fa fa-arrow-right'></i> <i class='fa fa-redo'></i> <i class='fa fa-home'></i>
+                              </span>
+                              <input type='text' class='website-screenshot-url' disabled value='${url}'>
+                              <span class='float-right'><i class='fa fa-bars'></i></span>
+                          </div>
+                      `);
+          });
+      }
+
+      // This one is used by the requestHelpModal
+      function requestHelp() {
+          let question_id = $('#requestHelpModal').data('question_id');
+          axios.post(`/api/question/${question_id}/help`)
+              .then(({ data }) => {
+                  $('#requestHelpModal').modal('hide');
+                  if (data.success == 0) {
+                      toastr['error'](data.message, 'Error');
+                      return;
+                  }
+                  toastr['success']('Request sent!', 'Success');
+              }).catch(err => {
+                  toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+              });
+      }
+
+      function openRequestModal(question_id) {
+          $('#requestHelpModal').modal('show').data('question_id', question_id);
+      }
+
+      function openSolutionPreferencesModal() {
+        $('#solutionPreferencesModal').modal('show');
+      };
+
+      function openWalkthroughModal(index, sectionTitle) {
+          let _walkthrougModal = $('#walkthroughModal');
+          const _walkthroughContent = $('#walkthroughModal').find('.training-module');
+          const _walkthroughLoader = $('.walkthrough-loader');
+          _walkthrougModal.modal('show');
+          _walkthrougModal.on('shown.bs.modal', function (event) {
+              const indexNumber = new Number(index);
+
+              _walkthroughLoader.removeClass('d-none');
+              _walkthroughLoader.addClass('d-block');
+
+              let question = `Question ${indexNumber + 1}`;
+              let element = $('h1').filter(function () {
+                  // Filter all the h1 headers, to find the exact section title
+                  return $(this).text().trim().toLowerCase() === sectionTitle.toLowerCase();
+              }).nextAll('h2').filter(function () {
+                  // then filter all the h2 headers, to find the exact question as well
+                  return $(this).text().trim().toLowerCase() === question.toLowerCase();
+              }).first();
+
+              if (element.length) {
+                  setTimeout(() => {
+                      _walkthroughLoader.addClass('d-none');
+                      _walkthroughLoader.removeClass('d-block');
+                      _walkthroughContent.removeClass('d-none');
+
+                      _walkthrougModal.animate({
+                          scrollTop: element.offset().top - _walkthrougModal.offset().top + _walkthrougModal.scrollTop()
+                      }, 500);
+                  }, 1500);
+              } else {
+                  _walkthroughLoader.addClass('d-none');
+                  _walkthroughLoader.removeClass('d-block');
+                  _walkthroughContent.removeClass('d-none');
+              }
+          });
+          _walkthrougModal.on('hidden.bs.modal', function (event) {
+              // Make sure that content gets hidden again
+              // in case the user re-opens the modal multiple times
+              _walkthroughContent.addClass('d-none');
+          });
+      }
+
+      
+      function initStreakToast(autoHideOption = true) {
+          const streakToast = $('#streak-toast');
+          streakToast.toast({ autohide: autoHideOption, delay: 20000 }).toast('show');
+      }
+
+      function initStreaksNotificationContent(streaksTemplate) {
+          return new Promise((resolve, reject) => {
+              const _streaksContainer = $('.streaks-container');
+              _streaksContainer.html(streaksTemplate);
+              resolve();
+          });
+
+      }
+</script>
+<script type="module">
+    import RFB from '/assets/libs/vnc/core/rfb.js';
+
+      let rfb;
+      let sidePreview;
+      let desktopName;
+      let pwnboxActive = false;
+
+      $(document).ready(function () {
+          getRegions();
+          const userId = '1312838';
+          Echo.private(`user-${userId}`)
+              .listen('.streak.completed', data => {
+                  initStreaksNotificationContent(data.streak_popup).then(() => {
+                      initStreakToast();
+                  });
+              })
+              .listen('.streak.progressed', data => {
+                  initStreaksNotificationContent(data.streak_popup).then(() => {
+                      initStreakToast();
+                  });
+              })
+              .listen('.streak.started', data => {
+                  const { event, current_streak } = data.streak_data;
+                  initStreaksNotificationContent(data.streak_popup).then(() => {
+                    const enableToastAutohide = event === 'streak.started' && current_streak === 0 ? false : true;
+                    initStreakToast(enableToastAutohide);
+                  });
+              });
+      });
+
+      function connectedToServer(e) {
+          status('Connected to ' + desktopName);
+          $('.fullScreenBtn').show();
+          $('.resetInstanceBtn').show();
+          $('.terminateInstanceBtn').show();
+          $('.extendInstanceBtn').show();
+          $('.instanceLoading').hide();
+          $('.instanceStart').hide();
+          $('.resetInstanceBtn').prop('disabled', false);
+          $('.fullScreenBtn').prop('disabled', false);
+          $('.extendInstanceBtn').prop('disabled', false);
+          $('.terminateInstanceBtn').prop('disabled', false);
+
+          document.querySelector('canvas').addEventListener('focus', (event) => {
+              if (currentBrowser.firefox) {
+                  window.copyToClipboard(event.target.textContent);
+              } else {
+                  navigator.clipboard.readText()
+                      .then(text => {
+                          writeToClipboard(text);
+                      })
+                      .catch(err => {
+                          console.error('Something went wrong while accessing clipboard', err);
+                      });
+              }
+          });
+      }
+
+      function disconnectedFromServer(e) {
+          status('Disconnected');
+          $('.screenPlaceholder').show();
+          stopCountdown();
+      }
+
+      function clipboardReceived(e) {
+          navigator.clipboard.writeText(e.detail.text)
+              .then(() => {
+                  // Success!
+              })
+              .catch(err => {
+                  console.error('Something went wrong while copying to clipboard.', err);
+              });
+      }
+
+      function updateDesktopName(e) {
+          desktopName = e.detail.name;
+      }
+
+      function status(text) {
+          $('#statusText').html(text);
+      }
+
+      function readQueryVariable(name) {
+          const re = new RegExp('.*[?&]' + name + '=([^&#]*)'),
+              match = document.location.href.match(re);
+
+          if (match) {
+              return decodeURIComponent(match[1]);
+          }
+
+          return null;
+      }
+
+      function writeToClipboard(text) {
+          rfb.clipboardPasteFrom(text);
+      }
+
+      let host = '';
+      let password = '';
+      let countdown = '';
+      let targetCountdown = '';
+      let targetRemainingTimeInSeconds = '';
+      let url = '';
+      let spawnInterval = null;
+
+      function getPwnbox() {
+          return new Promise((resolve, reject) => {
+              axios.get('/api/get/pwnbox').then(response => {
+                  let data = response.data;
+                  if (data.success === 1 && data.instance.status === 'ready') {
+                      host = `proxy-${data.instance.location}.htb-cloud.com/bird/${data.instance.hostname}`;
+                      password = data.instance.password;
+                      $('.lifeLeft').html(data.instance.life_remaining);
+                      startCountdown();
+                      $('.screenPlaceholder').hide();
+                      url = 'https://vnc.htb-cloud.com/index.html?host=' + host + '&password=' + password;
+                      isPwnboxActive = true;
+
+                      if (document.querySelector('wc-htb-pwnbox-selection-card')) {
+                          document.querySelector('wc-htb-pwnbox-selection-card').setAttribute('pwnbox-active', true);
+                      }
+                      connect();
+                      if (spawnInterval !== null) {
+                          clearInterval(spawnInterval);
+                      }
+                      resolve('success getting pwnbox');
+                  } else {
+                      $('.screenPlaceholder').show();
+                  }
+              }).catch(err => {
+                  toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+                  reject(err);
+              });
+          });
+      }
+
+                function extendPwnbox() {
+              axios.get('/api/extend/pwnbox').then(response => {
+                  let data = response.data;
+                  if (data.success === 1) {
+                      $('.lifeLeft').html(data.instance.life_remaining);
+                      stopCountdown().then(() => {
+                          startCountdown();
+                          toastr['success']('Time extended for 60 minutes.', 'Success');
+                      });
+                  } else {
+                      toastr['error'](data.message, 'Error');
+                  }
+
+              }).catch(err => {
+                  toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+              });
+          }
+
+      
+      function initStartCountdown() {
+          let life = parseInt($('.lifeLeft').html()) - 1;
+          $('.lifeLeft').html(life);
+      }
+
+      function startCountdown() {
+          countdown = setInterval(function () {
+              initStartCountdown();
+          }, 60 * 1000);
+      }
+
+      function stopCountdown() {
+          return new Promise((resolve) => {
+              clearInterval(countdown);
+              resolve();
+          });
+      }
+
+      function terminatePwnbox() {
+          return new Promise((resolve, reject) => {
+              $('.resetInstanceBtn').prop('disabled', true);
+              $('.terminateInstanceBtn').prop('disabled', true);
+              $('.fullScreenBtn').prop('disabled', true);
+              $('.extendInstanceBtn').prop('disabled', true);
+              $('.instanceStart').hide();
+
+              $('.instanceTerminating').show();
+
+              status('Terminating Interactive Instance...');
+
+              axios.delete('/api/terminate/pwnbox')
+                  .then(({ data }) => {
+                      if (data.success === 1) {
+                          $('.startInstanceBtn').show();
+                          $('.instanceStart').show();
+                          $('.instanceTerminating').hide();
+                          $('.resetInstanceBtn').hide();
+                          $('.terminateInstanceBtn').hide();
+                          $('.fullScreenBtn').hide();
+                          $('.extendInstanceBtn').hide();
+
+                          isPwnboxActive = false;
+
+                          $('.iterminal').addClass('d-none');
+
+                          toastr['success']('Instance has been terminated.', 'Success');
+
+                          /**
+                           *  Dispatch an event when pwnBox is terminated
+                           */
+                          var terminatePwnBoxEvent = new CustomEvent('TerminatedPwnBox');
+                          window.dispatchEvent(terminatePwnBoxEvent);
+
+                          resolve('succes terminating pwnbox');
+
+                      } else {
+                          toastr['error'](data.message, 'Error');
+                          connect();
+                          $('.resetInstanceBtn').prop('disabled', false);
+                          $('.fullScreenBtn').prop('disabled', false);
+                          $('.extendInstanceBtn').prop('disabled', false);
+                          $('.terminateInstanceBtn').prop('disabled', false);
+                      }
+                  }).catch(err => {
+                      reject(err);
+                      toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+                  });
+          }).catch(error => {
+              reject(error);
+          });
+      }
+
+      let _wcPwnbox = document.querySelector('wc-htb-pwnbox-selection-card');
+
+      function errorHandling(value) {
+          switchToRegion = value.detail[0];
+          _pwnboxSwitchWarningModal.modal('show');
+      }
+
+      function getSelectedPwnboxLocation(event) {
+          if (pwnboxActive) {
+              selectedPwnBoxLocation = currentPwnboxLocation;
+              return;
+          }
+          selectedPwnboxLocation = event.detail[0];
+      }
+
+      function getCurrentPwnboxLocation(server) {
+          currentPwnboxLocation = server;
+      }
+
+      function setCurrentPwnboxServer(server) {
+          _wcPwnbox.setAttribute('current-pwnbox', server);
+      }
+
+      let selectedPwnboxLocation;
+      let currentPwnboxLocation;
+      let switchToRegion;
+
+      let pwnboxRegions;
+
+      let _pwnboxSwitchWarningModal = $('#pwnboxSwitchWarningModal');
+      let _cancelPwnboxSwitchBtn = $('#cancelPwnboxSwitchBtn');
+      let _continuePwnboxSwitchBtn = $('#continuePwnboxSwitchBtn');
+      let _continuePwnboxSwitchBtnText = $('#continuePwnboxSwitchBtnText');
+      let _pwnboxSwitchModalLoader = $('.pwnboxSwitchModalLoader');
+
+      _cancelPwnboxSwitchBtn.on('click', () => {
+          initWcPwnbox(pwnboxRegions);
+          _pwnboxSwitchWarningModal.modal('hide');
+      });
+
+      _continuePwnboxSwitchBtn.on('click', () => {
+          _continuePwnboxSwitchBtnText.addClass('d-none');
+          _pwnboxSwitchModalLoader.removeClass('d-none');
+          _continuePwnboxSwitchBtn.addClass('disabled');
+          _cancelPwnboxSwitchBtn.addClass('disabled');
+
+          let oldCurrentPwnbox = selectedPwnboxLocation = currentPwnboxLocation = switchToRegion;
+
+          $('.screenPlaceholder').show();
+          $('.instanceStart').show();
+                    sidePreview.disconnect();
+          terminatePwnbox().then(() => {
+
+              startPwnbox().then(() => {
+                  _pwnboxSwitchWarningModal.modal('hide');
+                  _continuePwnboxSwitchBtnText.removeClass('d-none');
+                  _pwnboxSwitchModalLoader.addClass('d-none');
+                  _continuePwnboxSwitchBtn.removeClass('disabled');
+                  _cancelPwnboxSwitchBtn.removeClass('disabled');
+                  initWcPwnbox(pwnboxRegions);
+              }).catch(() => {
+                  _pwnboxSwitchWarningModal.modal('hide');
+                  _continuePwnboxSwitchBtnText.removeClass('d-none');
+                  _pwnboxSwitchModalLoader.addClass('d-none');
+                  _continuePwnboxSwitchBtn.removeClass('disabled');
+                  _cancelPwnboxSwitchBtn.removeClass('disabled');
+                  initWcPwnbox(pwnboxRegions);
+              });
+          }).catch(error => {
+              toastr['error'](error.message, 'Error');
+              currentPwnboxLocation = oldCurrentPwnbox;
+              initWcPwnbox(pwnboxRegions);
+          });
+      });
+
+      function initWcPwnbox(regions) {
+          /**
+           *  Creates pwnbox server select component
+           */
+          const pwnboxSelector = document.createElement('wc-htb-pwnbox-selection-card');
+          pwnboxSelector.setAttribute('regions', JSON.stringify(regions));
+          pwnboxSelector.setAttribute('current-pwnbox', JSON.stringify(currentPwnboxLocation));
+
+          $('.pwnbox-select-card').html(pwnboxSelector);
+          pwnboxSelector.addEventListener('getSelectedPwnboxLocation', getSelectedPwnboxLocation);
+          pwnboxSelector.addEventListener('actionNotAllowed', errorHandling);
+          selectedPwnboxLocation = currentPwnboxLocation;
+
+          if (isPwnboxActive) document.querySelector('wc-htb-pwnbox-selection-card').setAttribute('pwnbox-active', true);
+      }
+
+      function getRegions() {
+          axios.get('/api/v2/pwnbox/regions').then(response => {
+              const data = response.data.data;
+              currentPwnboxLocation = response.data.meta.currentRegion;
+              const regions = [];
+
+              const latencyPromises = data.map((region) => {
+                  const item = { name: region.title, value: region.value };
+                  // Use Promise.resolve to ensure each iteration of the loop returns a Promise
+                  return Promise.resolve()
+                      .then(() => getServerLatency(region.proxyLatencyURL))
+                      .then((response) => {
+                          item.latency = response;
+                          regions.push(item);
+                      });
+              });
+
+              pwnboxRegions = regions;
+
+              Promise.all(latencyPromises).then(() => {
+                  // This code will run after all the getServerLatency calls have completed
+
+                  initWcPwnbox(regions);
+                  /**
+                   * getting pwnbox status and setting isPwnboxActive flag
+                   * if isPwnboxActive is true we are passing the respective attribute to the web component
+                   */
+                  getPwnbox().then(() => {
+                      if (isPwnboxActive) {
+                          document.querySelector('wc-htb-pwnbox-selection-card').setAttribute('pwnbox-active', true);
+                      }
+                  });
+              })
+                  .catch((error) => {
+                      // Handle any errors that occurred during the Promise.all chain
+                      console.error('An error occurred:', error);
+                  });
+
+          }).catch(err => {
+              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+          });
+      }
+
+      function startPwnbox() {
+          return new Promise((resolve, reject) => {
+
+              $('.resetInstanceBtn').prop('disabled', true);
+              $('.fullScreenBtn').prop('disabled', true);
+              $('.extendInstanceBtn').prop('disabled', true);
+              $('.terminateInstanceBtn').prop('disabled', true);
+              $('.instanceStart').hide();
+              $('.instanceLoading').show();
+              $('.startInstanceBtn').hide();
+
+              status('Starting Interactive Instance...');
+
+              grecaptcha.ready(function () {
+                  grecaptcha.execute('6LeI6LsaAAAAAKgdStgBC6B4UVbXlpYNaYGN46Ah', { action: 'spawnPwnbox' }).then(function (token) {
+                      if (token) {
+                          axios.get(`/api/spawn/pwnbox?g-recaptcha-response=${token}&region=${selectedPwnboxLocation.value}`).then(response => {
+                              let data = response.data;
+                              if (data.success === 1) {
+                                  spawnInterval = setInterval(() => {
+                                      getPwnbox();
+                                  }, 2000);
+                              } else {
+                                  if (data.code === 1 || (data.code === 3 && isPwnboxActive)) {
+                                      $('.resetInstanceBtn').prop('disabled', false);
+                                      $('.fullScreenBtn').prop('disabled', false);
+                                      $('.extendInstanceBtn').prop('disabled', false);
+                                      $('.terminateInstanceBtn').prop('disabled', false);
+                                      connect();
+
+                                      if (data.code === 3) {
+                                          $('.instanceLoading').hide();
+                                          startCountdown();
+                                      }
+                                  } else {
+                                      $('.startInstanceBtn').show();
+                                      $('.instanceStart').show();
+                                      $('.instanceLoading').hide();
+                                  }
+
+                                  toastr['error'](data.message, 'Error');
+                              }
+                              resolve('success start pwnbox');
+                          }).catch(err => {
+                              toastr['error'](AXIOS_ERROR_HANDLING_MESSAGE, 'Error');
+                          });
+                      } else {
+                          $('.resetInstanceBtn').prop('disabled', false);
+                          $('.fullScreenBtn').prop('disabled', false);
+                          $('.extendInstanceBtn').prop('disabled', false);
+                          $('.terminateInstanceBtn').prop('disabled', false);
+                          $('.instanceStart').show();
+                          $('.instanceLoading').hide();
+                          $('.startInstanceBtn').show();
+                      }
+                  });
+              });
+          }).catch(error => {
+              reject(error);
+          });
+      }
+
+      $('.fullScreenBtn').click(function () {
+          window.open(url, '_blank');
+      });
+
+      $('.startInstanceBtn').click(function () {
+          if (!selectedPwnboxLocation?.value) {
+              toastr['warning']('Please select Pwnbox server', 'Warning');
+              return;
+          }
+          startPwnbox(selectedPwnboxLocation.value);
+      });
+
+      $('.resetInstanceBtn').click(function () {
+          $('.screenPlaceholder').show();
+          $('.instanceStart').show();
+                    sidePreview.disconnect();
+          startPwnbox(selectedPwnboxLocation.value);
+      });
+
+      $('.terminateInstanceBtn').click(function () {
+          $('.screenPlaceholder').show();
+          $('.instanceStart').show();
+                    sidePreview.disconnect();
+          terminatePwnbox();
+      });
+
+      $('.extendInstanceBtnClicker').click(function () {
+          extendPwnbox();
+      });
+
+      $('.resetTargetBtn').click(function () {
+          $('.resetTargetBtn').prop('disabled', true);
+          $('.resetTargetBtn').hide();
+          stopTargetCountdown().then(()=>{
+                                  });
+      });
+
+      
+      function connect() {
+          status('Connecting to ' + host.split('/')[2] + '...');
+
+          
+          sidePreview = new RFB(document.getElementById('sidePreview'), 'wss://' + host,
+              { credentials: { password: password } });
+
+          sidePreview.addEventListener('connect', connectedToServer);
+          sidePreview.addEventListener('disconnect', disconnectedFromServer);
+
+          sidePreview.resizeSession = false;
+          sidePreview.viewOnly = true;
+          sidePreview.scaleViewport = true;
+
+          /**
+           *  Dispatch an event when pwnBox is spawned
+           */
+          var spawnedPwnBoxEvent = new CustomEvent('SpawnedPwnBox');
+          window.dispatchEvent(spawnedPwnBoxEvent);
+      }
+
+
+            
+      
+      function calculateTimeLeftInMinutes() {
+          if (targetRemainingTimeInSeconds === null) {
+            return 0;
+          }
+          targetRemainingTimeInSeconds -= 1;
+          return Math.ceil(targetRemainingTimeInSeconds/60);
+      }
+
+      function initializeTimeLeft(remainingTime){
+        targetRemainingTimeInSeconds = remainingTime;
+        renderLifeTimeLeft();
+      }
+
+      function renderLifeTimeLeft() {
+        let life = calculateTimeLeftInMinutes();
+        
+        if (life <= 0) {
+          $('.targetLifeTimeContainer').hide();
+          clearInterval(targetCountdown);
+          resetSpawnTargetSystemText();
+        } else {
+          $('.targetLifeTime').html(life);
+        }
+      }
+
+      function startTargetCountdown() {
+          targetCountdown = setInterval(function() {
+            renderLifeTimeLeft();
+          }, 1000);
+      }
+
+      function stopTargetCountdown() {
+          return new Promise((resolve) => {
+              clearInterval(targetCountdown);
+              resolve();
+          });
+      }
+
+      function resetSpawnTargetSystemText() {
+          $('.resetTargetBtn').prop('disabled', true);
+          $('.resetTargetBtn').hide();
+          $('.targetIp').html("");
+          $('.targetLifeTimeContainer').hide();
+          $('.target').html('<span class="spawnTargetBtn" style="cursor:pointer;">Click here to spawn the target system!</span>');
+      }
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"897aa0cc18459682","version":"2024.4.1","token":"9d8cb854dbf443df9a649c27660a2bb6"}' crossorigin="anonymous"></script>
+</body>
+</html>
