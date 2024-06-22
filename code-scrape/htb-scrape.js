@@ -102,7 +102,7 @@
     markdownContent += `**Page Number:** ${pageNumber}\n\n`;
 
     // Loop through headers and pre tags in the correct order
-    const elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, pre");
+    const elements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, pre, img");
     elements.forEach((el) => {
       if (el.tagName.startsWith("H")) {
         const headerLevel = parseInt(el.tagName.substring(1));
@@ -114,10 +114,15 @@
           .querySelector("code")
           .className.replace("language-", "");
         //if language-shell-session, change to shell
-        if (codeLang === "shell-session") {
+        if (codeLang === "shell session") {
           codeLang = "shell";
         }
         markdownContent += `\`\`\`${codeLang}\n${el.innerText.trim()}\n\`\`\`\n\n`;
+     // only add images with src beginning with https://academy.hackthebox.com/storage/
+      } else if (el.tagName === "IMG" && el.src.startsWith("https://academy.hackthebox.com/storage/") {
+        let imgSrc = el.src;
+        // add markdown image with source
+        markdownContent += `![${imgSrc}](${imgSrc})\n\n`;
       }
     });
 
@@ -185,7 +190,8 @@
 })();
 
 // TODO:
-// - [ ] Add images to the markdown content
+// - [x] Add images to the markdown content
+// - [x] fix shelll session code block
 // - [ ] Fix Header levels in the markdown content
 // - [ ] Add the cheat sheet content to the markdown
 // - [ ] Add questions to the markdown content
