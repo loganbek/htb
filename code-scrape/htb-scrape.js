@@ -119,7 +119,7 @@
         }
         markdownContent += `\`\`\`${codeLang}\n${el.innerText.trim()}\n\`\`\`\n\n`;
      // only add images with src beginning with https://academy.hackthebox.com/storage/
-      } else if (el.tagName === "IMG" && el.src.startsWith("https://academy.hackthebox.com/storage/") {
+      } else if (el.tagName === "IMG" && el.src.startsWith("https://academy.hackthebox.com/storage/")) {
         let imgSrc = el.src;
         // add markdown image with source
         markdownContent += `![${imgSrc}](${imgSrc})\n\n`;
