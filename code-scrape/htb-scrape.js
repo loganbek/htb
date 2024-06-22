@@ -107,7 +107,7 @@
       if (el.tagName.startsWith("H")) {
         const headerLevel = parseInt(el.tagName.substring(1));
         markdownContent += `${"#".repeat(
-          headerLevel
+          headerLevel+1
         )} ${el.innerText.trim()}\n\n`;
       } else if (el.tagName === "PRE") {
        let codeLang = el
@@ -192,7 +192,7 @@
 // TODO:
 // - [x] Add images to the markdown content
 // - [x] fix shelll session code block
-// - [ ] Fix Header levels in the markdown content
+// - [x] Fix Header levels in the markdown content
 // - [ ] Add the cheat sheet content to the markdown
 // - [ ] Add questions to the markdown content
 // - [ ] Add answers to the markdown content
