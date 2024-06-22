@@ -107,7 +107,7 @@
       if (el.tagName.startsWith("H")) {
         const headerLevel = parseInt(el.tagName.substring(1));
         markdownContent += `${"#".repeat(
-          headerLevel+1
+          headerLevel
         )} ${el.innerText.trim()}\n\n`;
       } else if (el.tagName === "PRE") {
        let codeLang = el
