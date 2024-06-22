@@ -183,3 +183,10 @@
 
   parseContent();
 })();
+
+// TODO:
+// - [ ] Add images to the markdown content
+// - [ ] Fix Header levels in the markdown content
+// - [ ] Add the cheat sheet content to the markdown
+// - [ ] Add questions to the markdown content
+// - [ ] Add answers to the markdown content
