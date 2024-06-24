@@ -21,6 +21,8 @@
 
 ## Avoiding Outdated Components
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_deprecated_warning.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_deprecated_warning.jpg)
+
 ## Using Safe XML Configurations
 
 ####

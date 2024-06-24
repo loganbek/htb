@@ -19,7 +19,11 @@
 
 # Chaining IDOR Vulnerabilities
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_get_api.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_get_api.jpg)
+
 ## Information Disclosure
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_get_another_user.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_get_another_user.jpg)
 
 ``` json
 {
@@ -34,6 +38,10 @@
 
 ## Modifying Other Users' Details
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_modify_another_user.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_modify_another_user.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_new_another_user_details.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_new_another_user_details.jpg)
+
 ## Chaining Two IDOR Vulnerabilities
 
 ``` json
@@ -47,6 +55,8 @@
 }
 ```
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_modify_our_role.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_modify_our_role.jpg)
+
 ``` json
 {
     "uid": "1",
@@ -57,6 +67,10 @@
     "about": "A Release is like a boat. 80% of the holes plugged is not good enough."
 }
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_create_new_user_2.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_create_new_user_2.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_get_new_user.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_get_new_user.jpg)
 
 # 
 

@@ -23,6 +23,12 @@
 
 ## Identifying Insecure APIs
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_employee_manager.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_employee_manager.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_edit_profile.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_edit_profile.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_update_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_update_request.jpg)
+
 ``` json
 {
     "uid": 1,
@@ -35,6 +41,14 @@
 ```
 
 ## Exploiting Insecure APIs
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_uid_mismatch.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_uid_mismatch.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_uuid_mismatch.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_uuid_mismatch.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_create_new_user_1.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_create_new_user_1.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_invalid_role.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_invalid_role.jpg)
 
 # 
 

