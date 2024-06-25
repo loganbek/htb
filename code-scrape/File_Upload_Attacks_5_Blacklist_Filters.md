@@ -23,6 +23,8 @@
 
 ## Blacklisting Extensions
 
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_disallowed_type.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_disallowed_type.jpg)
+
 ``` php
 $fileName = basename($_FILES["uploadFile"]["name"]);
 $extension = pathinfo($fileName, PATHINFO_EXTENSION);
@@ -36,7 +38,15 @@ if (in_array($extension, $blacklist)) {
 
 ## Fuzzing Extensions
 
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_burp_fuzz_extension.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_burp_fuzz_extension.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_burp_intruder_result.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_burp_intruder_result.jpg)
+
 ## Non-Blacklisted Extensions
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_php5_web_shell.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_php5_web_shell.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg)
 
 # 
 

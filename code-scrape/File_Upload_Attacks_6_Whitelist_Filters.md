@@ -7,7 +7,7 @@
 // Module Difficulty: Medium
 // Section ID: 1289
 // Section Title: Whitelist Filters
-// Page Title: File Upload Attacks
+// Page Title: Hack The Box - Academy
 // Page Number: 6
 -->
 
@@ -15,11 +15,17 @@
 
 **Module Name:** File Upload Attacks **Page Number:** 6
 
+#### 
+
 #### FILE UPLOAD ATTACKS
 
 # Whitelist Filters
 
 ## Whitelisting Extensions
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_whitelist_message.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_whitelist_message.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_whitelist_fuzz.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_whitelist_fuzz.jpg)
 
 ``` php
 $fileName = basename($_FILES["uploadFile"]["name"]);
@@ -32,6 +38,10 @@ if (!preg_match('^.*\.(jpg|jpeg|png|gif)', $fileName)) {
 
 ## Double Extensions
 
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_double_ext_request.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_double_ext_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg)
+
 ``` php
 if (!preg_match('/^.*\.(jpg|jpeg|png|gif)$/', $fileName)) { ...SNIP... }
 ```
@@ -43,6 +53,10 @@ if (!preg_match('/^.*\.(jpg|jpeg|png|gif)$/', $fileName)) { ...SNIP... }
     SetHandler application/x-httpd-php
 </FilesMatch>
 ```
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_reverse_double_ext_request.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_reverse_double_ext_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg)
 
 ## Character Injection
 

@@ -23,6 +23,8 @@
 
 ## Content-Type
 
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_content_type_upload.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_content_type_upload.jpg)
+
 ``` php
 $type = $_FILES['uploadFile']['type'];
 
@@ -36,6 +38,10 @@ if (!in_array($type, array('image/jpg', 'image/jpeg', 'image/png', 'image/gif'))
 ndefstathiou@htb[/htb]$ wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Miscellaneous/web/content-type.txt
 ndefstathiou@htb[/htb]$ cat content-type.txt | grep 'image/' > image-content-types.txt
 ```
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_content_type_request.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_content_type_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell.jpg)
 
 ## MIME-Type
 
@@ -59,6 +65,14 @@ if (!in_array($type, array('image/jpg', 'image/jpeg', 'image/png', 'image/gif'))
     die();
 }
 ```
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_content_type_request.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_content_type_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_mime_type_request.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_mime_type_request.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_mime_type.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_bypass_mime_type.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell_gif.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_php_manual_shell_gif.jpg)
 
 # 
 

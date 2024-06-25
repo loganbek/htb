@@ -23,9 +23,21 @@
 
 ## Arbitrary File Upload
 
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_file_manager.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_file_manager.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_file_selected_php_file.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_file_selected_php_file.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_file_selection_dialog.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_file_selection_dialog.jpg)
+
 ## Identifying Web Framework
 
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_wappalyzer.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_wappalyzer.jpg)
+
 ## Vulnerability Identification
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_upload_php.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_upload_php.jpg)
+
+![https://academy.hackthebox.com/storage/modules/136/file_uploads_hello_htb.jpg](https://academy.hackthebox.com/storage/modules/136/file_uploads_hello_htb.jpg)
 
 # 
 
