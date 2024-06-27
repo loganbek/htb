@@ -72,7 +72,11 @@
     let url = window.location.href;
     let platform = properties.platform;
     let platformVersion = properties.platform_version;
+    // if module id is less than 10, add 0 to the beginning
     let moduleId = properties.module_id;
+    if (moduleId < 10) {
+      moduleId = "0" + moduleId;
+    }
     let moduleDifficulty = properties.module_difficulty;
     let sectionId = properties.section_id;
     let sectionTitle = properties.section_title;
@@ -218,3 +222,4 @@
 // - [ ] Add questions to the markdown content
 // - [ ] Add answers to the markdown content
 // - [ ] Add hints to the markdown content
+// - [x] Add 0 to module id and section id if less than 10
