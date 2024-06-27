@@ -131,6 +131,19 @@
       }
     });
 
+    // // Add the questions and answers to the markdown content
+    // question
+    // span.badge:nth-child(1)
+    // answer
+    // #answer893
+    // hint
+    // #hintBtn893
+    // html body div.container-fluid div#layout-wrapper div.main-content div.page-content div.row.justify-content-xl-center div.col-md-12.col-xl-9.col-xxl-7 div.training-module div#questionsDiv.card div.card-body div div div.row div.d-flex.justify-content-end.w-100.mr-3 div.mb-4.mr-1 button#hintBtn893.btn.btn-outline-warning.btn-block
+    // click - modal 
+    // modal
+    // #hint893 > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > h6:nth-child(3)
+    // html body.modal-open div.container-fluid div#layout-wrapper div.main-content div.page-content div#hint893.modal.fade.show div.modal-dialog.modal-dialog-centered div.modal-content div.modal-body div.text-center h6
+
     // // Check for and download the cheat sheet if available
     // const cheatSheetButton = document.querySelector(
     //   'button[data-target="#cheatSheetModal"]'
@@ -183,6 +196,9 @@
           "div.container-fluid div#layout-wrapper.global-alert-visible div.main-content div.page-content div.row.justify-content-xl-center div.col-md-12.col-xl-9.col-xxl-7 div.card.bg-color-blue-nav div.card-body a.btn.btn-light.ml-2.module-button.py-2"
         )
         .click();
+      // broken next button - server side atttacks
+      // html body div.container-fluid div#layout-wrapper div.main-content div.page-content div.row.justify-content-xl-center div.col-md-12.col-xl-9.col-xxl-7 div.card.bg-color-blue-nav div.card-body a.btn.btn-light.ml-2.module-button.py-2
+      // a.btn:nth-child(3)
     }
 
     // // Example usage
@@ -201,3 +217,4 @@
 // - [ ] Add the cheat sheet content to the markdown
 // - [ ] Add questions to the markdown content
 // - [ ] Add answers to the markdown content
+// - [ ] Add hints to the markdown content
