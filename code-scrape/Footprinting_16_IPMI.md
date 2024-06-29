@@ -26,7 +26,7 @@
 #### Nmap
 
 ``` shell-session
-[!bash!]$ sudo nmap -sU --script ipmi-version -p 623 ilo.inlanfreight.local
+ndefstathiou@htb[/htb]$ sudo nmap -sU --script ipmi-version -p 623 ilo.inlanfreight.local
 
 Starting Nmap 7.92 ( https://nmap.org ) at 2021-11-04 21:48 GMT
 Nmap scan report for ilo.inlanfreight.local (172.16.2.2)

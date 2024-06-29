@@ -28,7 +28,7 @@
 #### Default Configuration
 
 ``` shell-session
-[!bash!]$ cat /etc/ssh/sshd_config  | grep -v "#" | sed -r '/^\s*$/d'
+ndefstathiou@htb[/htb]$ cat /etc/ssh/sshd_config  | grep -v "#" | sed -r '/^\s*$/d'
 
 Include /etc/ssh/sshd_config.d/*.conf
 ChallengeResponseAuthentication no
@@ -46,8 +46,8 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #### SSH-Audit
 
 ``` shell-session
-[!bash!]$ git clone https://github.com/jtesta/ssh-audit.git && cd ssh-audit
-[!bash!]$ ./ssh-audit.py 10.129.14.132
+ndefstathiou@htb[/htb]$ git clone https://github.com/jtesta/ssh-audit.git && cd ssh-audit
+ndefstathiou@htb[/htb]$ ./ssh-audit.py 10.129.14.132
 
 # general
 (gen) banner: SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.3
@@ -85,7 +85,7 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #### Change Authentication Method
 
 ``` shell-session
-[!bash!]$ ssh -v cry0l1t3@10.129.14.132
+ndefstathiou@htb[/htb]$ ssh -v cry0l1t3@10.129.14.132
 
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.3, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config 
@@ -94,7 +94,7 @@ debug1: Authentications that can continue: publickey,password,keyboard-interacti
 ```
 
 ``` shell-session
-[!bash!]$ ssh -v cry0l1t3@10.129.14.132 -o PreferredAuthentications=password
+ndefstathiou@htb[/htb]$ ssh -v cry0l1t3@10.129.14.132 -o PreferredAuthentications=password
 
 OpenSSH_8.2p1 Ubuntu-4ubuntu0.3, OpenSSL 1.1.1f  31 Mar 2020
 debug1: Reading configuration data /etc/ssh/ssh_config
@@ -110,7 +110,7 @@ cry0l1t3@10.129.14.132's password:
 #### Scanning for Rsync
 
 ``` shell-session
-[!bash!]$ sudo nmap -sV -p 873 127.0.0.1
+ndefstathiou@htb[/htb]$ sudo nmap -sV -p 873 127.0.0.1
 
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-19 09:31 EDT
 Nmap scan report for localhost (127.0.0.1)
@@ -126,7 +126,7 @@ Nmap done: 1 IP address (1 host up) scanned in 1.13 seconds
 #### Probing for Accessible Shares
 
 ``` shell-session
-[!bash!]$ nc -nv 127.0.0.1 873
+ndefstathiou@htb[/htb]$ nc -nv 127.0.0.1 873
 
 (UNKNOWN) [127.0.0.1] 873 (rsync) open
 @RSYNCD: 31.0
@@ -139,7 +139,7 @@ dev            	Dev Tools
 #### Enumerating an Open Share
 
 ``` shell-session
-[!bash!]$ rsync -av --list-only rsync://127.0.0.1/dev
+ndefstathiou@htb[/htb]$ rsync -av --list-only rsync://127.0.0.1/dev
 
 receiving incremental file list
 drwxr-xr-x             48 2022/09/19 09:43:10 .
@@ -156,7 +156,7 @@ total size is 0  speedup is 0.00
 #### /etc/hosts.equiv
 
 ``` shell-session
-[!bash!]$ cat /etc/hosts.equiv
+ndefstathiou@htb[/htb]$ cat /etc/hosts.equiv
 
 # <hostname> <local username>
 pwnbox cry0l1t3
@@ -165,7 +165,7 @@ pwnbox cry0l1t3
 #### Scanning for R-Services
 
 ``` shell-session
-[!bash!]$ sudo nmap -sV -p 512,513,514 10.0.17.2
+ndefstathiou@htb[/htb]$ sudo nmap -sV -p 512,513,514 10.0.17.2
 
 Starting Nmap 7.80 ( https://nmap.org ) at 2022-12-02 15:02 EST
 Nmap scan report for 10.0.17.2
@@ -185,7 +185,7 @@ Nmap done: 1 IP address (1 host up) scanned in 145.54 seconds
 #### Sample .rhosts File
 
 ``` shell-session
-[!bash!]$ cat .rhosts
+ndefstathiou@htb[/htb]$ cat .rhosts
 
 htb-student     10.0.17.5
 +               10.0.17.10
@@ -195,7 +195,7 @@ htb-student     10.0.17.5
 #### Logging in Using Rlogin
 
 ``` shell-session
-[!bash!]$ rlogin 10.0.17.2 -l htb-student
+ndefstathiou@htb[/htb]$ rlogin 10.0.17.2 -l htb-student
 
 Last login: Fri Dec  2 16:11:21 from localhost
 
@@ -205,7 +205,7 @@ Last login: Fri Dec  2 16:11:21 from localhost
 #### Listing Authenticated Users Using Rwho
 
 ``` shell-session
-[!bash!]$ rwho
+ndefstathiou@htb[/htb]$ rwho
 
 root     web01:pts/0 Dec  2 21:34
 htb-student     workstn01:tty1  Dec  2 19:57  2:25
@@ -214,7 +214,7 @@ htb-student     workstn01:tty1  Dec  2 19:57  2:25
 #### Listing Authenticated Users Using Rusers
 
 ``` shell-session
-[!bash!]$ rusers -al 10.0.17.5
+ndefstathiou@htb[/htb]$ rusers -al 10.0.17.5
 
 htb-student     10.0.17.5:console          Dec 2 19:57     2:25
 ```
