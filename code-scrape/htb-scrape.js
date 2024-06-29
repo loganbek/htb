@@ -72,13 +72,13 @@
     let url = window.location.href;
     let platform = properties.platform;
     let platformVersion = properties.platform_version;
-    // if module id is less than 10, add 0 to the beginning
     let moduleId = properties.module_id;
-    if (moduleId < 10) {
-      moduleId = "0" + moduleId;
-    }
     let moduleDifficulty = properties.module_difficulty;
     let sectionId = properties.section_id;
+    // if section id is less than 10, add 0 to the beginning
+    if (sectionId < 10) {
+      sectionId = `0${sectionId}`;
+    }
     let sectionTitle = properties.section_title;
     let pageTitle = document.title.trim();
     let moduleName = properties.module_name;
