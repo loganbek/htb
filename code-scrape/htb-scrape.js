@@ -75,10 +75,6 @@
     let moduleId = properties.module_id;
     let moduleDifficulty = properties.module_difficulty;
     let sectionId = properties.section_id;
-    // if section id is less than 10, add 0 to the beginning
-    if (sectionId < 10) {
-      sectionId = `0${sectionId}`;
-    }
     let sectionTitle = properties.section_title;
     let pageTitle = document.title.trim();
     let moduleName = properties.module_name;
@@ -89,6 +85,10 @@
       "Page ",
       ""
     );
+    // if page number is less than 10, add a 0 in front
+    if (pageNumber < 10) {
+      pageNumber = "0" + pageNumber;
+    }
     let propertiesComments = `<!--\n // Platform: ${platform}\n`;
     propertiesComments += `// URL: ${url}\n`;
     propertiesComments += `// Platform Version: ${platformVersion}\n`;
