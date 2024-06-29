@@ -119,11 +119,14 @@
         let codeLang = el
           .querySelector("code")
           .className.replace("language-", "");
-        //if language-shell-session, change to shell
+        let codeBlock = el.innerText.trim();
+          //if language-shell-session, change to shell
         if (codeLang === "shell session") {
           codeLang = "shell";
+          //if shell remove ndefstathiou@htb[/htb]$ from the code block
+          codeBlock = codeBlock.replace(/ndefstathiou@htb\[\/htb\]\$/g, "");
         }
-        markdownContent += `\`\`\`${codeLang}\n${el.innerText.trim()}\n\`\`\`\n\n`;
+        markdownContent += `\`\`\`${codeLang}\n${codeBlock}\n\`\`\`\n\n`;
         // only add images with src beginning with https://academy.hackthebox.com/storage/
       } else if (
         el.tagName === "IMG" &&
@@ -238,4 +241,4 @@
 // - [ ] Add answers to the markdown content
 // - [ ] Add hints to the markdown content
 // - [x] Add 0 to module id and section id if less than 10
-// - [ ] remove ndefstathiou@htb[/htb]$ from shell code blocks for easier copy and paste
+// - [x] remove ndefstathiou@htb[/htb]$ from shell code blocks for easier copy and paste
