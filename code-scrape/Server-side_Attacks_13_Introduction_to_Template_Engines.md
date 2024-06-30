@@ -91,7 +91,7 @@ if __name__ == "__main__":
 #### cURL - Interacting with the Target
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ curl -gis 'http://127.0.0.1:5000/hello?name={{7*7}}'
+[!bash!]$ curl -gis 'http://127.0.0.1:5000/hello?name={{7*7}}'
 
 HTTP/1.0 200 OK
 Content-Type: text/html; charset=utf-8
