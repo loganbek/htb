@@ -125,6 +125,8 @@
           codeLang = "shell";
           //if shell remove ndefstathiou@htb[/htb]$ from the code block
           codeBlock = codeBlock.replace(/ndefstathiou@htb\[\/htb\]\$/g, "");
+          //if shell remove [!bash!]$ from the code block
+          codeBlock = codeBlock.replace(/\[!bash!\]\$/g, "");
         }
         markdownContent += `\`\`\`${codeLang}\n${codeBlock}\n\`\`\`\n\n`;
         // only add images with src beginning with https://academy.hackthebox.com/storage/
