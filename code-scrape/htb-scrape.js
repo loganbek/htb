@@ -118,7 +118,7 @@
       } else if (el.tagName === "PRE") {
         let codeLang = el
           .querySelector("code")
-          .className.replace("language-", "");
+          ?.className.replace("language-", "");
         let codeBlock = el.innerText.trim();
           //if language-shell-session, change to shell
         if (codeLang === "shell session") {
