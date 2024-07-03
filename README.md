@@ -92,3 +92,28 @@
 - [GET](https://academy.hackthebox/module/35/section/)
 - [POST](https://academy.hackthebox/module/35/section/)
 - [CRUD API](https://academy.hackthebox/module/35/section/)
+
+## TODO:
+- [ ] Prioritize 
+
+- [ ] CPTS Exam
+- [ ] Auto Generate TOC's for code-scrape materials
+- [ ] Add more modules
+- [ ] Automate running script, open browser, and navigating instead of copy and pasting script into console.
+
+## AI Tools
+    - [ ] 
+
+## Tools
+    - [ ] Kali/Parrot Install
+    - [ ] Kali/Parrot Live USB
+    - [ ] Windows Install
+    - [ ] HackBat, Flipper Zero, or W***
+    - [ ] Raspberry Pi 400 - black hole, server, and attack box setup.
+    - [ ] Raspberry Pi Pic - bad usb
+    - [ ] Raspberry Pi Zero W w/ battery bank
+    - [ ] Alpha wifi adapter
+    - [x] deauthor watch
+    - [ ] saudering iron
+    - [ ] wifi pineapple mac 7 or nano?
+
