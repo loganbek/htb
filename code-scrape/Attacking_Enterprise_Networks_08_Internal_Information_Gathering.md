@@ -8,12 +8,12 @@
 // Section ID: 1547
 // Section Title: Internal Information Gathering
 // Page Title: Hack The Box - Academy
-// Page Number: 8
+// Page Number: 08
 -->
 
 # Internal Information Gathering
 
-**Module Name:** Attacking Enterprise Networks **Page Number:** 8
+**Module Name:** Attacking Enterprise Networks **Page Number:** 08
 
 #### 
 

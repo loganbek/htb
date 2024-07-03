@@ -8,12 +8,12 @@
 // Section ID: 1542
 // Section Title: Scenario & Kickoff
 // Page Title: Attacking Enterprise Networks
-// Page Number: 2
+// Page Number: 02
 -->
 
 # Scenario & Kickoff
 
-**Module Name:** Attacking Enterprise Networks **Page Number:** 2
+**Module Name:** Attacking Enterprise Networks **Page Number:** 02
 
 #### ATTACKING ENTERPRISE NETWORKS
 

@@ -8,12 +8,12 @@
 // Section ID: 1543
 // Section Title: External Information Gathering
 // Page Title: Hack The Box - Academy
-// Page Number: 3
+// Page Number: 03
 -->
 
 # External Information Gathering
 
-**Module Name:** Attacking Enterprise Networks **Page Number:** 3
+**Module Name:** Attacking Enterprise Networks **Page Number:** 03
 
 #### 
 
@@ -22,7 +22,7 @@
 # External Information Gathering
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ sudo nmap --open -oA inlanefreight_ept_tcp_1k -iL scope 
+[!bash!]$ sudo nmap --open -oA inlanefreight_ept_tcp_1k -iL scope 
 
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-06-20 14:56 EDT
 Nmap scan report for 10.129.203.101
@@ -45,7 +45,7 @@ Nmap done: 1 IP address (1 host up) scanned in 2.25 seconds
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ sudo nmap --open -p- -A -oA inlanefreight_ept_tcp_all_svc -iL scope
+[!bash!]$ sudo nmap --open -p- -A -oA inlanefreight_ept_tcp_all_svc -iL scope
 
 Starting Nmap 7.92 ( https://nmap.org ) at 2022-06-20 15:27 EDT
 Nmap scan report for 10.129.203.101
@@ -160,7 +160,7 @@ Nmap done: 1 IP address (1 host up) scanned in 84.91 seconds
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ egrep -v "^#|Status: Up" inlanefreight_ept_tcp_all_svc.gnmap | cut -d ' ' -f4- | tr ',' '\n' | \                                                               
+[!bash!]$ egrep -v "^#|Status: Up" inlanefreight_ept_tcp_all_svc.gnmap | cut -d ' ' -f4- | tr ',' '\n' | \                                                               
 sed -e 's/^[ \t]*//' | awk -F '/' '{print $7}' | grep -v "^$" | sort | uniq -c \
 | sort -k 1 -nr
 
@@ -174,7 +174,7 @@ sed -e 's/^[ \t]*//' | awk -F '/' '{print $7}' | grep -v "^$" | sort | uniq -c \
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ dig axfr inlanefreight.local @10.129.203.101
+[!bash!]$ dig axfr inlanefreight.local @10.129.203.101
 
 ; <<>> DiG 9.16.27-Debian <<>> axfr inlanefreight.local @10.129.203.101
 ;; global options: +cmd
@@ -198,13 +198,13 @@ inlanefreight.local.	86400	IN	SOA	ns1.inlanfreight.local. dnsadmin.inlanefreight
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ curl -s -I http://10.129.203.101 -H "HOST: defnotvalid.inlanefreight.local" | grep "Content-Length:"
+[!bash!]$ curl -s -I http://10.129.203.101 -H "HOST: defnotvalid.inlanefreight.local" | grep "Content-Length:"
 
 Content-Length: 15157
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ ffuf -w namelist.txt:FUZZ -u http://10.129.203.101/ -H 'Host:FUZZ.inlanefreight.local' -fs 15157
+[!bash!]$ ffuf -w namelist.txt:FUZZ -u http://10.129.203.101/ -H 'Host:FUZZ.inlanefreight.local' -fs 15157
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -244,7 +244,7 @@ vpn                     [Status: 200, Size: 1578, Words: 414, Lines: 35, Duratio
 ## Enumeration Results
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ sudo tee -a /etc/hosts > /dev/null <<EOT
+[!bash!]$ sudo tee -a /etc/hosts > /dev/null <<EOT
 
 ## inlanefreight hosts 
 10.129.203.101 inlanefreight.local blog.inlanefreight.local careers.inlanefreight.local dev.inlanefreight.local gitlab.inlanefreight.local ir.inlanefreight.local status.inlanefreight.local support.inlanefreight.local tracking.inlanefreight.local vpn.inlanefreight.local

