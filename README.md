@@ -23,19 +23,26 @@
 ### [Setting Up](https://academy.hackthebox.com/module/details/87)
 
 ### [Getting Started](https://academy.hackthebox.com/module/details/77)
+
 - [Infosec Overview](https://academy.hackthebox.com/module/77/section/721)
 - [
 
 ### [Linux Fundamentals](https://academy.hackthebox.com/module/details/18)
+
 #### Introduction
+
 - [Linux Structure]
 - [Linux Distributions]
 - [Introduction to Shell]
+
 #### The Shell
+
 - [Prompt Description]
 - [Getting Help]
 - [x] [System Information]
+
 #### Workflow
+
 - [x] [Navigation]
 - [x] [Working with Files and Directories]
 - [x] [Editing Files]
@@ -44,7 +51,9 @@
 - [ ] [Filter Contents]
 - [x] [Regular Expressions]
 - [x] [Permission Management]
+
 #### System Management
+
 - [x] [User Managment]
 - [x] [Package Management]
 - [x] [Service and Process Management]
@@ -54,36 +63,52 @@
 - [x] [Backup and Restore]
 - [x] [File System Management]
 - [x] [Containerization]
+
 #### Linux Networking
+
 - [x] [Network Configuration]
 - [Remote Desktop Protocols in Linux]
+
 #### Linux Hardening
+
 - [Linux Security]
 - [x] Firewall Setup
 - [x] System Logs and Monitoring
+
 #### Linux Distributions vs Solaris
+
 - [Solaris]
+
 #### Tips & Tricks
-- [Shortcuts] 
+
+- [Shortcuts]
 
 ### [Windows Fundamentals](https://academy.hackthebox.com/module/details/49)
 
 ### [MacOS Fundamentals](https://academy.hackthebox.com/module/details/157)
+
 ####
+
 - [x] [What is macOS](https://academy.hackthebox/module/157/section/)
+
 #### Mac OS Basic Usage
+
 - [ ] [Graphical User Interface](https://academy.hackthebox/module/157/section/)
 - [ ] [Navigating Around The OS](https://academy.hackthebox/module/157/section/)
 - [ ] [System Hierarchy](https://academy.hackthebox/module/157/section/)
 - [ ] [File and Directory Permissions](https://academy.hackthebox/module/157/section/)
 - [Networking](https://academy.hackthebox/module/157/section/)
+
 #### Extending macOS
+
 - [ ] [Application Management](https://academy.hackthebox/module/157/section/)
 - [Security Tips](https://academy.hackthebox/module/157/section/)
 - [ ] [Mac OS Terminal](https://academy.hackthebox/module/157/section/)
 - [Productivity Tips](https://academy.hackthebox/module/157/section/)
 - [MacOS Automation](https://academy.hackthebox/module/157/section/)
+
 ### [Web Requests](https://academy.hackthebox.com/module/details/35)
+
 - [HyperText Transfer Protocol (HTTP)](https://academy.hackthebox/module/35/section/)
 - [HyperText Transfer Protocol Secure (HTTPS)](https://academy.hackthebox/module/35/section/)
 - [HTTP Requests and Responses](https://academy.hackthebox/module/35/section/)
@@ -94,26 +119,45 @@
 - [CRUD API](https://academy.hackthebox/module/35/section/)
 
 ## TODO:
-- [ ] Prioritize 
+
+- [ ] Prioritize
 
 - [ ] CPTS Exam
 - [ ] Auto Generate TOC's for code-scrape materials
 - [ ] Add more modules
 - [ ] Automate running script, open browser, and navigating instead of copy and pasting script into console.
+- [ ] old notes
+
+## HTB-scrape.js
+
+## CPTS Exam Prep
+
+- [ ] do attacking enterprise networks module blind
+- [ ] do AD module
+
+## Software Tools (2 Learn)
+
+- [ ] Tmux
+- [ ] Copilot
+- [ ] VSCode
 
 ## AI Tools
-    - [ ] 
 
-## Tools
-    - [ ] Kali/Parrot Install
-    - [ ] Kali/Parrot Live USB
-    - [ ] Windows Install
-    - [ ] HackBat, Flipper Zero, or W***
-    - [ ] Raspberry Pi 400 - black hole, server, and attack box setup.
-    - [ ] Raspberry Pi Pic - bad usb
-    - [ ] Raspberry Pi Zero W w/ battery bank
-    - [ ] Alpha wifi adapter
-    - [x] deauthor watch
-    - [ ] saudering iron
-    - [ ] wifi pineapple mac 7 or nano?
+- [ ] Secator
+- [ ] FraudGPT
+- [ ] Kismet
+- [ ] Rainbow Crack
 
+## Hacking Hardware Tools
+
+- [ ] Kali/Parrot Install
+- [ ] Kali/Parrot Live USB
+- [ ] Windows Install
+- [ ] HackBat, Flipper Zero, or W\*\*\*
+- [ ] Raspberry Pi 400 - black hole, server, and attack box setup.
+- [ ] Raspberry Pi Pic - bad usb
+- [ ] Raspberry Pi Zero W w/ battery bank
+- [ ] Alpha wifi adapter
+- [x] deauthor watch
+- [ ] saudering iron
+- [ ] wifi pineapple mac 7 or nano?
