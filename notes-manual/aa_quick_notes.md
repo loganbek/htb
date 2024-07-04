@@ -1618,3 +1618,9 @@ What kind of session identifier does the application employ? Answer options (wit
 # Go through the PCAP file residing in the admin's public profile and identify the flag. Answer format: FLAG{string}
 
 ```
+
+ssh htb-student@10.129.115.14 
+HTB_@cademy_stdnt!
+
+
+/home/htb-student/mem_status.py
