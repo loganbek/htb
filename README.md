@@ -24,8 +24,8 @@
 
 ### PASS1
 - [ ] Password Attacks
-- [ ] Attacking Common Services
-- [ ] Attacking Common Applications
+- [x] Attacking Common Services
+- [x] Attacking Common Applications
 - [ ] Pivoting Tunneling and Port Forwarding
 - [x] Windows priv esc
 - [ ] AD Enumeration + attacks
@@ -145,6 +145,17 @@
 - [ ] Secure Coding 101: JS
 - [ ] Active Directory Powerview
 
+## Exams
+
+## Machines
+
+## Fortresses
+
+## Endgames
+
+## Prolabs
+
+
 ## Software Tools (2 Learn)
 
 - [ ] Tmux
@@ -175,5 +186,3 @@ o
 ## MISC IDEAS
 - [ ] EOL systems + incremental monitoring + alerts tool -> search
 - [ ] HTB Module Change Log + Alerts
-
-- [ ] ssid pass - Kxefqj1!
