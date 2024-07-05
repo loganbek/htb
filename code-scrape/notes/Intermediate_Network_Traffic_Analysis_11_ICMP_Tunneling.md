@@ -23,12 +23,28 @@
 
 ## Basics of Tunneling
 
+![https://academy.hackthebox.com/storage/modules/229/basic-tunnel-1.png](https://academy.hackthebox.com/storage/modules/229/basic-tunnel-1.png)
+
 ## ICMP Tunneling
+
+![https://academy.hackthebox.com/storage/modules/229/icmp_ping_example.jpg](https://academy.hackthebox.com/storage/modules/229/icmp_ping_example.jpg)
 
 ## Finding ICMP Tunneling
 
+![https://academy.hackthebox.com/storage/modules/229/1-ICMP-tunneling.png](https://academy.hackthebox.com/storage/modules/229/1-ICMP-tunneling.png)
+
+![https://academy.hackthebox.com/storage/modules/229/2-ICMP-tunneling.png](https://academy.hackthebox.com/storage/modules/229/2-ICMP-tunneling.png)
+
+![https://academy.hackthebox.com/storage/modules/229/3-ICMP-tunneling.png](https://academy.hackthebox.com/storage/modules/229/3-ICMP-tunneling.png)
+
+![https://academy.hackthebox.com/storage/modules/229/4-ICMP-tunneling.png](https://academy.hackthebox.com/storage/modules/229/4-ICMP-tunneling.png)
+
+![https://academy.hackthebox.com/storage/modules/229/5-ICMP-tunneling.png](https://academy.hackthebox.com/storage/modules/229/5-ICMP-tunneling.png)
+
+![https://academy.hackthebox.com/storage/modules/229/6-ICMP-tunneling.png](https://academy.hackthebox.com/storage/modules/229/6-ICMP-tunneling.png)
+
 ``` shell-session
-ndefstathiou@htb[/htb]$ echo 'VGhpcyBpcyBhIHNlY3VyZSBrZXk6IEtleTEyMzQ1Njc4OQo=' | base64 -d
+[!bash!]$ echo 'VGhpcyBpcyBhIHNlY3VyZSBrZXk6IEtleTEyMzQ1Njc4OQo=' | base64 -d
 ```
 
 ## Preventing ICMP Tunneling

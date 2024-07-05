@@ -23,8 +23,12 @@
 
 ## Finding Directory Fuzzing
 
+![https://academy.hackthebox.com/storage/modules/229/2-HTTP-Enum.png](https://academy.hackthebox.com/storage/modules/229/2-HTTP-Enum.png)
+
+![https://academy.hackthebox.com/storage/modules/229/3-HTTP-Enum.png](https://academy.hackthebox.com/storage/modules/229/3-HTTP-Enum.png)
+
 ``` shell-session
-ndefstathiou@htb[/htb]$ cat access.log | grep "192.168.10.5"
+[!bash!]$ cat access.log | grep "192.168.10.5"
 
 192.168.10.5 - - [18/Jul/2023:12:58:07 -0600] "GET /randomfile1 HTTP/1.1" 404 435 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
 192.168.10.5 - - [18/Jul/2023:12:58:07 -0600] "GET /frand2 HTTP/1.1" 404 435 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
@@ -39,7 +43,7 @@ ndefstathiou@htb[/htb]$ cat access.log | grep "192.168.10.5"
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ cat access.log | awk '$1 == "192.168.10.5"'
+[!bash!]$ cat access.log | awk '$1 == "192.168.10.5"'
 
 192.168.10.5 - - [18/Jul/2023:12:58:07 -0600] "GET /randomfile1 HTTP/1.1" 404 435 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
 192.168.10.5 - - [18/Jul/2023:12:58:07 -0600] "GET /frand2 HTTP/1.1" 404 435 "-" "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
@@ -57,6 +61,10 @@ ndefstathiou@htb[/htb]$ cat access.log | awk '$1 == "192.168.10.5"'
 ```
 
 ## Finding Other Fuzzing Techniques
+
+![https://academy.hackthebox.com/storage/modules/229/4-HTTP-Enum.png](https://academy.hackthebox.com/storage/modules/229/4-HTTP-Enum.png)
+
+![https://academy.hackthebox.com/storage/modules/229/4a-HTTP-Enum.png](https://academy.hackthebox.com/storage/modules/229/4a-HTTP-Enum.png)
 
 ## Preventing Fuzzing Attempts
 

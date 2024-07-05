@@ -7,7 +7,7 @@
 // Module Difficulty: Easy
 // Section ID: 2464
 // Section Title: Strange HTTP Headers
-// Page Title: Hack The Box - Academy
+// Page Title: Intermediate Network Traffic Analysis
 // Page Number: 13
 -->
 
@@ -15,15 +15,25 @@
 
 **Module Name:** Intermediate Network Traffic Analysis **Page Number:** 13
 
-#### 
-
 #### INTERMEDIATE NETWORK TRAFFIC ANALYSIS
 
 # Strange HTTP Headers
 
 ## Finding Strange Host Headers
 
+![https://academy.hackthebox.com/storage/modules/229/1-http-headers.png](https://academy.hackthebox.com/storage/modules/229/1-http-headers.png)
+
+![https://academy.hackthebox.com/storage/modules/229/2-http-headers.png](https://academy.hackthebox.com/storage/modules/229/2-http-headers.png)
+
+![https://academy.hackthebox.com/storage/modules/229/3-http-headers.png](https://academy.hackthebox.com/storage/modules/229/3-http-headers.png)
+
+![https://academy.hackthebox.com/storage/modules/229/4-http-headers.png](https://academy.hackthebox.com/storage/modules/229/4-http-headers.png)
+
 ## Analyzing Code 400s and Request Smuggling
+
+![https://academy.hackthebox.com/storage/modules/229/6-http-headers.png](https://academy.hackthebox.com/storage/modules/229/6-http-headers.png)
+
+![https://academy.hackthebox.com/storage/modules/229/5-http-headers.png](https://academy.hackthebox.com/storage/modules/229/5-http-headers.png)
 
 ``` url-decoded
 GET /login.php?id=1 HTTP/1.1

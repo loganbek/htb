@@ -25,7 +25,11 @@
 
 ## TLS and SSL Handshakes
 
+![https://academy.hackthebox.com/storage/modules/229/tls-ssl-handshake.png](https://academy.hackthebox.com/storage/modules/229/tls-ssl-handshake.png)
+
 ## Diving into SSL Renegotiation Attacks
+
+![https://academy.hackthebox.com/storage/modules/229/1-HTTPs.png](https://academy.hackthebox.com/storage/modules/229/1-HTTPs.png)
 
 # 
 

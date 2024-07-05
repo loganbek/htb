@@ -21,6 +21,10 @@
 
 # Cross-Site Scripting (XSS) & Code Injection Detection
 
+![https://academy.hackthebox.com/storage/modules/229/1-XSS.png](https://academy.hackthebox.com/storage/modules/229/1-XSS.png)
+
+![https://academy.hackthebox.com/storage/modules/229/2-XSS_.png](https://academy.hackthebox.com/storage/modules/229/2-XSS_.png)
+
 ``` javascript
 <script>
   window.addEventListener("load", function() {

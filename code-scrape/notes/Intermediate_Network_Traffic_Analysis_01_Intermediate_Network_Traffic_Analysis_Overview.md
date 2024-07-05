@@ -8,12 +8,12 @@
 // Section ID: 2445
 // Section Title: Intermediate Network Traffic Analysis Overview
 // Page Title: Intermediate Network Traffic Analysis
-// Page Number: 1
+// Page Number: 01
 -->
 
 # Intermediate Network Traffic Analysis Overview
 
-**Module Name:** Intermediate Network Traffic Analysis **Page Number:** 1
+**Module Name:** Intermediate Network Traffic Analysis **Page Number:** 01
 
 #### INTERMEDIATE NETWORK TRAFFIC ANALYSIS
 

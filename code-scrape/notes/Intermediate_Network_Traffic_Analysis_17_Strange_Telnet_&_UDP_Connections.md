@@ -23,13 +23,37 @@
 
 ## Telnet
 
+![https://academy.hackthebox.com/storage/modules/229/Internet.png](https://academy.hackthebox.com/storage/modules/229/Internet.png)
+
 ## Finding Traditional Telnet Traffic Port 23
+
+![https://academy.hackthebox.com/storage/modules/229/1-telnet.png](https://academy.hackthebox.com/storage/modules/229/1-telnet.png)
+
+![https://academy.hackthebox.com/storage/modules/229/2-telnet.png](https://academy.hackthebox.com/storage/modules/229/2-telnet.png)
 
 ## Unrecognized TCP Telnet in Wireshark
 
+![https://academy.hackthebox.com/storage/modules/229/3-telnet.png](https://academy.hackthebox.com/storage/modules/229/3-telnet.png)
+
+![https://academy.hackthebox.com/storage/modules/229/4-telnet.png](https://academy.hackthebox.com/storage/modules/229/4-telnet.png)
+
+![https://academy.hackthebox.com/storage/modules/229/5-telnet.png](https://academy.hackthebox.com/storage/modules/229/5-telnet.png)
+
 ## Telnet Protocol through IPv6
 
+![https://academy.hackthebox.com/storage/modules/229/6-telnet.png](https://academy.hackthebox.com/storage/modules/229/6-telnet.png)
+
+![https://academy.hackthebox.com/storage/modules/229/7-telnet.png](https://academy.hackthebox.com/storage/modules/229/7-telnet.png)
+
+![https://academy.hackthebox.com/storage/modules/229/8-telnet.png](https://academy.hackthebox.com/storage/modules/229/8-telnet.png)
+
 ## Watching UDP Communications
+
+![https://academy.hackthebox.com/storage/modules/229/udp-tcp.jpg](https://academy.hackthebox.com/storage/modules/229/udp-tcp.jpg)
+
+![https://academy.hackthebox.com/storage/modules/229/1-udp.png](https://academy.hackthebox.com/storage/modules/229/1-udp.png)
+
+![https://academy.hackthebox.com/storage/modules/229/2-udp.png](https://academy.hackthebox.com/storage/modules/229/2-udp.png)
 
 ## Common Uses of UDP
 

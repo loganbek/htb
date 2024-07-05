@@ -8,12 +8,12 @@
 // Section ID: 2447
 // Section Title: ARP Scanning & Denial-of-Service
 // Page Title: Hack The Box - Academy
-// Page Number: 3
+// Page Number: 03
 -->
 
 # ARP Scanning & Denial-of-Service
 
-**Module Name:** Intermediate Network Traffic Analysis **Page Number:** 3
+**Module Name:** Intermediate Network Traffic Analysis **Page Number:** 03
 
 #### 
 
@@ -25,7 +25,13 @@
 
 ## Finding ARP Scanning
 
+![https://academy.hackthebox.com/storage/modules/229/ARP_Scan_1.png](https://academy.hackthebox.com/storage/modules/229/ARP_Scan_1.png)
+
 ## Identifying Denial-of-Service
+
+![https://academy.hackthebox.com/storage/modules/229/ARP_DoS_1.png](https://academy.hackthebox.com/storage/modules/229/ARP_DoS_1.png)
+
+![https://academy.hackthebox.com/storage/modules/229/ARP_DoS_2.png](https://academy.hackthebox.com/storage/modules/229/ARP_DoS_2.png)
 
 ## Responding To ARP Attacks
 

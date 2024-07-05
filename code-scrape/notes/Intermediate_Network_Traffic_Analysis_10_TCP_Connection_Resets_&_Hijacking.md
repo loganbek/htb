@@ -7,7 +7,7 @@
 // Module Difficulty: Easy
 // Section ID: 2460
 // Section Title: TCP Connection Resets & Hijacking
-// Page Title: Hack The Box - Academy
+// Page Title: Intermediate Network Traffic Analysis
 // Page Number: 10
 -->
 
@@ -15,15 +15,19 @@
 
 **Module Name:** Intermediate Network Traffic Analysis **Page Number:** 10
 
-#### 
-
 #### INTERMEDIATE NETWORK TRAFFIC ANALYSIS
 
 # TCP Connection Resets & Hijacking
 
 ## TCP Connection Termination
 
+![https://academy.hackthebox.com/storage/modules/229/1-RST.png](https://academy.hackthebox.com/storage/modules/229/1-RST.png)
+
+![https://academy.hackthebox.com/storage/modules/229/2-RST.png](https://academy.hackthebox.com/storage/modules/229/2-RST.png)
+
 ## TCP Connection Hijacking
+
+![https://academy.hackthebox.com/storage/modules/229/4-RST.png](https://academy.hackthebox.com/storage/modules/229/4-RST.png)
 
 # 
 
