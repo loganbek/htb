@@ -17,13 +17,15 @@
 ### PASS0
 - [x] Password Attacks
 - [x] Attacking Common Services
-- [ ] Attacking Common Applications
-- [ ] Pivoting Tunneling and Port Forwarding
+- [x] Attacking Common Applications
+- [x] Pivoting Tunneling and Port Forwarding
 - [x] Windows priv esc
-- [ ] AD Enumeration + attacks
+- [x] AD Enumeration + attacks
 
 ### PASS1
-- [ ] Password Attacks
+- [ 
+
+] Password Attacks
 - [ ] Attacking Common Services
 - [ ] Attacking Common Applications
 - [ ] Pivoting Tunneling and Port Forwarding
