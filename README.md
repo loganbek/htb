@@ -12,7 +12,15 @@
 
 ## HTB-scrape.js
 
-## CPTS Exam Prep
+## CPTS Exam Prepo
+
+### PASS0
+- [x] Password Attacks
+- [x] Attacking Common Services
+- [ ] Attacking Common Applications
+- [ ] Pivoting Tunneling and Port Forwarding
+- [x] Windows priv esc
+- [ ] AD Enumeration + attacks
 
 ### PASS1
 - [ ] Password Attacks
@@ -65,6 +73,45 @@
 - [ ] File Transfers
 - [ ] Shells & Payloads
 
+## LOCKED MODULES III -500 + 100
+- [ ] Kerberos Attacks
+- [ ] Whitebox Pentesting 101: Command Injection
+- [ ] Active Directory Blood Hound
+- [ ] Using CrackMapExec
+- [ ] Intro to Deserialization Attacks
+- [ ] Attacking Authentication Mechanisms
+- [ ] Intro to NoSQL Injection
+- [ ] Blind SQL Injection
+- [ ] Game Hacking Fundamentals
+- [ ] HTTPS/TLS Attacks
+- [ ] Advanced SQL Injections
+- [ ] Abusing HTTP Misconfigurations
+- [ ] HTTP Attacks
+- [ ] Injection Attacks
+- [ ] Whitebox Attacks
+- [ ] Game Reversing & Modding
+- [ ] DACL Attacks I
+- [ ] Modern Web Exploitation Techniques
+- [ ] NTLM Relay Attacks
+- [ ] Advanced XSS + CSRF Exploitation
+- [ ] ADCS Attacks
+- [ ] Parameter Logic Bugs
+- [ ] Advanced Deserialization Attacks
+- [ ] Intro to C2 w/ Silver
+- [ ] Supply Chain Attacks
+- [ ] Intro to Whitebox pentesting
+- [ ] Active Directory Trust Attacks
+- [ ] Intro to Windows Evasion Techniques
+- [ ] DACL Attacks II
+- [ ] Intro to Binary Fuzzing
+
+
+## LOCKED MODULES IV -1000 + 200
+- [ ] Active Directory LDAP
+- [ ] OSINT Corporate Recon
+- [ ] Secure Coding 101: JS
+- [ ] Active Directory Powerview
+
 ## Software Tools (2 Learn)
 
 - [ ] Tmux
@@ -93,4 +140,5 @@
 - [ ] wifi pineapple mac 7 or nano?
 o
 ## MISC IDEAS
-EOL systems + incremental monitoring + alerts tool -> search
+- [ ] EOL systems + incremental monitoring + alerts tool -> search
+- [ ] HTB Module Change Log + Alerts
