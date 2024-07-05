@@ -68,6 +68,39 @@
 - [ ] Detecting Windows Attacks w/ Splunk
 - [ ] Atacking Enterprise Networks (Blind)
 
+### PASS1
+- [ ] Stack-Based Buffer Overflows on Linux x86
+- [ ] Stack-Based Buffer Overflows on Windows x86
+- [ ] Intro to digital forensics
+- [ ] Windows Attacks and Defense
+- [ ] Security monitor + SIEM
+- [ ] Intro to Threat Hunting + Hunting w/ Elastic
+- [ ] Windows Event Logs & Finding Evil
+- [ ] Understanding Log Sources & Investigating w/ Splunk
+- [ ] Working w/ IDS/IPS
+- [ ] Intro to Malware Analysis
+- [ ] Yara + Sigma for SOC Analysts
+- [ ] Intermediate Network Traffic Analysis
+- [ ] Detecting Windows Attacks w/ Splunk
+- [ ] Atacking Enterprise Networks (Blind)
+
+### PASS2
+- [ ] Stack-Based Buffer Overflows on Linux x86
+- [ ] Stack-Based Buffer Overflows on Windows x86
+- [ ] Intro to digital forensics
+- [ ] Windows Attacks and Defense
+- [ ] Security monitor + SIEM
+- [ ] Intro to Threat Hunting + Hunting w/ Elastic
+- [ ] Windows Event Logs & Finding Evil
+- [ ] Understanding Log Sources & Investigating w/ Splunk
+- [ ] Working w/ IDS/IPS
+- [ ] Intro to Malware Analysis
+- [ ] Yara + Sigma for SOC Analysts
+- [ ] Intermediate Network Traffic Analysis
+- [ ] Detecting Windows Attacks w/ Splunk
+- [ ] Atacking Enterprise Networks (Blind)
+
+
 ### FINISH
 - [ ] Vulnerability Assessment
 - [ ] File Transfers
