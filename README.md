@@ -23,9 +23,7 @@
 - [x] AD Enumeration + attacks
 
 ### PASS1
-- [ 
-
-] Password Attacks
+- [ ] Password Attacks
 - [ ] Attacking Common Services
 - [ ] Attacking Common Applications
 - [ ] Pivoting Tunneling and Port Forwarding
