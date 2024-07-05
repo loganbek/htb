@@ -24,12 +24,23 @@
 
 
 ### PASS2
+- [ ] Password Attacks
+- [ ] Attacking Common Services
+- [ ] Attacking Common Applications
+- [ ] Pivoting Tunneling and Port Forwarding
+- [x] Windows priv esc
+- [ ] AD Enumeration + attacks
 
 ### FINISH
 - [ ] Vulnerability Assessment
 - [ ] File Transfers
 - [ ] Shells & Payloads
-
+- [ ] Password Attacks
+- [ ] Attacking Common Services
+- [ ] Attacking Common Applications
+- [ ] Pivoting Tunneling and Port Forwarding
+- [ ] Windows priv esc
+- [ ] AD Enumeration + attacks
 
 
 
