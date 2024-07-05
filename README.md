@@ -19,7 +19,7 @@
 - [ ] Attacking Common Services
 - [ ] Attacking Common Applications
 - [ ] Pivoting Tunneling and Port Forwarding
-- [ ] Windows priv esc
+- [x] Windows priv esc
 - [ ] AD Enumeration + attacks
 
 
