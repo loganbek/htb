@@ -175,3 +175,5 @@ o
 ## MISC IDEAS
 - [ ] EOL systems + incremental monitoring + alerts tool -> search
 - [ ] HTB Module Change Log + Alerts
+
+- [ ] ssid pass - Kxefqj1!
