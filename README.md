@@ -12,10 +12,28 @@
 
 ## HTB-scrape.js
 
-## CPTS Exam Prep
+## CPTS Exam Prepo
+
+### PASS1
+- [ ] Password Attacks
+- [ ] Attacking Common Services
+- [ ] Attacking Common Applications
+- [ ] Pivoting Tunneling and Port Forwarding
+- [ ] Windows priv esc
+- [ ] AD Enumeration + attacks
+
+
+### PASS2
+
+### FINISH
+- [ ] Vulnerability Assessment
+- [ ] File Transfers
+- [ ] Shells & Payloads
+
+
+
 
 - [ ] do attacking enterprise networks module blind
-- [ ] do AD module
 
 ## Software Tools (2 Learn)
 
