@@ -7,13 +7,15 @@
 // Module Difficulty: Medium
 // Section ID: 1328
 // Section Title: Password Reuse / Default Passwords
-// Page Title: Password Attacks
-// Page Number: 6
+// Page Title: Hack The Box - Academy
+// Page Number: 06
 -->
 
 # Password Reuse / Default Passwords
 
-**Module Name:** Password Attacks **Page Number:** 6
+**Module Name:** Password Attacks **Page Number:** 06
+
+#### 
 
 #### PASSWORD ATTACKS
 

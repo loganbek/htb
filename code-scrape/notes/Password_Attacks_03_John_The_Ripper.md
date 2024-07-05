@@ -8,12 +8,12 @@
 // Section ID: 1985
 // Section Title: John The Ripper
 // Page Title: Password Attacks
-// Page Number: 3
+// Page Number: 03
 -->
 
 # John The Ripper
 
-**Module Name:** Password Attacks **Page Number:** 3
+**Module Name:** Password Attacks **Page Number:** 03
 
 #### PASSWORD ATTACKS
 
@@ -33,35 +33,35 @@
 
 #### Single Crack Mode
 
-``` shell-session
-ndefstathiou@htb[/htb]$ john --format=<hash_type> <hash or hash_file>
+```shell-session
+[!bash!]$ john --format=<hash_type> <hash or hash_file>
 ```
 
-``` shell-session
-ndefstathiou@htb[/htb]$ john --format=sha256 hashes_to_crack.txt
+```shell-session
+[!bash!]$ john --format=sha256 hashes_to_crack.txt
 ```
 
 #### Cracking with John
 
 #### Wordlist Mode
 
-``` shell-session
-ndefstathiou@htb[/htb]$ john --wordlist=<wordlist_file> --rules <hash_file>
+```shell-session
+[!bash!]$ john --wordlist=<wordlist_file> --rules <hash_file>
 ```
 
 #### Incremental Mode
 
 #### Incremental Mode in John
 
-``` shell-session
-ndefstathiou@htb[/htb]$ john --incremental <hash_file>
+```shell-session
+[!bash!]$ john --incremental <hash_file>
 ```
 
 ## Cracking Files
 
 #### Cracking Files with John
 
-``` shell-session
+```shell-session
 cry0l1t3@htb:~$ <tool> <file_to_crack> > file.hash
 cry0l1t3@htb:~$ pdf2john server_doc.pdf > server_doc.hash
 cry0l1t3@htb:~$ john server_doc.hash
@@ -69,8 +69,8 @@ cry0l1t3@htb:~$ john server_doc.hash
 cry0l1t3@htb:~$ john --wordlist=<wordlist.txt> server_doc.hash
 ```
 
-``` shell-session
-ndefstathiou@htb[/htb]$ locate *2john*
+```shell-session
+[!bash!]$ locate *2john*
 
 /usr/bin/bitlocker2john
 /usr/bin/dmg2john

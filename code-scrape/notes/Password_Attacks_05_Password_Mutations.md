@@ -8,12 +8,12 @@
 // Section ID: 1391
 // Section Title: Password Mutations
 // Page Title: Hack The Box - Academy
-// Page Number: 5
+// Page Number: 05
 -->
 
 # Password Mutations
 
-**Module Name:** Password Attacks **Page Number:** 5
+**Module Name:** Password Attacks **Page Number:** 05
 
 #### 
 
@@ -24,7 +24,7 @@
 #### Password List
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ cat password.list
+[!bash!]$ cat password.list
 
 password
 ```
@@ -32,7 +32,7 @@ password
 #### Hashcat Rule File
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ cat custom.rule
+[!bash!]$ cat custom.rule
 
 :
 c
@@ -54,8 +54,8 @@ $! c so0 sa@
 #### Generating Rule-based Wordlist
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list
-ndefstathiou@htb[/htb]$ cat mut_password.list
+[!bash!]$ hashcat --force password.list -r custom.rule --stdout | sort -u > mut_password.list
+[!bash!]$ cat mut_password.list
 
 password
 Password
@@ -77,7 +77,7 @@ P@ssw0rd!
 #### Hashcat Existing Rules
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ ls /usr/share/hashcat/rules/
+[!bash!]$ ls /usr/share/hashcat/rules/
 
 best64.rule                  specific.rule
 combinator.rule              T0XlC-insert_00-99_1950-2050_toprules_0_F.rule
@@ -97,8 +97,8 @@ rockyou-30000.rule
 #### Generating Wordlists Using CeWL
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ cewl https://www.inlanefreight.com -d 4 -m 6 --lowercase -w inlane.wordlist
-ndefstathiou@htb[/htb]$ wc -l inlane.wordlist
+[!bash!]$ cewl https://www.inlanefreight.com -d 4 -m 6 --lowercase -w inlane.wordlist
+[!bash!]$ wc -l inlane.wordlist
 
 326
 ```

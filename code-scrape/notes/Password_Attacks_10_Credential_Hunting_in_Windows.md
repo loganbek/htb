@@ -7,13 +7,15 @@
 // Module Difficulty: Medium
 // Section ID: 1318
 // Section Title: Credential Hunting in Windows
-// Page Title: Password Attacks
+// Page Title: Hack The Box - Academy
 // Page Number: 10
 -->
 
 # Credential Hunting in Windows
 
 **Module Name:** Password Attacks **Page Number:** 10
+
+#### 
 
 #### PASSWORD ATTACKS
 

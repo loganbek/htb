@@ -7,15 +7,13 @@
 // Module Difficulty: Medium
 // Section ID: 1334
 // Section Title: Password Attacks Lab - Easy
-// Page Title: Hack The Box - Academy
+// Page Title: Password Attacks
 // Page Number: 20
 -->
 
 # Password Attacks Lab - Easy
 
 **Module Name:** Password Attacks **Page Number:** 20
-
-#### 
 
 #### PASSWORD ATTACKS
 

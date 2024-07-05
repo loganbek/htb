@@ -8,12 +8,12 @@
 // Section ID: 1312
 // Section Title: Theory of Protection
 // Page Title: Password Attacks
-// Page Number: 1
+// Page Number: 01
 -->
 
 # Theory of Protection
 
-**Module Name:** Password Attacks **Page Number:** 1
+**Module Name:** Password Attacks **Page Number:** 01
 
 #### PASSWORD ATTACKS
 

@@ -7,13 +7,15 @@
 // Module Difficulty: Medium
 // Section ID: 1323
 // Section Title: Protected Archives
-// Page Title: Password Attacks
+// Page Title: Hack The Box - Academy
 // Page Number: 17
 -->
 
 # Protected Archives
 
 **Module Name:** Password Attacks **Page Number:** 17
+
+#### 
 
 #### PASSWORD ATTACKS
 

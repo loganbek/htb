@@ -8,12 +8,12 @@
 // Section ID: 1313
 // Section Title: Credential Storage
 // Page Title: Password Attacks
-// Page Number: 2
+// Page Number: 02
 -->
 
 # Credential Storage
 
-**Module Name:** Password Attacks **Page Number:** 2
+**Module Name:** Password Attacks **Page Number:** 02
 
 #### PASSWORD ATTACKS
 
