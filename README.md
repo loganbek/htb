@@ -58,14 +58,12 @@
 - [ ] Yara + Sigma for SOC Analysts
 - [ ] Intermediate Network Traffic Analysis
 - [ ] Detecting Windows Attacks w/ Splunk
+- [ ] Atacking Enterprise Networks (Blind)
 
 ### FINISH
 - [ ] Vulnerability Assessment
 - [ ] File Transfers
 - [ ] Shells & Payloads
-
-
-- [ ] do attacking enterprise networks module blind
 
 ## Software Tools (2 Learn)
 
