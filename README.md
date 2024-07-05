@@ -61,3 +61,6 @@
 - [x] deauthor watch
 - [ ] saudering iron
 - [ ] wifi pineapple mac 7 or nano?
+o
+## MISC IDEAS
+EOL systems + incremental monitoring + alerts tool -> search
