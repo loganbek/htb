@@ -12,7 +12,7 @@
 
 ## HTB-scrape.js
 
-## CPTS Exam Prepo
+## CPTS Exam Prep
 
 ### PASS1
 - [ ] Password Attacks
@@ -42,6 +42,27 @@
 - [ ] Windows priv esc
 - [ ] AD Enumeration + attacks
 
+## NEXT MODULES
+
+### PASS0
+- [ ] Stack-Based Buffer Overflows on Linux x86
+- [ ] Stack-Based Buffer Overflows on Windows x86
+- [ ] Intro to digital forensics
+- [ ] Windows Attacks and Defense
+- [ ] Security monitor + SIEM
+- [ ] Intro to Threat Hunting + Hunting w/ Elastic
+- [ ] Windows Event Logs & Finding Evil
+- [ ] Understanding Log Sources & Investigating w/ Splunk
+- [ ] Working w/ IDS/IPS
+- [ ] Intro to Malware Analysis
+- [ ] Yara + Sigma for SOC Analysts
+- [ ] Intermediate Network Traffic Analysis
+- [ ] Detecting Windows Attacks w/ Splunk
+
+### FINISH
+- [ ] Vulnerability Assessment
+- [ ] File Transfers
+- [ ] Shells & Payloads
 
 
 - [ ] do attacking enterprise networks module blind
