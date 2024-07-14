@@ -244,3 +244,5 @@
 // - [ ] Add hints to the markdown content
 // - [x] Add 0 to module id and section id if less than 10
 // - [x] remove ndefstathiou@htb[/htb]$ from shell code blocks for easier copy and paste
+// - [ ] fix cmd-session codeblocks to bat
+// - [ ] Fix shell sression codeblocks to bash
