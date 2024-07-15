@@ -13,6 +13,58 @@ whoami
 id
 uname -r
 uname -a
+ps aux | grep root
+ls -l ~/.ssh
+sudo -l
+sudo -V
+ls -l /bin /usr/bin/ /usr/sbin
+for i in $(curl -s https://gtfobins.github.io/ | html2text | cut -d" " -f1 | sed '/^[[:space:]]*$/d');do if grep -q "$i" installed_pkgs.list;then echo "Check GTFO for: $i";fi;done
+cat /etc/passwd
+cat /etc/shadow
+ls -la /etc/cron.daily
+lsblk
+find / -path /proc -prune -o -type d -perm -o+w 2>/dev/null
+find / -path /proc -prune -o -type f -perm -o+w 2>/dev/null
+cat /etc/os-release
+cat /etc/passwd | cut -f1 -d:
+grep "*sh$" /etc/passwd
+cat /etc/group
+getent group sudo
+# getent database [key...]
+# /etc/nsswitch.conf
+df -h
+cat /etc/fstab | grep -v "#" | column -t
+find / -type f -name ".*" -exec ls -l {} \; 2>/dev/null | grep htb-student
+find / -type d -nname ".*" -ls 2>/dev/null
+ls -l /tmp /var/tmp /dev/shm
+echo $PATH
+pwd && conncheck
+# PATH =.:${PATH}
+# export PATH
+# echo $PATH
+# touch ls
+# echo 'echo "PATH ABUSE!!!"' > ls
+# chmod +x ls
+# lss
+env
+cat /etc/fstab
+route 
+arp -a
+lastlog
+w
+
+cat wp-config.php | grep 'DB_USER\|DB_PASSWORD'
+find / ! -path "*.proc/*" -iname "*config" -type f 2>/dev/null
+ls ~/.ssh
+
+
+history
+find / -type f \(name *_hist -o -name *_history \) -exec ls -l {} \; 2>/dev/null
+find / -type f \( -name *.conf -o -name *.config \) -exec ls -l {} \; 2>/dev/null
+find / -type f -name "*.sh" 2>/dev/null | grep -v "src\|snap\|share"
+ls -la /etc/cron.daily
+find /proc -name cmdline -exec cat {} \; 2>/dev/null | tr " " "\n"
+apt list --installed | tr "/" " " | cut -d " " -f1,3 | sed 's/[0-9]://g' | tee -a installed_pkgs.list
 
 ssh <USERNAME>@<IP-ADDRESS>
 ssh htb-student@<IP-ADDRESS>
@@ -33,7 +85,7 @@ find /etc/ -name shadow 2>/dev/null > results.txt
 find /etc/ -name shadow 2> stderr.txt 1> stdout.txt
 cat < stdout.txt
 find /etc/ -name passwd >> stdout.txt 2>/dev/null
-cat << EOF > stream.txt
+# cat << EOF > stream.txt
 find /etc/ -name *.conf 2>/dev/null | grep systemd
 find /etc/ -name *.conf 2>/dev/null | grep systemd | wc -l
 
@@ -220,6 +272,8 @@ sudo systemctl restart lxc.service
 
 ifconfig
 ip addr
+ip a
+cat /etc/hosts
 sudo ifconfig eth0 up
 sudo ip link set eth0 up
 sudo ifconfig eth0 192.168.1.2
