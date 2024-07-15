@@ -1,4 +1,4 @@
-# Linux
+# Linux TODO: Priv Scalation, Fundamentals, 
 
 ```bash
 smbclient -L SERVER_IP -U htb-student
