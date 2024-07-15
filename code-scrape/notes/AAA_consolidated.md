@@ -1,10 +1,143 @@
 # Linux TODO: Priv Scalation, Fundamentals, 
 
+<!-- /bin /boot /dev /etc /lib /media /mnt /opt /home /var /usr /tmp /sys /proc /root /run -->
+
 ```bash
 smbclient -L SERVER_IP -U htb-student
 smbclient '\\SERVER_IP\Company Data' -U htb-student
 sudo mount -t cifs -o username=htb-student,password=Academy_WinFun! //ipaddoftarget/"Company Data" /home/user/Desktop/
 sudo apt-get install cifs-utils
+
+hostname
+whoami
+id
+uname -r
+uname -a
+
+ssh <USERNAME>@<IP-ADDRESS>
+ssh htb-student@<IP-ADDRESS>
+
+mkdir -p Storage/local/uyser/documents
+tree
+mv info.txt information.txt
+mv information.txt readme.txt Storage/
+
+which python
+
+find / -type f -name *.conf -user root -size +20k -newermt 2020-03-03 -exec ls -al {} \; 2>/dev/null
+sudo updatedb
+locate *.conf
+find /etc/ -name shadow
+find /etc/ -name shadow 2>/dev/null
+find /etc/ -name shadow 2>/dev/null > results.txt
+find /etc/ -name shadow 2> stderr.txt 1> stdout.txt
+cat < stdout.txt
+find /etc/ -name passwd >> stdout.txt 2>/dev/null
+cat << EOF > stream.txt
+find /etc/ -name *.conf 2>/dev/null | grep systemd
+find /etc/ -name *.conf 2>/dev/null | grep systemd | wc -l
+
+more /etc/passwd
+less /etc/passwd
+head /etc/passwd
+tail /etc/passwd
+
+cat /etc/passwd | sort
+cat /etc/passwd | grep "/bin/bash"
+
+cat /etc/passwd | grep -v "false\|nologin"
+cat /etc/passwd | grep -v "false\|nologin" | cut -d ":" -f 1
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | column -t
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | sed 's/bin/HTB/g'
+cat /etc/passwd | grep -v "false\|nologin" | tr ":" " " | awk '{print $1, $NF}' | wc -l
+
+grep -E "(my|false)" /etc/passwd
+grep -E "(my.*false)" /etc/passwd
+grep -E "my" /etc/passwd | grep -E "false"
+
+# - = file 
+# d = directory
+# l = link
+
+chmod a+r shell
+chmod 754 shell
+chown root:root shell
+chmod +t directory_name
+chmod 1777 directory_name
+
+cat /etc/apt/sources.list.d/parrot.list
+apt-cache search impacket
+apt-cache show impacket-scripts
+sudo apt install impacket-scripts -y
+mkdir ~/nishang/ && git clone https://github.com/samratoashok/nishang.git ~/nishang/
+wget http://archive.ubuntu.com/ubuntu/pool/main/s/strace/strace_4.21-1ubuntu1_amd64.deb
+sudo dpkg -i strace_4.21-1ubuntu1_amd64.deb
+
+strace -h
+strace ls
+strace -e trace=open,close,read,write ls
+strace -e trace=open,close,read,write -o strace.log ls
+strace -p 1234
+
+systemctl start ssh
+systemctl status ssh
+systemctl enable ssh
+systemctl stop ssh
+ps -aux | grep ssh
+systemctl list-units --type=service
+journalctl -u ssh.service --no-pager
+kill -1
+kill 9 <PID>
+
+# ctrl z - stops the process
+bg
+fg
+jobs
+fg 1
+
+sudo mkdir /etc/systemd/system/mytimer.timer.d
+sudo vim /etc/systemd/system/mytimer.timer
+sudo vim /etc/systemd/system/mytimer.service
+sudo systemctl daemon-reload
+
+sudo apt install openssh-server -y
+systemctl status ssh
+
+sudo apt install nfs-kernel-server -y
+systemctl status nfs-kernel-server
+
+mkdir nfs_sharing
+echo "/home/user/nfs_sharing *(rw,sync,no_root_squash)" >> /etc/exports
+cat /etc/exports | grep -v "#"
+
+mkdir ~/target_nfs
+mount 10.129.12.17:/home/user/dev_script ~/target_nfs
+tree ~/target_nfs
+
+sudo install apache2 -y
+sudo install python3 -y
+python3 -m http.server --directory /home/user/target_files
+python3 -m https.server 443
+
+sudo apt install openvpn -y
+sudo openvpn --config internal.ovpn
+
+curl http://loalhost
+wget http://localhost
+python3 -m http.server 8000
+
+sudo apt install rsync -y
+
+rsync -av /path/to/source user@backup_server:/path/to/destination
+rsync -avz --backup --backup-dir=/path/to/backup --delete /path/to/source user@backup_server:/path/to/destination
+rsync -av user@backup_server:/path/to/source /path/to/destination
+rsync -avx -e ssh /path/to/source user@backup_server:/path/to/destination
+
+#RSYNC_Backup.sh
+#!/bin/bash
+rsync -avz -e ssh /path/to/source user@backup_server:/path/to/destination
+chmod +x RSYNC_Backup.sh
+ls -il
 
 
 ```
