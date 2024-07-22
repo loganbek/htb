@@ -14,7 +14,7 @@
 - [ ] read LPE 13 Cron Jobs Abuse
 - [ ] read LPE 14 LXD
 - [ ] read LPE 15 Docker
-- [ ] read LPE 16 
+
 - [ ] read LPE 17 Kubernetes
 - [ ] read LPE 18 Logrotate
 - [ ] read LPE 19 Miscelaneous Techniques
@@ -543,8 +543,6 @@ reg query HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 
 Get-WmiObject -Class win32_OperatingSystem | select Version,BuildNumber
 
-
-
 Get-Help Test-Wsman
 Update-Help
 Get-Location
@@ -563,7 +561,6 @@ New-Alias -Name "Show-Files" Get-ChildItem
 Get-Alias -Name "Show-Files"
 
 .\PowerView.ps1;Get-LocalGroup |fl
-
 
 Get-ChildItem $PSScriptRoot | ? { $_.PSIsContainer -and !('Tests','docs' -contains $_.Name) } | % { Import-Module $_.FullName -DisableNameChecking }
 Get-Module
@@ -709,5 +706,43 @@ Import-Module 'C:\Users\MTanaka\Documents\WindowsPowerShell\Modules\quick-recon.
 get-module
 
 Invoke-WmiMethod -Path "CIM_DataFile.Name='C:\users\public\spns.csv'" -Name Rename -ArgumentList "C:\Users\Public\kerberoasted_users.csv"
+
+```
+
+### Active Directory
+
+```powershell
+nslookup INLANEFREIGHT.local
+nslookup 17.16.6.5
+nslookup ACADEMY-EA-DCO1
+
+crackmapexec smb 10.129.41.19 -u rachel -H e46b9e548fa0d122de7f59fb6d48eaa2
+
+# NTLMv1
+# u4-netntlm::kNS:338d08f8e26de93300000000000000000000000000000000:9526fb8c23a90751cdd619b6cea564742e1e4bf33006ba41:cb8086049ec4736c
+
+# NTLVMv2
+# admin::N46iSNekpT:08ca45b7d7ea58ee:88dcbe4446168966a153a0064958dac6:5c7830315c7830310000000000000b45c67103d07d7b95acd12ffa11230e0000000052920b85f78d013c31cdb3b92f5d765c783030
+
+Get-ADUser -Identity htb-student
+Get-ADGroup -Filter * |select samaccountname,groupscope
+Get-ADGroup -Identity "Service Operators" -Properties *
+Get-ADGroup -Identity "Domain Admins" -Properties *| select DistringuishedName,GroupCategory,GroupScrope,Name,Memmbers
+whoami /priv
+New-ADUser -Name "Orion Starchaser" -Accountpassword (ConvertTo-SecureString -AsPlainText (Read-Host "Enter a secure password") -Force ) -Enabled $true -OtherAttributes @{'title'="Analyst";'mail'="o.starchaser@inlanefreight.local"}
+Remove-ADUser -Identity pvalencia
+Unlock-ADAccount -Identity amasters
+Set-ADAccountPassword -Identity 'amasters' -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "NewP@ssw0rdReset!" -Force) 
+Set-ADUser -Identity amasters -ChangePasswordAtLogon $true
+New-ADOrganizationalUnit -Name "Security Analysts" -Path "OU=IT,OU=HQ-NYC,OU=Employees,OU=CORP,DC=INLANEFREIGHT,DC=LOCAL"
+New-ADGroup -Name "Security Analysts" -SamAccountName analysts -GroupCategory Security -GroupScope Global -DisplayName "Security Analysts" -Path "OU=Security Analysts,OU=IT,OU=HQ-NYC,OU=Employees,OU=Corp,DC=INLANEFREIGHT,DC=LOCAL" -Description "Members of this group are Security Analysts under the IT OU"
+Add-ADGroupMember -Identity analysts -Members ACepheus,OStarchaser,ACallisto
+Copy-GPO -SourceName "Logon Banner" -TargetName "Security Analysts Control"
+New-GPLink -Name "Security Analysts Control" -Target "ou=Security Analysts,ou=IT,OU=HQ-NYC,OU=Employees,OU=Corp,dc=INLANEFREIGHT,dc=LOCAL" -LinkEnabled Yes
+
+Add-Computer -DomainName INLANEFREIGHT.LOCAL -Credential INLANEFREIGHT\HTB-student_adm -Restart
+Add-Computer -ComputerName ACADEMY-IAD-W10 -LocalCredential ACADEMY-IAD-W10\image -DomainName INLANEFREIGHT.LOCAL -Credential INLANEFREIGHT\htb-student_adm -Restart
+Get-ADComputer -Identity "ACADEMY-IAD-W10" -Properties * | select CN,CanonicalName,IPv4Address
+
 
 ```
