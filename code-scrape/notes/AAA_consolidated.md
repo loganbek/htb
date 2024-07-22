@@ -715,6 +715,17 @@ Invoke-WmiMethod -Path "CIM_DataFile.Name='C:\users\public\spns.csv'" -Name Rena
 nslookup INLANEFREIGHT.local
 nslookup 17.16.6.5
 nslookup ACADEMY-EA-DCO1
+nslookup ns1.inlanefreight.com
+
+# Google Search:
+# filetype:pdf inurl:inlanefreight.com
+# intext:"@inlanefreight.com" inurl:inlanefreight.com
+
+sudo python3 dehashed.py -q inlanefirght.local -p
+sudo -E wireshark
+sudo tcpdump -i ens224
+sudo responder -Iens224 -A
+fping -asgq 172.16.5.0/23
 
 crackmapexec smb 10.129.41.19 -u rachel -H e46b9e548fa0d122de7f59fb6d48eaa2
 
