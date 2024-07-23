@@ -400,7 +400,7 @@ truss ls
 
 ```
 
-# Windows TODO: Priv Escalation, Attack and Defense, Event Logs and Finding Evil, Intro to AD, File Transfers Windows File Transfer Methods, Detecting Windows Attacks w/ Splunk, AD enum + attacks
+# Windows TODO: Priv Escalation, Attack and Defense, Event Logs and Finding Evil, Intro to AD, File Transfers Windows File Transfer Methods, Detecting Windows Attacks w/ Splunk
 
 ## CMD Line, Fundamentals
 
