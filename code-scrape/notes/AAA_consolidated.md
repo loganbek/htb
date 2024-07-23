@@ -27,11 +27,10 @@
 - [ ] read LPE 26 Dirty Pipe
 - [ ] read LPE 27 Netfilter
 - [ ] read LPE 28 Linux Hardening
--->
+--->
 
+## nmap
 
-
--->
 
 ```bash
 smbclient -L SERVER_IP -U htb-student
