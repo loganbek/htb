@@ -91,6 +91,26 @@ sudo nmap 10.129.2.28 -p50000 -sS -Pn -n --disable-arp-ping --packet-trace
 sudo nmap 10.129.2.28 -p50000 -sS -Pn -n --disable-arp-ping --packet-trace --source-port 53
 ```
 
+## metasploit framework
+
+```bash
+sudo apt update && sudo apt install metasploit-framework
+msfconsole -q
+# <No.> <type>/<os>/<service>/<name>
+# modules
+ls /usr/share/metasploit-framework/modules
+# auxiliary encoders evasion exploits nops payloads post
+# plugins
+ls /usr/share/metasploit-framework/plugins
+# scripts
+ls /usr/share/metasploit-framework/scripts
+# meterpreter ps resource shell
+# tools
+ls /usr/share/metasploit-framework/tools
+# context docs hardware modules payloads dev exploit memdump password recon
+
+```
+
 ```bash
 smbclient -L SERVER_IP -U htb-student
 smbclient '\\SERVER_IP\Company Data' -U htb-student
