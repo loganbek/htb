@@ -129,3 +129,45 @@ python3 manage.py db upgrade
 python3 manage.py runserver
 
 ```
+
+```bash
+
+#!/bin/bash
+
+# Update package list and install necessary dependencies
+sudo apt update
+sudo apt install -y git wget
+
+# Install 1History
+echo "Installing 1History..."
+
+echo "1History installation completed."
+
+# Install SingleFile Firefox Extension
+echo "Installing SingleFile Firefox Extension..."
+
+# Download the SingleFile Firefox extension
+EXTENSION_URL="https://addons.mozilla.org/firefox/downloads/file/3465964/single_file-2.10.14-fx.xpi"
+wget -O /tmp/singlefile.xpi "$EXTENSION_URL"
+
+# Install the extension into Firefox
+# Note: Firefox needs to be restarted for the extension to be applied
+echo "Adding SingleFile extension to Firefox..."
+firefox -install-global-extension /tmp/singlefile.xpi
+
+echo "SingleFile Firefox Extension installation completed."
+
+# Clean up
+rm /tmp/singlefile.xpi
+
+echo "All installations are complete!"
+
+
+# Install Node.js if you don't have it already
+sudo apt update
+sudo apt install -y nodejs npm
+
+# Install web-ext
+npm install -g web-ext
+
+```
