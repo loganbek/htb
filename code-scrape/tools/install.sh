@@ -104,6 +104,7 @@ mkdir -p "$PROFILE_DIR/extensions"
 cp -r "$EXTENSION_DIR"/* "$PROFILE_DIR/extensions/"
 
 # TODO: install 1history extension
+# TODO: install wappalyzer
 
 # Clean up temporary files
 echo "Cleaning up..."
@@ -290,3 +291,124 @@ else
     
     echo "$tool installation completed."
 fi
+
+# Tool to check
+tool="html2text"
+
+# Check if html2text is installed
+echo "Checking for $tool..."
+if check_tool "$tool"; then
+    echo "$tool is already installed."
+else
+    echo "$tool is not installed. Installing..."
+    
+    # Update the package list
+    echo "Updating package list..."
+    sudo apt update
+    
+    # Install html2text
+    echo "Installing html2text..."
+    sudo apt install -y html2text
+    
+    # Verify installation
+    echo "Verifying html2text installation..."
+    html2text --version
+    
+    echo "$tool installation completed."
+fi
+
+# install seclists
+tool=seclists
+echo "Checking for $tool..."
+if check_tool "$tool"; then
+    echo "$tool is already installed."
+else
+    echo "$tool is not installed. Installing..."
+
+    git clone https://github.com/danielmiessler/SecLists
+    
+    # Install html2text
+    echo "Installing $tool..."
+    sudo apt install -y seclists
+    
+    echo "$tool installation completed."
+fi
+
+# install whatweb
+# Tool to check
+tool="whatweb"
+
+# Check if WhatWeb is installed
+echo "Checking for $tool..."
+if check_tool "$tool"; then
+    echo "$tool is already installed."
+else
+    echo "$tool is not installed. Installing..."
+
+    # Update the package list
+    echo "Updating package list..."
+    sudo apt update
+
+    # Install WhatWeb
+    echo "Installing WhatWeb..."
+    sudo apt install -y whatweb
+
+    # Verify installation
+    echo "Verifying WhatWeb installation..."
+    whatweb --version
+
+    echo "$tool installation completed."
+fi
+
+# install gobuster
+# Check if Gobuster is installed
+echo "Checking for $tool..."
+if check_tool "$tool"; then
+    echo "$tool is already installed."
+else
+    echo "$tool is not installed. Installing..."
+
+    # Update the package list
+    echo "Updating package list..."
+    sudo apt update
+
+    # Install Gobuster
+    echo "Installing Gobuster..."
+    sudo apt install -y gobuster
+
+    # Verify installation
+    echo "Verifying Gobuster installation..."
+    gobuster --version
+
+    echo "$tool installation completed."
+fi
+
+# Tool to check
+tool="exploitdb"
+# searchsploit?
+
+
+# Check if ExploitDB is installed
+echo "Checking for $tool..."
+if check_tool "$tool"; then
+    echo "$tool is already installed."
+else
+    echo "$tool is not installed. Installing..."
+
+    # Update the package list
+    echo "Updating package list..."
+    sudo apt update
+
+    # Install ExploitDB
+    echo "Installing ExploitDB..."
+    sudo apt install -y exploitdb
+
+    # Verify installation
+    echo "Verifying ExploitDB installation..."
+    searchsploit --version
+
+    echo "$tool installation completed."
+fi
+
+# TODO: cheatsheet installation and research
+# TODO: install internal all the things
