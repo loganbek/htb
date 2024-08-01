@@ -412,3 +412,5 @@ fi
 
 # TODO: cheatsheet installation and research
 # TODO: install internal all the things
+
+# TODO: windows + linux privelege escalation tools
