@@ -233,6 +233,8 @@ nano .env # Edit .env file to configure your environment variables
 python3 manage.py db upgrade
 python3 manage.py runserver
 
+cp *. ~/
+
 # TODO: Install bash config
 
 # TODO: Set env vars
