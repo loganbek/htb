@@ -32,10 +32,29 @@ max_scan() {
     done
 }
 
+# Function to perform all scans in sequence
+all_scan() {
+    for target in "$@"; do
+        echo "Running All Scans on $target"
+
+        echo "Running Quick Scan..."
+        quick_scan $target
+
+        echo "Running Balanced Scan..."
+        balanced_scan $target
+
+        echo "Running Stealth Scan..."
+        stealth_scan $target
+
+        echo "Running Maximum Scan..."
+        max_scan $target
+    done
+}
+
 # Check for at least two arguments
 if [ "$#" -lt 2 ]; then
     echo "Usage: $0 <scan_type> <target1|hosts.txt> [<target2> ...]"
-    echo "Scan Types: quick:0, stealth:1, balanced:2, max:3"
+    echo "Scan Types: quick:0, stealth:1, balanced:2, max:3, all:4"
     exit 1
 fi
 
@@ -65,11 +84,13 @@ case $scan_type in
     3)
         max_scan $targets
         ;;
+    4)
+        all_scan $targets
+        ;;
     *)
-        echo "Invalid scan type. Please use 0 (quick), 1 (stealth), 2 (balanced), or 3 (max)."
+        echo "Invalid scan type. Please use 0 (quick), 1 (stealth), 2 (balanced), 3 (max), or 4 (all)."
         exit 1
         ;;
 esac
 
 echo "Nmap scan(s) completed."
-
