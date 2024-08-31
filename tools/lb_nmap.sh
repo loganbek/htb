@@ -4,7 +4,7 @@
 quick_scan() {
     for target in "$@"; do
         echo "Running Quick Scan on $target"
-        nmap -T4 -F -oN quick_scan_$target.txt $target
+        nmap -T4 -F -oA quick_scan_$target $target
     done
 }
 
@@ -12,7 +12,7 @@ quick_scan() {
 stealth_scan() {
     for target in "$@"; do
         echo "Running Stealth Scan on $target"
-        nmap -sS -T2 -p- -f -n -Pn -oN stealth_scan_$target.txt $target
+        nmap -sS -T2 -p- -f -n -Pn -oA stealth_scan_$target $target
     done
 }
 
