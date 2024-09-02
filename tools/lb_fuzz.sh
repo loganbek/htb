@@ -21,8 +21,8 @@ VHOST_WORDLIST="/usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.tx
 DIR_WORDLIST="/usr/share/seclists/Discovery/Web-Content/common.txt"
 
 # Check if the type is valid
-if [ "$TYPE" -ne 0 ] && [ "$TYPE" -ne 1 ]; then
-    echo -e "${RED}Invalid type. Use 0 for vhost fuzzing or 1 for directory/files fuzzing.${NC}"
+if [ "$TYPE" -ne 0 ] && [ "$TYPE" -ne 1 ] && [ "$TYPE" -ne 2 ]; then
+    echo -e "${RED}Invalid type. Use 0 for vhost fuzzing, 1 for directory/files fuzzing, or 2 for both.${NC}"
     exit 1
 fi
 
@@ -69,29 +69,65 @@ generate_output_filename() {
         echo "vhost_fuzz_${sanitized_target}.csv"
     elif [ "$type" -eq 1 ]; then
         echo "dir_files_${sanitized_target}.csv"
+    elif [ "$type" -eq 2 ]; then
+        echo "combined_fuzz_${sanitized_target}.csv"
     fi
+}
+
+# Function to run both vhost and directory/files fuzzing
+fuzz_both() {
+    local target=$1
+    echo -e "${BLUE}Starting combined fuzzing on $target...${NC}"
+    # Run vhost fuzzing
+    fuzz_vhost "$target"
+    # Run directory/files fuzzing
+    fuzz_dir_files "$target"
 }
 
 # Check if the input is a file or single target
 if [ -f "$TARGET_OR_LIST" ]; then
     # Target list file
+    echo -e "${GREEN}Processing target list file: $TARGET_OR_LIST${NC}"
     if [ "$TYPE" -eq 0 ]; then
         fuzz_vhost "$TARGET_OR_LIST"
     elif [ "$TYPE" -eq 1 ]; then
         fuzz_dir_files "$TARGET_OR_LIST"
+    elif [ "$TYPE" -eq 2 ]; then
+        while IFS= read -r target; do
+            fuzz_both "$target"
+        done < "$TARGET_OR_LIST"
     fi
 elif [[ "$TARGET_OR_LIST" =~ ^http ]]; then
     # Single target URL
+    echo -e "${GREEN}Processing single target: $TARGET_OR_LIST${NC}"
     if [ "$TYPE" -eq 0 ]; then
         echo "$TARGET_OR_LIST" > /tmp/single_target.txt
         fuzz_vhost "/tmp/single_target.txt"
     elif [ "$TYPE" -eq 1 ]; then
         echo "$TARGET_OR_LIST" > /tmp/single_target.txt
         fuzz_dir_files "/tmp/single_target.txt"
+    elif [ "$TYPE" -eq 2 ]; then
+        echo "$TARGET_OR_LIST" > /tmp/single_target.txt
+        fuzz_both "/tmp/single_target.txt"
     fi
 else
-    echo -e "${RED}Target or target list file not found.${NC}"
+    echo -e "${RED}Target or target list file not found. Make sure the file exists or URL is correct.${NC}"
     exit 1
 fi
 
 echo -e "${GREEN}Fuzzing complete. Results saved to $(generate_output_filename $TYPE $TARGET_OR_LIST).${NC}"
+
+
+
+# directory recursive
+# TODO: 
+# - [ ] add filtering ffuf
+# - [ ] add file output type gobuster
+# ffuf -u http://cacti.monitorsthree.htb/cacti/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v -o cacti.monitorsthree.htb/cacti_dirfuzz -of all
+# gobuster dir -u cacti.monitorsthree.htb/cacti -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+
+# vhost fuzz
+# TODO:
+# - [ ] add file output type gobuster
+# gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain -t 50
+# ffuf -u monitorsthree.htb -H "Host: FUZZ.monitorsthree.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -o fuzz_monitorsthree.htb -of all
