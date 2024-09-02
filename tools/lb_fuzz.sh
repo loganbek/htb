@@ -124,7 +124,7 @@ echo -e "${GREEN}Fuzzing complete. Results saved to $(generate_output_filename $
 # - [ ] add filtering ffuf
 # - [ ] add file output type gobuster
 # ffuf -u http://cacti.monitorsthree.htb/cacti/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v -o cacti.monitorsthree.htb/cacti_dirfuzz -of all
-# gobuster dir -u cacti.monitorsthree.htb/cacti -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+# gobuster dir -u cacti.monitorsthree.htb/cacti -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
 
 # vhost fuzz
 # TODO:
