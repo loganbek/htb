@@ -126,8 +126,24 @@ echo -e "${GREEN}Fuzzing complete. Results saved to $(generate_output_filename $
 # ffuf -u http://cacti.monitorsthree.htb/cacti/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v -o cacti.monitorsthree.htb/cacti_dirfuzz -of all
 # gobuster dir -u cacti.monitorsthree.htb/cacti -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
 
+
 # vhost fuzz
 # TODO:
 # - [ ] add file output type gobuster
-# gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain -t 50
+# gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain -t 50
 # ffuf -u monitorsthree.htb -H "Host: FUZZ.monitorsthree.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -o fuzz_monitorsthree.htb -of all
+while IFS= read -r domain; do
+    gobuster vhost -u "http://$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "vhost_fuzz_${domain}.txt" --append-domain
+done < cleaned_sub_hosts.txt
+
+cat vhost_fuzz_*.txt | sed 's/^Found: //g' | awk NF | uniq
+
+
+
+# subdomain fuzz
+# gobuster dns -d example.com -w sub-hosts.txt -t 50 -o gobuster_subdomains.txt
+while IFS= read -r domain; do
+    gobuster dns -d "$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "sub_fuzz_${domain}.txt"
+done < cleaned_sub_hosts.txt
+
+cat sub_fuzz_*.txt | sed 's/^Found: //g' | awk NF | uniq

@@ -11,7 +11,7 @@ RESET='\033[0m'
 quick_scan() {
     for target in "$@"; do
         echo -e "${BLUE}Running Quick Scan on $target${RESET}"
-        nmap -T4 -F -oA quick_scan_$target $target
+        nmap -T4 -F -oX quick_scan_$target $target
         echo -e "${GREEN}Quick Scan completed for $target${RESET}"
     done
 }
@@ -20,7 +20,7 @@ quick_scan() {
 stealth_scan() {
     for target in "$@"; do
         echo -e "${BLUE}Running Stealth Scan on $target${RESET}"
-        nmap -sS -T2 -p- -f -n -Pn -oA stealth_scan_$target $target
+        nmap -sS -T2 -p- -f -n -Pn -oX stealth_scan_$target $target
         echo -e "${GREEN}Stealth Scan completed for $target${RESET}"
     done
 }
@@ -29,7 +29,7 @@ stealth_scan() {
 balanced_scan() {
     for target in "$@"; do
         echo -e "${BLUE}Running Balanced Scan on $target${RESET}"
-        nmap -sS -sV -O -T3 -p- -oA balanced_scan_$target $target
+        nmap -sS -sV -O -T3 -p- -oX balanced_scan_$target $target
         echo -e "${GREEN}Balanced Scan completed for $target${RESET}"
     done
 }
@@ -38,7 +38,7 @@ balanced_scan() {
 max_scan() {
     for target in "$@"; do
         echo -e "${BLUE}Running Maximum Scan on $target${RESET}"
-        nmap -sS -sU -p- -sV -O -A --script=all -T4 --min-rate=1000 -oA max_scan_$target $target
+        nmap -sS -sU -p- -sV -O -A --script=all -T4 --min-rate=1000 -oX max_scan_$target $target
         echo -e "${GREEN}Maximum Scan completed for $target${RESET}"
     done
 }
