@@ -137,6 +137,16 @@ else
     echo "$tool installation completed."
 fi
 
+# Move .vimrc file from HTB project to home directory
+HTB_VIMRC="$HOME/htb/.vimrc"
+if [ -f "$HTB_VIMRC" ]; then
+    echo "Found .vimrc in HTB project. Moving to home directory..."
+    mv "$HTB_VIMRC" "$HOME/.vimrc"
+    echo ".vimrc moved successfully."
+else
+    echo "No .vimrc found in HTB project directory."
+fi
+
 # TODO install termux
 
 # Recon-ng
